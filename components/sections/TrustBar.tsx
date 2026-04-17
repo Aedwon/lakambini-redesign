@@ -9,8 +9,8 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="w-full bg-surface-container-lowest -mx-12 px-12 xl:mx-[calc(50%-50vw)] xl:px-[calc(50vw-720px+3rem)] py-16 border-y border-surface-container-highest">
-      <div className="max-w-[1440px] w-full flex flex-col md:flex-row items-center justify-between gap-10">
+    <section className="w-full bg-surface-container-lowest py-16 border-y border-surface-container-highest">
+      <div className="max-w-[1440px] mx-auto px-12 w-full flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="md:w-1/4">
           <p className="label-md uppercase tracking-widest text-on-surface-variant/70">
             Trusted by leading brands nationwide.

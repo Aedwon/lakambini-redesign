@@ -1,22 +1,19 @@
 export default function Approach() {
   const approaches = [
     {
-      icon: "auto_awesome",
-      title: "Seamless Execution",
-      desc: "Logistics are the silent architecture of beauty. We handle the thousand moving parts so you only see the harmony.",
+      title: "End-to-End Execution",
+      desc: "We manage every moving part — from vendor coordination to on-site ops — so nothing falls through the cracks.",
       elevated: false,
     },
     {
-      icon: "temp_preferences_custom",
-      title: "Your Focus, Our Priority",
-      desc: "Our primary goal is your presence. By managing the complexities, we return the gift of time back to the host.",
+      title: "One Point of Contact",
+      desc: "You talk to one team. We handle the rest. No finger-pointing between vendors, no surprises on event day.",
       elevated: true,
       badge: "Core",
     },
     {
-      icon: "history_edu",
-      title: "Lasting Results",
-      desc: "We don't aim for the temporary. We aim for legacies—events that are whispered about for years to come.",
+      title: "Proven Track Record",
+      desc: "500+ events delivered. Clients come back because we consistently hit the brief, on time and on budget.",
       elevated: false,
     }
   ];
@@ -26,8 +23,8 @@ export default function Approach() {
       <div className="max-w-[1440px] mx-auto px-12">
         
         <div className="text-center mb-24">
-          <span className="text-primary font-label tracking-[0.4em] uppercase text-xs mb-4 block">Core Philosophy</span>
-          <h2 className="font-headline text-5xl md:text-6xl tracking-tight text-on-surface">Managing the Experience</h2>
+          <span className="label-sm text-primary tracking-[0.4em] uppercase mb-4 block">How We Work</span>
+          <h2 className="display-sm tracking-tight text-on-surface">Straightforward. Reliable. Done Right.</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -48,10 +45,10 @@ export default function Approach() {
               <svg className="w-12 h-12 text-primary mb-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-              <h3 className={`font-headline text-2xl mb-6 ${item.elevated ? "text-primary" : "text-on-surface"}`}>
+              <h3 className={`headline-sm mb-6 ${item.elevated ? "text-primary" : "text-on-surface"}`}>
                 {item.title}
               </h3>
-              <p className="text-on-surface-variant font-light leading-relaxed">
+              <p className="body-md text-on-surface-variant font-light leading-relaxed">
                 {item.desc}
               </p>
             </div>

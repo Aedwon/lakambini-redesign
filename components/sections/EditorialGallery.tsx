@@ -8,16 +8,16 @@ export default function EditorialGallery() {
         {/* Left Side (8 cols) - Main Image with glass overlay */}
         <div className="md:col-span-8 h-full bg-surface-container relative group overflow-hidden">
           <Image 
-            src="/images/placeholder-about-1.jpg" 
+            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80" 
             alt="Decade of Excellence" 
-            layout="fill" 
-            objectFit="cover" 
-            className="transition-transform duration-1000 ease-out group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, 66vw"
+            className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
-          <div className="absolute bottom-12 left-12 max-w-sm bg-[#11231C]/60 backdrop-blur-[20px] p-8 border border-outline-variant/10 shadow-[0_20px_50px_rgba(4,21,15,0.4)] rounded-none">
-            <h4 className="font-headline text-3xl mb-4 text-primary">A Decade of Results</h4>
-            <p className="text-sm font-light leading-relaxed text-on-surface-variant">
-              Over 500 executions globally. Each one a unique testament to the Lakambini standard of reliability and creative excellence.
+          <div className="absolute bottom-12 left-12 max-w-sm glassmorphism p-8 border border-outline-variant/10 ambient-shadow">
+            <h4 className="headline-sm mb-4 text-primary">10 Years. 500+ Events.</h4>
+            <p className="body-md font-light leading-relaxed text-on-surface-variant">
+              From corporate summits to nationwide activations — every project delivered on brief, on time.
             </p>
           </div>
         </div>
@@ -26,17 +26,17 @@ export default function EditorialGallery() {
         <div className="md:col-span-4 flex flex-col gap-6">
           <div className="h-1/2 w-full bg-surface-container-lowest relative overflow-hidden group">
             <Image 
-              src="/images/placeholder-about-2.jpg" 
-              alt="Luxury Detail" 
-              layout="fill" 
-              objectFit="cover" 
-              className="opacity-60 transition-transform duration-1000 ease-out group-hover:scale-110"
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80" 
+              alt="Event Detail" 
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover opacity-60 transition-transform duration-1000 ease-out group-hover:scale-110"
             />
           </div>
           <div className="h-1/2 w-full bg-primary/5 border border-primary/10 flex items-center justify-center p-12 text-center">
             <div>
-              <span className="font-headline text-7xl md:text-8xl text-primary mb-2 block font-extrabold tracking-tighter">10+</span>
-              <span className="font-label tracking-[0.2em] uppercase text-xs text-on-surface">Years of Experience</span>
+              <span className="display-lg text-primary mb-2 block font-extrabold tracking-tighter">10+</span>
+              <span className="label-sm text-on-surface">Years of Experience</span>
             </div>
           </div>
         </div>

@@ -10,13 +10,13 @@ export default function AboutPage() {
     <PageWrapper>
       <div className="flex flex-col w-full bg-surface">
         <PageHero 
-          overline="Est. 2014"
+          overline="About Us"
           title={
             <>
               The <span className="italic text-primary">Lakambini</span> Legacy
             </>
           }
-          subtitle="A decade of orchestrating the extraordinary. We don't just plan events; we curate enduring memories for the world's most discerning hosts."
+          subtitle="Over a decade of delivering high-stakes productions for clients who can't afford anything less than flawless."
         />
         
         <FounderStory />
@@ -24,9 +24,9 @@ export default function AboutPage() {
         <EditorialGallery />
 
         <CTABanner 
-          headline="Ready to start your next project?"
-          subtitle="Limited availability for 2025. Begin the journey with a private consultation."
-          ctaLabel="Book a Private Consultation"
+          headline="We'd like to hear about your next event."
+          subtitle="Tell us what you're planning. We'll tell you how we can help."
+          ctaLabel="Get in Touch"
           ctaHref="/contact"
         />
       </div>

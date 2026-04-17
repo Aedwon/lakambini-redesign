@@ -10,10 +10,11 @@ export default function FounderStory() {
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image 
-                src="/images/placeholder-founder.jpg" 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" 
                 alt="Anchie Rosas" 
-                layout="fill" 
-                objectFit="cover" 
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 border-[20px] border-surface-container-low opacity-20 pointer-events-none"></div>
             </div>
@@ -21,20 +22,20 @@ export default function FounderStory() {
           
           {/* Text Column */}
           <div className="md:col-span-7 order-1 md:order-2 md:pl-16">
-            <h2 className="headline-lg text-5xl md:text-7xl mb-12 leading-tight text-on-surface">
-              The Vision of <br />
+            <h2 className="display-sm text-on-surface mb-12 leading-tight">
+              Built by <br />
               <span className="text-primary italic">Anchie Rosas</span>
             </h2>
-            <div className="space-y-8 font-light text-on-surface-variant text-lg leading-loose">
+            <div className="space-y-8 font-light text-on-surface-variant body-lg leading-loose">
               <p>
-                "I started Lakambini with a simple belief: the best events happen when the host can be fully present. We handle the complexity so you can focus on what matters — your guests, your message, your moment."
+                &ldquo;I started Lakambini because I saw the same problem everywhere — clients juggling five different vendors and still not getting the result they wanted. One team, one standard. That was the fix.&rdquo;
               </p>
               <p>
-                With over 10 years of navigating the complexities of high-stakes event production, her vision remains the heartbeat of our agency. One team, one point of contact, consistently excellent results.
+                Ten years later, that model hasn&apos;t changed. We still run lean, stay hands-on, and deliver consistent results — whether it&apos;s a 200-person corporate summit or a nationwide activation.
               </p>
               <div className="pt-8">
                 <div className="h-px w-24 bg-primary/40 mb-4"></div>
-                <span className="font-headline text-2xl text-primary">Founder & Creative Director</span>
+                <span className="title-lg text-primary">Founder &amp; CEO</span>
               </div>
             </div>
           </div>

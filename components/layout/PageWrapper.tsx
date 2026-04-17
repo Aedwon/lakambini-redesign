@@ -52,7 +52,7 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
     <main className="w-full flex flex-col min-h-screen bg-surface">
       <div 
         ref={wrapperRef} 
-        className="flex-grow w-full max-w-[1440px] mx-auto min-h-[70vh] flex flex-col pt-0 sm:pt-0"
+        className="flex-grow w-full min-h-[70vh] flex flex-col pt-0 sm:pt-0"
       >
         {children}
       </div>

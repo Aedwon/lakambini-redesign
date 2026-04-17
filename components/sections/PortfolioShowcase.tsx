@@ -5,11 +5,11 @@ import Button from "@/components/ui/Button";
 export default function PortfolioShowcase() {
   return (
     <section className="bg-surface py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-16">
+      <div className="max-w-[1440px] mx-auto px-12 flex flex-col gap-16">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <SectionHeading 
-            overline="Selected Works"
-            title="Engineering unforgettable momentum."
+            overline="Recent Work"
+            title="Events we've delivered."
           />
           <Button variant="secondary" href="/portfolio" className="mb-2">
             View Full Portfolio
@@ -24,6 +24,7 @@ export default function PortfolioShowcase() {
               src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80" 
               alt="OPPO Hyper Legend Cup"
               fill
+              sizes="(max-width: 768px) 100vw, 100vw"
               className="object-cover transition-transform duration-600 ease-out group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20 flex flex-col gap-4 max-w-3xl">
@@ -39,6 +40,7 @@ export default function PortfolioShowcase() {
               src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80" 
               alt="Moonton x DepEd"
               fill
+              sizes="(max-width: 768px) 100vw, 100vw"
               className="object-cover transition-transform duration-600 ease-out group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20 flex flex-col gap-4 max-w-3xl">

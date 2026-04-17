@@ -1,13 +1,13 @@
 export default function ProblemSolution() {
   return (
     <section className="w-full bg-surface pt-20 pb-20">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-start">
+      <div className="max-w-[1440px] mx-auto px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-start">
         
         {/* Left Column - The Problem */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <h2 className="headline-lg text-on-surface leading-[1.3]">
-            Managing a dozen separate providers is a logistical burden. <br />
-            <span className="text-primary italic">We simplify it.</span>
+            Too many vendors. Too many points of failure. <br />
+            <span className="text-primary italic">We fix that.</span>
           </h2>
         </div>
 
@@ -20,9 +20,9 @@ export default function ProblemSolution() {
                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </div>
-            <h3 className="title-lg font-medium text-on-surface">One Unified Team</h3>
+            <h3 className="title-lg font-medium text-on-surface">One Team</h3>
             <p className="body-md text-on-surface/80 leading-relaxed font-light">
-              One point of contact for creative, technical, and operational execution. No more miscommunication between siloed vendors.
+              One point of contact for creative, technical, and logistics. No miscommunication between vendors.
             </p>
           </div>
 
@@ -32,9 +32,9 @@ export default function ProblemSolution() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="title-lg font-medium text-on-surface">Consistently Excellent</h3>
+            <h3 className="title-lg font-medium text-on-surface">Consistent Results</h3>
             <p className="body-md text-on-surface/80 leading-relaxed font-light">
-              By owning the entire process, we maintain strict quality control from initial concept to the final strike.
+              We own the entire process — from concept to strike. Quality stays consistent because accountability never shifts.
             </p>
           </div>
 

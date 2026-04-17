@@ -17,7 +17,7 @@ export default function TechHighlight() {
             Daloy Division
           </span>
           <h2 className="headline-lg text-on-surface mb-8">
-            The future of events is hybrid. We build the <span className="text-primary italic">digital infrastructure.</span>
+            Custom tech built for <span className="text-primary italic">event day.</span>
           </h2>
           
           <div className="flex flex-col gap-8">
@@ -43,9 +43,9 @@ export default function TechHighlight() {
           <Image 
             src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" 
             alt="Event Technology Infrastructure" 
-            layout="fill" 
-            objectFit="cover" 
-            className="z-0"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover z-0"
           />
         </div>
 

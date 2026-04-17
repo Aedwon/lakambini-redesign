@@ -8,22 +8,22 @@ export default function ServicesPage() {
     <PageWrapper>
       <div className="flex flex-col w-full bg-surface">
         <PageHero 
-          overline="Our Capabilities"
+          overline="Services"
           title={
             <>
-              The Art of <br />
-              <span className="italic text-primary">Exceptional</span> Experiences
+              Nine Divisions. <br />
+              <span className="italic text-primary">One</span> Team.
             </>
           }
-          subtitle="A multi-disciplinary collective of nine specialized divisions, meticulously designed to deliver world-class executions across the digital and physical realms."
+          subtitle="Every capability you need under one roof — from live production and multimedia to tech development and experiential marketing."
         />
         
         {/* Core Divisions Editorial Grid */}
         <DivisionsEditorial />
         
         <CTABanner 
-          headline="Ready to start your next project?"
-          ctaLabel="Start Your Project"
+          headline="Let's talk about your next event."
+          ctaLabel="Book a Discovery Call"
           ctaHref="/contact"
         />
       </div>

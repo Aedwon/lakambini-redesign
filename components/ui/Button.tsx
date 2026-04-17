@@ -8,9 +8,10 @@ type ButtonProps = {
   onClick?: () => void;
   children: ReactNode;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 };
 
-export default function Button({ variant = 'primary', size = 'md', href, onClick, children, className = '' }: ButtonProps) {
+export default function Button({ variant = 'primary', size = 'md', href, onClick, children, className = '', type }: ButtonProps) {
   const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 ease-out z-10 border-0 cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
   
   const sizeClasses = {
@@ -51,7 +52,7 @@ export default function Button({ variant = 'primary', size = 'md', href, onClick
   }
 
   return (
-    <button className={combinedClasses} onClick={onClick}>
+    <button type={type} className={combinedClasses} onClick={onClick}>
       {renderContent()}
     </button>
   );

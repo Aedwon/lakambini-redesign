@@ -8,14 +8,14 @@ import PageWrapper from "@/components/layout/PageWrapper";
 const notoSerif = Noto_Serif({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-headline",
+  variable: "--font-noto-serif",
   display: "swap",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  variable: "--font-body",
+  variable: "--font-manrope",
   display: "swap",
 });
 
