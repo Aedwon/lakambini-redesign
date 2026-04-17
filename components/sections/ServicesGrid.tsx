@@ -34,7 +34,7 @@ export default function ServicesGrid() {
             >
               <div className="absolute inset-0 z-0 bg-surface-dim">
                 <Image 
-                  src={`/images/placeholder-service-${(i % 3) + 1}.jpg`} 
+                  src={"https://images.unsplash.com/photo-" + ["1492684223066-81342ee5ff30", "1540575467063-178a50c2df87", "1511795409834-ef04bbd61622"][i % 3] + "?q=80&w=1000&auto=format&fit=crop"} 
                   alt={div.name} 
                   layout="fill" 
                   objectFit="cover" 

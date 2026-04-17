@@ -34,7 +34,7 @@ export default function Hero() {
         <div className="lg:col-span-5 relative h-[500px] hidden md:block">
           <div className="absolute top-0 right-10 w-64 h-80 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(4,21,15,0.4)] rotate-3 hover:rotate-0 transition-transform duration-700 ease-out z-20">
             <Image 
-              src="/images/placeholder-home-1.jpg" 
+              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop" 
               alt="Live Concert Execution" 
               layout="fill" 
               objectFit="cover" 
@@ -43,7 +43,7 @@ export default function Hero() {
           </div>
           <div className="absolute bottom-10 left-0 w-72 h-64 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(4,21,15,0.4)] -rotate-6 hover:rotate-0 transition-transform duration-700 ease-out z-10">
             <Image 
-              src="/images/placeholder-home-2.jpg" 
+              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1000&auto=format&fit=crop" 
               alt="Stage Technical Setup" 
               layout="fill" 
               objectFit="cover" 

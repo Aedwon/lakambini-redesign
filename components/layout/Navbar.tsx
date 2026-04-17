@@ -59,10 +59,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-headline tracking-tight text-lg transition-all duration-300 hover:scale-105 border-b-2 ${
+                className={`font-headline tracking-tight text-lg transition-all duration-300 hover:scale-105 border-b-2 pb-1 ${
                   isActive
                     ? "text-primary border-primary-container"
-                    : "text-on-surface border-transparent hover:text-primary"
+                    : "text-primary-container/70 border-transparent hover:text-primary"
                 }`}
               >
                 {link.name}

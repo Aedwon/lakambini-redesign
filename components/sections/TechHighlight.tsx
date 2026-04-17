@@ -41,7 +41,7 @@ export default function TechHighlight() {
         <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full">
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10"></div>
           <Image 
-            src="/images/placeholder-tech.jpg" 
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" 
             alt="Event Technology Infrastructure" 
             layout="fill" 
             objectFit="cover" 

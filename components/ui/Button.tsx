@@ -21,7 +21,7 @@ export default function Button({ variant = 'primary', size = 'md', href, onClick
 
   let variantClasses = "";
   if (variant === 'primary') {
-    variantClasses = "bg-gradient-to-br from-[#E9C255] to-[#BF9B31] text-[#3D2E00] hover:scale-[1.05] shadow-[0_20px_50px_rgba(4,21,15,0.4)]";
+    variantClasses = "bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold tracking-wide hover:scale-105 active:scale-95 shadow-2xl";
   } else if (variant === 'secondary') {
     variantClasses = "bg-transparent text-primary border border-outline-variant/30 hover:bg-surface-container-high transition-colors";
   } else if (variant === 'tertiary') {
