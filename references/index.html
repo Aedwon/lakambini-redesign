@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LAKAMBINI | Transformative Event Experiences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#241a00",
+              "surface-bright": "#2b3d36",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-container-lowest": "#02110b",
+              "on-error": "#690005",
+              "primary-fixed-dim": "#e9c255",
+              "on-primary-container": "#453400",
+              "surface-container-high": "#1c2e27",
+              "tertiary-container": "#9e9f9f",
+              "on-tertiary-container": "#343637",
+              "on-surface-variant": "#d0c5b0",
+              "secondary": "#a9cfba",
+              "inverse-on-surface": "#22342d",
+              "surface-variant": "#273831",
+              "surface-container": "#11231c",
+              "secondary-fixed-dim": "#a9cfba",
+              "on-tertiary-fixed-variant": "#454747",
+              "outline-variant": "#4d4636",
+              "inverse-primary": "#755b00",
+              "surface-container-low": "#0d1f18",
+              "on-secondary-fixed": "#002114",
+              "primary": "#e9c255",
+              "on-tertiary-fixed": "#1a1c1c",
+              "error": "#ffb4ab",
+              "on-secondary": "#133728",
+              "on-tertiary": "#2f3131",
+              "secondary-fixed": "#c4ebd6",
+              "background": "#051710",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "surface-tint": "#e9c255",
+              "error-container": "#93000a",
+              "surface": "#051710",
+              "inverse-surface": "#d2e7dd",
+              "primary-container": "#bf9b31",
+              "on-surface": "#d2e7dd",
+              "on-primary-fixed-variant": "#584400",
+              "on-secondary-fixed-variant": "#2b4e3e",
+              "on-error-container": "#ffdad6",
+              "tertiary": "#c6c6c7",
+              "on-background": "#d2e7dd",
+              "surface-dim": "#051710",
+              "surface-container-highest": "#273831",
+              "primary-fixed": "#ffdf90",
+              "on-primary": "#3d2e00",
+              "outline": "#99907d",
+              "on-secondary-container": "#98bea9",
+              "secondary-container": "#2b4e3e"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(17, 35, 28, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(233, 194, 85, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(169, 207, 186, 0.05), transparent 40%);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #e9c255 0%, #bf9b31 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .marble-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-panel">
+<div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="font-headline text-3xl font-bold tracking-tighter text-primary uppercase">
+                LAKAMBINI
+            </div>
+<div class="hidden md:flex items-center space-x-12 font-headline tracking-tight text-lg">
+<a class="text-primary border-b-2 border-primary-container pb-1 transition-colors" href="#">Home</a>
+<a class="text-primary/70 hover:text-primary transition-colors hover:scale-105 transition-transform duration-300" href="#">Services</a>
+<a class="text-primary/70 hover:text-primary transition-colors hover:scale-105 transition-transform duration-300" href="#">About</a>
+<a class="text-primary/70 hover:text-primary transition-colors hover:scale-105 transition-transform duration-300" href="#">Portfolio</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-8 py-3 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg">
+                Inquire
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 hero-gradient overflow-hidden">
+<div class="absolute inset-0 marble-texture pointer-events-none"></div>
+<div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-block px-4 py-1 border border-outline-variant/20 rounded-full">
+<span class="text-xs font-label tracking-[0.2em] text-primary-fixed-dim uppercase">BEYOND LOGISTICS. BEYOND EXPECTATIONS.</span>
+</div>
+<h1 class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] text-on-background">
+                        We Cultivate Ideas into <span class="gold-gradient-text italic">Transformative</span> Event Experiences.
+                    </h1>
+<p class="text-xl md:text-2xl font-light text-on-surface-variant max-w-2xl leading-relaxed">
+                        You have a bold vision. We provide the architecture to build it. Lakambini Events Agency bridges the gap between flawless on-ground execution and cutting-edge event technology.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6 pt-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-10 py-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl">
+                            Book Your Discovery Call
+                        </button>
+<button class="border border-outline-variant/30 text-primary font-bold px-10 py-5 rounded-full hover:bg-surface-container-high transition-all duration-300">
+                            Explore the Lakambini Ecosystem
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative hidden lg:block">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700 bg-surface-container-highest">
+<img alt="Luxury event design" class="w-full h-full object-cover" data-alt="Ultra-luxurious gala dinner setup in a grand hall with emerald lighting, gold accents, and crystal chandeliers in high-end editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS3ztx5GTRUXz8I0_F-N3KniEmVeHS_J8PSZEqrHQo0-MREGCrgL4zLAHaE9cDiKy1LOF6tDV-Y_mMY5UZktyDrPQzKXsiBEEnlX-0Fh4KsEaBb04_N1-1r3k0JgG0jd24-BLuNcXZZbt75o-Q06kG_kX9tb3B0GF6G4tN9TpO52Knh2UbVLY0jZwov1rTYLUrljdA5w093qiLfeDEsWH9ZOoOzRu4r_lgt6fnA4l9sNBgcUI7SXt8KM1DKKXaibI9AiCdIvU5ng"/>
+</div>
+<div class="absolute -bottom-8 -left-8 w-64 aspect-square rounded-xl overflow-hidden shadow-2xl -rotate-6 hover:rotate-0 transition-transform duration-700 delay-100 bg-surface-container-high">
+<img alt="Event technology" class="w-full h-full object-cover" data-alt="Close up of a professional digital mixing console in a dark event venue with soft amber stage lights in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJtLBGs3j0YH6QeHbE7eofi8Q-Snr2TpBVl85w4apFe1hgehV_VLgPYxZCy0PntONfsoLB1djucYm0VHreguQCJWPwaI-iVRXSQOJGp3DUjdn-ydTA_nACFtrYCLYrqcUSKlUQ1lrlwDArpPH5zwHBV2wZTCTTUktinuHdllR6iA4zM-l45Hwnh8G_3bbI01oSQZt7mgpF-BMdI0ans_kczmQ9nUFFOgkXYOISnzx73RcrhlPkYujrPVtihp7RtsxZtAukm58PvQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Banner -->
+<section class="py-16 bg-surface-container-lowest">
+<div class="max-w-screen-2xl mx-auto px-12">
+<p class="text-center font-label text-sm tracking-widest text-primary/60 mb-10 uppercase">Trusted by driven changemakers, enterprise leaders, and pioneering brands nationwide.</p>
+<div class="flex flex-wrap justify-between items-center opacity-40 gap-8 grayscale brightness-150">
+<div class="font-headline text-2xl font-bold italic">FORBES</div>
+<div class="font-headline text-2xl font-bold">VOGUE</div>
+<div class="font-headline text-2xl font-bold">TECHCRUNCH</div>
+<div class="font-headline text-2xl font-bold tracking-tighter underline">WIRED</div>
+<div class="font-headline text-2xl font-bold italic">MONOCLE</div>
+</div>
+</div>
+</section>
+<!-- Problem/Solution Section -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-12">
+<h2 class="font-headline text-5xl md:text-6xl font-bold tracking-tight text-on-background leading-tight">
+                        Managing a dozen separate service providers is a <span class="text-primary">logistical nightmare.</span> Let us manage the masterpiece.
+                    </h2>
+<div class="space-y-8 text-lg font-light text-on-surface-variant leading-relaxed">
+<p>Internal teams are stretched thin, juggling vendor communication and technical friction rather than focusing on high-level strategy. This fragmentation dilutes the brand impact and risks catastrophic failure during live execution.</p>
+<p>Lakambini acts as your singular architectural lead. We unify creative vision with engineering precision, ensuring every touchpoint—from the invitation to the closing keynote—is handled by a synchronized team focused on measurable growth.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-8">
+<div class="bg-surface-container-low p-10 rounded-xl space-y-4 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-4xl">engineering</span>
+<h3 class="text-2xl font-bold text-on-background">Impact Engineering</h3>
+<p class="text-on-surface-variant font-light">We don't just plan logistics; we engineer emotional and strategic outcomes that align with your business objectives.</p>
+</div>
+<div class="bg-surface-container-low p-10 rounded-xl space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl">hub</span>
+<h3 class="text-2xl font-bold text-on-background">Singular Synergy</h3>
+<p class="text-on-surface-variant font-light">Eliminate the noise of multi-vendor management. One point of contact, one unified standard of excellence.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Glimpse -->
+<section class="py-32 bg-surface-container-lowest">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="max-w-3xl mb-24 space-y-6">
+<h2 class="font-headline text-5xl font-bold text-on-background">An End-to-End Ecosystem for Unforgettable Events.</h2>
+<p class="text-xl font-light text-primary/80">From initial strategy to the final closing session, we provide the tools and talent to scale your influence.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Bento Card 1 -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl aspect-[16/9] bg-surface-container">
+<img alt="Strategy Session" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40" data-alt="Overhead shot of a sophisticated creative planning session with high-end blueprints, gold-rimmed tablets, and architectural sketches on a dark wooden table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkOql-nvXII7FzKF-ur4go3uXDyTrvak5H-swdWWdftrBWx3DokBWDZTd8cVOp_MZeqjUY3yc1xrzQSKqbqzT1lj7_s7mgJUhvqVepRc8s2uxfPM8GGkEjX1jc4IB3XMlyZQ5tzapNcstkg0hfYPaTnY2F9nAg2O8i0exNXyBSRxCHw3J61NwNNNomzZdFwMB0nWpgtDawx4mJoi0ctRFtoHqdgf4T4DNcPfUceUbeqx2L-SsLSisxgGLFhRzHf7268BJrOdf9TQ"/>
+<div class="absolute inset-0 p-12 flex flex-col justify-end bg-gradient-to-t from-surface-container-lowest to-transparent">
+<h4 class="text-3xl font-bold text-on-background mb-4">Strategic Architecture</h4>
+<p class="text-on-surface-variant font-light max-w-lg">Comprehensive event blueprints that integrate brand identity with audience psychology for maximum conversion.</p>
+</div>
+</div>
+<!-- Bento Card 2 -->
+<div class="group relative overflow-hidden rounded-xl aspect-square bg-surface-container">
+<img alt="On-ground execution" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50" data-alt="Dramatic lighting in a modern industrial event space with professional stage rigging and a sharp spotlight beam cutting through haze." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYK_gbM_XRbvfPdKe8x1quZ4PWQXH7PRaRJ1j2RdDmA3hF3QkjvArmGEwsN0PkS3WqH5i-MGc2Gl7Dnot0Vnn95yUkBY7IxWTdZRexqzIIkaNsCfa0B2sL37SdeqCcI6xQCAhavdtLulL8TOoXtN0rVvB3sdPf5WqEwtijVzP7A0oYlAyb_8C3Z51MrktFzNS6dmnXzGAi8yJWr4orxa4G1nopEOUdEoD5q7ZwQEy4MlAKFtYakMQYnhR4bsPhJ-VmRCHBGtuW4w"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-surface-container-lowest to-transparent">
+<h4 class="text-2xl font-bold text-on-background mb-2">On-Ground Precision</h4>
+<p class="text-on-surface-variant font-light text-sm">Flawless white-glove execution of logistics, vendor management, and guest experiences.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hybrid/Tech Section -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="bg-surface-container-high rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+<div class="p-16 space-y-12 flex flex-col justify-center">
+<div class="space-y-6">
+<h2 class="font-headline text-5xl font-bold text-on-background leading-tight">
+                                The Future of Events is Hybrid. We Supply the <span class="text-primary">Digital Infrastructure.</span>
+</h2>
+<p class="text-lg font-light text-on-surface-variant leading-relaxed">
+                                Bridging the physical and digital divide requires more than a Zoom link. We build custom-engineered platforms that extend your event's reach and data collection capabilities.
+                            </p>
+</div>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">confirmation_number</span>
+</div>
+<div>
+<h5 class="text-xl font-bold text-on-background">Custom Ticketing Solutions</h5>
+<p class="text-on-surface-variant font-light">Seamless registration and tiered access management with white-labeled interfaces.</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">devices</span>
+</div>
+<div>
+<h5 class="text-xl font-bold text-on-background">Offline-First Kiosks</h5>
+<p class="text-on-surface-variant font-light">Resilient interactive displays that function even in low-connectivity environments.</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div>
+<h5 class="text-xl font-bold text-on-background">Gamification &amp; Data Analytics</h5>
+<p class="text-on-surface-variant font-light">Turn attendee behavior into actionable insights with integrated engagement tools.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative min-h-[500px]">
+<img alt="Technology infrastructure" class="absolute inset-0 w-full h-full object-cover" data-alt="Futuristic server room with glowing green LED lights and high-tech digital interface overlays, representing secure event infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeeJJLMNXzwqRQmMqmVt14titBBqXaagMUjNMQK_WX1oBWfAonMp1dYkqaXztSdUrPvT3Dpwfa1Z47jUYtaSrAw7nArDjuegxS_sm-oRCDL0asGEXXXLWzTKBcB5GoRRtHBsGOP6s5yw39MF55zE2ewzs-RmuDoRnOUdIYxV17LMKWbeJN6JbG15yq0j3A3RP7K7remHLxcrVGrdUUnoaIUk0UVBg6_BKhvxqHqDaqbiRGQoIz95Z_MdlpWuK53rw8XH4umfSn-g"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-32 bg-surface text-center px-12">
+<div class="max-w-4xl mx-auto space-y-12">
+<h2 class="font-headline text-6xl font-bold text-on-background leading-tight">Ready to architect your next transformative experience?</h2>
+<p class="text-xl font-light text-on-surface-variant">Join the ranks of elite brands choosing precision over patchwork. Let’s start the conversation.</p>
+<div class="pt-8">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-12 py-6 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl text-lg">
+                        Book Your Discovery Call
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 px-12 py-20 max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="font-headline text-2xl text-primary">LAKAMBINI</div>
+<p class="font-manrope font-light tracking-wide text-sm text-primary/60 max-w-xs">
+                    Crafting sovereign experiences for the modern leader. Elevating events through the fusion of heritage and technology.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<h6 class="font-bold text-primary tracking-widest text-xs uppercase">Ecosystem</h6>
+<ul class="space-y-2 font-manrope font-light text-sm text-primary/60">
+<li><a class="hover:text-primary transition-all" href="#">Home</a></li>
+<li><a class="hover:text-primary transition-all" href="#">Services</a></li>
+<li><a class="hover:text-primary transition-all" href="#">Portfolio</a></li>
+<li><a class="hover:text-primary transition-all" href="#">About</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h6 class="font-bold text-primary tracking-widest text-xs uppercase">Connect</h6>
+<ul class="space-y-2 font-manrope font-light text-sm text-primary/60">
+<li><a class="hover:text-primary transition-all" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-all" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-all" href="#">Press Kit</a></li>
+</ul>
+</div>
+</div>
+<div class="space-y-6">
+<h6 class="font-bold text-primary tracking-widest text-xs uppercase">Newsletter</h6>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant/40 py-3 text-sm focus:outline-none focus:border-primary text-primary transition-colors" placeholder="Email address" type="email"/>
+<button class="absolute right-0 bottom-3 text-primary">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<p class="text-[10px] text-primary/40 uppercase tracking-tighter">© 2024 LAKAMBINI Events Agency. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

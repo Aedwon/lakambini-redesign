@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Events - The Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#d2e7dd",
+                        "on-secondary-fixed-variant": "#2b4e3e",
+                        "on-surface": "#d2e7dd",
+                        "surface-dim": "#051710",
+                        "tertiary-container": "#9e9f9f",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#bf9b31",
+                        "surface-container-high": "#1c2e27",
+                        "on-secondary": "#133728",
+                        "secondary-container": "#2b4e3e",
+                        "on-primary-container": "#453400",
+                        "surface-container-highest": "#273831",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-tertiary-container": "#343637",
+                        "outline": "#99907d",
+                        "surface-container-lowest": "#02110b",
+                        "surface-container-low": "#0d1f18",
+                        "surface-bright": "#2b3d36",
+                        "on-background": "#d2e7dd",
+                        "primary-fixed": "#ffdf90",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#98bea9",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed-dim": "#e9c255",
+                        "secondary-fixed": "#c4ebd6",
+                        "outline-variant": "#4d4636",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary": "#3d2e00",
+                        "inverse-primary": "#755b00",
+                        "surface-tint": "#e9c255",
+                        "surface-container": "#11231c",
+                        "inverse-on-surface": "#22342d",
+                        "tertiary": "#c6c6c7",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface": "#051710",
+                        "error-container": "#93000a",
+                        "surface-variant": "#273831",
+                        "secondary-fixed-dim": "#a9cfba",
+                        "on-surface-variant": "#d0c5b0",
+                        "primary": "#e9c255",
+                        "on-tertiary": "#2f3131",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-fixed": "#241a00",
+                        "secondary": "#a9cfba",
+                        "on-secondary-fixed": "#002114",
+                        "error": "#ffb4ab",
+                        "background": "#051710"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    fontFamily: {
+                        headline: ["Noto Serif", "serif"],
+                        body: ["Manrope", "sans-serif"],
+                        label: ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 300;
+        }
+        /* Fluid Gold Gradient */
+        .gold-gradient {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container'));
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container'));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Ambient Shadow */
+        .ambient-shadow {
+            box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#051710] dark:bg-[#051710] no-border space-y-24 bg-surface-container-low shadow-none transition-all duration-300">
+<div class="flex justify-between items-center px-12 py-8 w-full max-w-screen-2xl mx-auto">
+<a class="text-2xl font-notoSerif italic text-[#e9c255] tracking-tight" href="#">LAKAMBINI</a>
+<nav class="hidden md:flex gap-12">
+<a class="text-white/70 font-manrope font-light hover:text-white transition-all duration-300 hover:scale-105 hover:text-[#e9c255] scale-95 duration-200" href="#">Home</a>
+<a class="text-white/70 font-manrope font-light hover:text-white transition-all duration-300 hover:scale-105 hover:text-[#e9c255] scale-95 duration-200" href="#">Services</a>
+<a class="text-white/70 font-manrope font-light hover:text-white transition-all duration-300 hover:scale-105 hover:text-[#e9c255] scale-95 duration-200" href="#">About</a>
+<a class="text-[#e9c255] border-b border-[#e9c255]/40 pb-1 font-manrope font-light transition-all duration-300 hover:scale-105 hover:text-[#e9c255] scale-95 duration-200" href="#">Portfolio</a>
+</nav>
+<button class="hidden md:inline-flex px-8 py-3 rounded-full gold-gradient text-on-primary font-label text-sm tracking-widest hover:scale-105 transition-transform duration-300 ambient-shadow">INQUIRE</button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-40 pb-32">
+<!-- Hero Section -->
+<section class="max-w-screen-2xl mx-auto px-12 mb-24 flex flex-col items-center text-center">
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-on-surface tracking-tight mb-8">
+                The Sovereign <br/> <span class="gold-gradient-text italic">Archive</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl font-light">
+                A decade of precision, manifested.
+            </p>
+</section>
+<!-- Filter Bar -->
+<section class="max-w-screen-xl mx-auto px-12 mb-20">
+<div class="flex flex-wrap justify-center gap-4 md:gap-8">
+<button class="px-6 py-2 border border-outline-variant/40 rounded-full text-primary font-label text-sm tracking-wide bg-surface-container-low transition-all duration-300">All Archives</button>
+<button class="px-6 py-2 border border-transparent rounded-full text-on-surface-variant font-label text-sm tracking-wide hover:text-primary transition-all duration-300">Concerts</button>
+<button class="px-6 py-2 border border-transparent rounded-full text-on-surface-variant font-label text-sm tracking-wide hover:text-primary transition-all duration-300">Corporate</button>
+<button class="px-6 py-2 border border-transparent rounded-full text-on-surface-variant font-label text-sm tracking-wide hover:text-primary transition-all duration-300">Experiential</button>
+<button class="px-6 py-2 border border-transparent rounded-full text-on-surface-variant font-label text-sm tracking-wide hover:text-primary transition-all duration-300">Tech</button>
+</div>
+</section>
+<!-- Gallery Grid (Bento Style) -->
+<section class="max-w-screen-2xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-[400px]">
+<!-- Item 1: Large -->
+<div class="md:col-span-8 row-span-1 group relative overflow-hidden bg-surface-container-highest rounded-none">
+<img alt="Massive concert stage build with dramatic green and gold lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity" data-alt="Massive concert stage build with dramatic green and gold lighting, silhouette of crowd, high contrast, editorial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAejdcHwUATI29Uq_v-CWiyrPwlL2IhskqURWlWMyTviXQG-yrYueEwCFZ86l9SQej4raehvYmwLdHQk-eHKnoeubdoh84_q7xKDjtR3P9iniISaL-_wOJGZ6yWuoiM2uCdyLmijuf9uCChIfaiaY5Pv5jx9CuBlqmahwOOF8OqzJfHmC-4MWyR5nTh6r3HYA2gWwedVOyVnX_recj8IU4j5PGceW11rlD2ZbtrlTkxwfRbUjbRGWXLJ9GUML9qKG43n1zoBa05QA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/90 via-surface-dim/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<p class="font-label text-xs tracking-[0.2em] text-primary mb-2 uppercase">Concerts</p>
+<h3 class="font-headline text-2xl text-on-surface">Echoes in the Valley | Main Stage</h3>
+</div>
+</div>
+<!-- Item 2: Tall -->
+<div class="md:col-span-4 row-span-2 group relative overflow-hidden bg-surface-container-highest rounded-none">
+<img alt="Intimate tech keynote presentation with sleek minimalist stage design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity" data-alt="Intimate tech keynote presentation, sleek minimalist stage design, dark moody lighting, single speaker spotlight, corporate luxury" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC241C2g8hFw3dwVRG3JzZ7-ipRaVk8qQcEl_MwXkGfIvDz1cI5KkB-onixiF0HnL4WADuP41ZPSxVsEicPdo82B6-C_yO04zYgSvBmGOqj4eWHFQgvgK5MhbMPP0PXSNJGKQ-9g-2_RmbF1aYmXI-0BKSf0QLvNAEncF69Plan5Wq0foZ4eMXIFFhxuG1wRcqEEaxXAWyacH-j_ty2m0z6dtdxyd4-tq1kt9jW-52kucZmReXxJ3e-9PvlGwC5jfHOh5LL1kBuoQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/90 via-surface-dim/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<p class="font-label text-xs tracking-[0.2em] text-primary mb-2 uppercase">Tech</p>
+<h3 class="font-headline text-2xl text-on-surface">Nexus Summit '23</h3>
+</div>
+</div>
+<!-- Item 3: Square -->
+<div class="md:col-span-4 row-span-1 group relative overflow-hidden bg-surface-container-highest rounded-none">
+<img alt="Luxury corporate gala dinner table setting with dim moody lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity" data-alt="Luxury corporate gala dinner table setting, crystal glasses, dim moody lighting, gold accents, high-end event design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEma6LpZ9lRQsiLY440Hso_z4gHdn1MSKsA9cYHlfPqR61vi4CAl6vygPgWDsfYEza7T7PWKj0r_NYagSWSSpowFsuFrvGDTs4yFbPNadxg9mBmt2q4MdnyK3Y7akwpIb4QHUoBgSZVfqPMqGZ-B7WTLE-mB3yRcUQr01Hm_4zVy_2_sHPiTUJ6zyE3upswjB8ms-ciG_smLlkR_VEiwnZ4TTX-FQyu91QQvxUegK8db-Xki0RrlCZ8jtUeUF906t962PNjRafPQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/90 via-surface-dim/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<p class="font-label text-xs tracking-[0.2em] text-primary mb-2 uppercase">Corporate</p>
+<h3 class="font-headline text-xl text-on-surface">Vanguard Gala</h3>
+</div>
+</div>
+<!-- Item 4: Square -->
+<div class="md:col-span-4 row-span-1 group relative overflow-hidden bg-surface-container-highest rounded-none">
+<img alt="Immersive experiential art installation with neon green lights" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity" data-alt="Immersive experiential art installation, dark room, neon green laser lights, atmospheric smoke, mysterious mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7OP6EwHmvhx0RxrZP0oDTorc6PfjF9mDIQL3gEiMisMQfD67GDNswhIN5R9MXl9tZcVxYDmuDsQHTaIKv1QULbASaLPywRuuXbhmaS0tevL4J7ww5Vw8LxM3WQ6tcN0ulfLkcb6jsvkIX8ZXajScMFApb1PFxOLcxd-ZQ6YcxrgAuaEU1uSkgopGjKJ-eTAhZ6p_op38MhI-833f-sJ1zMIqMJt1TNAVslgUa0GT81_tEnPXljULNI4IH7yVPZ0z-VqXc_Y3MA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/90 via-surface-dim/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<p class="font-label text-xs tracking-[0.2em] text-primary mb-2 uppercase">Experiential</p>
+<h3 class="font-headline text-xl text-on-surface">Lumina Exhibition</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-screen-md mx-auto px-12 mt-32 text-center">
+<h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-8">Collaborate with the Architects</h2>
+<p class="font-body text-lg text-on-surface-variant font-light mb-12">
+                Your vision, engineered to perfection. Begin the dialogue.
+            </p>
+<button class="px-10 py-4 rounded-full gold-gradient text-on-primary font-label text-sm tracking-widest uppercase hover:scale-105 transition-transform duration-300 ambient-shadow">
+                Schedule Discovery
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#02110b] dark:bg-[#02110b] w-full py-20 px-12 tonal-shift-bg-surface-container-lowest flat-no-shadows fade-in-on-scroll">
+<div class="flex flex-col md:flex-row justify-between items-center w-full gap-12 max-w-screen-2xl mx-auto">
+<div class="text-lg font-notoSerif text-[#e9c255] tracking-tight">LAKAMBINI</div>
+<div class="flex gap-8">
+<a class="font-manrope text-sm tracking-widest uppercase text-white/40 hover:text-white hover:tracking-[0.15em] transition-all duration-500" href="#">Contact</a>
+<a class="font-manrope text-sm tracking-widest uppercase text-white/40 hover:text-white hover:tracking-[0.15em] transition-all duration-500" href="#">Press</a>
+<a class="font-manrope text-sm tracking-widest uppercase text-white/40 hover:text-white hover:tracking-[0.15em] transition-all duration-500" href="#">Legal</a>
+<a class="font-manrope text-sm tracking-widest uppercase text-white/40 hover:text-white hover:tracking-[0.15em] transition-all duration-500" href="#">Instagram</a>
+</div>
+<div class="font-manrope text-sm tracking-widest uppercase text-[#bf9b31] dark:text-[#bf9b31]">
+                © 2024 Sovereign Editorial. All Rights Reserved.
+            </div>
+</div>
+</footer>
+</body></html>

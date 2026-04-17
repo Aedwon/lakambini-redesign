@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#241a00",
+              "surface-bright": "#2b3d36",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-container-lowest": "#02110b",
+              "on-error": "#690005",
+              "primary-fixed-dim": "#e9c255",
+              "on-primary-container": "#453400",
+              "surface-container-high": "#1c2e27",
+              "tertiary-container": "#9e9f9f",
+              "on-tertiary-container": "#343637",
+              "on-surface-variant": "#d0c5b0",
+              "secondary": "#a9cfba",
+              "inverse-on-surface": "#22342d",
+              "surface-variant": "#273831",
+              "surface-container": "#11231c",
+              "secondary-fixed-dim": "#a9cfba",
+              "on-tertiary-fixed-variant": "#454747",
+              "outline-variant": "#4d4636",
+              "inverse-primary": "#755b00",
+              "surface-container-low": "#0d1f18",
+              "on-secondary-fixed": "#002114",
+              "primary": "#e9c255",
+              "on-tertiary-fixed": "#1a1c1c",
+              "error": "#ffb4ab",
+              "on-secondary": "#133728",
+              "on-tertiary": "#2f3131",
+              "secondary-fixed": "#c4ebd6",
+              "background": "#051710",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "surface-tint": "#e9c255",
+              "error-container": "#93000a",
+              "surface": "#051710",
+              "inverse-surface": "#d2e7dd",
+              "primary-container": "#bf9b31",
+              "on-surface": "#d2e7dd",
+              "on-primary-fixed-variant": "#584400",
+              "on-secondary-fixed-variant": "#2b4e3e",
+              "on-error-container": "#ffdad6",
+              "tertiary": "#c6c6c7",
+              "on-background": "#d2e7dd",
+              "surface-dim": "#051710",
+              "surface-container-highest": "#273831",
+              "primary-fixed": "#ffdf90",
+              "on-primary": "#3d2e00",
+              "outline": "#99907d",
+              "on-secondary-container": "#98bea9",
+              "secondary-container": "#2b4e3e"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+        .glass-panel {
+            background: rgba(17, 35, 28, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#051710] dark:bg-[#051710] backdrop-blur-xl">
+<nav class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="font-headline text-3xl font-bold tracking-tighter text-[#E9C255] uppercase">
+                LAKAMBINI
+            </div>
+<div class="hidden md:flex items-center gap-10 font-headline tracking-tight text-lg">
+<a class="text-[#BF9B31]/70 hover:text-[#E9C255] transition-colors hover:scale-105 transition-transform duration-300" href="#">Home</a>
+<a class="text-[#BF9B31]/70 hover:text-[#E9C255] transition-colors hover:scale-105 transition-transform duration-300" href="#">Services</a>
+<a class="text-[#E9C255] border-b-2 border-[#BF9B31] pb-1 hover:scale-105 transition-transform duration-300" href="#">About</a>
+<a class="text-[#BF9B31]/70 hover:text-[#E9C255] transition-colors hover:scale-105 transition-transform duration-300" href="#">Portfolio</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-label px-8 py-2 rounded-full uppercase text-xs tracking-widest font-bold hover:scale-105 active:scale-95 transition-all duration-300">
+                Inquire
+            </button>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section: The Legacy -->
+<section class="max-w-screen-2xl mx-auto px-12 mb-32">
+<div class="editorial-grid gap-8 items-end">
+<div class="col-span-12 md:col-span-7 mb-12">
+<span class="text-primary font-label tracking-[0.3em] uppercase text-sm mb-6 block">Est. 2014</span>
+<h1 class="font-headline text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-none text-on-background mb-8">
+                        The <span class="italic text-primary-fixed-dim">Lakambini</span> Legacy
+                    </h1>
+<p class="text-on-surface-variant text-xl md:text-2xl font-light leading-relaxed max-w-2xl">
+                        A decade of orchestrating the extraordinary. We don't just plan events; we curate enduring memories for the world's most discerning hosts.
+                    </p>
+</div>
+<div class="col-span-12 md:col-span-5 h-[600px] relative overflow-hidden group">
+<img alt="Luxury Gala" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Stunning low angle shot of a grand ballroom with crystal chandeliers, golden accents, and emerald green floral arrangements in a moody luxury setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzB0PKdsC6y96ftv3ExEYrKO1QW-K1qrjW04bFmzefQxZhSGaECuOEOBr7Y0U4oVAj7v_vraBNOp7SaV3mn_ygfrgcs2EQhosC25MnO8l7ii8EUHxLIPdfxOFcEAyT3DXRefVrOADQsXyDJhfXJRkb4s1KLrga6CZjWViwF0UL1AbiFyeuSENMMtejyfF1Ctj_SsNna3wDqxyDOc2VwHHcyQGcgiPch-IbO4_-xJw5QJfHE1SkOz9y3Gn67nUoCesGw8DA_rMf2Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Visionary Section: Anchie Rosas -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="editorial-grid gap-16 items-center">
+<div class="col-span-12 md:col-span-5 order-2 md:order-1">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="Anchie Rosas" class="w-full h-full object-cover" data-alt="Close-up portrait of a visionary woman in professional attire, soft dramatic lighting with deep emerald background shadows and elegant gold jewelry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChsQvd54W3mxpB2ulwa2-gtYfWOv1ERgsfMNdvA7zrp_v2mAFJh2NZO2YR-ZhDQVzPGQlpeea5u2ANphLKBniNlGfePUuN1gsahX9bySp8y1pHh6r0pKCpumtIrDDUOgDkKKWEagYCU1R1FjUFJHRANPpBbbSIhBcbROiM3WRRsz_m8Df9c0N_3sZGh2wDpTzYDKP55J6snV-5zTJ534QGo3ixRFM4G5fzLv3pgX74lPHaxGORBPS50Riivb1NCRtI2Q92wEk3yw"/>
+<div class="absolute inset-0 border-[20px] border-surface-container-low opacity-20"></div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 order-1 md:order-2 pl-0 md:pl-16">
+<h2 class="font-headline text-5xl md:text-7xl mb-12 leading-tight">The Vision of <br/><span class="text-primary italic">Anchie Rosas</span></h2>
+<div class="space-y-8 font-light text-on-surface-variant text-lg leading-loose">
+<p>
+                                Founder Anchie Rosas began Lakambini with a singular, radical belief: that true luxury is the freedom to be present. With over 10 years of navigating the complexities of high-stakes event production, her vision remains the heartbeat of our agency.
+                            </p>
+<p>
+                                "The LAKAMBINI woman is a host who values her guest’s experience as much as her own peace of mind. We exist to be the invisible hand that ensures every masterpiece is managed with sovereign precision."
+                            </p>
+<div class="pt-8">
+<div class="h-px w-24 bg-primary/40 mb-4"></div>
+<span class="font-headline text-2xl text-primary">Founder &amp; Creative Director</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Philosophy: Managing the Masterpiece -->
+<section class="py-32 overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="text-center mb-24">
+<span class="text-primary font-label tracking-[0.4em] uppercase text-xs mb-4 block">Core Philosophy</span>
+<h2 class="font-headline text-5xl md:text-6xl tracking-tight">Managing the Masterpiece</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="bg-surface-container-high p-12 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-primary/5">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline text-2xl mb-6">Invisible Precision</h3>
+<p class="text-on-surface-variant font-light leading-relaxed">
+                            Logistics are the silent architecture of beauty. We handle the thousand moving parts so you only see the harmony.
+                        </p>
+</div>
+<div class="bg-surface-container-highest p-12 scale-105 border border-outline-variant/10 shadow-2xl relative z-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="temp_preferences_custom" style="font-variation-settings: 'FILL' 1;">temp_preferences_custom</span>
+<h3 class="font-headline text-2xl mb-6 text-primary-fixed-dim">Sovereign Focus</h3>
+<p class="text-on-surface font-light leading-relaxed">
+                            Our primary goal is your presence. By managing the masterpiece, we return the gift of time back to the host.
+                        </p>
+<div class="absolute -top-4 -right-4 bg-primary text-on-primary text-[10px] font-bold tracking-tighter px-3 py-1 uppercase">Essence</div>
+</div>
+<div class="bg-surface-container-high p-12 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-primary/5">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="history_edu">history_edu</span>
+<h3 class="font-headline text-2xl mb-6">Enduring Impact</h3>
+<p class="text-on-surface-variant font-light leading-relaxed">
+                            We don't aim for the temporary. We aim for legacies—events that are whispered about for years to come.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Editorial Grid -->
+<section class="max-w-screen-2xl mx-auto px-12 mb-32">
+<div class="editorial-grid gap-4 h-[800px]">
+<div class="col-span-12 md:col-span-8 h-full bg-surface-container relative group overflow-hidden">
+<img alt="Dinner detail" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Aerial view of a long luxury banquet table set with emerald plates, gold cutlery, and candlelight in a dark sophisticated room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ-asUNWDBsnZJpuW6WlkPBX4rrFxQeGw0lG4CFEHNmPkD7K6JI4mbb6K7ML2IBKx2_57B96jesHBhHT6v-wAK9z4OOaBeiaBx5TOvM9lZhLSPFf9ixlJWtPMuL9iAfLyCV0SghtyhZ1HgcRLiB91Jfsgyypo9y11SRGQGaeSdlFd-KoWKq_Pv90CIjfPDIXPDPHIbKAQGYGrKdKS8Z5cv8s5Z3RvScRg-xgWXIMuHjXWnbxu1ztiWnBs5ZNGhnfqFns6TDNsPiw"/>
+<div class="absolute bottom-12 left-12 max-w-sm glass-panel p-8">
+<h4 class="font-headline text-3xl mb-4 text-primary">A Decade of Excellence</h4>
+<p class="text-sm font-light leading-relaxed text-on-surface-variant">Over 500 bespoke celebrations across 12 countries. Each one a unique testament to the Lakambini standard.</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 flex flex-col gap-4">
+<div class="h-1/2 bg-surface-container-lowest relative overflow-hidden group">
+<img alt="Luxury floral" class="w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110" data-alt="Exotic dark foliage with subtle gold-painted leaves in a minimalist modern vase against a deep green textured wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP57YQb8GGxSeb-7148GdXmCZ7Jy-ME5maFQVe7yuB0bWHQodeZ_8580EFGzLeirGoTi9t39pD34Mtnq3V39nWZDYlI-KGEcNye4kSGya99ypv24jzTS1Oe8uOT6Irs1l7rc9TBbcXRRHy1QGJ61vcxv-CXnzmLAoR0EF8ZPkHKZqoFcaN9TuxANaYGeIbnnNi3_4wG34ic3Rp-g7ETtxmaJQXMs5nHV7DhK5fLVvJbhBwKrRXZ-6ddrzl4i8lyUDJYOth5tiwlQ"/>
+</div>
+<div class="h-1/2 bg-primary-container/20 flex items-center justify-center p-12 text-center">
+<div>
+<span class="font-headline text-7xl text-primary mb-2 block">10+</span>
+<span class="font-label tracking-[0.2em] uppercase text-xs">Years of Heritage</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-32 relative">
+<div class="max-w-4xl mx-auto px-12 text-center relative z-10">
+<h2 class="font-headline text-5xl md:text-7xl mb-8">Ready to define <span class="italic">your</span> legacy?</h2>
+<p class="text-on-surface-variant text-xl font-light mb-12">Limited availability for 2025. Begin the journey with a private consultation.</p>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-label px-12 py-5 rounded-full uppercase text-sm tracking-widest font-bold hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl shadow-primary/20">
+                    Book a Private Consultation
+                </button>
+</div>
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path class="text-primary" d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="currentColor" stroke-width="0.1"></path>
+</svg>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#02110b] dark:bg-[#02110b] w-full mt-24">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 px-12 py-20 max-w-screen-2xl mx-auto font-manrope font-light tracking-wide text-sm text-[#BF9B31]">
+<div class="space-y-6">
+<div class="font-notoSerif text-2xl text-[#BF9B31]">LAKAMBINI</div>
+<p class="text-[#BF9B31]/60 leading-loose max-w-xs">
+                    Managing the masterpiece of your most significant life moments with unmatched sovereign precision and grace.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<span class="text-[#E9C255] uppercase tracking-widest text-xs font-bold mb-2">Agency</span>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Home</a>
+<a class="text-[#E9C255] hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">About</a>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Services</a>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Portfolio</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[#E9C255] uppercase tracking-widest text-xs font-bold mb-2">Legals</span>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Press Kit</a>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] underline-offset-4 hover:underline transition-all" href="#">Contact Us</a>
+</div>
+</div>
+<div class="space-y-6">
+<span class="text-[#E9C255] uppercase tracking-widest text-xs font-bold block mb-2">Newsletter</span>
+<p class="text-[#BF9B31]/60 text-xs">Curated inspiration from the Lakambini atelier.</p>
+<div class="flex border-b border-[#BF9B31]/20 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-[#E9C255] w-full text-xs placeholder:text-[#BF9B31]/40" placeholder="Email Address" type="email"/>
+<button class="text-[#E9C255] text-xs uppercase font-bold tracking-widest">Join</button>
+</div>
+<div class="flex gap-6 pt-4">
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+<a class="text-[#BF9B31]/60 hover:text-[#E9C255] transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-12 py-10 border-t border-outline-variant/10 text-center">
+<p class="text-[#BF9B31]/40 text-[10px] uppercase tracking-[0.2em]">© 2024 LAKAMBINI Events Agency. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

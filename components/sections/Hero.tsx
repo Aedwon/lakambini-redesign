@@ -1,71 +1,57 @@
-"use client";
-
 import Button from "@/components/ui/Button";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-surface overflow-hidden pt-20">
-      {/* Background Image using next/image for fast loading */}
-      <div className="absolute inset-0 z-0 bg-surface-container-low">
-        <Image 
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80"
-          alt="Lakambini Premium Events"
-          fill
-          priority
-          className="object-cover opacity-40 mix-blend-luminosity"
-        />
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
-      </div>
-      
-      <motion.div 
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-8 md:gap-12 mt-12"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-      >
-        <motion.span 
-          className="label-sm text-on-surface-variant uppercase tracking-widest"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          The Platinum Standard
-        </motion.span>
-        
-        <h1 className="display-hero text-primary max-w-5xl tracking-tight leading-none drop-shadow-xl">
-          Where Vision Meets Immaculate Execution.
-        </h1>
-        
-        <p className="body-lg text-on-surface-variant max-w-2xl font-light mb-8">
-          Lakambini Events orchestrates premium B2B digital solutions and elite experiences for the most discerning brands.
-        </p>
-        
-        <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <Button variant="primary" size="lg" href="/contact">
-            Consult With Us
-          </Button>
-        </motion.div>
-      </motion.div>
+    <section className="relative w-full min-h-screen flex items-center bg-surface hero-gradient overflow-hidden -mx-12 px-12 xl:mx-[calc(50%-50vw)] xl:px-[calc(50vw-720px+3rem)] overflow-x-hidden">
+      {/* Marble Texture Overlay */}
+      <div className="absolute inset-0 marble-texture pointer-events-none mix-blend-overlay"></div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-on-surface-variant"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-      >
-        <span className="label-sm animate-pulse">DISCOVER</span>
-        <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 w-full max-w-[1440px] pt-32 pb-20 relative z-10 items-center">
+        {/* Left Content (7 cols) */}
+        <div className="lg:col-span-7 flex flex-col gap-8 items-start">
+          <span className="label-sm text-primary uppercase tracking-widest bg-surface-container py-2 px-4 rounded-full border border-outline-variant/30">
+            Full-Service Event Production
+          </span>
+          <h1 className="display-lg text-on-surface leading-[1.1] font-extrabold max-w-3xl">
+            We turn bold ideas into <br />
+            <span className="gold-gradient-text italic font-medium">exceptional</span> event experiences.
+          </h1>
+          <p className="body-lg text-on-surface-variant max-w-xl font-light">
+            Full-service event production. From planning and execution to custom technology — one team, one standard.
+          </p>
+          <div className="flex flex-wrap items-center gap-6 mt-4">
+            <Button variant="primary" href="/contact">
+              Book a Discovery Call
+            </Button>
+            <Button variant="secondary" href="/services">
+              Explore Our Services
+            </Button>
+          </div>
+        </div>
+
+        {/* Right Content - Floating Images (5 cols) */}
+        <div className="lg:col-span-5 relative h-[500px] hidden md:block">
+          <div className="absolute top-0 right-10 w-64 h-80 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(4,21,15,0.4)] rotate-3 hover:rotate-0 transition-transform duration-700 ease-out z-20">
+            <Image 
+              src="/images/placeholder-home-1.jpg" 
+              alt="Live Concert Execution" 
+              layout="fill" 
+              objectFit="cover" 
+              className="hover:scale-105 transition-transform duration-700 ease-out" 
+            />
+          </div>
+          <div className="absolute bottom-10 left-0 w-72 h-64 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(4,21,15,0.4)] -rotate-6 hover:rotate-0 transition-transform duration-700 ease-out z-10">
+            <Image 
+              src="/images/placeholder-home-2.jpg" 
+              alt="Stage Technical Setup" 
+              layout="fill" 
+              objectFit="cover" 
+              className="hover:scale-105 transition-transform duration-700 ease-out" 
+            />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

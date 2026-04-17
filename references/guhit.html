@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@200;300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#4d4636",
+              "secondary-container": "#2b4e3e",
+              "on-surface": "#d2e7dd",
+              "on-primary-fixed-variant": "#584400",
+              "inverse-primary": "#755b00",
+              "secondary": "#a9cfba",
+              "on-surface-variant": "#d0c5b0",
+              "inverse-surface": "#d2e7dd",
+              "surface-tint": "#e9c255",
+              "on-primary": "#3d2e00",
+              "primary-container": "#bf9b31",
+              "on-secondary-fixed": "#002114",
+              "on-primary-container": "#453400",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "primary-fixed-dim": "#e9c255",
+              "tertiary": "#c6c6c7",
+              "surface-container": "#11231c",
+              "surface": "#051710",
+              "on-tertiary-fixed": "#1a1c1c",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#0d1f18",
+              "secondary-fixed": "#c4ebd6",
+              "surface-bright": "#2b3d36",
+              "outline": "#99907d",
+              "on-background": "#d2e7dd",
+              "on-secondary": "#133728",
+              "inverse-on-surface": "#22342d",
+              "surface-container-highest": "#273831",
+              "on-secondary-fixed-variant": "#2b4e3e",
+              "primary": "#e9c255",
+              "on-tertiary-container": "#343637",
+              "surface-container-high": "#1c2e27",
+              "on-error": "#690005",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-secondary-container": "#98bea9",
+              "on-tertiary": "#2f3131",
+              "background": "#051710",
+              "secondary-fixed-dim": "#a9cfba",
+              "primary-fixed": "#ffdf90",
+              "on-primary-fixed": "#241a00",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-dim": "#051710",
+              "surface-container-lowest": "#02110b",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "tertiary-container": "#9e9f9f",
+              "surface-variant": "#273831"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
+        }
+        .glass-panel {
+            background: rgba(39, 56, 49, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#051710] bg-opacity-90 backdrop-blur-xl shadow-[0_20px_50px_rgba(4,21,15,0.4)]">
+<div class="flex justify-between items-center px-12 py-6 w-full max-w-[1440px] mx-auto">
+<span class="text-2xl font-serif tracking-tight text-[#E9C255]">LAKAMBINI</span>
+<div class="hidden md:flex space-x-10 items-center">
+<a class="text-[#E9C255] border-b-2 border-[#BF9B31] pb-1 font-label tracking-[0.05rem]" href="#">Services</a>
+<a class="text-emerald-100/70 hover:text-[#E9C255] transition-colors font-label tracking-[0.05rem] hover:scale-105 duration-300 ease-in-out" href="#">Portfolio</a>
+<a class="text-emerald-100/70 hover:text-[#E9C255] transition-colors font-label tracking-[0.05rem] hover:scale-105 duration-300 ease-in-out" href="#">Philosophy</a>
+<a class="text-emerald-100/70 hover:text-[#E9C255] transition-colors font-label tracking-[0.05rem] hover:scale-105 duration-300 ease-in-out" href="#">Concierge</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-2 rounded-full font-label tracking-wider uppercase text-sm hover:scale-105 transition-all editorial-shadow">
+                Inquire
+            </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-12 mb-24 max-w-[1440px] mx-auto grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 md:col-span-8">
+<span class="text-primary font-label tracking-[0.2rem] uppercase text-sm mb-4 block">Visual Identity &amp; Brand Design</span>
+<h1 class="font-headline text-6xl md:text-8xl tracking-tighter leading-tight text-on-surface">GUHIT <span class="italic font-light">Division</span></h1>
+<p class="mt-8 text-xl font-body text-on-surface-variant max-w-2xl leading-relaxed">
+                    Crafting the sovereign visual language for brands that command respect. Guhit is where heritage aesthetics meet modern precision, defining the icons of tomorrow through intentional design.
+                </p>
+</div>
+<div class="col-span-12 md:col-span-4 flex justify-end">
+<div class="w-full aspect-[4/5] bg-surface-container-high relative overflow-hidden rounded-lg editorial-shadow">
+<img class="object-cover w-full h-full opacity-80" data-alt="Close-up of premium gold-leaf embossed branding on textured dark green paper with dramatic shadows and elegant typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv0LWNdkItCApsrlddI8l3cjZhgBXE9NjxyWCxLFVQHMaIAhO0seLBPlBa3TpKnShjj8ZJEZkKr_NlAQUk2twoEmsZZO2fTRDycIlHlY4hX39jdVzChfmOZs2fb5tT72iUsRsdjHtah_aYXSjc6NMn-0OGEfLgPeDhIwgrXyCKSbuPvdL5DZBGCerKIU5-HEntwEaDvnphXFdZGtEzRGDN7OxLDzBMWKCja47n3pqqWlGg5Ok61cdLckK97goMQhW4wkATZQw-bA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Branding Guidelines & Logo Creation -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="space-y-12">
+<div>
+<h2 class="font-headline text-4xl mb-6 text-primary">Branding Guidelines</h2>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed">
+                                A brand without rules is a brand without a soul. We curate comprehensive visual manuscripts that dictate every curve, color, and spacing to ensure your identity remains immutable across all dimensions.
+                            </p>
+</div>
+<div class="p-8 border-l border-outline-variant/30 space-y-4">
+<h3 class="font-headline text-2xl">Logo Creation</h3>
+<p class="text-on-surface-variant font-body">
+                                We don't just design marks; we forge sigils. Each logo is a calculated convergence of sacred geometry and modern editorial minimalism, designed to be timeless.
+                            </p>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-surface-container-highest rounded-full overflow-hidden p-12 flex items-center justify-center editorial-shadow">
+<img class="w-full h-full object-contain opacity-90" data-alt="Minimalist gold geometric logo design being meticulously sketched with a compass on black paper under a spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2k1oekOVUq0LWcFAR1Ws3G7QuRS7nM0tIVK490f0iXnKKoGuVp1w9skjXh3njUd-T8ITwjhwB9F5gx1giqFyH_Hg9P7psIwmzMOtY7z75_PSLWpJ8xi16i85sEnJjnZRKcmpV4nKNkfvk3EO-Vq7cC5chD1Ik1IwDbdNkTilt_dY4Z1Il0LuZFVNeAQeyPYE2H0RQ4KuJTu9HVkJ5m_4sbK4w5C35mE2LcxatGHL4Ps3RDulE0MRKUj8q_kX3YjfKJlmtm9Hl7g"/>
+</div>
+<div class="absolute -bottom-6 -left-6 glass-panel p-6 editorial-shadow rounded-lg max-w-[200px]">
+<span class="text-primary font-label text-xs uppercase tracking-widest block mb-2">Heritage Code</span>
+<p class="text-xs text-on-surface-variant italic leading-tight">Every stroke is weighted to reflect the gravitas of your legacy.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Graphic Design & Illustration Bento -->
+<section class="py-24 max-w-[1440px] mx-auto px-12">
+<div class="mb-16 text-center">
+<h2 class="font-headline text-5xl mb-4 italic">The Editorial Canvas</h2>
+<p class="font-body text-on-surface-variant max-w-xl mx-auto">Graphic Design and bespoke Illustrations that transcend digital noise.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full md:h-[600px]">
+<div class="md:col-span-7 bg-surface-container-high rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70" data-alt="High-end editorial magazine layout with sophisticated typography and moody nature photography in emerald tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJouM3ojtoCIpU5PvvmWQd9DQ5mR-aQTMetpkXtpmrhV5GQaEelUDZ6hOoYeMcQlfJ6WRhOsRTVfHiGNS58mLPEnetCIuNu-492CSqHK3yiZMHV2WylMzEdvJkJas3lVkdP49QaUT3rN-67kWzYlF2LrvIezaqjvVF8xSwS1HC7LKWN6n3AeDhF483R5bnnX_8ZXbfbt7n3sf_P29nYQRPQAtdtM5e2W2DBx52DU_HfnWlQqx7Yompp4oOvAtXboriD18DCqenUw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent flex flex-col justify-end p-10">
+<h4 class="font-headline text-3xl text-primary mb-2">Editorial Layouts</h4>
+<p class="text-on-surface-variant text-sm max-w-sm">Curated publication design for the discerning eye.</p>
+</div>
+</div>
+<div class="md:col-span-5 grid grid-rows-2 gap-8">
+<div class="bg-surface-container rounded-xl p-8 flex flex-col justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="brush">brush</span>
+<h4 class="font-headline text-2xl mb-2">Bespoke Illustration</h4>
+<p class="text-sm text-on-surface-variant">Hand-crafted digital art that captures the essence of exclusivity.</p>
+</div>
+<div class="bg-primary rounded-xl p-8 flex flex-col justify-center text-on-primary">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="architecture" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<h4 class="font-headline text-2xl mb-2">Systematic Precision</h4>
+<p class="text-sm opacity-90">Where mathematical accuracy meets creative intuition.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- OOH & Billboard Section -->
+<section class="py-32 bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-12 flex flex-col md:flex-row gap-16 items-center">
+<div class="flex-1 order-2 md:order-1">
+<div class="relative w-full aspect-video bg-surface overflow-hidden rounded-lg shadow-2xl">
+<img class="w-full h-full object-cover opacity-60" data-alt="Majestic outdoor billboard at night in a luxury urban district showcasing a high-end perfume brand with golden lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPtITkkHXdAFZmNiKN2N-dDu3wirl__MhzIw3dPwvIBvNqojw2NKwp7rUO2sxOPlXp92jvdNmTZGzxcGDKlg6r7tjX0jCl9-Ptw-ls9udG3FTPBP-SjqkI-slTTHj1rXb-wGAczmTAw6tTTdjs8GghWDa0ag84iqnm0QOuQxHimQCgR-mOZlnz_2_xbmMRdRmKY2kH50B0R4wCxz7Ja7r5LgsWIFXBrTM-mo62aLVk3z5QNLj6qYAyf-HmFrkieciHPELCr7gBQg"/>
+<div class="absolute inset-0 border-[20px] border-surface-container-highest/30"></div>
+</div>
+</div>
+<div class="flex-1 order-1 md:order-2">
+<h2 class="font-headline text-5xl mb-8 leading-tight">OOH &amp; Billboard <br/><span class="text-primary italic">Command</span></h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        Our Out-of-Home designs are crafted for the landscape, not the screen. We optimize for high-impact visibility that anchors the brand in the physical world, turning every billboard into a landmark of prestige.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="done">done</span>
+<span class="font-label tracking-wide uppercase text-xs">Large Format Optimization</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="done">done</span>
+<span class="font-label tracking-wide uppercase text-xs">High-Contrast Readability</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="done">done</span>
+<span class="font-label tracking-wide uppercase text-xs">Environmental Contextualization</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Color Grading & Correction -->
+<section class="py-24 max-w-[1440px] mx-auto px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-4">
+<h2 class="font-headline text-4xl mb-6">Chromatic Alchemy</h2>
+<p class="text-on-surface-variant font-body mb-8">
+                        Color is the silent language of emotion. Our Color Grading and Correction service ensures every frame and photo resonates with the specific "Sovereign" atmosphere required for your brand.
+                    </p>
+<div class="space-y-6">
+<div class="h-1 w-full bg-surface-container-high relative">
+<div class="absolute left-0 top-0 h-full w-2/3 bg-primary"></div>
+</div>
+<div class="flex justify-between font-label text-[10px] uppercase tracking-widest text-on-surface-variant">
+<span>Tonal Balance</span>
+<span>92% Precision</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 grid grid-cols-2 gap-4">
+<div class="relative aspect-square overflow-hidden rounded-lg group">
+<img class="w-full h-full object-cover" data-alt="Raw, unedited portrait of a woman in a forest with neutral, flat lighting and natural colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKbAybxVdyw3dYklak88VpxzS2PAH_k2ogRlO_iOstM4BD01ypz2Kd6X4jM-phooAmNnbzfyosvfXrCsKCwAJTzjO-T55KY9eGB0871s_V5D3WwFsDRa_YuIL5KvgODJEUG5pnVc7n1ddipSq1JVfOFSnJOOZky5D9oP089ElJ9LKHeOD7sZanqtyI4ZgeQLYx7MNl9Jmop0jNyeSgbHhKS4KTsCnxMD8OtesRPBIiQalSE_CrbJzeWSsLya2cxfolM1NEkKYrQ"/>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 text-[10px] uppercase tracking-widest font-label">Before</div>
+</div>
+<div class="relative aspect-square overflow-hidden rounded-lg group border border-primary/20">
+<img class="w-full h-full object-cover saturate-[1.2] brightness-[0.8] sepia-[0.2]" data-alt="The same forest portrait professionally color graded with deep emerald shadows, golden highlights, and cinematic contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCayRdn4LLpuP83vG2WjnQF48k-joLCddJw2GYXK0VsxIbr_4Vx5TnI8_VSb_vpYJOd32Cu_TMHCP8MCrgOBgA5ELtKHRD1DLF4ffkwKKPbl91k8zKoRyfHSUhGjHQZchjrNI3y6Bbq6C8W65j_SD8NYLn72ZGoIpCCF_VcitpmC-6NOu7YnBgi9BU8Tc2PUmACDqlFkRBBgc-L0hfwiRvtX_1PwZRrhOQdQ-BEKoBo0oiNleMNIzCtZDuDn0e3xIqWqhIZlhrU-A" style="filter: contrast(1.2) brightness(0.9) hue-rotate(15deg) saturate(1.1);"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-[10px] uppercase tracking-widest font-label">After Grading</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 bg-[#02110b] flex flex-col items-center justify-center text-center px-12">
+<h2 class="font-headline text-5xl md:text-7xl mb-12 max-w-4xl leading-tight">Define your legacy in <br/><span class="text-primary italic">Liquid Gold.</span></h2>
+<button class="group relative overflow-hidden bg-transparent border border-primary/40 text-primary px-12 py-5 rounded-full font-label tracking-widest uppercase text-sm hover:text-on-primary transition-all duration-500">
+<span class="relative z-10">Start Your Design Journey</span>
+<div class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-24 pb-12 bg-[#02110b] flex flex-col items-center justify-center px-12 border-t border-emerald-900/20">
+<span class="font-serif text-[#E9C255] tracking-widest uppercase text-3xl mb-12">LAKAMBINI</span>
+<div class="flex flex-wrap justify-center gap-12 mb-16">
+<a class="text-emerald-900 dark:text-emerald-800 font-label text-sm uppercase tracking-widest hover:text-[#BF9B31] transition-all" href="#">Privacy Policy</a>
+<a class="text-emerald-900 dark:text-emerald-800 font-label text-sm uppercase tracking-widest hover:text-[#BF9B31] transition-all" href="#">Terms of Service</a>
+<a class="text-emerald-900 dark:text-emerald-800 font-label text-sm uppercase tracking-widest hover:text-[#BF9B31] transition-all" href="#">Press Kit</a>
+<a class="text-emerald-900 dark:text-emerald-800 font-label text-sm uppercase tracking-widest hover:text-[#BF9B31] transition-all" href="#">Contact</a>
+</div>
+<p class="text-[10px] font-label text-emerald-900/50 tracking-[0.2em]">© 2024 LAKAMBINI SOVEREIGN EVENTS. ALL RIGHTS RESERVED.</p>
+</footer>
+</body></html>

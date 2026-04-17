@@ -1,28 +1,38 @@
 import Button from "@/components/ui/Button";
 
-type CTABannerProps = {
-  title?: string;
-  buttonText?: string;
-  href?: string;
-};
+interface CTABannerProps {
+  headline?: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
 
-export default function CTABanner({ 
-  title = "Ready to elevate your next endeavor?", 
-  buttonText = "Start the Conversation",
-  href = "/contact"
+export default function CTABanner({
+  headline = "Ready to start your next project?",
+  subtitle = "We handle the complexity so you can focus on your guests.",
+  ctaLabel = "Start Your Project",
+  ctaHref = "/contact",
 }: CTABannerProps) {
   return (
-    <section className="bg-surface-container-highest relative py-20 md:py-32 overflow-hidden mx-auto max-w-7xl my-12 mb-24 ghost-border flex w-full">
-      {/* Texture bg overlay for marble effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent z-10 pointer-events-none"></div>
+    <section className="w-full bg-surface pt-12 pb-24 relative overflow-hidden -mx-12 px-12 xl:mx-[calc(50%-50vw)] xl:px-[calc(50vw-720px+3rem)]">
       
-      <div className="relative z-20 px-6 flex flex-col items-center text-center gap-10 max-w-4xl mx-auto w-full">
-        <h2 className="headline-md text-on-surface font-light leading-snug">
-          {title}
+      {/* Decorative center glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+      
+      <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10">
+        <h2 className="headline-lg text-on-surface leading-[1.2]">
+          {headline}
         </h2>
-        <Button variant="primary" size="lg" href={href}>
-          {buttonText}
-        </Button>
+        {subtitle && (
+          <p className="body-lg text-on-surface-variant font-light max-w-xl">
+            {subtitle}
+          </p>
+        )}
+        <div className="pt-4">
+          <Button variant="primary" href={ctaHref}>
+            {ctaLabel}
+          </Button>
+        </div>
       </div>
     </section>
   );

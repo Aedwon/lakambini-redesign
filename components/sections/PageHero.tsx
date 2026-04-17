@@ -1,33 +1,24 @@
-import Image from "next/image";
+interface PageHeroProps {
+  overline: string;
+  title: React.ReactNode;
+  subtitle?: string;
+}
 
-type PageHeroProps = {
-  title: string;
-  subtitle: string;
-  backgroundImage?: string;
-};
-
-export default function PageHero({ title, subtitle, backgroundImage }: PageHeroProps) {
+export default function PageHero({ overline, title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative w-full py-20 md:py-32 flex items-center justify-center bg-surface overflow-hidden">
-      {backgroundImage && (
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src={backgroundImage} 
-            alt="Hero Background" 
-            fill 
-            className="object-cover opacity-30 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
-        </div>
-      )}
-      
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-6 mt-16">
-        <h1 className="display-md text-on-surface tracking-tight max-w-4xl">
+    <section className="px-12 mb-24 max-w-[1440px] mx-auto pt-32 w-full">
+      <div className="max-w-4xl">
+        <span className="font-label text-primary tracking-[0.3em] uppercase text-sm mb-6 block">
+          {overline}
+        </span>
+        <h1 className="font-headline text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-on-surface leading-[1.0] lg:leading-[0.9] mb-10">
           {title}
         </h1>
-        <p className="body-lg text-on-surface-variant max-w-2xl font-light">
-          {subtitle}
-        </p>
+        {subtitle && (
+          <p className="font-body text-xl text-on-surface-variant font-light leading-relaxed max-w-2xl">
+            {subtitle}
+          </p>
+        )}
       </div>
     </section>
   );

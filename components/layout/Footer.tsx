@@ -1,55 +1,84 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container-lowest pt-20 pb-8 text-on-surface">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-surface-container-highest pb-12">
+    <footer className="bg-surface-container-lowest text-on-surface">
+      <div className="max-w-[1440px] mx-auto px-12 pt-20 pb-8 grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-surface-container-highest">
         
-        {/* Company Info */}
-        <div className="flex flex-col gap-4">
-          <h3 className="headline-sm text-primary font-semibold">LAKAMBINI</h3>
-          <p className="body-sm text-on-surface-variant max-w-sm">
-            Premium B2B digital solutions and event management, designed for a regal audience.
+        {/* Brand Column */}
+        <div className="flex flex-col gap-6">
+          <Link href="/" className="inline-block">
+            <Image
+              src="/images/Lakambini Logo Gold Horizontal.png"
+              alt="Lakambini Logo"
+              width={200}
+              height={40}
+              className="h-8 w-auto object-contain"
+            />
+          </Link>
+          <p className="body-sm font-light text-primary/60 max-w-sm">
+            Full-service event production. Creative. Technical. Reliable.
           </p>
         </div>
 
-        {/* Quick Links */}
-        <div className="flex flex-col gap-4">
-          <h4 className="label-md text-primary">QUICK LINKS</h4>
-          <Link href="/about" className="body-sm hover:text-primary transition-colors">About Us</Link>
-          <Link href="/services" className="body-sm hover:text-primary transition-colors">Core Divisions</Link>
-          <Link href="/portfolio" className="body-sm hover:text-primary transition-colors">Portfolio</Link>
+        {/* Links Column */}
+        <div className="grid grid-cols-2 gap-8">
+          <div className="flex flex-col gap-4">
+            <h4 className="label-sm text-primary uppercase tracking-widest">Agency</h4>
+            <Link href="/" className="body-sm hover:text-primary transition-colors">Home</Link>
+            <Link href="/services" className="body-sm hover:text-primary transition-colors">Services</Link>
+            <Link href="/about" className="body-sm hover:text-primary transition-colors">About</Link>
+            <Link href="/portfolio" className="body-sm hover:text-primary transition-colors">Portfolio</Link>
+          </div>
+          <div className="flex flex-col gap-4">
+            <h4 className="label-sm text-primary uppercase tracking-widest">Legal</h4>
+            <Link href="#" className="body-sm hover:text-primary transition-colors">Privacy</Link>
+            <Link href="#" className="body-sm hover:text-primary transition-colors">Terms</Link>
+            <Link href="#" className="body-sm hover:text-primary transition-colors">Press</Link>
+            <Link href="/contact" className="body-sm hover:text-primary transition-colors">Contact</Link>
+          </div>
         </div>
 
-        {/* Contact Details */}
-        <div className="flex flex-col gap-4">
-          <h4 className="label-md text-primary">CONTACT</h4>
-          <p className="body-sm">hello@lakambini.com</p>
-          <p className="body-sm">+63 (2) 8123 4567</p>
-          <p className="body-sm text-on-surface-variant">
-            BGC, Taguig City, Philippines
-          </p>
-        </div>
-
-        {/* Social Media icons */}
-        <div className="flex flex-col gap-4">
-          <h4 className="label-md text-primary">FOLLOW US</h4>
-          <div className="flex gap-4">
-            <a href="#" className="body-sm hover:text-primary transition-colors">LinkedIn</a>
-            <a href="#" className="body-sm hover:text-primary transition-colors">Instagram</a>
-            <a href="#" className="body-sm hover:text-primary transition-colors">Twitter</a>
+        {/* Newsletter & Social */}
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
+            <h4 className="label-sm text-primary uppercase tracking-widest">Stay Updated</h4>
+            <form className="flex w-full mt-2 group" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="w-full bg-transparent border-b border-outline-variant/40 py-2 text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/50"
+              />
+              <button 
+                type="submit" 
+                className="border-b border-outline-variant/40 py-2 px-2 text-primary hover:text-primary-container transition-colors focus:outline-none focus:border-primary group-focus-within:border-primary"
+                aria-label="Subscribe"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+          </div>
+          
+          <div className="flex flex-col gap-4">
+            <h4 className="label-sm text-primary uppercase tracking-widest">Follow Us</h4>
+            <div className="flex gap-6">
+              <a href="#" className="body-sm hover:text-primary transition-colors focus:outline-none focus:text-primary">LinkedIn</a>
+              <a href="#" className="body-sm hover:text-primary transition-colors focus:outline-none focus:text-primary">Instagram</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="body-sm text-on-surface-variant">
+      <div className="max-w-[1440px] mx-auto px-12 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60">
           &copy; {new Date().getFullYear()} Lakambini Events. All rights reserved.
         </p>
-        <div className="flex gap-6">
-          <Link href="#" className="body-sm text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</Link>
-          <Link href="#" className="body-sm text-on-surface-variant hover:text-primary transition-colors">Terms of Service</Link>
-        </div>
       </div>
     </footer>
   );

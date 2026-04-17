@@ -9,6 +9,7 @@ This document defines the strict directory structure for the Lakambini Events we
   - `page.tsx` / `index.html` (Landing Page)
   - `/about/` (Agency history, founder details)
   - `/services/` (B2B digital solutions and event packages)
+  - `/services/[division]/` (Individual pages for the 9 specialty divisions)
   - `/portfolio/` (Past events, e.g., OPPO Hyper Legend Cup)
   - `/contact/` (Inquiry form and business details)
 

@@ -1,28 +1,26 @@
 export default function TrustBar() {
-  const logos = [
-    { name: "Brand 1", id: 1 },
-    { name: "Brand 2", id: 2 },
-    { name: "Brand 3", id: 3 },
-    { name: "Brand 4", id: 4 },
-    { name: "Brand 5", id: 5 },
+  // We can use 4-6 placeholders for client logos
+  const clients = [
+    "TECH CORP",
+    "GLOBAL MEDIA",
+    "ENTERPRISE ASIA",
+    "PHILIPPINE AIR",
+    "NEXTGEN STUDIOS",
   ];
 
   return (
-    <section className="bg-surface-container-low py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-10">
-        <h3 className="label-md text-on-surface-variant uppercase tracking-widest text-center">
-          Trusted by leading brands
-        </h3>
+    <section className="w-full bg-surface-container-lowest -mx-12 px-12 xl:mx-[calc(50%-50vw)] xl:px-[calc(50vw-720px+3rem)] py-16 border-y border-surface-container-highest">
+      <div className="max-w-[1440px] w-full flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="md:w-1/4">
+          <p className="label-md uppercase tracking-widest text-on-surface-variant/70">
+            Trusted by leading brands nationwide.
+          </p>
+        </div>
         
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80">
-          {logos.map(logo => (
-            <div 
-              key={logo.id} 
-              className="text-white hover:text-primary transition-colors duration-400 ease-out cursor-pointer headline-sm opacity-40 hover:opacity-100"
-            >
-              <span className="font-serif italic font-medium tracking-tight">
-                {logo.name}
-              </span>
+        <div className="md:w-3/4 flex flex-wrap justify-between items-center gap-8 w-full opacity-40 grayscale brightness-150">
+          {clients.map((client, index) => (
+            <div key={index} className="font-headline text-xl font-bold tracking-tight text-white/80">
+              {client}
             </div>
           ))}
         </div>

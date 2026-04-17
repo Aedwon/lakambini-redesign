@@ -11,7 +11,7 @@ type ButtonProps = {
 };
 
 export default function Button({ variant = 'primary', size = 'md', href, onClick, children, className = '' }: ButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 ease-out z-10 border-0 cursor-pointer rounded-none outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
+  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 ease-out z-10 border-0 cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
   
   const sizeClasses = {
     sm: variant === 'tertiary' ? "label-sm" : "px-5 py-3 label-sm",
@@ -21,11 +21,11 @@ export default function Button({ variant = 'primary', size = 'md', href, onClick
 
   let variantClasses = "";
   if (variant === 'primary') {
-    variantClasses = "bg-gradient-to-br from-[#E9C255] to-[#BF9B31] text-[#051710] hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(233,194,85,0.4)]";
+    variantClasses = "bg-gradient-to-br from-[#E9C255] to-[#BF9B31] text-[#3D2E00] hover:scale-[1.05] shadow-[0_20px_50px_rgba(4,21,15,0.4)]";
   } else if (variant === 'secondary') {
-    variantClasses = "bg-transparent text-primary border border-[#4D4636]/80 hover:bg-surface-container-high transition-colors";
+    variantClasses = "bg-transparent text-primary border border-outline-variant/30 hover:bg-surface-container-high transition-colors";
   } else if (variant === 'tertiary') {
-    variantClasses = "bg-transparent text-on-surface p-0 relative group";
+    variantClasses = "bg-transparent text-on-surface p-0 relative group rounded-none";
   }
 
   const combinedClasses = `${baseClasses} ${sizeClasses[size]} ${variantClasses} ${className}`;

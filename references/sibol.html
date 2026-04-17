@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@200;300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#4d4636",
+              "secondary-container": "#2b4e3e",
+              "on-surface": "#d2e7dd",
+              "on-primary-fixed-variant": "#584400",
+              "inverse-primary": "#755b00",
+              "secondary": "#a9cfba",
+              "on-surface-variant": "#d0c5b0",
+              "inverse-surface": "#d2e7dd",
+              "surface-tint": "#e9c255",
+              "on-primary": "#3d2e00",
+              "primary-container": "#bf9b31",
+              "on-secondary-fixed": "#002114",
+              "on-primary-container": "#453400",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "primary-fixed-dim": "#e9c255",
+              "tertiary": "#c6c6c7",
+              "surface-container": "#11231c",
+              "surface": "#051710",
+              "on-tertiary-fixed": "#1a1c1c",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#0d1f18",
+              "secondary-fixed": "#c4ebd6",
+              "surface-bright": "#2b3d36",
+              "outline": "#99907d",
+              "on-background": "#d2e7dd",
+              "on-secondary": "#133728",
+              "inverse-on-surface": "#22342d",
+              "surface-container-highest": "#273831",
+              "on-secondary-fixed-variant": "#2b4e3e",
+              "primary": "#e9c255",
+              "on-tertiary-container": "#343637",
+              "surface-container-high": "#1c2e27",
+              "on-error": "#690005",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-secondary-container": "#98bea9",
+              "on-tertiary": "#2f3131",
+              "background": "#051710",
+              "secondary-fixed-dim": "#a9cfba",
+              "primary-fixed": "#ffdf90",
+              "on-primary-fixed": "#241a00",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-dim": "#051710",
+              "surface-container-lowest": "#02110b",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "tertiary-container": "#9e9f9f",
+              "surface-variant": "#273831"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
+        }
+        .text-editorial-gradient {
+            background: linear-gradient(135deg, #e9c255 0%, #bf9b31 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#051710] bg-opacity-90 backdrop-blur-xl shadow-[0_20px_50px_rgba(4,21,15,0.4)]">
+<div class="flex justify-between items-center px-12 py-6 w-full max-w-[1440px] mx-auto">
+<span class="text-2xl font-headline tracking-tight text-[#E9C255] dark:text-[#E9C255]">LAKAMBINI</span>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-[#E9C255] border-b-2 border-[#BF9B31] pb-1 font-label tracking-[0.05rem] text-sm" href="#">Services</a>
+<a class="text-emerald-100/70 hover:text-[#E9C255] transition-colors duration-300 ease-in-out hover:scale-105 font-label tracking-[0.05rem] text-sm" href="#">Portfolio</a>
+<a class="text-emerald-100/70 hover:text-[#E9C255] transition-colors duration-300 ease-in-out hover:scale-105 font-label tracking-[0.05rem] text-sm" href="#">Philosophy</a>
+<a class="text-emerald-100/70 hover:text-[#E9C255] transition-colors duration-300 ease-in-out hover:scale-105 font-label tracking-[0.05rem] text-sm" href="#">Concierge</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-2 rounded-full font-label text-sm tracking-[0.05rem] hover:scale-105 transition-all duration-300 editorial-shadow">
+                Inquire
+            </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-12 mb-24">
+<div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 lg:col-span-7">
+<span class="font-label tracking-[0.2rem] text-primary uppercase text-xs mb-4 block">Division Spotlight</span>
+<h1 class="font-headline text-6xl md:text-8xl -tracking-[0.02em] leading-tight mb-8">SIBOL</h1>
+<p class="font-body text-xl font-light text-on-surface-variant max-w-2xl leading-relaxed">
+                        Sovereign Organizational Development. We nurture team cultures with the same precision and grandeur as an imperial garden, fostering growth that is both sustainable and majestic.
+                    </p>
+</div>
+<div class="col-span-12 lg:col-span-5 aspect-[4/3] bg-surface-container overflow-hidden rounded-sm relative group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern luxury office atrium with lush indoor greenery, high ceilings, and warm golden lighting highlighting architectural details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABW0XCp7QfLQ6Z-ey3WPlWj37A-ejxZY-WgT-K6rPmTLrA6mVYeS_Zl5TRaqC4_7JSctua040sV-qlIXswZ5zgZUYM7znBtgiF1JeuN4JLWdwfo6aeNV8eN7Yrj0e9azKvydBu_W0Ze2-skgb-YKNVZ8x3R-ccom4Er54YrrmjnO11C6i4EkeBD5dnVK6k2Wjm4EQAYG8JhKNhZefnamUofDtqifhBPZMlBM2qvVfSoDrv8iEY4zsWouybrHhpl_IP7oFjawa6Aw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60"></div>
+</div>
+</div>
+</section>
+<!-- Leadership Development Programs (Asymmetric Layout) -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-start mb-20">
+<div class="max-w-xl">
+<h2 class="font-headline text-4xl md:text-5xl mb-6">Leadership Development Programs</h2>
+<p class="font-body text-on-surface-variant font-light tracking-wide">Cultivating the sovereign voice within your executive tier through bespoke mentorship and strategic refinement.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-6xl mt-8 md:mt-0 opacity-40">crown</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-6">
+<div class="h-80 bg-surface-container-highest rounded-sm overflow-hidden border-b-2 border-primary/20">
+<img class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" data-alt="Professional woman in a tailored suit leading a high-level executive meeting in a dark wood paneled boardroom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3fYy_JoMCib_BtFE4Cu1uWFLzI18JZ2YGEADRJaJPQWGuyug7oFJnINoRO_zKda0lM3TCTgb8jzuG-avbBG9wo2ipqumP00tMtP7l6UOj9K74FRgeeTygrw4hB47IlxMCJPfg9pTaAa5bdZbPijBco-OiDOCNITHNkfR1N1sq-FOQbsclt3D5b9IfxsyMvIv3xp4HMj3Bk7TnLUBA5SJgQoRgvbvUE0EPqEPQIUjm3-aU2MLS4A89BLzgDGuWbdLXswoLUEYkgw"/>
+</div>
+<h3 class="font-headline text-2xl text-primary">The Sovereign Path</h3>
+<p class="font-body text-sm font-light leading-relaxed">A 12-month intensive for C-suite leaders focusing on ethical legacy and cultural stewardship.</p>
+</div>
+<div class="space-y-6 mt-12">
+<div class="h-80 bg-surface-container-highest rounded-sm overflow-hidden border-b-2 border-primary/20">
+<img class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" data-alt="Close up of fine stationery and a gold pen on a dark desk during a strategy session" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-dyMwfp7tFH_pIENX2NX4YihFu-i5JBqgPMsrFLeDHJBiJxUizrsz-7KUSI0OVgNDuN1RjPgv2z4ZZW2D9fBOkSvFtkcjH7-cEPYF_7iLrtjMwCWVJDLKSBfxGSAoToxxFEUMQuzWbqAzuub2vzgx4cRS0rVJX3fcZcqP_hBms0MAcHbk9IA8Rxo4Kr6ADtdHc6QV9Ce7pBMqGmMgo0hVlUeE1H41EZK52xMZXARxMTQ9tBMXzNDB1Gc9-p4W0ZNLx2YPgcqW9w"/>
+</div>
+<h3 class="font-headline text-2xl text-primary">Strategic Presence</h3>
+<p class="font-body text-sm font-light leading-relaxed">Mastering the art of editorial communication and high-impact decision making.</p>
+</div>
+<div class="space-y-6">
+<div class="h-80 bg-surface-container-highest rounded-sm overflow-hidden border-b-2 border-primary/20">
+<img class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" data-alt="Diverse group of leaders collaborating around a sleek conference table in a glass-walled office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh5c6hBWcc02gVIYm-IVzpZHl4gi5gG3xJUDX58ep9blpaIQ-dXgNQh8ZbU2Gn_J8FJdv0QeDvZlmWKbczlMvsOtCutiR4Og11oFHgc9R9LJHgbs9cxzuUGIJ2JIBv5yBWTGIDvciwCCW4ZopQdiZeG64zAUimuWriUe0kYQg3YjrghPM8LnEcs8Rvc4xqGJ3-JeJplU6q81vK9Kd3uIenfsDJy7xgSZBMpuMBrDQPqclPNyvlb_NtXpWelE7dsS2WxR5PiSqveA"/>
+</div>
+<h3 class="font-headline text-2xl text-primary">Cultural Architecture</h3>
+<p class="font-body text-sm font-light leading-relaxed">Frameworks for designing organizations that thrive on autonomy and shared excellence.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Workshops (Marble Reveal Card Style) -->
+<section class="py-32 px-12">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline text-5xl mb-4">Interactive Workshops</h2>
+<div class="h-1 w-24 bg-primary mx-auto mb-8"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Workshop Card 1 -->
+<div class="bg-surface-container-highest p-10 flex flex-col justify-between min-h-[400px] border border-outline-variant/20 hover:bg-surface-variant transition-all cursor-default relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">psychology</span>
+</div>
+<div>
+<span class="font-label text-xs tracking-widest text-primary/60 uppercase">Half-Day</span>
+<h4 class="font-headline text-2xl mt-4 mb-4">Mental Agility</h4>
+<p class="font-body text-sm font-light leading-relaxed text-on-surface-variant">Techniques for rapid adaptation in volatile market landscapes.</p>
+</div>
+<a class="font-label text-xs tracking-widest text-primary flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">
+                            VIEW MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Workshop Card 2 -->
+<div class="bg-surface-container-high p-10 flex flex-col justify-between min-h-[400px] border border-outline-variant/20 hover:bg-surface-variant transition-all cursor-default">
+<div>
+<span class="font-label text-xs tracking-widest text-primary/60 uppercase">Full-Day</span>
+<h4 class="font-headline text-2xl mt-4 mb-4">The Empathy Lab</h4>
+<p class="font-body text-sm font-light leading-relaxed text-on-surface-variant">Deep-dive sessions into emotional intelligence and conflict resolution.</p>
+</div>
+<a class="font-label text-xs tracking-widest text-primary flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">
+                            VIEW MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Workshop Card 3 -->
+<div class="bg-surface-container-highest p-10 flex flex-col justify-between min-h-[400px] border border-outline-variant/20 hover:bg-surface-variant transition-all cursor-default">
+<div>
+<span class="font-label text-xs tracking-widest text-primary/60 uppercase">3 Sessions</span>
+<h4 class="font-headline text-2xl mt-4 mb-4">Innovation Sprints</h4>
+<p class="font-body text-sm font-light leading-relaxed text-on-surface-variant">Design thinking applied to internal cultural challenges.</p>
+</div>
+<a class="font-label text-xs tracking-widest text-primary flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">
+                            VIEW MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Workshop Card 4 -->
+<div class="bg-surface-container-high p-10 flex flex-col justify-between min-h-[400px] border border-outline-variant/20 hover:bg-surface-variant transition-all cursor-default relative overflow-hidden group">
+<div class="absolute bottom-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">brush</span>
+</div>
+<div>
+<span class="font-label text-xs tracking-widest text-primary/60 uppercase">Masterclass</span>
+<h4 class="font-headline text-2xl mt-4 mb-4">Art of Feedback</h4>
+<p class="font-body text-sm font-light leading-relaxed text-on-surface-variant">Crafting constructive dialogue that empowers rather than depletes.</p>
+</div>
+<a class="font-label text-xs tracking-widest text-primary flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">
+                            VIEW MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Building Escapes (Editorial Spread) -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-[1440px] mx-auto px-12">
+<div class="grid grid-cols-12 gap-12 items-center">
+<div class="col-span-12 lg:col-span-6 relative">
+<div class="aspect-[3/4] overflow-hidden rounded-sm editorial-shadow">
+<img class="w-full h-full object-cover" data-alt="Luxury mountain resort with infinity pool reflecting the sunset and pine forests in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEQFq_euqrounfquhmVEeOP71CKW4rcllT1s3Mr3eOe5k4thwZoF7xrohwV8uhBVwtqMUMn0JWW2S-PQIY0gH601mfF9H8XTb7K2H9yaw7RvPJCINyY9zxpLV8xBsNFTbRAokc2BQIILYTj6ylZDRyfAy_XLZX28d2LMGABsTdev3Bfu3uMjv2kbVUEewkRL6fMNb9a-Q8s6pLg6zz8GWQGR6JWXCJNo9kjaQKXGfHidwEBCXoze4sXiWStSP1UuxVR5FWcE89Nw"/>
+</div>
+<div class="absolute -bottom-10 -right-10 bg-primary-container p-12 hidden md:block">
+<h3 class="font-headline text-on-primary-container text-3xl leading-tight">Team Building<br/>Escapes</h3>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 lg:col-start-8">
+<span class="font-label tracking-[0.2rem] text-primary uppercase text-xs mb-8 block">Curated Destinations</span>
+<h2 class="font-headline text-4xl mb-8">Beyond the Boardroom</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary">landscape</span>
+<div>
+<h5 class="font-headline text-lg mb-2">The Alpine Summit</h5>
+<p class="font-body text-sm text-on-surface-variant font-light">High-altitude strategic retreats in the heart of the Swiss Alps, designed for clarity and vision.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary">sailing</span>
+<div>
+<h5 class="font-headline text-lg mb-2">Mediterranean Regatta</h5>
+<p class="font-body text-sm text-on-surface-variant font-light">Building synergy on the high seas. A nautical challenge that requires perfect coordination.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary">spa</span>
+<div>
+<h5 class="font-headline text-lg mb-2">Heritage Sanctuary</h5>
+<p class="font-body text-sm text-on-surface-variant font-light">Wellness-infused culture building in restored 17th-century estates.</p>
+</div>
+</div>
+</div>
+<button class="mt-16 border border-primary/40 text-primary px-10 py-3 rounded-full font-label text-xs tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-500 uppercase">Explore Destinations</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Executive Conferences & Corporate Trainings -->
+<section class="py-32 px-12 max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<!-- Executive Conferences -->
+<div class="space-y-10">
+<div class="flex items-center gap-4">
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+<h2 class="font-headline text-3xl shrink-0">Executive Conferences</h2>
+</div>
+<div class="bg-surface-container-low p-12 border-l-4 border-primary">
+<p class="font-body text-lg font-light italic mb-8 text-on-surface">"The most influential dialogues happen in spaces that command respect."</p>
+<ul class="space-y-4 font-body text-sm font-light text-on-surface-variant">
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> VIP Logistics &amp; Concierge</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Global Thought-Leader Curation</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Secure, Private Venues</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Editorial Reporting &amp; Whitepapers</li>
+</ul>
+</div>
+</div>
+<!-- Corporate Trainings -->
+<div class="space-y-10">
+<div class="flex items-center gap-4">
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+<h2 class="font-headline text-3xl shrink-0">Corporate Trainings</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center text-center p-6 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 40px;">diversity_3</span>
+<h6 class="font-headline text-sm">DEI Excellence</h6>
+</div>
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center text-center p-6 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 40px;">precision_manufacturing</span>
+<h6 class="font-headline text-sm">Operational Flow</h6>
+</div>
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center text-center p-6 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 40px;">shield_person</span>
+<h6 class="font-headline text-sm">Crisis Mastery</h6>
+</div>
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center text-center p-6 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 40px;">history_edu</span>
+<h6 class="font-headline text-sm">Legacy Design</h6>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-24 px-12 mb-24">
+<div class="max-w-[1440px] mx-auto bg-gradient-to-r from-surface-container-lowest to-surface-container-highest p-20 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline text-5xl md:text-7xl mb-8 text-editorial-gradient">Your Legacy Begins Here</h2>
+<p class="font-body text-xl font-light text-on-surface-variant max-w-2xl mx-auto mb-12">Connect with a SIBOL consultant to design a culture that outlasts the ordinary.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-primary text-on-primary px-12 py-4 rounded-full font-label tracking-widest uppercase hover:scale-105 transition-all editorial-shadow">Request a Proposal</button>
+<button class="border border-outline-variant/40 text-on-surface px-12 py-4 rounded-full font-label tracking-widest uppercase hover:bg-surface-variant transition-all">Download Brochure</button>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-24 -left-24 w-64 h-64 border border-primary/10 rounded-full"></div>
+<div class="absolute -bottom-48 -right-48 w-96 h-96 border border-primary/5 rounded-full"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-24 pb-12 bg-[#02110b] flex flex-col items-center justify-center px-12 border-t border-emerald-900/20">
+<div class="max-w-[1440px] w-full grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+<div class="md:col-span-1">
+<span class="font-headline text-[#E9C255] tracking-widest uppercase text-xl block mb-6">LAKAMBINI</span>
+<p class="font-body text-xs text-emerald-800 font-light leading-relaxed">Defining the sovereign standard of organizational excellence through intentional design and ancestral wisdom.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-headline text-[#BF9B31] text-sm uppercase tracking-widest">Divisions</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Sibol Cultural Dev</a>
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Dangal Logistics</a>
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Alamat Production</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-headline text-[#BF9B31] text-sm uppercase tracking-widest">Connect</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Privacy Policy</a>
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Terms of Service</a>
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Press Kit</a>
+<a class="font-label text-xs text-emerald-800 hover:text-[#BF9B31] transition-all" href="#">Contact</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-headline text-[#BF9B31] text-sm uppercase tracking-widest">Inquiries</h5>
+<p class="font-body text-xs text-emerald-800 font-light leading-relaxed">
+                    Manila, Philippines<br/>
+                    concierge@lakambini.sovereign<br/>
+                    +63 (2) 888-SOV-01
+                </p>
+</div>
+</div>
+<span class="font-label text-[10px] tracking-[0.2em] text-emerald-900/60 uppercase">© 2024 LAKAMBINI SOVEREIGN EVENTS. ALL RIGHTS RESERVED.</span>
+</footer>
+</body></html>

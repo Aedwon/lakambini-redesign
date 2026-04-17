@@ -21,24 +21,24 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("opacity-100", "translate-y-0");
-            entry.target.classList.remove("opacity-0", "translate-y-[20px]");
+            entry.target.classList.remove("opacity-0", "translate-y-5");
             // Only trigger once
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
     const sections = wrapperRef.current.querySelectorAll("section");
     sections.forEach((section) => {
-      // Set initial state
+      // Set initial state for reveal
       section.classList.add(
         "opacity-0", 
-        "translate-y-[20px]", 
+        "translate-y-5", 
         "transition-all", 
         "duration-[800ms]", 
-        "[transition-timing-function:cubic-bezier(0.19,1,0.22,1)]"
+        "ease-out"
       );
       observer.observe(section);
     });
@@ -49,10 +49,10 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
   }, [pathname]);
 
   return (
-    <main className="w-full flex flex-col min-h-screen">
+    <main className="w-full flex flex-col min-h-screen bg-surface">
       <div 
         ref={wrapperRef} 
-        className="flex-grow w-full flex flex-col min-h-[70vh]"
+        className="flex-grow w-full max-w-[1440px] mx-auto min-h-[70vh] flex flex-col pt-0 sm:pt-0"
       >
         {children}
       </div>

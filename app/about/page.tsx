@@ -1,29 +1,35 @@
 import PageHero from "@/components/sections/PageHero";
+import FounderStory from "@/components/sections/FounderStory";
+import Approach from "@/components/sections/Approach";
+import EditorialGallery from "@/components/sections/EditorialGallery";
 import CTABanner from "@/components/sections/CTABanner";
-import SectionHeading from "@/components/ui/SectionHeading";
+import PageWrapper from "@/components/layout/PageWrapper";
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col w-full">
-      <PageHero 
-        title="The Lakambini Legacy" 
-        subtitle="Established on the core of Filipino heritage, fused with architectural precision."
-        backgroundImage="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
-      />
-      
-      {/* Basic Structure Placeholder for Timeline */}
-      <section className="bg-surface py-20 md:py-32 flex justify-center">
-        <div className="max-w-7xl w-full text-center py-20 md:py-32 bg-surface-container-low">
-          <SectionHeading 
-            overline="Origins"
-            title="Legacy Timeline"
-            description="Our journey mapped out. To be populated with founder details and milestone phases."
-            className="items-center mx-auto"
-          />
-        </div>
-      </section>
+    <PageWrapper>
+      <div className="flex flex-col w-full bg-surface">
+        <PageHero 
+          overline="Est. 2014"
+          title={
+            <>
+              The <span className="italic text-primary">Lakambini</span> Legacy
+            </>
+          }
+          subtitle="A decade of orchestrating the extraordinary. We don't just plan events; we curate enduring memories for the world's most discerning hosts."
+        />
+        
+        <FounderStory />
+        <Approach />
+        <EditorialGallery />
 
-      <CTABanner />
-    </div>
+        <CTABanner 
+          headline="Ready to start your next project?"
+          subtitle="Limited availability for 2025. Begin the journey with a private consultation."
+          ctaLabel="Book a Private Consultation"
+          ctaHref="/contact"
+        />
+      </div>
+    </PageWrapper>
   );
 }
