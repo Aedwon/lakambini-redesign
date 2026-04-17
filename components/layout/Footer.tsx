@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-surface-container-lowest pt-20 pb-8 text-on-surface">
-      <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-surface-container-highest pb-12">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-surface-container-highest pb-12">
         
         {/* Company Info */}
         <div className="flex flex-col gap-4">
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="body-sm text-on-surface-variant">
           &copy; {new Date().getFullYear()} Lakambini Events. All rights reserved.
         </p>

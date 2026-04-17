@@ -4,8 +4,8 @@ import Button from "@/components/ui/Button";
 
 export default function PortfolioShowcase() {
   return (
-    <section className="bg-surface py-24">
-      <div className="max-w-[1280px] mx-auto px-6 flex flex-col gap-16">
+    <section className="bg-surface py-20 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-16">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <SectionHeading 
             overline="Selected Works"
@@ -16,7 +16,7 @@ export default function PortfolioShowcase() {
           </Button>
         </div>
 
-        <div className="flex flex-col gap-8 md:gap-12">
+        <div className="flex flex-col gap-12 md:gap-16">
           {/* Featured Project 1 */}
           <div className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden group">
             <div className="absolute inset-0 bg-black/40 z-10 transition-colors duration-600 group-hover:bg-black/20"></div>

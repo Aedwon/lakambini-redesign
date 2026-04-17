@@ -21,9 +21,9 @@ export default function Button({ variant = 'primary', size = 'md', href, onClick
 
   let variantClasses = "";
   if (variant === 'primary') {
-    variantClasses = "bg-gradient-to-br from-[#E9C255] to-[#BF9B31] text-on-primary hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(233,194,85,0.4)]";
+    variantClasses = "bg-gradient-to-br from-[#E9C255] to-[#BF9B31] text-[#051710] hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(233,194,85,0.4)]";
   } else if (variant === 'secondary') {
-    variantClasses = "bg-transparent text-primary border border-[#4D4636]/40 hover:bg-surface-container-high transition-colors";
+    variantClasses = "bg-transparent text-primary border border-[#4D4636]/80 hover:bg-surface-container-high transition-colors";
   } else if (variant === 'tertiary') {
     variantClasses = "bg-transparent text-on-surface p-0 relative group";
   }

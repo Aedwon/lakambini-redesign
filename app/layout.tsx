@@ -20,9 +20,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Lakambini Events — Premium Digital Solutions & Event Management",
+  title: "Lakambini Events | Premium B2B Digital Solutions",
   description:
-    "Lakambini Events delivers high-end B2B digital solutions and event management services. From esports tournaments to corporate activations, we bring your vision to life.",
+    "Lakambini Events delivers high-end B2B digital solutions and elite event management services for discerning global brands.",
 };
 
 export const viewport: Viewport = {

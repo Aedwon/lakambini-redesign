@@ -8,7 +8,7 @@ type PageHeroProps = {
 
 export default function PageHero({ title, subtitle, backgroundImage }: PageHeroProps) {
   return (
-    <section className="relative w-full py-32 md:py-48 flex items-center justify-center bg-surface overflow-hidden border-b border-surface-container-highest">
+    <section className="relative w-full py-20 md:py-32 flex items-center justify-center bg-surface overflow-hidden">
       {backgroundImage && (
         <div className="absolute inset-0 z-0">
           <Image 
@@ -21,7 +21,7 @@ export default function PageHero({ title, subtitle, backgroundImage }: PageHeroP
         </div>
       )}
       
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 flex flex-col items-center text-center gap-6 mt-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-6 mt-16">
         <h1 className="display-md text-on-surface tracking-tight max-w-4xl">
           {title}
         </h1>

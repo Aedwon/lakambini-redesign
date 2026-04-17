@@ -1,10 +1,19 @@
+import PageHero from "@/components/sections/PageHero";
+import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
+import CTABanner from "@/components/sections/CTABanner";
+
 export default function PortfolioPage() {
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center px-6">
-      <h1 className="text-4xl font-bold tracking-tight">Portfolio</h1>
-      <p className="mt-4 max-w-xl text-center text-lg text-gray-500">
-        Past events — from the OPPO Hyper Legend Cup to corporate activations.
-      </p>
-    </main>
+    <div className="flex flex-col w-full">
+      <PageHero 
+        title="Our Portfolio Ecosystem" 
+        subtitle="Engineering unforgettable momentum for global brands."
+        backgroundImage="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80"
+      />
+      
+      <PortfolioShowcase />
+      
+      <CTABanner />
+    </div>
   );
 }

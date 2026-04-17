@@ -12,7 +12,7 @@ export default function CTABanner({
   href = "/contact"
 }: CTABannerProps) {
   return (
-    <section className="bg-surface-container-highest relative py-32 overflow-hidden mx-auto max-w-[1280px] my-12 mb-24 ghost-border flex w-full">
+    <section className="bg-surface-container-highest relative py-20 md:py-32 overflow-hidden mx-auto max-w-7xl my-12 mb-24 ghost-border flex w-full">
       {/* Texture bg overlay for marble effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent z-10 pointer-events-none"></div>
       

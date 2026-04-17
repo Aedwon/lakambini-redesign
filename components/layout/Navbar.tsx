@@ -17,8 +17,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-[1000] glassmorphism border-b border-white/5">
-      <div className="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+    <nav className="fixed top-0 w-full z-[1000] bg-surface/90 backdrop-blur-md border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="headline-sm text-on-surface font-semibold tracking-wide">
           LAKAMBINI<span className="text-primary font-bold">.</span>

@@ -8,8 +8,8 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="bg-surface-container-low py-16">
-      <div className="max-w-[1280px] mx-auto px-6 flex flex-col items-center gap-10">
+    <section className="bg-surface-container-low py-20 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-10">
         <h3 className="label-md text-on-surface-variant uppercase tracking-widest text-center">
           Trusted by leading brands
         </h3>
@@ -18,9 +18,9 @@ export default function TrustBar() {
           {logos.map(logo => (
             <div 
               key={logo.id} 
-              className="text-on-surface-variant hover:text-primary transition-colors duration-400 ease-out cursor-pointer headline-sm grayscale hover:grayscale-0"
+              className="text-white hover:text-primary transition-colors duration-400 ease-out cursor-pointer headline-sm opacity-40 hover:opacity-100"
             >
-              <span className="font-serif italic font-medium tracking-tight opacity-70 hover:opacity-100 transition-opacity">
+              <span className="font-serif italic font-medium tracking-tight">
                 {logo.name}
               </span>
             </div>
