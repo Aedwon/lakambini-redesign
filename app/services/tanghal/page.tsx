@@ -44,7 +44,7 @@ export default function TanghalPage() {
             {/* Solo Artist */}
             <div className="md:col-span-8 bg-surface border border-outline-variant/20 p-8 md:p-12 flex flex-col justify-end group overflow-hidden relative">
               <Image 
-                src="https://images.unsplash.com/photo-1516280440502-863a3d58a1bd?q=80&w=1200&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
                 alt="Solo Artist"
                 fill
                 className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"

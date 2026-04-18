@@ -27,7 +27,7 @@ export default function LikhaPage() {
           </div>
           <div className="lg:col-span-7 relative aspect-video lg:aspect-[4/3] rounded-sm overflow-hidden editorial-shadow group order-1 lg:order-2">
             <Image 
-              src="https://images.unsplash.com/photo-1518135898864-16a83685e12f?q=80&w=2000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000&auto=format&fit=crop"
               alt="Event Video Coverage"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-105"

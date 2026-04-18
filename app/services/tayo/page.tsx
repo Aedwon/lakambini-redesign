@@ -147,7 +147,7 @@ export default function TayoPage() {
             <div className="flex flex-col group lg:mt-24">
               <div className="relative aspect-[3/2] w-full mb-10 overflow-hidden mix-blend-luminosity grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm editorial-shadow">
                 <Image 
-                  src="https://images.unsplash.com/photo-1544474718-f2b7b514d72f?q=80&w=1200&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
                   alt="Installation Art"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-1000"

@@ -19,7 +19,7 @@ export const divisions: DivisionData[] = [
     description: "Live events, concerts, music festivals, and artist management. We handle the stage so the talent can perform.",
     capabilities: ["Concerts", "Music Festivals", "Virtual Events", "Event Performances", "Talent Management"],
     ctaHeadline: "Have a show in mind? Let's talk.",
-    heroImage: "https://images.unsplash.com/photo-1540039155732-d68875508a8e?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000&auto=format&fit=crop",
     cardImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuCbv1OB_6Oj23D-XZv0lvjPKdm4BQ1eHFX4oUpX44-zkDmxm6KFpW64k-gm7peUFj6GdzNkKVZWu-n92kdjHDJvWYFWvp4PQnF2M82ybViOAwruZ_MwEtp5ZSGBsmLCp0sj0AGbei7YDjeJvRRLZ91I14HNLbXRrBEmDey9wY9SCB7RM3PiYl-UrSKQN1HmZsYHnsXesVqCmgFfjPeoP6ZeJPGdTr2rH3Y9EiOVghbKxt7qmRVuesm8mleR0t76bJng7kPyaD1yZw"
   },
   {
@@ -30,7 +30,7 @@ export const divisions: DivisionData[] = [
     description: "End-to-end video production, motion graphics, and sound design — from brand campaigns and music videos to event coverage and commercial content.",
     capabilities: ["Video Production", "Music Videos", "Video Editing", "Motion Graphics", "Sound Design"],
     ctaHeadline: "Have a production in mind? Let's talk.",
-    heroImage: "https://images.unsplash.com/photo-1601506521937-0130bf7c20c4?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000&auto=format&fit=crop",
     cardImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAk3X5pFAKmN_1Rk31CZjq-lEk_sir7NP4wfJj33ZPzmjWe-JiB2wmT2CEGhB_IddzsVHpqHG1BxFpXTIyvbJ4pKoCu_0ycU6KASBHDyhgH3CFiK0QhXKSeNQNDwZaq8Mxkq6KAOQTmqGIthLm0Rq8pdrKGkg38l5rFttUiSf2942uAvzZV4lWAfIm7dm1E8RLiEdZ7pAsjeUEeioLGQepZJhjgRi1x6hspiunI8LcCfiI7ujyKn5IQPFpyoNuiDSZoAoJYecdslA"
   },
   {
