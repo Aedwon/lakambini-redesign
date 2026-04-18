@@ -4,27 +4,27 @@ import CTABanner from "@/components/sections/CTABanner";
 
 export default function ServicesPage() {
   return (
-      <div className="flex flex-col w-full bg-surface">
-        <PageHero 
-          overline="Services"
-          decorativeText="9"
-          title={
-            <>
-              Nine Divisions. <br />
-              <span className="italic text-primary">One</span> Team.
-            </>
-          }
-          subtitle="Every capability you need under one roof — from live production and multimedia to tech development and experiential architecture."
-        />
-        
-        {/* Core Divisions Editorial Grid */}
-        <DivisionsEditorial />
-        
-        <CTABanner 
-          headline="Let's talk about your next event."
-          ctaLabel="Book a Discovery Call"
-          ctaHref="/contact"
-        />
-      </div>
+    <div className="flex flex-col w-full bg-surface">
+      <PageHero
+        overline="Services"
+        decorativeText="9"
+        title={
+          <>
+            Nine Divisions. <br />
+            <span className="italic text-primary">One</span> Team.
+          </>
+        }
+        subtitle="Every capability you need under one roof — from live production and multimedia to tech development and experiential architecture."
+      />
+
+      {/* Core Divisions Editorial Grid */}
+      <DivisionsEditorial />
+
+      <CTABanner
+        headline="Let's talk about your next project."
+        ctaLabel="Book a Discovery Call"
+        ctaHref="/contact"
+      />
+    </div>
   );
 }

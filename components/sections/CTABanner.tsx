@@ -10,7 +10,7 @@ interface CTABannerProps {
 }
 
 export default function CTABanner({
-  headline = "Let's talk about your next event.",
+  headline = "Let's talk about your next project.",
   subtitle = "Tell us what you're planning. We'll tell you how we can help.",
   ctaLabel = "Book a Discovery Call",
   ctaHref = "/contact",
@@ -18,20 +18,20 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section className="w-full bg-surface pt-24 pb-32 relative overflow-hidden group">
-      
+
       {/* Background Image */}
-      <Image 
-        src={bgImage} 
-        alt="CTA Background" 
+      <Image
+        src={bgImage}
+        alt="CTA Background"
         fill
         sizes="100vw"
         className="object-cover opacity-10 transition-transform duration-1000 ease-out group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-surface/80 rounded-none pointer-events-none z-0 mix-blend-overlay"></div>
-      
+
       {/* Decorative center glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
-      
+
       <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10 px-12">
         <h2 className="headline-lg text-on-surface leading-[1.2]">
           {headline}
