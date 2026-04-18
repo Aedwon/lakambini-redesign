@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Bottom-left anchored content */}
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-16 md:pb-24 pt-40 flex flex-col gap-8 items-start">
         <span className="label-sm text-primary uppercase tracking-widest bg-surface-container/60 backdrop-blur-md py-2 px-4 rounded-full border border-outline-variant/20">
-          Full-Service Event Production
+          Full Service Events &amp; Creative Agency
         </span>
         <h1 className="display-lg text-on-surface leading-[1.05] font-extrabold max-w-4xl">
           We turn bold ideas into <br />
