@@ -10,7 +10,7 @@ export default function FounderStory() {
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" 
                 alt="Anchie Rosas" 
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"

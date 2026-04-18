@@ -51,7 +51,7 @@ export default function DivisionsEditorial() {
         <div className="md:col-span-7 order-1 md:order-2">
           <div className="relative overflow-hidden group aspect-[4/3]">
             <Image 
-              src="https://images.unsplash.com/photo-1595679901309-8e1d52fed4c4?auto=format&fit=crop&q=80" 
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80" 
               alt="Multimedia Production Studio" 
               fill
               sizes="(max-width: 768px) 100vw, 58vw"
@@ -74,7 +74,7 @@ export default function DivisionsEditorial() {
           </p>
           <div className="aspect-video relative overflow-hidden mt-4">
             <Image 
-              src="https://images.unsplash.com/photo-1558231268-d010c2c310c3?auto=format&fit=crop&q=80" 
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80" 
               alt="Experiential Activations" 
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
@@ -175,7 +175,7 @@ export default function DivisionsEditorial() {
           </p>
           <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1529156069898-49953eb1f5bc?auto=format&fit=crop&q=80" 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80" 
               alt="Community Engagement" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -196,7 +196,7 @@ export default function DivisionsEditorial() {
           </p>
           <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80" 
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80" 
               alt="Tech Ecosystem" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

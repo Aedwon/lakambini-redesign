@@ -33,10 +33,18 @@ export default function EditorialGallery() {
               className="object-cover opacity-60 transition-transform duration-1000 ease-out group-hover:scale-110"
             />
           </div>
-          <div className="h-1/2 w-full bg-primary/5 border border-primary/10 flex items-center justify-center p-12 text-center">
-            <div>
-              <span className="display-lg text-primary mb-2 block font-extrabold tracking-tighter">10+</span>
-              <span className="label-sm text-on-surface">Years of Experience</span>
+          <div className="h-1/2 w-full relative overflow-hidden group border border-primary/10 flex items-center justify-center p-12 text-center">
+            <Image 
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80" 
+              alt="Team at work" 
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover opacity-20 transition-transform duration-1000 ease-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-surface/80 group-hover:bg-surface/60 transition-colors duration-1000 z-0"></div>
+            <div className="relative z-10">
+              <span className="display-lg text-primary mb-2 block font-extrabold tracking-tighter drop-shadow-lg">10+</span>
+              <span className="label-sm text-on-surface drop-shadow-md">Years of Experience</span>
             </div>
           </div>
         </div>
