@@ -18,7 +18,7 @@ export default function ContactPage() {
             <SectionHeading 
               overline="Office"
               title="Where to Find Us"
-              description="Based in Metro Manila, delivering nationwide."
+              description="Based in Cavite, delivering nationwide."
             />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-2">
@@ -35,8 +35,8 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3 sm:col-span-2">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">Address</span>
                 <p className="body-lg text-on-surface max-w-xs font-light">
-                  Bonifacio Global City, Taguig,<br />
-                  Metro Manila, Philippines 1634
+                  General Trias, Cavite,<br />
+                  Philippines
                 </p>
               </div>
             </div>

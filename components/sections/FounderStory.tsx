@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function FounderStory() {
   return (
-    <section className="bg-surface-container-low py-32 w-full mt-24">
-      <div className="max-w-[1440px] mx-auto px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+    <section className="bg-surface py-32 w-full">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
           
           {/* Portrait Column */}
           <div className="md:col-span-5 order-2 md:order-1">
@@ -16,26 +16,37 @@ export default function FounderStory() {
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 border-[20px] border-surface-container-low opacity-20 pointer-events-none"></div>
+              {/* Subtle gold overlay border */}
+              <div className="absolute inset-0 border-[2px] border-primary/20 pointer-events-none"></div>
             </div>
           </div>
           
           {/* Text Column */}
-          <div className="md:col-span-7 order-1 md:order-2 md:pl-16">
-            <h2 className="display-sm text-on-surface mb-12 leading-tight">
-              Built by <br />
+          <div className="md:col-span-7 order-1 md:order-2 md:pl-12">
+            <h2 className="display-sm text-on-surface mb-12 leading-tight tracking-tight">
+              The Vision of <br />
               <span className="text-primary italic">Anchie Rosas</span>
             </h2>
             <div className="space-y-8 font-light text-on-surface-variant body-lg leading-loose">
               <p>
-                &ldquo;I started Lakambini because I saw the same problem everywhere — clients juggling five different vendors and still not getting the result they wanted. One team, one standard. That was the fix.&rdquo;
+                As the Founder, CEO, and Creative Director of Lakambini, Anchie Rosas brings over 10 years of experience in top corporate environments to the world of event production. Her deep understanding of complex systems and strategic management defines how we approach every project.
               </p>
+              
+              {/* Blockquote Style */}
+              <div className="relative pl-12 py-4">
+                <span className="absolute left-0 top-0 text-primary opacity-20 text-7xl font-bold font-headline select-none">&ldquo;</span>
+                <p className="italic text-on-surface text-xl md:text-2xl leading-relaxed">
+                  The LAKAMBINI woman is a host who values her guest&apos;s experience as much as her own peace of mind. We exist to be the invisible hand that ensures every masterpiece is managed with sovereign precision.
+                </p>
+              </div>
+
               <p>
-                Ten years later, that model hasn&apos;t changed. We still run lean, stay hands-on, and deliver consistent results — whether it&apos;s a 200-person corporate summit or a nationwide activation.
+                Whether managing multinational corporate summits or intimate high-end celebrations, her approach remains defined by a strategic mindset and an uncompromising passion for exceeding expectations. Under her creative direction, we don&apos;t just deliver events—we deliver legacies.
               </p>
+              
               <div className="pt-8">
                 <div className="h-px w-24 bg-primary/40 mb-4"></div>
-                <span className="title-lg text-primary">Founder &amp; CEO</span>
+                <span className="title-lg text-primary uppercase tracking-widest font-medium">CEO &amp; Creative Director</span>
               </div>
             </div>
           </div>

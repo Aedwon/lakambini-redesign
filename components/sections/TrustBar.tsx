@@ -1,11 +1,11 @@
 export default function TrustBar() {
   // We can use 4-6 placeholders for client logos
   const clients = [
-    "TECH CORP",
-    "GLOBAL MEDIA",
-    "ENTERPRISE ASIA",
-    "PHILIPPINE AIR",
-    "NEXTGEN STUDIOS",
+    "MOONTON",
+    "ALORICA",
+    "OPPO",
+    "REALME",
+    "INFINIX",
   ];
 
   return (

@@ -54,9 +54,9 @@ export default function Approach() {
               />
               <div className={`absolute inset-0 z-0 ${item.elevated ? "bg-primary/5" : "bg-surface/60"}`}></div>
 
-              <div className="relative z-10 h-full flex flex-col justify-end min-h-[160px] pt-12">
+              <div className="relative z-10 h-full flex flex-col justify-end min-h-[200px]">
                 {item.badge && (
-                  <div className="absolute -top-12 -right-4 bg-primary text-on-primary text-[10px] font-bold tracking-tighter px-3 py-1 uppercase rounded-full">
+                  <div className="absolute top-0 right-0 bg-primary text-on-primary text-[11px] font-bold tracking-[0.2em] px-5 py-2 uppercase rounded-full shadow-lg">
                     {item.badge}
                   </div>
                 )}

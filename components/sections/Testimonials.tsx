@@ -18,7 +18,7 @@ const testimonials = [
       "We've worked with a lot of agencies. Lakambini is the only one that delivers consistently, event after event.",
     name: "Ana Cruz",
     role: "Events Lead",
-    company: "Globe Telecom",
+    company: "OPPO",
   },
 ];
 
