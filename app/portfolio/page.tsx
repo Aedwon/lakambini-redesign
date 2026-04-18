@@ -1,11 +1,9 @@
 import PageHero from "@/components/sections/PageHero";
 import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
 import CTABanner from "@/components/sections/CTABanner";
-import PageWrapper from "@/components/layout/PageWrapper";
 
 export default function PortfolioPage() {
   return (
-    <PageWrapper>
       <div className="flex flex-col w-full bg-surface">
         <PageHero 
           overline="Portfolio"
@@ -21,6 +19,5 @@ export default function PortfolioPage() {
           ctaHref="/contact"
         />
       </div>
-    </PageWrapper>
   );
 }

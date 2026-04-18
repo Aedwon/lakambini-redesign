@@ -10,7 +10,7 @@ export default function DivisionsEditorial() {
         <div className="md:col-span-7">
           <div className="relative overflow-hidden group aspect-[16/9]">
             <Image 
-              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbv1OB_6Oj23D-XZv0lvjPKdm4BQ1eHFX4oUpX44-zkDmxm6KFpW64k-gm7peUFj6GdzNkKVZWu-n92kdjHDJvWYFWvp4PQnF2M82ybViOAwruZ_MwEtp5ZSGBsmLCp0sj0AGbei7YDjeJvRRLZ91I14HNLbXRrBEmDey9wY9SCB7RM3PiYl-UrSKQN1HmZsYHnsXesVqCmgFfjPeoP6ZeJPGdTr2rH3Y9EiOVghbKxt7qmRVuesm8mleR0t76bJng7kPyaD1yZw" 
               alt="Live Entertainment Stage" 
               fill
               sizes="(max-width: 768px) 100vw, 58vw"
@@ -62,9 +62,9 @@ export default function DivisionsEditorial() {
           </Link>
         </div>
         <div className="md:col-span-7 order-1 md:order-2">
-          <div className="relative overflow-hidden group aspect-[4/3]">
+          <div className="relative overflow-hidden group aspect-[16/9]">
             <Image 
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk3X5pFAKmN_1Rk31CZjq-lEk_sir7NP4wfJj33ZPzmjWe-JiB2wmT2CEGhB_IddzsVHpqHG1BxFpXTIyvbJ4pKoCu_0ycU6KASBHDyhgH3CFiK0QhXKSeNQNDwZaq8Mxkq6KAOQTmqGIthLm0Rq8pdrKGkg38l5rFttUiSf2942uAvzZV4lWAfIm7dm1E8RLiEdZ7pAsjeUEeioLGQepZJhjgRi1x6hspiunI8LcCfiI7ujyKn5IQPFpyoNuiDSZoAoJYecdslA" 
               alt="Multimedia Production Studio" 
               fill
               sizes="(max-width: 768px) 100vw, 58vw"
@@ -96,9 +96,9 @@ export default function DivisionsEditorial() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-          <div className="aspect-video relative overflow-hidden mt-auto">
+          <div className="aspect-[16/9] relative overflow-hidden mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4IYflde-5uKG4_IdDA5sFMqbKLCdrctITGSYZU35Q4BhXnH-I2S1psPfJ1oAq5wsKTfLegW0vkBLZPs9EMM6J7KfqMotWB0WpiQ5qLM4na-RXhtUjFQxcHPjYvUDbUGPOghTV3z-7Hyp9BRdnCjdzN8_aKJMHkGsiVJh0xmI1H8fnqV8V-5IrcdArp3jbM0LpiznWBHH3r4lljx1H3b-X1FtM5RWHUSJBpWrunBai4VjDCohTd3At9cFJWbzB2__4Hqo4EGVyBw" 
               alt="Experiential Activations" 
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
@@ -126,9 +126,9 @@ export default function DivisionsEditorial() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-          <div className="aspect-video relative overflow-hidden mt-auto">
+          <div className="aspect-[16/9] relative overflow-hidden mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0JQyRqRzmsdQgM9zFFVQO2MiQVAWuZ2HXcqQJlYaSQIPFubppg0tZEdLlprMhZ6elBZa2_rUUpDoO0TG5oE1xRGNqXe9Z8mHisWVa8aQGKiTN1qSKXMqpfhDMLAz8YxScwHwByckpCGi8eRQ7uM2DXHAm4nHR0iD0ionIJ4XUmSwl8ewlxytgjMyumz3BDTD2rXwC0QK9Iii--IifmI2rkF6tRXpjbQ_AcinDNkGHaLIf2-KAp0YChShrxUpZM8VO3K4LCCzdDQ" 
               alt="Corporate Gatherings" 
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
@@ -143,13 +143,15 @@ export default function DivisionsEditorial() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <div className="md:col-span-6">
           <div className="relative aspect-[3/2] overflow-hidden p-1 bg-gradient-to-tr from-primary/20 to-transparent">
-            <Image 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" 
-              alt="Team Workshop" 
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-out z-10"
-            />
+            <div className="absolute inset-1 z-10 overflow-hidden">
+              <Image 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwGoXmXtDTzSMsNY100PVeu86ZIRqp8UKZrTWPibWIZoWW1nY437fO6H7FJp2GYungB8gdbvU_hxMOTCJqyD9svCq6w1EelZIy-Qn9_NUxx0NLxJK1QXfCV2PR-AFEuQGP_Chq79EEaIqnlJX8nquoHIJOm3wxjQAdDHTP5dff_dES3llGTbntxLtry6UD4DRmm3YqMPSf1mbnbCYCweQEbif4Vp9ylXOfB6FefDyRzjHC5RQq9kSOT42Fiscp7pPeyF8Jg5k12A" 
+                alt="Team Workshop" 
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-out"
+              />
+            </div>
           </div>
         </div>
         <div className="md:col-span-6 md:pl-20 mt-8 md:mt-0">
@@ -195,14 +197,16 @@ export default function DivisionsEditorial() {
           </Link>
         </div>
         <div className="md:col-span-6 order-1 md:order-2">
-          <div className="aspect-square relative overflow-hidden group">
-            <Image 
-              src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80" 
-              alt="Design and Branding" 
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
+          <div className="relative aspect-[3/2] overflow-hidden p-1 bg-gradient-to-tr from-primary/20 to-transparent">
+            <div className="absolute inset-1 z-10 overflow-hidden">
+              <Image 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv0LWNdkItCApsrlddI8l3cjZhgBXE9NjxyWCxLFVQHMaIAhO0seLBPlBa3TpKnShjj8ZJEZkKr_NlAQUk2twoEmsZZO2fTRDycIlHlY4hX39jdVzChfmOZs2fb5tT72iUsRsdjHtah_aYXSjc6NMn-0OGEfLgPeDhIwgrXyCKSbuPvdL5DZBGCerKIU5-HEntwEaDvnphXFdZGtEzRGDN7OxLDzBMWKCja47n3pqqWlGg5Ok61cdLckK97goMQhW4wkATZQw-bA" 
+                alt="Brand Identity and Design Branding on dark premium paper" 
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-out"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -231,9 +235,9 @@ export default function DivisionsEditorial() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-          <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
+          <div className="aspect-[1/1] relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4eiDfctMeJcVk7HYvs8UAhmIMJ67kILBLt0frvq8_F7QH4o4jF4eB5QtSZ4vazKyqHTy0V7duiw3zCsuHt_M8f8omwr3JA3kEYOdxCnfcwE9pEnhpoQOs6NdynD3wy8KgD5m_6GHBAJ8C2TAc94G3f-ErERsIyLtn4vMm-wZ3WxENNcdcPPWZDvwb6GDaMRjfFBrfjI82Cq5XltalzhJZo06eT89sR4QrPs5Wc8X7Lmizn-eAS_2L5PyOlFp29cHFpfAERr-8xw" 
               alt="Community Engagement" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -263,9 +267,9 @@ export default function DivisionsEditorial() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-          <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
+          <div className="aspect-[1/1] relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzw4ZgmWsekGVodBLQvlhHSXj3NXu3sArxBpxrWulOgFKfL1KQXMd3FNG_6ttmzUeMnM60_XoDuqrC0vRVhf2c2wTgZYORPds7On4ArJkBj1JQYjjYxCEQiJiprq7Ve2FJZ0ege1kQ-x7Vg4Ckgq_2_a42URTOPCzasIVOJ850KEUkf0gf76rSAKA89_JVc0cB7W_keklDu1Kv6IfveNAiEjZnlGtax_IkVQf6PtjihCn1terSwCR8NyF2Pe4tEuD3KlTLssdTGw" 
               alt="Tech Ecosystem" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -295,9 +299,9 @@ export default function DivisionsEditorial() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-          <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
+          <div className="aspect-[1/1] relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCRQvVUwENj6Ab7rpzOh20L0PfdPVBg7tIiyF4tkJEvnqicqqBSXxvG-IhpnyjzZBZMIE9a1VqPlhss74l8AsZmXJrIj92VbbdVGKiAQSme2nIy2P5wM972D6x4AWoem_1Y2L4zWHfwP4HqlBCcCtOEd1sR1Iw-mRgF5Z8quJOIzPXFu2YFtbmUfw4KcQkEvvKirK5K9NWPmax9muMq-r5mWTcPMoDewR2bAPBJp0Fdup7aF2H_5FotfeNeRfrYXTROTrKX6JCSg" 
               alt="Experiential Architecture" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

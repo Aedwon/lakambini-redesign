@@ -6,11 +6,9 @@ import ServicesGrid from "@/components/sections/ServicesGrid";
 import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
 import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
-import PageWrapper from "@/components/layout/PageWrapper";
 
 export default function Home() {
   return (
-    <PageWrapper>
       <div className="flex flex-col w-full">
         <Hero />
         <TrustBar />
@@ -26,6 +24,5 @@ export default function Home() {
           ctaHref="/contact" 
         />
       </div>
-    </PageWrapper>
   );
 }

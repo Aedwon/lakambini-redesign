@@ -1,11 +1,9 @@
 import PageHero from "@/components/sections/PageHero";
 import ContactForm from "@/components/sections/ContactForm";
 import SectionHeading from "@/components/ui/SectionHeading";
-import PageWrapper from "@/components/layout/PageWrapper";
 
 export default function ContactPage() {
   return (
-    <PageWrapper>
       <div className="flex flex-col w-full bg-surface">
         <PageHero 
           overline="Contact"
@@ -45,6 +43,5 @@ export default function ContactPage() {
           </div>
         </section>
       </div>
-    </PageWrapper>
   );
 }

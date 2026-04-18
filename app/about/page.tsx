@@ -3,11 +3,9 @@ import FounderStory from "@/components/sections/FounderStory";
 import Approach from "@/components/sections/Approach";
 import EditorialGallery from "@/components/sections/EditorialGallery";
 import CTABanner from "@/components/sections/CTABanner";
-import PageWrapper from "@/components/layout/PageWrapper";
 
 export default function AboutPage() {
   return (
-    <PageWrapper>
       <div className="flex flex-col w-full bg-surface">
         <PageHero 
           overline="About Us"
@@ -30,6 +28,5 @@ export default function AboutPage() {
           ctaHref="/contact"
         />
       </div>
-    </PageWrapper>
   );
 }
