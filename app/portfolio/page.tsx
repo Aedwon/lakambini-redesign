@@ -1,5 +1,5 @@
 import PageHero from "@/components/sections/PageHero";
-import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
+import PortfolioGrid from "@/components/sections/PortfolioGrid";
 import CTABanner from "@/components/sections/CTABanner";
 
 export default function PortfolioPage() {
@@ -7,11 +7,13 @@ export default function PortfolioPage() {
     <div className="flex flex-col w-full bg-surface">
       <PageHero
         overline="Portfolio"
-        title="Our Portfolio"
-        subtitle="A look at some of the events and campaigns we've delivered."
+        title="Work We've Delivered"
+        subtitle="A decade of events, productions, and experiences — across every division."
+        decorativeText="Archive"
+        bgImage="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000&auto=format&fit=crop"
       />
 
-      <PortfolioShowcase />
+      <PortfolioGrid />
 
       <CTABanner
         headline="Let's talk about your next project."

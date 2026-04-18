@@ -26,7 +26,11 @@ const projects = [
   },
 ];
 
-export default function PortfolioShowcase() {
+interface PortfolioShowcaseProps {
+  hideViewAll?: boolean;
+}
+
+export default function PortfolioShowcase({ hideViewAll = false }: PortfolioShowcaseProps) {
   const hero = projects[0];
   const rest = projects.slice(1);
 
@@ -38,9 +42,11 @@ export default function PortfolioShowcase() {
             overline="Recent Work"
             title="Events we've delivered."
           />
-          <Button variant="secondary" href="/portfolio" className="mb-2">
-            View Full Portfolio
-          </Button>
+          {!hideViewAll && (
+            <Button variant="secondary" href="/portfolio" className="mb-2">
+              View Full Portfolio
+            </Button>
+          )}
         </div>
 
         <div className="flex flex-col gap-6">

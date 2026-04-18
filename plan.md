@@ -248,6 +248,10 @@
 - **TODO:** Per-page `metadata` exports (title, description, Open Graph) for Services, About, Portfolio, Contact, and Division pages.
 - **TODO:** Verify single `<h1>` per page, proper heading hierarchy.
 
+### Task 6.5 — Portfolio Page Polish ✅
+- **Fix:** Added `hideViewAll?: boolean` prop to `PortfolioShowcase` — prevents self-referencing "View Full Portfolio" button loop when rendered on `/portfolio`. Home page usage unchanged.
+- **Fix:** Added `decorativeText="Archive"` to Portfolio `PageHero` — now visually consistent with About and Services heroes.
+
 ### Task 6.4 — Performance Optimization 🔲 TODO
 - `next/image` used throughout with `sizes` props.
 - Font loading: `display: swap` on both fonts.
