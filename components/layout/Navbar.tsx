@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -25,27 +25,74 @@ const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
 ];
 
+/* ── Interpolation helpers ─────────────────────────────────────────────── */
+
+/** Linearly interpolate between two values based on progress (0 → 1) */
+function lerp(a: number, b: number, t: number): number {
+  return a + (b - a) * t;
+}
+
+/** Ease-out cubic for a more organic feel */
+function easeOutCubic(t: number): number {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+/* ── Scroll-morph constants ────────────────────────────────────────────── */
+
+/** Scroll range over which the morph occurs (px) */
+const SCROLL_RANGE = 80;
+
+/** Morph property keyframes: [expanded (top), compact (scrolled)] */
+const MORPH = {
+  outerPaddingTop: [0, 12],       // px
+  outerPaddingX: [0, 24],         // px  (6 * 4 = 24 tailwind px-6)
+  outerPaddingXXl: [0, 48],       // px  (xl:px-12)
+  innerPaddingX: [48, 32],        // px  (px-12 → px-8)
+  innerPaddingY: [24, 12],        // px  (py-6 → py-3)
+  borderRadius: [0, 9999],        // px  (none → full)
+  bgOpacity: [0, 0.6],            // 0 → 0.6
+  blurAmount: [0, 20],            // px
+  shadowOpacity: [0, 0.4],        // 0 → 0.4
+  ambientGlowOpacity: [1, 0],     // 1 → 0
+  shimmerOpacity: [1, 0],         // 1 → 0
+} as const;
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [hasMounted, setHasMounted] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+  const rafRef = useRef<number | null>(null);
+
+  /** Derived boolean — still useful for class-based decisions */
+  const isScrolled = scrollProgress > 0.5;
+
+  const updateScrollProgress = useCallback(() => {
+    const raw = Math.min(window.scrollY / SCROLL_RANGE, 1);
+    setScrollProgress(easeOutCubic(raw));
+    rafRef.current = null;
+  }, []);
 
   useEffect(() => {
     const mountTimer = setTimeout(() => setHasMounted(true), 100);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(updateScrollProgress);
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    // Initial calculation
+    updateScrollProgress();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(mountTimer);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [updateScrollProgress]);
 
   // Close everything on route change
   useEffect(() => {
@@ -59,6 +106,23 @@ export default function Navbar() {
     setIsMobileServicesOpen(false);
     setIsOpen(false);
   };
+
+  /* ── Computed interpolated values ──────────────────────────────────── */
+  const t = scrollProgress; // shorthand
+
+  const outerPadTop = lerp(MORPH.outerPaddingTop[0], MORPH.outerPaddingTop[1], t);
+  const outerPadX = lerp(MORPH.outerPaddingX[0], MORPH.outerPaddingX[1], t);
+  const innerPadX = lerp(MORPH.innerPaddingX[0], MORPH.innerPaddingX[1], t);
+  const innerPadY = lerp(MORPH.innerPaddingY[0], MORPH.innerPaddingY[1], t);
+  const borderRadius = lerp(MORPH.borderRadius[0], MORPH.borderRadius[1], t);
+  const bgOpacity = lerp(MORPH.bgOpacity[0], MORPH.bgOpacity[1], t);
+  const blurAmount = lerp(MORPH.blurAmount[0], MORPH.blurAmount[1], t);
+  const shadowOp = lerp(MORPH.shadowOpacity[0], MORPH.shadowOpacity[1], t);
+  const ambientGlow = lerp(MORPH.ambientGlowOpacity[0], MORPH.ambientGlowOpacity[1], t);
+  const shimmerOp = lerp(MORPH.shimmerOpacity[0], MORPH.shimmerOpacity[1], t);
+
+  // Max-width: lerp from a huge value (3000) down to 1536 (screen-2xl)
+  const maxWidth = lerp(3000, 1536, t);
 
   return (
     <>
@@ -74,30 +138,37 @@ export default function Navbar() {
       {/* ── Outer nav shell ────────────────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 w-full
-          transition-[padding] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-          ${isScrolled ? "pt-3 px-6 xl:px-12" : "pt-0 px-0"}
           ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
         `}
-        style={{ transitionProperty: "padding, opacity, transform" }}
+        style={{
+          paddingTop: `${outerPadTop}px`,
+          paddingLeft: `${outerPadX}px`,
+          paddingRight: `${outerPadX}px`,
+          transition: hasMounted ? "opacity 0.7s ease, transform 0.7s ease" : "none",
+        }}
       >
-        {/* Inner bar — morphs visually (bg, radius, shadow, inner padding) */}
+        {/* Inner bar — morphs smoothly via interpolated inline styles */}
         <div
-          className={`mx-auto flex items-center justify-between relative
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${
-              isScrolled
-                ? "max-w-screen-2xl rounded-full bg-[#11231C]/60 backdrop-blur-[20px] shadow-[0_20px_50px_rgba(4,21,15,0.4)] px-8 py-3"
-                : "max-w-none rounded-none bg-transparent backdrop-blur-0 shadow-none px-12 py-6"
-            }
-          `}
+          className="mx-auto flex items-center justify-between relative"
+          style={{
+            maxWidth: `${maxWidth}px`,
+            borderRadius: `${borderRadius}px`,
+            backgroundColor: `rgba(17, 35, 28, ${bgOpacity})`,
+            backdropFilter: `blur(${blurAmount}px)`,
+            WebkitBackdropFilter: `blur(${blurAmount}px)`,
+            boxShadow: `0 20px 50px rgba(4, 21, 15, ${shadowOp})`,
+            paddingLeft: `${innerPadX}px`,
+            paddingRight: `${innerPadX}px`,
+            paddingTop: `${innerPadY}px`,
+            paddingBottom: `${innerPadY}px`,
+          }}
         >
-          {/* Ambient glow backdrop — visible only when transparent */}
+          {/* Ambient glow backdrop — visible only when at top */}
           <div
-            className={`absolute inset-0 pointer-events-none rounded-[inherit]
-              transition-opacity duration-700 ease-out
-              ${isScrolled ? "opacity-0" : "opacity-100"}
-            `}
+            className="absolute inset-0 pointer-events-none"
             style={{
+              borderRadius: "inherit",
+              opacity: ambientGlow,
               background:
                 "linear-gradient(180deg, rgba(5,23,16,0.55) 0%, rgba(5,23,16,0.25) 60%, transparent 100%)",
             }}
@@ -105,10 +176,8 @@ export default function Navbar() {
 
           {/* Animated gold shimmer line — sweeps across bottom on entrance */}
           <div
-            className={`absolute bottom-0 left-0 right-0 h-px pointer-events-none overflow-hidden
-              transition-opacity duration-500
-              ${isScrolled ? "opacity-0" : "opacity-100"}
-            `}
+            className="absolute bottom-0 left-0 right-0 h-px pointer-events-none overflow-hidden"
+            style={{ opacity: shimmerOp }}
           >
             <div
               className={`h-full w-full ${hasMounted ? "navbar-shimmer" : ""}`}
@@ -133,9 +202,12 @@ export default function Navbar() {
               alt="Lakambini Logo"
               width={200}
               height={40}
-              className={`h-8 w-auto object-contain transition-[filter] duration-700
-                ${isScrolled ? "drop-shadow-none" : "drop-shadow-[0_0_12px_rgba(233,194,85,0.3)]"}
-              `}
+              className="h-8 w-auto object-contain transition-[filter] duration-700"
+              style={{
+                filter: isScrolled
+                  ? "none"
+                  : "drop-shadow(0 0 12px rgba(233,194,85,0.3))",
+              }}
               priority
             />
           </Link>
@@ -220,16 +292,34 @@ export default function Navbar() {
 
           {/* Desktop CTA & Mobile Toggle */}
           <div className="flex items-center gap-6 relative z-10">
+            {/* ── Inquire button: layered crossfade between ghost ↔ solid ── */}
             <div
-              className={`hidden md:block transition-all duration-500 ease-out delay-100 ${
-                isScrolled
-                  ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
-                  : "opacity-0 -translate-x-4 scale-90 pointer-events-none"
-              }`}
+              className={`hidden md:block relative transition-all duration-500 ease-out
+                ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
+              `}
+              style={{
+                transitionDelay: hasMounted ? "470ms" : "0ms",
+              }}
             >
-              <Button variant="primary" href="/contact">
-                Inquire
-              </Button>
+              {/* Ghost / outline button (visible at top, fades out on scroll) */}
+              <div
+                style={{ opacity: 1 - t }}
+                className={t >= 1 ? "pointer-events-none" : ""}
+              >
+                <Button variant="secondary" href="/contact">
+                  Inquire
+                </Button>
+              </div>
+
+              {/* Solid primary button (fades in on scroll) */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center ${t <= 0 ? "pointer-events-none" : ""}`}
+                style={{ opacity: t }}
+              >
+                <Button variant="primary" href="/contact">
+                  Inquire
+                </Button>
+              </div>
             </div>
 
             {/* Mobile Hamburger */}
@@ -261,13 +351,15 @@ export default function Navbar() {
           `}
         >
           <div
-            className={`mx-auto mt-3 overflow-hidden
+            className="mx-auto mt-3 overflow-hidden
               bg-[#0D1F18]/85 backdrop-blur-[24px]
               shadow-[0_20px_60px_rgba(0,0,0,0.5)]
               border border-outline-variant/10
-              transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-              ${isScrolled ? "max-w-screen-2xl rounded-2xl" : "max-w-none rounded-b-2xl"}
-            `}
+              transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{
+              maxWidth: isScrolled ? "1536px" : "none",
+              borderRadius: isScrolled ? "16px" : "0 0 16px 16px",
+            }}
           >
             {/* "Services Overview →" link at top */}
             <div className="px-8 pt-5 pb-3 border-b border-outline-variant/10">
