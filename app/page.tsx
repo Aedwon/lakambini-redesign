@@ -1,23 +1,28 @@
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import ProblemSolution from "@/components/sections/ProblemSolution";
+import Process from "@/components/sections/Process";
 import ServicesGrid from "@/components/sections/ServicesGrid";
-import TechHighlight from "@/components/sections/TechHighlight";
+import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
+import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
 import PageWrapper from "@/components/layout/PageWrapper";
 
 export default function Home() {
   return (
     <PageWrapper>
-      <div className="flex flex-col w-full gap-20 md:gap-32 pb-32">
+      <div className="flex flex-col w-full">
         <Hero />
         <TrustBar />
         <ProblemSolution />
+        <Process />
         <ServicesGrid />
-        <TechHighlight />
+        <PortfolioShowcase />
+        <Testimonials />
         <CTABanner 
-          headline="Ready to start your next project?" 
-          ctaLabel="Start Your Project" 
+          headline="Have an event in mind? Let's talk."
+          subtitle="Tell us what you're planning. We'll tell you how we can help."
+          ctaLabel="Book a Discovery Call" 
           ctaHref="/contact" 
         />
       </div>
