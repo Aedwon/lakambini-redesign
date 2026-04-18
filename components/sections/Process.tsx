@@ -26,7 +26,7 @@ export default function Process() {
     <section className="w-full bg-surface-container-low py-20 md:py-32">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col gap-16">
         {/* Section Header */}
-        <div className="flex flex-col gap-4 max-w-2xl">
+        <div className="flex flex-col gap-4 max-w-3xl mx-auto text-center">
           <span className="label-sm text-primary uppercase tracking-widest">
             How We Work
           </span>

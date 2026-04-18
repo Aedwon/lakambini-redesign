@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DivisionsEditorial() {
   return (
@@ -26,10 +27,16 @@ export default function DivisionsEditorial() {
             Live events, concerts, music festivals, and artist management. We handle the stage so the talent can perform.
           </p>
           <ul className="flex flex-wrap gap-3">
-            {["Event Performance", "Concerts", "Festivals", "Talent Management"].map(t => (
+            {["Concerts", "Music Festivals", "Virtual Events", "Event Performances", "Talent Management"].map(t => (
               <li key={t} className="px-4 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
             ))}
           </ul>
+          <Link href="/services/tanghal" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mt-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
 
@@ -43,10 +50,16 @@ export default function DivisionsEditorial() {
             End-to-end video production, motion graphics, and sound design. From event recaps to full campaign films.
           </p>
           <ul className="flex flex-wrap gap-3 justify-end md:justify-start">
-            {["Video Production", "Music Videos", "Motion Graphics", "Sound Design"].map(t => (
+            {["Video Production", "Music Videos", "Video Editing", "Motion Graphics", "Sound Design"].map(t => (
               <li key={t} className="px-4 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
             ))}
           </ul>
+          <Link href="/services/likha" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mt-6 group/learn self-end md:self-start">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
         <div className="md:col-span-7 order-1 md:order-2">
           <div className="relative overflow-hidden group aspect-[4/3]">
@@ -69,10 +82,21 @@ export default function DivisionsEditorial() {
           <span className="headline-sm text-primary/40 font-bold block mb-4">03</span>
           <h2 className="headline-md text-primary mb-4">MERKATO</h2>
           <p className="label-sm text-on-surface-variant mb-6">Experiential Marketing</p>
-          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-8 flex-grow">
+          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
             Product sampling, pop-ups, street teams, and guerrilla campaigns. Direct-to-consumer activations that move product.
           </p>
-          <div className="aspect-video relative overflow-hidden mt-4">
+          <ul className="flex flex-wrap gap-2 mb-5">
+            {["Product Sampling", "Pop-Up Shops", "Experiential Marketing", "Street Teams", "Guerrilla Marketing", "In-Store Demos"].map(t => (
+              <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
+            ))}
+          </ul>
+          <Link href="/services/merkato" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mb-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          <div className="aspect-video relative overflow-hidden mt-auto">
             <Image 
               src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80" 
               alt="Experiential Activations" 
@@ -87,11 +111,22 @@ export default function DivisionsEditorial() {
         <div className="bg-surface-container-low p-8 md:p-12 hover:bg-surface-container transition-colors duration-500 md:mt-24 group flex flex-col h-full">
           <span className="headline-sm text-primary/40 font-bold block mb-4">04</span>
           <h2 className="headline-md text-primary mb-4">TIPON</h2>
-          <p className="label-sm text-on-surface-variant mb-6">Events & Activations</p>
-          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-8 flex-grow">
+          <p className="label-sm text-on-surface-variant mb-6">Event Production & Management</p>
+          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
             Trade shows, sponsorship activations, fun runs, and mall events. Reliable logistics from load-in to strike.
           </p>
-          <div className="aspect-video relative overflow-hidden mt-4">
+          <ul className="flex flex-wrap gap-2 mb-5">
+            {["Trade Shows", "Conventions", "Company Events", "Mall Activations", "Live Streaming", "Outdoor Events"].map(t => (
+              <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
+            ))}
+          </ul>
+          <Link href="/services/tipon" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mb-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          <div className="aspect-video relative overflow-hidden mt-auto">
             <Image 
               src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80" 
               alt="Corporate Gatherings" 
@@ -125,10 +160,16 @@ export default function DivisionsEditorial() {
             Corporate workshops, team-building programs, trainings, and conferences. Practical sessions your teams will actually use.
           </p>
           <ul className="flex flex-wrap gap-3">
-            {["Workshops", "Trainings", "Team Building"].map(t => (
+            {["Workshops", "Trainings", "Team Building", "Conferences", "Team Development"].map(t => (
               <li key={t} className="px-4 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
             ))}
           </ul>
+          <Link href="/services/sibol" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mt-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
 
@@ -142,10 +183,16 @@ export default function DivisionsEditorial() {
             Graphic design, branding, billboard ads, and illustration. Consistent visual identity across every touchpoint.
           </p>
           <ul className="flex flex-wrap gap-3 justify-end">
-            {["Graphic Design", "Logo Creation", "Billboard Ads"].map(t => (
+            {["Graphic Design", "Logo Creation", "Branding", "Billboard Ads", "Illustration"].map(t => (
               <li key={t} className="px-4 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
             ))}
           </ul>
+          <Link href="/services/guhit" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mt-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
         <div className="md:col-span-6 order-1 md:order-2">
           <div className="aspect-square relative overflow-hidden group">
@@ -169,10 +216,21 @@ export default function DivisionsEditorial() {
             <span className="headline-sm text-primary/40 font-bold">07</span>
           </div>
           <h3 className="headline-md text-primary mb-4">UGNAY</h3>
-          <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Community & Engagement</p>
-          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-8 flex-grow">
+          <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Community Management & Growth</p>
+          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
             Community management, grassroots engagement, and influencer partnerships. Building audiences that stick around.
           </p>
+          <ul className="flex flex-wrap gap-2 mb-4">
+            {["Community Management", "Audience Retention", "Grassroots Engagement", "Channel Moderation", "Influencer Seeding"].map(t => (
+              <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
+            ))}
+          </ul>
+          <Link href="/services/ugnay" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mb-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
           <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80" 
@@ -191,9 +249,20 @@ export default function DivisionsEditorial() {
           </div>
           <h3 className="headline-md text-primary mb-4">DALOY</h3>
           <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Technology & Development</p>
-          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-8 flex-grow">
+          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
             Custom event apps, registration kiosks, real-time dashboards, and workflow automation. Tech that works on event day.
           </p>
+          <ul className="flex flex-wrap gap-2 mb-4">
+            {["Web & Mobile Apps", "Event Applications", "VIP Registration", "Analytics Dashboards", "Survey Kiosks"].map(t => (
+              <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
+            ))}
+          </ul>
+          <Link href="/services/daloy" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mb-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
           <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80" 
@@ -212,9 +281,20 @@ export default function DivisionsEditorial() {
           </div>
           <h3 className="headline-md text-primary mb-4">TAYO</h3>
           <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Experiential Architecture</p>
-          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-8 flex-grow">
+          <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
             Stage design, custom booths, immersive rooms, and large-scale installations. We build what others only render.
           </p>
+          <ul className="flex flex-wrap gap-2 mb-4">
+            {["Stage Fabrication", "Custom Booths", "Set Design", "Props Making", "Installation & Dismantling"].map(t => (
+              <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
+            ))}
+          </ul>
+          <Link href="/services/tayo" className="inline-flex items-center gap-1.5 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 mb-6 group/learn">
+            Learn More
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover/learn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
           <div className="aspect-square relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mt-auto">
             <Image 
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" 
