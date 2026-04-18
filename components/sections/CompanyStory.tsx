@@ -7,7 +7,7 @@ export default function CompanyStory() {
           {/* Headline Column */}
           <div className="md:col-span-6">
             <h2 className="headline-lg text-on-surface leading-[1.2] tracking-tight">
-              Built on the belief that the best events happen when the host can <span className="text-primary italic">focus on what matters.</span>
+              Built on the belief that the best events happen when the client can <span className="text-primary italic">focus on what matters.</span>
             </h2>
           </div>
 
