@@ -2,8 +2,9 @@
 
 > **Source:** [Google Stitch Project #7832304664184726637](https://stitch.withgoogle.com/projects/7832304664184726637)
 > **Design System:** Emerald Editorial · Asset ID `ecfae069385b4318bb4b49a261cd82ea`
-> **Generated:** 2026-04-18 · **Role:** @Product_Manager
+> **Generated:** 2026-04-18 · **Updated:** 2026-04-18 · **Role:** @Product_Manager
 > **Architecture Reference:** `.agent/architecture.md`
+> **Styling:** Tailwind CSS v4 via `@tailwindcss/postcss` — tokens in `styles/globals.css` `@theme { ... }` (no `tailwind.config.js`)
 
 ---
 
@@ -375,48 +376,60 @@ Cross-referenced with `.agent/architecture.md` routing map.
 
 | # | Section | Component Path | Surface Tier | Key Elements |
 |---|---|---|---|---|
-| 1 | **Hero Banner** | `components/sections/Hero.tsx` | `surface` + hero-gradient | Full-viewport, `display-lg` gold headline, `label-sm` overline, dual CTAs (primary + secondary), asymmetric floating images |
+| 1 | **Hero Banner** | `components/sections/Hero.tsx` | `surface` + hero-gradient | Full-viewport, `display-hero` responsive headline, `label-sm` overline, dual CTAs (primary + secondary), decorative watermark |
 | 2 | **Trust Signal Bar** | `components/sections/TrustBar.tsx` | `surface-container-lowest` | Client logos (grayscale, `opacity-40`), `label-md` text |
 | 3 | **Problem / Solution** | `components/sections/ProblemSolution.tsx` | `surface` | Two-column — editorial headline + accent feature cards with `border-l-4 border-primary` |
-| 4 | **Services Overview** | `components/sections/ServicesGrid.tsx` | `surface-container-lowest` | Bento grid (2:1 + 1:1 aspect ratios), image cards with gradient overlay text |
-| 5 | **Technology Highlight** | `components/sections/TechHighlight.tsx` | `surface` | Two-column split panel on `surface-container-high`, icon feature list |
-| 6 | **CTA Banner** | `components/sections/CTABanner.tsx` | `surface` | Centered `headline-lg`, gold gradient CTA |
-| 7 | **Footer** | `components/layout/Footer.tsx` | `surface-container-lowest` | 3-column: brand + nav + newsletter signup |
+| 4 | **Process** | `components/sections/Process.tsx` | `surface-container-low` | 4-step grid (Discovery → Concept → Production → Delivery), gold accent lines, connecting arrows |
+| 5 | **Services Grid** | `components/sections/ServicesGrid.tsx` | `surface-container-lowest` | Bento grid, image cards with gradient overlay text, links to division pages |
+| 6 | **Portfolio Showcase** | `components/sections/PortfolioShowcase.tsx` | `surface` | Featured project (full width) + 2-col secondary grid, overlay labels |
+| 7 | **Testimonials** | `components/sections/Testimonials.tsx` | `surface` | 3-column card grid, decorative quotes, client attribution |
+| 8 | **CTA Banner** | `components/sections/CTABanner.tsx` | `surface` | Centered `headline-lg`, gold gradient CTA |
+| 9 | **Footer** | `components/layout/Footer.tsx` | `surface-container-lowest` | 3-column: brand + nav + newsletter signup |
 
 ### 8.2 About Page (`/about/` → `app/about/page.tsx`)
 
 | # | Section | Component Path | Key Elements |
 |---|---|---|---|
-| 1 | **Page Hero** | `components/sections/PageHero.tsx` | `display-lg` title with `Est. 2014` overline, asymmetric editorial grid, full-height image |
+| 1 | **Page Hero** | `components/sections/PageHero.tsx` | `display-lg` title "The Lakambini Legacy" with "About Us" overline |
 | 2 | **Founder Story** | `components/sections/FounderStory.tsx` | Portrait image, editorial text, founder title, asymmetric two-column |
 | 3 | **Our Approach** | `components/sections/Approach.tsx` | 3-card grid on `surface-container-high`, icon + headline + body, center card elevated |
 | 4 | **Editorial Gallery** | `components/sections/EditorialGallery.tsx` | Asymmetric bento grid (8/4 split), glass-panel stat overlay, metrics display |
-| 5 | **CTA Banner** | `components/sections/CTABanner.tsx` | Centered CTA with decorative SVG background |
+| 5 | **CTA Banner** | `components/sections/CTABanner.tsx` | Centered CTA |
 
 ### 8.3 Services Page (`/services/` → `app/services/page.tsx`)
 
 | # | Section | Component Path | Key Elements |
 |---|---|---|---|
-| 1 | **Page Hero** | `components/sections/PageHero.tsx` | `display-lg` headline, `label-sm` "Our Capabilities" overline, `body-lg` intro |
+| 1 | **Page Hero** | `components/sections/PageHero.tsx` | "Nine Divisions. One Team." headline with decorative "9" watermark |
 | 2 | **Divisions Editorial Grid** | `components/sections/DivisionsEditorial.tsx` | 9 divisions in alternating editorial layouts (see §9) |
-| 3 | **CTA Banner** | `components/sections/CTABanner.tsx` | "Start Your Project" CTA |
+| 3 | **CTA Banner** | `components/sections/CTABanner.tsx` | "Book a Discovery Call" CTA |
 
 ### 8.4 Portfolio Page (`/portfolio/` → `app/portfolio/page.tsx`)
 
 | # | Section | Component Path | Key Elements |
 |---|---|---|---|
-| 1 | **Page Hero** | `components/sections/PageHero.tsx` | `display-lg` headline, `body-lg` subtitle, centered layout |
-| 2 | **Filter Bar** | `components/sections/FilterBar.tsx` | Horizontal pill-chip filters (All, Concerts, Corporate, Experiential, Tech) |
-| 3 | **Portfolio Grid** | `components/sections/PortfolioGrid.tsx` | Bento grid (`grid-cols-12`, `auto-rows-[400px]`), image cards with overlay labels, `mix-blend-luminosity` base with hover reveal |
-| 4 | **CTA Banner** | `components/sections/CTABanner.tsx` | "Start Your Project" CTA |
+| 1 | **Page Hero** | `components/sections/PageHero.tsx` | `display-lg` "Our Portfolio" headline, `body-lg` subtitle |
+| 2 | **Portfolio Showcase** | `components/sections/PortfolioShowcase.tsx` | Featured project (full width) + 2-col secondary grid, image cards with overlay labels |
+| 3 | **CTA Banner** | `components/sections/CTABanner.tsx` | "Book a Discovery Call" CTA |
 
-### 8.5 Division Detail Pages (`/services/[division]` → `app/services/[division]/page.tsx`)
+### 8.5 Contact Page (`/contact/` → `app/contact/page.tsx`)
 
 | # | Section | Component Path | Key Elements |
 |---|---|---|---|
-| 1 | **Division Hero** | `components/sections/DivisionHero.tsx` | Specific to the division, large `display-lg` headline with the division name and tagline mapping uniquely to the HTML reference templates. |
-| 2 | **Service Deep Dives** | `components/sections/ServiceDeepDive.tsx` | Expands on the bento grid or list layout for the individual services inside the division (e.g., stage design, immersive rooms for TAYO). |
-| 3 | **CTA Banner** | `components/sections/CTABanner.tsx` | "Start Your Project" CTA |
+| 1 | **Page Hero** | `components/sections/PageHero.tsx` | "Get in Touch" headline, subtitle |
+| 2 | **Contact Form** | `components/sections/ContactForm.tsx` | Name, email, company, event type, message fields; gold-accented bottom-border inputs |
+| 3 | **Office Details** | Inline in `page.tsx` | SectionHeading + contact info grid (email, phone, address) |
+
+### 8.6 Division Detail Pages (`/services/{slug}/` → `app/services/{slug}/page.tsx`)
+
+> **Note:** Division pages use **static child routes** (e.g., `app/services/tayo/page.tsx`), not dynamic `[division]` routing. Each page has custom deep-dive content.
+
+| # | Section | Component Path | Key Elements |
+|---|---|---|---|
+| 1 | **Division Hero** | `components/sections/DivisionHero.tsx` | `display-lg` division name, subtitle, description, capabilities chips, hero image, decorative watermark |
+| 2 | **Service Deep Dives** | Custom per page | Bento grids, editorial layouts, feature lists — unique to each division. Content references: `references/{slug}.html` |
+| 3 | **Division Cross-Links** | `components/sections/DivisionCrossLinks.tsx` | Horizontal scrollable card track of other divisions |
+| 4 | **CTA Banner** | `components/sections/CTABanner.tsx` | Division-specific CTA headline from `lib/divisions.ts` |
 
 ---
 
