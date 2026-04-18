@@ -202,3 +202,27 @@
   --color-error: #FFB4AB;
 }
 
+/* ─── Navbar Entrance Animations ──────────────────────────────────────────── */
+
+@keyframes navbar-shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  60% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: -50% 0;
+    opacity: 0;
+  }
+}
+
+.navbar-shimmer {
+  animation: navbar-shimmer-sweep 2s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0.7;
+}
+
+.nav-text-glow {
+  text-shadow: 0 0 20px rgba(233, 194, 85, 0.15), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
