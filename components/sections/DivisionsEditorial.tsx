@@ -47,7 +47,7 @@ export default function DivisionsEditorial() {
           <h2 className="headline-lg text-primary mb-6">LIKHA</h2>
           <p className="label-sm text-on-surface-variant mb-4">Multimedia Production</p>
           <p className="body-lg text-on-surface/80 leading-relaxed mb-8 font-light">
-            End-to-end video production, motion graphics, and sound design. From event recaps to full campaign films.
+            End-to-end video production, motion graphics, and sound design — from brand campaigns and music videos to event coverage and commercial content.
           </p>
           <ul className="flex flex-wrap gap-3 justify-end md:justify-start">
             {["Video Production", "Music Videos", "Video Editing", "Motion Graphics", "Sound Design"].map(t => (
@@ -83,7 +83,7 @@ export default function DivisionsEditorial() {
           <h2 className="headline-md text-primary mb-4">MERKATO</h2>
           <p className="label-sm text-on-surface-variant mb-6">Experiential Marketing</p>
           <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
-            Product sampling, pop-ups, street teams, and guerrilla campaigns. Direct-to-consumer activations that move product.
+            Product sampling, pop-up activations, street teams, and guerrilla campaigns — direct-to-consumer marketing strategies that drive real engagement and move product.
           </p>
           <ul className="flex flex-wrap gap-2 mb-5">
             {["Product Sampling", "Pop-Up Shops", "Experiential Marketing", "Street Teams", "Guerrilla Marketing", "In-Store Demos"].map(t => (
@@ -180,7 +180,7 @@ export default function DivisionsEditorial() {
           <h2 className="headline-lg text-primary mb-6">GUHIT</h2>
           <p className="label-sm text-on-surface-variant mb-4">Design & Visual Identity</p>
           <p className="body-lg text-on-surface/80 leading-relaxed font-light mb-6">
-            Graphic design, branding, billboard ads, and illustration. Consistent visual identity across every touchpoint.
+            Graphic design, branding, out-of-home advertising, and illustration — building cohesive visual identities for brands, campaigns, and events alike.
           </p>
           <ul className="flex flex-wrap gap-3 justify-end">
             {["Graphic Design", "Logo Creation", "Branding", "Billboard Ads", "Illustration"].map(t => (
@@ -218,7 +218,7 @@ export default function DivisionsEditorial() {
           <h3 className="headline-md text-primary mb-4">UGNAY</h3>
           <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Community Management & Growth</p>
           <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
-            Community management, grassroots engagement, and influencer partnerships. Building audiences that stick around.
+            End-to-end community management, audience development, and influencer partnerships — building and retaining engaged digital communities across any platform.
           </p>
           <ul className="flex flex-wrap gap-2 mb-4">
             {["Community Management", "Audience Retention", "Grassroots Engagement", "Channel Moderation", "Influencer Seeding"].map(t => (
@@ -250,10 +250,10 @@ export default function DivisionsEditorial() {
           <h3 className="headline-md text-primary mb-4">DALOY</h3>
           <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Technology & Development</p>
           <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
-            Custom event apps, registration kiosks, real-time dashboards, and workflow automation. Tech that works on event day.
+            Full-stack web and mobile development, custom software solutions, and workflow automation — from business platforms and SaaS products to event-day applications.
           </p>
           <ul className="flex flex-wrap gap-2 mb-4">
-            {["Web & Mobile Apps", "Event Applications", "VIP Registration", "Analytics Dashboards", "Survey Kiosks"].map(t => (
+            {["Web & Mobile Apps", "Custom Software", "Workflow Automation", "Analytics Dashboards", "Interactive Kiosks"].map(t => (
               <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
             ))}
           </ul>
@@ -282,10 +282,10 @@ export default function DivisionsEditorial() {
           <h3 className="headline-md text-primary mb-4">TAYO</h3>
           <p className="label-sm text-on-surface-variant mb-6 h-[2rem]">Experiential Architecture</p>
           <p className="body-md text-on-surface/80 leading-relaxed font-light mb-6">
-            Stage design, custom booths, immersive rooms, and large-scale installations. We build what others only render.
+            Custom fabrication, spatial design, and large-scale builds — from event stages and exhibition booths to permanent retail spaces and immersive environments.
           </p>
           <ul className="flex flex-wrap gap-2 mb-4">
-            {["Stage Fabrication", "Custom Booths", "Set Design", "Props Making", "Installation & Dismantling"].map(t => (
+            {["Stage Fabrication", "Custom Booths", "Spatial Design", "Props & Theming", "Permanent Installations"].map(t => (
               <li key={t} className="px-3 py-1 border border-outline-variant/30 rounded-full label-md text-primary/80">{t}</li>
             ))}
           </ul>
