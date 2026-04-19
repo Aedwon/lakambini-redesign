@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import ProblemSolution from "@/components/sections/ProblemSolution";
+import AboutPreview from "@/components/sections/AboutPreview";
 import Process from "@/components/sections/Process";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
@@ -26,6 +27,7 @@ export default function Home() {
         <Hero />
         <TrustBar />
         <ProblemSolution />
+        <AboutPreview />
         <Process />
         <ServicesGrid />
         <PortfolioShowcase />

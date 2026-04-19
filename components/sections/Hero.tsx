@@ -26,8 +26,7 @@ export default function Hero() {
           Full Service Events &amp; Creative Agency
         </span>
         <h1 className="display-hero text-on-surface leading-[1.05] font-extrabold max-w-4xl">
-          We turn bold ideas into <br />
-          <span className="gold-gradient-text italic font-medium inline-block pr-[0.15em]">exceptional</span> event experiences.
+          We turn bold ideas into <span className="gold-gradient-text italic font-medium inline-block pr-[0.15em]">exceptional</span> event experiences.
         </h1>
         <p className="body-lg text-on-surface/80 max-w-xl font-light">
           From concept to execution — we plan, produce, and deliver events that make an impact.

@@ -51,7 +51,7 @@ export default function PortfolioShowcase({ hideViewAll = false }: PortfolioShow
 
         <div className="flex flex-col gap-6">
           {/* Featured Project — Full Width */}
-          <div className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden group">
+          <div className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden group ghost-border rounded-sm">
             <div className="absolute inset-0 bg-surface/40 z-10 transition-colors duration-600 group-hover:bg-surface/20" />
             <Image
               src={hero.img}
@@ -70,7 +70,7 @@ export default function PortfolioShowcase({ hideViewAll = false }: PortfolioShow
           {/* Secondary Projects — Side by Side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {rest.map((project) => (
-              <div key={project.title} className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden group">
+              <div key={project.title} className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden group ghost-border rounded-sm">
                 <div className="absolute inset-0 bg-surface/40 z-10 transition-colors duration-600 group-hover:bg-surface/20" />
                 <Image
                   src={project.img}

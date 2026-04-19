@@ -11,14 +11,14 @@
   --color-primary: #E9C255;
   --color-primary-container: #BF9B31;
   --color-on-primary: #3D2E00;
-  
+
   --color-secondary: #A9CFBA;
   --color-secondary-container: #2B4E3E;
   --color-on-secondary: #133728;
-  
+
   --color-tertiary: #C6C6C7;
   --color-tertiary-container: #9E9F9F;
-  
+
   --color-surface: #051710;
   --color-surface-bright: #2B3D36;
   --color-surface-dim: #051710;
@@ -28,10 +28,10 @@
   --color-surface-container-high: #1C2E27;
   --color-surface-container-highest: #273831;
   --color-surface-variant: #273831;
-  
+
   --color-on-surface: #D2E7DD;
   --color-on-surface-variant: #D0C5B0;
-  
+
   --color-outline: #99907D;
   --color-outline-variant: #4D4636;
   --color-error: #FFB4AB;
@@ -46,11 +46,12 @@
 @layer utilities {
   .display-hero {
     font-family: var(--font-headline);
-    font-size: clamp(2.75rem, 6vw + 1rem, 7rem);
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
     line-height: 1.05;
     font-weight: 400;
     letter-spacing: -0.03em;
   }
+
   .display-lg {
     font-family: var(--font-headline);
     font-size: clamp(2.5rem, 5vw + 1rem, 3.5625rem);
@@ -58,78 +59,91 @@
     font-weight: 400;
     letter-spacing: -0.02em;
   }
+
   .display-md {
     font-family: var(--font-headline);
     font-size: clamp(2.25rem, 4vw + 1rem, 2.8125rem);
     line-height: 1.15;
     font-weight: 400;
   }
+
   .display-sm {
     font-family: var(--font-headline);
     font-size: clamp(1.75rem, 3vw + 1rem, 2.25rem);
     line-height: 1.2;
     font-weight: 400;
   }
+
   .headline-lg {
     font-family: var(--font-headline);
     font-size: 2rem;
     line-height: 2.5rem;
     font-weight: 400;
   }
+
   .headline-md {
     font-family: var(--font-headline);
     font-size: 1.75rem;
     line-height: 2.25rem;
     font-weight: 400;
   }
+
   .headline-sm {
     font-family: var(--font-headline);
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 400;
   }
+
   .title-lg {
     font-family: var(--font-body);
     font-size: 1.375rem;
     line-height: 1.75rem;
     font-weight: 500;
   }
+
   .title-md {
     font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 500;
   }
+
   .title-sm {
     font-family: var(--font-body);
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
   }
+
   .body-lg {
     font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.625;
     font-weight: 300;
   }
+
   .body-md {
     font-family: var(--font-body);
     font-size: 0.875rem;
     line-height: 1.625;
     font-weight: 400;
   }
+
   .body-sm {
     font-family: var(--font-body);
     font-size: 0.75rem;
     line-height: 1.625;
     font-weight: 400;
   }
+
   .label-lg {
     font-family: var(--font-body);
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
   }
+
   .label-md {
     font-family: var(--font-body);
     font-size: 0.75rem;
@@ -137,6 +151,7 @@
     font-weight: 500;
     letter-spacing: 0.05rem;
   }
+
   .label-sm {
     font-family: var(--font-body);
     font-size: 0.6875rem;
@@ -149,23 +164,29 @@
   .ambient-shadow {
     box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
   }
+
   .ghost-border {
-    border: 1px solid rgba(77, 70, 54, 0.20);
+    border: 1px solid rgba(153, 144, 125, 0.25);
+    /* Subtle but defined using outline-variant/30 equivalent */
   }
+
   .glassmorphism {
     background: rgba(39, 56, 49, 0.60);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
+
   .hero-gradient {
     background: radial-gradient(circle at top right, rgba(233, 194, 85, 0.08), transparent 40%),
-                radial-gradient(circle at bottom left, rgba(169, 207, 186, 0.05), transparent 40%);
+      radial-gradient(circle at bottom left, rgba(169, 207, 186, 0.05), transparent 40%);
   }
+
   .gold-gradient-text {
     background: linear-gradient(135deg, #E9C255 0%, #BF9B31 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
   .marble-texture {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     opacity: 0.03;
@@ -174,6 +195,7 @@
   .card-lift {
     transition: transform 500ms ease-out, box-shadow 500ms ease-out;
   }
+
   .card-lift:hover {
     transform: translateY(-0.75rem);
     box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
@@ -184,14 +206,14 @@
   --color-primary: #E9C255;
   --color-primary-container: #BF9B31;
   --color-on-primary: #3D2E00;
-  
+
   --color-secondary: #A9CFBA;
   --color-secondary-container: #2B4E3E;
   --color-on-secondary: #133728;
-  
+
   --color-tertiary: #C6C6C7;
   --color-tertiary-container: #9E9F9F;
-  
+
   --color-surface: #051710;
   --color-surface-bright: #2B3D36;
   --color-surface-dim: #051710;
@@ -201,10 +223,10 @@
   --color-surface-container-high: #1C2E27;
   --color-surface-container-highest: #273831;
   --color-surface-variant: #273831;
-  
+
   --color-on-surface: #D2E7DD;
   --color-on-surface-variant: #D0C5B0;
-  
+
   --color-outline: #99907D;
   --color-outline-variant: #4D4636;
   --color-error: #FFB4AB;
@@ -216,9 +238,11 @@
   0% {
     background-position: 200% 0;
   }
+
   60% {
     background-position: -50% 0;
   }
+
   100% {
     background-position: -50% 0;
     opacity: 0;
@@ -238,6 +262,7 @@
 /* ─── Reduced Motion ──────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
