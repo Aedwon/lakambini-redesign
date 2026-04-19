@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import ProblemSolution from "@/components/sections/ProblemSolution";
@@ -6,6 +7,18 @@ import ServicesGrid from "@/components/sections/ServicesGrid";
 import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
 import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
+
+export const metadata: Metadata = {
+  title: "Full-Service Event Production Agency",
+  description:
+    "We turn bold ideas into exceptional event experiences. Full-service event production — planning, execution, and custom technology. One team, one standard.",
+  openGraph: {
+    title: "Lakambini Events | Full-Service Event Production Agency",
+    description:
+      "We turn bold ideas into exceptional event experiences. Full-service event production — planning, execution, and custom technology. One team, one standard.",
+    url: "/",
+  },
+};
 
 export default function Home() {
   return (

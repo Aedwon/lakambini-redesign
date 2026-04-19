@@ -63,8 +63,11 @@ export default function Navbar() {
   const [hasMounted, setHasMounted] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const pathname = usePathname();
   const rafRef = useRef<number | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   /** Derived boolean — still useful for class-based decisions */
   const isScrolled = scrollProgress > 0.5;
@@ -76,23 +79,32 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const handleMQ = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener("change", handleMQ);
+
     const mountTimer = setTimeout(() => setHasMounted(true), 100);
 
     const handleScroll = () => {
+      if (prefersReducedMotion) {
+        setScrollProgress(window.scrollY > 50 ? 1 : 0);
+        return;
+      }
       if (rafRef.current === null) {
         rafRef.current = requestAnimationFrame(updateScrollProgress);
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Initial calculation
     updateScrollProgress();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      mq.removeEventListener("change", handleMQ);
       clearTimeout(mountTimer);
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [updateScrollProgress]);
+  }, [updateScrollProgress, prefersReducedMotion]);
 
   // Close everything on route change
   useEffect(() => {
@@ -100,6 +112,27 @@ export default function Navbar() {
     setIsMobileServicesOpen(false);
     setIsOpen(false);
   }, [pathname]);
+
+  // Escape key closes any open menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (isServicesOpen) setIsServicesOpen(false);
+        if (isOpen) {
+          setIsOpen(false);
+          hamburgerRef.current?.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isServicesOpen, isOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   const closeAll = () => {
     setIsServicesOpen(false);
@@ -226,9 +259,12 @@ export default function Navbar() {
                   <button
                     key={link.name}
                     onClick={() => setIsServicesOpen((prev) => !prev)}
+                    aria-expanded={isServicesOpen}
+                    aria-controls="services-dropdown"
                     className={`font-headline tracking-tight text-lg border-b-2 pb-1
                       transition-all duration-500 ease-out hover:scale-105
                       inline-flex items-center gap-1.5 cursor-pointer
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface
                       ${
                         isActive || isServicesOpen
                           ? "text-primary border-primary-container"
@@ -266,8 +302,10 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`font-headline tracking-tight text-lg border-b-2 pb-1
                     transition-all duration-500 ease-out hover:scale-105
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface
                     ${
                       isActive
                         ? "text-primary border-primary-container"
@@ -324,13 +362,18 @@ export default function Navbar() {
 
             {/* Mobile Hamburger */}
             <button
-              className={`md:hidden text-primary focus:outline-none transition-opacity duration-500
+              ref={hamburgerRef}
+              className={`md:hidden text-primary transition-opacity duration-500
+                flex items-center justify-center w-11 h-11 -mr-1.5
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-md
                 ${hasMounted ? "opacity-100" : "opacity-0"}
               `}
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -343,6 +386,9 @@ export default function Navbar() {
 
         {/* ── Desktop Services Mega-Dropdown ───────────────────────────── */}
         <div
+          id="services-dropdown"
+          role="region"
+          aria-label="Services menu"
           className={`hidden md:block transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${isServicesOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
@@ -407,7 +453,14 @@ export default function Navbar() {
 
       {/* ── Mobile Menu Overlay ────────────────────────────────────────── */}
       {isOpen && (
-        <div className="md:hidden fixed top-24 left-6 right-6 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl bg-surface-container border border-surface-container-high shadow-2xl z-40">
+        <div
+          id="mobile-menu"
+          ref={mobileMenuRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          className="md:hidden fixed top-24 left-6 right-6 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl bg-surface-container border border-surface-container-high shadow-2xl z-40"
+        >
           <div className="flex flex-col px-8 py-8 gap-6">
             {navLinks.map((link) => {
               /* Mobile Services Accordion */
@@ -416,7 +469,10 @@ export default function Navbar() {
                   <div key="services" className="flex flex-col">
                     <button
                       onClick={() => setIsMobileServicesOpen((prev) => !prev)}
-                      className={`font-headline tracking-tight text-xl border-b border-outline-variant/10 pb-4 flex items-center justify-between w-full text-left
+                      aria-expanded={isMobileServicesOpen}
+                      aria-controls="mobile-services-list"
+                      className={`font-headline tracking-tight text-xl border-b border-outline-variant/10 pb-4 flex items-center justify-between w-full text-left min-h-[44px]
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container
                         ${pathname.startsWith("/services") ? "text-primary" : "text-on-surface"}
                       `}
                     >
@@ -440,7 +496,7 @@ export default function Navbar() {
                         ${isMobileServicesOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}
                       `}
                     >
-                      <div className="pt-4 pb-2 pl-4 flex flex-col gap-1">
+                      <div id="mobile-services-list" className="pt-4 pb-2 pl-4 flex flex-col gap-1">
                         {/* Overview link */}
                         <Link
                           href="/services"
@@ -467,7 +523,8 @@ export default function Navbar() {
                             key={service.slug}
                             href={`/services/${service.slug}`}
                             onClick={closeAll}
-                            className="flex flex-col gap-0.5 py-2.5 group/mitem transition-colors duration-300"
+                            aria-current={pathname === `/services/${service.slug}` ? "page" : undefined}
+                            className="flex flex-col gap-0.5 py-3 group/mitem transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container rounded-sm"
                           >
                             <span className="title-sm text-primary group-hover/mitem:text-primary-container transition-colors duration-300">
                               {service.name}
@@ -489,9 +546,10 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`font-headline tracking-tight text-xl border-b border-outline-variant/10 pb-4 ${
-                    pathname === link.href ? "text-primary" : "text-on-surface"
-                  }`}
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className={`font-headline tracking-tight text-xl border-b border-outline-variant/10 pb-4 min-h-[44px] flex items-center
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container
+                    ${pathname === link.href ? "text-primary" : "text-on-surface"}`}
                 >
                   {link.name}
                 </Link>

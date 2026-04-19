@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "GUHIT — Design & Visual Identity",
+  description:
+    "Graphic design, branding, out-of-home advertising, and illustration — building cohesive visual identities for brands, campaigns, and events alike.",
+  openGraph: {
+    title: "GUHIT | Lakambini Events",
+    description:
+      "Graphic design, branding, out-of-home advertising, and illustration — building cohesive visual identities for brands, campaigns, and events alike.",
+    url: "/services/guhit",
+  },
+};
+
 export default function GuhitPage() {
   const division = getDivisionBySlug("guhit");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Branding & Logo Creation (2-Column) */}
@@ -165,6 +178,6 @@ export default function GuhitPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

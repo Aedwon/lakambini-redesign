@@ -46,16 +46,19 @@ export default function Footer() {
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <h4 className="label-sm text-primary uppercase tracking-widest">Stay Updated</h4>
-            <form className="flex w-full mt-2 group" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="w-full bg-transparent border-b border-outline-variant/40 py-2 text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/50"
+            <form className="flex w-full mt-2 group" onSubmit={(e) => e.preventDefault()} aria-label="Newsletter signup">
+              <label htmlFor="footer-email" className="sr-only">Email address</label>
+              <input
+                id="footer-email"
+                type="email"
+                placeholder="Enter your email"
+                autoComplete="email"
+                className="w-full bg-transparent border-b border-outline-variant/40 py-2 min-h-[44px] text-body-md text-on-surface focus:outline-none focus-visible:border-primary transition-colors placeholder:text-on-surface-variant/60"
               />
-              <button 
-                type="submit" 
-                className="border-b border-outline-variant/40 py-2 px-2 text-primary hover:text-primary-container transition-colors focus:outline-none focus:border-primary group-focus-within:border-primary"
-                aria-label="Subscribe"
+              <button
+                type="submit"
+                className="border-b border-outline-variant/40 py-2 px-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-primary hover:text-primary-container transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest group-focus-within:border-primary"
+                aria-label="Subscribe to newsletter"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>

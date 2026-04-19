@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/sections/PageHero";
 import PortfolioGrid from "@/components/sections/PortfolioGrid";
 import CTABanner from "@/components/sections/CTABanner";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description:
+    "A decade of events, productions, and experiences across every division. Browse our portfolio of delivered work.",
+  openGraph: {
+    title: "Portfolio | Lakambini Events",
+    description:
+      "A decade of events, productions, and experiences across every division. Browse our portfolio of delivered work.",
+    url: "/portfolio",
+  },
+};
 
 export default function PortfolioPage() {
   return (

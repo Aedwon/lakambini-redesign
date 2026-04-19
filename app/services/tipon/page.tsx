@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "TIPON — Event Production & Management",
+  description:
+    "Trade shows, sponsorship activations, fun runs, and mall events. Reliable logistics from load-in to strike.",
+  openGraph: {
+    title: "TIPON | Lakambini Events",
+    description:
+      "Trade shows, sponsorship activations, fun runs, and mall events. Reliable logistics from load-in to strike.",
+    url: "/services/tipon",
+  },
+};
+
 export default function TiponPage() {
   const division = getDivisionBySlug("tipon");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Service Grid (Bento) */}
@@ -158,6 +171,6 @@ export default function TiponPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

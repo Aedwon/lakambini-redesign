@@ -15,9 +15,9 @@ export default function Button({ variant = 'primary', size = 'md', href, onClick
   const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 ease-out z-10 border-0 cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
   
   const sizeClasses = {
-    sm: variant === 'tertiary' ? "label-sm" : "px-5 py-3 label-sm",
-    md: variant === 'tertiary' ? "label-md" : "px-8 py-4 label-md",
-    lg: variant === 'tertiary' ? "label-lg" : "px-12 py-5 label-lg",
+    sm: variant === 'tertiary' ? "label-sm" : "px-5 py-3 label-sm min-h-[44px]",
+    md: variant === 'tertiary' ? "label-md" : "px-8 py-4 label-md min-h-[44px]",
+    lg: variant === 'tertiary' ? "label-lg" : "px-12 py-5 label-lg min-h-[44px]",
   };
 
   let variantClasses = "";

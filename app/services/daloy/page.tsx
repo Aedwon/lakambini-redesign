@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "DALOY — Technology & Development",
+  description:
+    "Full-stack web and mobile development, custom software solutions, and workflow automation — from business platforms to event-day applications.",
+  openGraph: {
+    title: "DALOY | Lakambini Events",
+    description:
+      "Full-stack web and mobile development, custom software solutions, and workflow automation — from business platforms to event-day applications.",
+    url: "/services/daloy",
+  },
+};
+
 export default function DaloyPage() {
   const division = getDivisionBySlug("daloy");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface flex flex-col">
+    <div className="bg-surface text-on-surface flex flex-col">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Core Services (Bento Grid) */}
@@ -179,6 +192,6 @@ export default function DaloyPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

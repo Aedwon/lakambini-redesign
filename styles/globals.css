@@ -234,3 +234,29 @@
 .nav-text-glow {
   text-shadow: 0 0 20px rgba(233, 194, 85, 0.15), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
+
+/* ─── Reduced Motion ──────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .navbar-shimmer {
+    animation: none;
+    opacity: 0;
+  }
+
+  .card-lift {
+    transition: none;
+  }
+
+  .card-lift:hover {
+    transform: none;
+  }
+}

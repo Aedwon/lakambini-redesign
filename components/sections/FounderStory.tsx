@@ -36,7 +36,7 @@ export default function FounderStory() {
               <div className="relative pl-12 py-4">
                 <span className="absolute left-0 top-0 text-primary opacity-20 text-7xl font-bold font-headline select-none">&ldquo;</span>
                 <p className="italic text-on-surface text-xl md:text-2xl leading-relaxed">
-                  The LAKAMBINI woman is a host who values her guest&apos;s experience as much as her own peace of mind. We exist to be the invisible hand that ensures every masterpiece is managed with sovereign precision.
+                  The LAKAMBINI client is someone who values their guests&apos; experience as much as their own peace of mind. We exist to be the team that ensures every event is managed with precision and reliability.
                 </p>
               </div>
 

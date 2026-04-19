@@ -9,7 +9,7 @@ export default function EditorialGallery() {
       <SectionHeading 
         overline="Our Work"
         title="Moments That Define Us"
-        description="A visual journey through a decade of orchestration, from grand ballrooms to immersive brand worlds."
+        description="A visual journey through a decade of production, from grand ballrooms to immersive brand worlds."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
@@ -24,9 +24,9 @@ export default function EditorialGallery() {
             className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
           <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 max-w-sm glassmorphism p-6 md:p-8 border border-outline-variant/10 ambient-shadow">
-            <h4 className="headline-sm mb-4 text-primary">Managed with Sovereign Precision.</h4>
+            <h4 className="headline-sm mb-4 text-primary">Precision in every detail.</h4>
             <p className="body-md font-light leading-relaxed text-on-surface-variant">
-              Every detail is an opportunity for perfection. We believe that true luxury is found in the invisible hands that ensure seamless execution.
+              Every detail is an opportunity to get it right. We believe that great events are built on the reliability of the team executing them.
             </p>
           </div>
         </div>

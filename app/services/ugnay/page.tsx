@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "UGNAY — Community Management & Growth",
+  description:
+    "End-to-end community management, audience development, and influencer partnerships — building and retaining engaged digital communities across any platform.",
+  openGraph: {
+    title: "UGNAY | Lakambini Events",
+    description:
+      "End-to-end community management, audience development, and influencer partnerships — building and retaining engaged digital communities across any platform.",
+    url: "/services/ugnay",
+  },
+};
+
 export default function UgnayPage() {
   const division = getDivisionBySlug("ugnay");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Grassroots Engagement Programs */}
@@ -156,6 +169,6 @@ export default function UgnayPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

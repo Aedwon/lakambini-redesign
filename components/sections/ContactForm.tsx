@@ -45,7 +45,7 @@ export default function ContactForm() {
     );
   }
 
-  const inputClasses = "w-full bg-transparent border-b border-outline-variant/40 py-3 text-on-surface body-md rounded-none focus:outline-none focus:border-b-2 focus:border-primary focus:shadow-[0_4px_15px_-3px_rgba(233,194,85,0.15)] transition-all duration-300 placeholder:text-on-surface-variant/50";
+  const inputClasses = "w-full bg-transparent border-b border-outline-variant/40 py-3 min-h-[44px] text-on-surface body-md rounded-none focus:outline-none focus:border-b-2 focus:border-primary focus:shadow-[0_4px_15px_-3px_rgba(233,194,85,0.15)] transition-all duration-300 placeholder:text-on-surface-variant/60";
 
   return (
     <section className="bg-surface-container py-20 md:py-32 relative overflow-hidden">
@@ -60,22 +60,24 @@ export default function ContactForm() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <InputField 
-              label="Full Name" 
+            <InputField
+              label="Full Name"
               id="fullName"
               name="fullName"
               type="text"
               required
+              autoComplete="name"
               placeholder="Your name"
               value={formData.fullName}
               onChange={handleChange}
             />
-            <InputField 
-              label="Email" 
+            <InputField
+              label="Email"
               id="email"
               name="email"
               type="email"
               required
+              autoComplete="email"
               placeholder="you@company.com"
               value={formData.email}
               onChange={handleChange}
@@ -90,6 +92,7 @@ export default function ContactForm() {
               id="eventType"
               name="eventType"
               required
+              aria-required="true"
               className={`${inputClasses} appearance-none cursor-pointer`}
               value={formData.eventType}
               onChange={handleChange}
@@ -103,7 +106,7 @@ export default function ContactForm() {
               <option value="Other" className="bg-surface-container text-on-surface">Other / General Inquiry</option>
             </select>
             {/* Custom dropdown caret */}
-            <div className="absolute right-0 bottom-4 pointer-events-none text-primary">
+            <div className="absolute right-0 bottom-4 pointer-events-none text-primary" aria-hidden="true">
               ▼
             </div>
           </div>
@@ -116,6 +119,7 @@ export default function ContactForm() {
               id="message"
               name="message"
               required
+              aria-required="true"
               rows={5}
               placeholder="What are you planning? Include dates, scale, and any specific requirements..."
               className={`${inputClasses} resize-none min-h-[120px]`}

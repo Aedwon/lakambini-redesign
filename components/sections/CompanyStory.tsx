@@ -15,13 +15,13 @@ export default function CompanyStory() {
           <div className="md:col-span-6 flex flex-col gap-8">
             <div className="space-y-6 text-on-surface-variant body-lg leading-relaxed font-light">
               <p>
-                Based in Cavite, Lakambini began with a singular focus: to solve the complex coordination challenges that plague high-stakes productions. We saw hosts juggling an army of vendors while losing the ability to be present at their own masterpieces.
+                Based in Cavite, Lakambini began with a singular focus: to solve the complex coordination challenges that plague high-stakes productions. We saw hosts juggling an army of vendors while losing the ability to be present at their own events.
               </p>
               <p>
-                Today, we operate as a full-service creative agency with nine specialized divisions covering every facet of event production—from stage design to digital engagement. Our model provides the agility of a lean operation backed by a massive, curated network of specialists.
+                Today, we operate as a full-service creative agency with nine specialized divisions covering every facet of event production—from stage design to digital engagement. Our model provides the agility of a lean operation backed by a deep network of specialists.
               </p>
               <p>
-                Whether it is a corporate summit, a nationwide brand activation, or an intimate private celebration, we maintain one standard: sovereign precision. It is the invisible hand that ensures every event is not just delivered, but remembered.
+                Whether it is a corporate summit, a nationwide brand activation, or an intimate private celebration, we maintain one standard: precision and reliability. It is our team that ensures every event is not just delivered, but remembered.
               </p>
             </div>
 

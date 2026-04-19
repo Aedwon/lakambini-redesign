@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "LIKHA — Multimedia Production",
+  description:
+    "End-to-end video production, motion graphics, and sound design — from brand campaigns and music videos to event coverage and commercial content.",
+  openGraph: {
+    title: "LIKHA | Lakambini Events",
+    description:
+      "End-to-end video production, motion graphics, and sound design — from brand campaigns and music videos to event coverage and commercial content.",
+    url: "/services/likha",
+  },
+};
+
 export default function LikhaPage() {
   const division = getDivisionBySlug("likha");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Event Video Coverage */}
@@ -145,6 +158,6 @@ export default function LikhaPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

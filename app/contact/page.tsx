@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/sections/PageHero";
 import ContactForm from "@/components/sections/ContactForm";
 import SectionHeading from "@/components/ui/SectionHeading";
+
+export const metadata: Metadata = {
+  title: "Get in Touch",
+  description:
+    "Tell us what you're planning. We'll figure out the best way to make it happen. Based in Cavite, delivering nationwide.",
+  openGraph: {
+    title: "Contact | Lakambini Events",
+    description:
+      "Tell us what you're planning. We'll figure out the best way to make it happen. Based in Cavite, delivering nationwide.",
+    url: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

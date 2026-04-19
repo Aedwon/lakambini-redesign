@@ -18,7 +18,7 @@ export default function AboutHero() {
               The <span className="gold-gradient-text italic font-medium inline-block pr-[0.1em]">Lakambini</span> Legacy
             </h1>
             <p className="body-lg text-on-surface/80 font-light leading-relaxed max-w-xl">
-              Since 2014, we have orchestrated high-stakes event productions for the world&apos;s most discerning hosts. We don&apos;t just plan; we curate enduring memories with sovereign precision.
+              Since 2014, we have delivered high-stakes event productions for the world&apos;s most discerning clients. We don&apos;t just plan — we create enduring experiences with precision and reliability.
             </p>
           </div>
 

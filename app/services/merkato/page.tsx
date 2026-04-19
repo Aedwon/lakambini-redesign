@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "MERKATO — Experiential Marketing",
+  description:
+    "Product sampling, pop-up activations, street teams, and guerrilla campaigns — direct-to-consumer marketing strategies that drive real engagement.",
+  openGraph: {
+    title: "MERKATO | Lakambini Events",
+    description:
+      "Product sampling, pop-up activations, street teams, and guerrilla campaigns — direct-to-consumer marketing strategies that drive real engagement.",
+    url: "/services/merkato",
+  },
+};
+
 export default function MerkatoPage() {
   const division = getDivisionBySlug("merkato");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Pop-Up Shops */}
@@ -126,6 +139,6 @@ export default function MerkatoPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

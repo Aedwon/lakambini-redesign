@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "TANGHAL — Live Entertainment & Talent",
+  description:
+    "Live events, concerts, music festivals, and artist management. We handle the stage so the talent can perform.",
+  openGraph: {
+    title: "TANGHAL | Lakambini Events",
+    description:
+      "Live events, concerts, music festivals, and artist management. We handle the stage so the talent can perform.",
+    url: "/services/tanghal",
+  },
+};
+
 export default function TanghalPage() {
   const division = getDivisionBySlug("tanghal");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Live Concerts & Festivals */}
@@ -142,6 +155,6 @@ export default function TanghalPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

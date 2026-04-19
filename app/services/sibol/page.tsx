@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DivisionHero from "@/components/sections/DivisionHero";
 import DivisionCrossLinks from "@/components/sections/DivisionCrossLinks";
 import CTABanner from "@/components/sections/CTABanner";
@@ -5,12 +6,24 @@ import { getDivisionBySlug } from "@/lib/divisions";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "SIBOL — Learning & Development",
+  description:
+    "Corporate workshops, team-building programs, trainings, and conferences. Practical sessions your teams will actually use.",
+  openGraph: {
+    title: "SIBOL | Lakambini Events",
+    description:
+      "Corporate workshops, team-building programs, trainings, and conferences. Practical sessions your teams will actually use.",
+    url: "/services/sibol",
+  },
+};
+
 export default function SibolPage() {
   const division = getDivisionBySlug("sibol");
   if (!division) return notFound();
 
   return (
-    <main className="bg-surface text-on-surface">
+    <div className="bg-surface text-on-surface">
       <DivisionHero division={division} />
 
       {/* Deep-Dive 1: Leadership Development Programs */}
@@ -169,6 +182,6 @@ export default function SibolPage() {
         ctaLabel="Book a Discovery Call" 
         ctaHref="/contact" 
       />
-    </main>
+    </div>
   );
 }

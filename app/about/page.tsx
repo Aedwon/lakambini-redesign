@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AboutHero from "@/components/sections/AboutHero";
 import CompanyStory from "@/components/sections/CompanyStory";
 import FounderStory from "@/components/sections/FounderStory";
@@ -6,6 +7,18 @@ import Approach from "@/components/sections/Approach";
 import ClientLogos from "@/components/sections/ClientLogos";
 import EditorialGallery from "@/components/sections/EditorialGallery";
 import CTABanner from "@/components/sections/CTABanner";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Lakambini Events is a full-service event production agency founded in 2014. Over a decade of experience across nine specialized divisions.",
+  openGraph: {
+    title: "About Lakambini Events",
+    description:
+      "Lakambini Events is a full-service event production agency founded in 2014. Over a decade of experience across nine specialized divisions.",
+    url: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (

@@ -49,7 +49,7 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
   }, [pathname]);
 
   return (
-    <main className="w-full flex flex-col min-h-screen bg-surface">
+    <main id="main-content" className="w-full flex flex-col min-h-screen bg-surface">
       <div 
         ref={wrapperRef} 
         className="flex-grow w-full min-h-[70vh] flex flex-col pt-0 sm:pt-0"
