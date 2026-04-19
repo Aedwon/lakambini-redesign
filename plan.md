@@ -295,6 +295,45 @@
 
 ---
 
+## Phase 8: Accessibility (WCAG 2.1 AA) & Touch UX (Fitts' Law) 🔲 TODO
+
+> Goal: Bring every page to WCAG 2.1 AA and tune mobile tap targets to Fitts' Law guidance (≥44×44 CSS px, adequate spacing, thumb-zone placement).
+> **Delivery:** Ships as a single PR covering 8.1 → 8.3.
+
+### Task 8.1 — Audit (measure before fixing) 🔲 TODO
+Inspect the interactive surfaces and record findings before changing anything.
+
+- **Files to inspect:** `components/ui/Button.tsx`, `InputField.tsx`, `Accordion.tsx`, `Card.tsx`; `components/layout/Navbar.tsx`, `Footer.tsx`, `PageWrapper.tsx`; `components/sections/ContactForm.tsx`, `DivisionCrossLinks.tsx`, `ServicesGrid.tsx`, `PortfolioShowcase.tsx`, `Hero.tsx`, `CTABanner.tsx`; `app/layout.tsx`; `styles/globals.css`.
+- **Contrast ratios** — compute every text/background pair vs. WCAG AA (4.5:1 normal, 3:1 large). Known risk areas: `text-on-surface-variant/50` placeholder in `InputField`, `/40–/60` muted text in navbar dropdown, `text-primary/80` service chips, gold `#E9C255` as body text on `#051710`.
+- **Target size (Fitts + WCAG 2.5.8 AA)** — AA minimum 24×24, target 44×44 for mobile. Measure: mobile hamburger (`w-8 h-8`), nav chevrons (`w-3 h-3`), mobile services list (`py-2.5`), `Button size="sm"` (`py-3 label-sm`), tertiary text links, footer links, `DivisionCrossLinks` carousel cards.
+- **Target spacing** — adjacent tap targets need ~8px minimum clearance. Mobile services list (`gap-1`) is suspect.
+- **Keyboard nav** — focus order, visible focus rings (hamburger currently uses `focus:outline-none` with no replacement), `aria-expanded` / `aria-controls` on Services dropdown + mobile accordion, Escape-to-close, focus trap in mobile menu overlay.
+- **Screen reader / semantics** — single `<h1>` per page, heading hierarchy, `aria-label` on icon-only buttons, landmark regions (`<main>`, `<nav>`, `<footer>`), `aria-current="page"` on active nav link, `alt` text quality on every `next/image`.
+- **Forms** — `ContactForm` / `InputField`: required indicators, error state + `aria-invalid` + `aria-describedby`, no placeholder-as-label, `autocomplete` tokens on name/email.
+- **Motion & media** — `prefers-reduced-motion` support for scroll-morph navbar, Framer Motion reveals, hover scales, grayscale-to-color transitions.
+- **Structural** — `<html lang="en">`, skip-to-content link, `:focus-visible` consistency across all interactive elements.
+
+### Task 8.2 — Remediation 🔲 TODO
+Grouped so each change stays atomic within the one-PR delivery.
+
+- **8.2a — Tokens & globals** — `styles/globals.css`: replacement for `/40–/50` muted text that meets 4.5:1, `--focus-ring` token, `@media (prefers-reduced-motion: reduce)` overrides.
+- **8.2b — Button** — `components/ui/Button.tsx`: raise `sm` vertical padding so all sizes hit ≥44px on mobile; preserve existing focus-visible ring.
+- **8.2c — Forms** — `components/ui/InputField.tsx` + `components/sections/ContactForm.tsx`: error + required patterns, `autocomplete`, stronger placeholder contrast, submit sized for thumb reach.
+- **8.2d — Navbar (mobile priority)** — `components/layout/Navbar.tsx`: hamburger ≥44×44 with visible focus, `aria-expanded` / `aria-controls` on Services + mobile accordion, `aria-current="page"` on active link, Escape + click-outside close, focus trap + scroll lock when mobile menu open, enlarge mobile service list tap targets + full-row click area, reduced-motion fallback for scroll-morph (snap between states).
+- **8.2e — Icon-only buttons** — add `aria-label` to chevrons, close-menu, and any remaining unlabeled icon buttons across sections.
+- **8.2f — Layout** — `app/layout.tsx`: skip-link, confirm `<html lang>`, wrap pages in `<main>`, ensure one `<h1>` per page (overlaps with Task 6.3).
+- **8.2g — Fitts mobile polish** — audit thumb-zone for primary CTAs; evaluate a sticky bottom "Inquire" on mobile scroll-down instead of relying only on top-right.
+
+### Task 8.3 — Verification 🔲 TODO
+- Lighthouse a11y ≥95 on every route.
+- axe DevTools: zero serious/critical violations.
+- Manual keyboard-only walkthrough of each page.
+- VoiceOver (iOS) + TalkBack pass on Home, Services, one Division page, Contact.
+- Contrast results appended to `specs.md` §2.
+- Touch-target spot check at 375px viewport with a 44×44 overlay grid.
+
+---
+
 ## Execution Status Summary
 
 ```
@@ -318,7 +357,10 @@ Phase 6 ─── Polish (scroll animations ✅, responsive 🔲,          🔲 
    │         SEO 🔲, performance 🔲)
    │
 Phase 7 ─── QA (visual fidelity, mobile, interactions,            🔲 TODO
-             copy audit, accessibility)
+   │         copy audit, accessibility)
+   │
+Phase 8 ─── Accessibility (WCAG 2.1 AA) & Touch UX (Fitts' Law)   🔲 TODO
+             — audit → remediation → verification (one PR)
 ```
 
 ---
