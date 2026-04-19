@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-surface-container-lowest text-on-surface">
-      <div className="max-w-[1440px] mx-auto px-12 pt-20 pb-8 grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-surface-container-highest">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12pt-20 pb-8 grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-surface-container-highest">
         
         {/* Brand Column */}
         <div className="flex flex-col gap-6">
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-12 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-8 pb-24 md:pb-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60">
           &copy; {new Date().getFullYear()} Lakambini Events. All rights reserved.
         </p>

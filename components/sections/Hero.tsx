@@ -21,18 +21,18 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-transparent via-transparent to-primary/10 pointer-events-none" />
 
       {/* Bottom-left anchored content */}
-      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-16 md:pb-24 pt-40 flex flex-col gap-8 items-start">
+      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-24 pt-32 md:pt-40 flex flex-col gap-6 md:gap-8 items-center md:items-start text-center md:text-left">
         <span className="label-sm text-primary uppercase tracking-widest bg-surface-container/60 backdrop-blur-md py-2 px-4 rounded-full border border-outline-variant/20">
           Full Service Events &amp; Creative Agency
         </span>
-        <h1 className="display-lg text-on-surface leading-[1.05] font-extrabold max-w-4xl">
+        <h1 className="display-hero text-on-surface leading-[1.05] font-extrabold max-w-4xl">
           We turn bold ideas into <br />
           <span className="gold-gradient-text italic font-medium inline-block pr-[0.15em]">exceptional</span> event experiences.
         </h1>
         <p className="body-lg text-on-surface/80 max-w-xl font-light">
           From concept to execution — we plan, produce, and deliver events that make an impact.
         </p>
-        <div className="flex flex-wrap items-center gap-6 mt-2">
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 mt-2">
           <Button variant="primary" href="/contact">
             Book a Discovery Call
           </Button>

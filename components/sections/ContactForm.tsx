@@ -52,7 +52,7 @@ export default function ContactForm() {
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 
-      <div className="max-w-3xl mx-auto px-12 flex flex-col gap-16 relative z-10">
+      <div className="max-w-3xl mx-auto px-6 md:px-12 flex flex-col gap-16 relative z-10">
         <div className="flex flex-col gap-4">
           <span className="label-sm text-primary tracking-widest uppercase">Inquiries</span>
           <h2 className="display-sm text-on-surface">Start the conversation.</h2>

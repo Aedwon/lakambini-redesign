@@ -25,7 +25,7 @@ export default function Approach() {
 
   return (
     <section className="py-32 overflow-hidden w-full bg-surface">
-      <div className="max-w-[1440px] mx-auto px-12">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         
         <div className="text-center mb-24">
           <span className="label-sm text-primary tracking-[0.4em] uppercase mb-4 block">How We Work</span>

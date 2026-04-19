@@ -42,7 +42,7 @@ export default function PageHero({ overline, title, subtitle, decorativeText, bg
         </div>
       )}
       
-      <div className="max-w-[1440px] mx-auto px-12 pt-40 pb-24 relative z-10 w-full flex justify-between items-center">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-40 pb-24 relative z-10 w-full flex justify-between items-center">
         <div className="max-w-4xl relative z-10">
           <span className="label-sm text-primary tracking-[0.3em] uppercase mb-6 block">
             {overline}

@@ -32,7 +32,7 @@ export default function CTABanner({
       {/* Decorative center glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10 px-12">
+      <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10 px-6 md:px-12">
         <h2 className="headline-lg text-on-surface leading-[1.2]">
           {headline}
         </h2>

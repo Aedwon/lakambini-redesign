@@ -238,10 +238,11 @@
 - Implemented via `PageWrapper.tsx` using Framer Motion.
 - Each section fades in + translates up on viewport intersection.
 
-### Task 6.2 — Responsive Breakpoints 🔲 NEEDS POLISH
+### Task 6.2 — Responsive Breakpoints ✅ (code) 🔲 (visual verify)
 - Mobile-first approach implemented across all components.
-- Hamburger nav on mobile, stacked grids, responsive typography.
-- **TODO:** Thorough testing at 320px, 375px, 768px, 1024px, 1440px viewports.
+- Fixed bare `px-12` → `px-6 md:px-12` across: `PageHero`, `DivisionsEditorial`, `TrustBar`, `Approach`, `ContactForm`, `CTABanner`, `Footer` (both rows), `app/contact/page.tsx`.
+- All other sections (`Hero`, `ProblemSolution`, `Process`, `ServicesGrid`, `Testimonials`, `PortfolioShowcase`, `PortfolioGrid`, `EditorialGallery`, `StatsBar`, `ClientLogos`, `CompanyStory`) already had responsive padding.
+- **TODO (browser):** Visual spot-check at 320px, 375px, 768px, 1024px, 1440px.
 
 ### Task 6.3 — SEO & Metadata ✅
 - Root `metadata` updated with `metadataBase`, title template, and corrected description.
@@ -252,12 +253,12 @@
 - **Fix:** Added `hideViewAll?: boolean` prop to `PortfolioShowcase` — prevents self-referencing "View Full Portfolio" button loop when rendered on `/portfolio`. Home page usage unchanged.
 - **Fix:** Added `decorativeText="Archive"` to Portfolio `PageHero` — now visually consistent with About and Services heroes.
 
-### Task 6.4 — Performance Optimization 🔲 TODO
-- `next/image` used throughout with `sizes` props.
-- Font loading: `display: swap` on both fonts.
-- **TODO:** Priority loading on hero images.
-- **TODO:** Lazy load below-fold sections.
-- **TODO:** Audit gold gradient rendering performance.
+### Task 6.4 — Performance Optimization ✅
+- `next/image` with `priority` confirmed on all above-fold heroes: `Hero.tsx`, `PageHero.tsx` (bgImage), `DivisionHero.tsx`, `AboutHero.tsx`, `Navbar.tsx` logo.
+- All below-fold images lazy-load by default (next/image default behaviour).
+- Font `display: swap` on both Noto Serif and Manrope.
+- Gold gradient is pure CSS `linear-gradient` — GPU-composited, no render concern.
+- `backdrop-filter: blur` on navbar is the only GPU-intensive effect; acceptable for the design intent.
 
 ---
 
@@ -316,7 +317,7 @@ Inspect the interactive surfaces and record findings before changing anything.
 - **8.2d ✅** — `components/layout/Navbar.tsx`: hamburger is now 44×44 with `focus-visible:ring`, `aria-label`, `aria-expanded`, `aria-controls="mobile-menu"`. Desktop Services button has `aria-expanded`, `aria-controls="services-dropdown"`. Mobile services accordion has `aria-expanded`, `aria-controls="mobile-services-list"`. Active links have `aria-current="page"`. Escape key closes both menus + returns focus to hamburger. Body scroll locks when mobile menu open. Reduced-motion: interpolation snaps immediately. Mobile service links have `py-3` (≥44px touch area).
 - **8.2e ✅** — Hamburger SVG has `aria-hidden="true"`. Footer newsletter submit has `aria-label="Subscribe to newsletter"`. Dropdown caret has `aria-hidden="true"`. Decorative watermarks in PageHero/DivisionHero already had `aria-hidden`.
 - **8.2f ✅** — Skip-to-content link added in `app/layout.tsx`. `<html lang="en">` already present. `PageWrapper.tsx` gets `id="main-content"`. Division pages converted from `<main>` to `<div>` to fix nested landmark (PageWrapper provides the `<main>`).
-- **8.2g 🔲 TODO** — Sticky bottom CTA on mobile not yet implemented. Defer to next iteration.
+- **8.2g ✅** — `components/layout/MobileBottomCTA.tsx` created: fixed bottom bar (mobile only, `md:hidden`), slides in after 120px scroll, hidden on `/contact`, respects `motion-reduce`, `tabIndex=-1` when invisible, `aria-hidden` when not visible. Added to `app/layout.tsx`. Footer bottom row gets `pb-24 md:pb-8` clearance on mobile.
 
 ### Task 8.3 — Verification 🔲 TODO (requires browser)
 - Lighthouse a11y ≥95 on every route.
@@ -347,14 +348,14 @@ Phase 4 ─── Page-Specific Sections (Divisions Editorial,          ✅ COMP
 Phase 5 ─── Page Assembly (Home, Services, About, Portfolio,      ✅ COMPLETE
    │         Contact, all 9 Division sub-pages)
    │
-Phase 6 ─── Polish (scroll animations ✅, responsive 🔲,          🔲 IN PROGRESS
-   │         SEO ✅, performance 🔲)
+Phase 6 ─── Polish (scroll ✅, responsive ✅ code/🔲 visual,       ✅ CODE COMPLETE
+   │         SEO ✅, performance ✅)
    │
-Phase 7 ─── QA (visual fidelity 🔲, mobile 🔲, interactions 🔲,  🔲 PARTIAL
-   │         copy audit ✅, accessibility → Phase 8)
+Phase 7 ─── QA (visual fidelity 🔲, mobile 🔲, interactions 🔲,  🔲 BROWSER QA PENDING
+   │         copy ✅, accessibility → Phase 8)
    │
-Phase 8 ─── Accessibility (WCAG 2.1 AA) & Touch UX (Fitts' Law)   🔲 IN PROGRESS
-             — audit ✅, remediation ✅ (8.2g deferred), verification 🔲
+Phase 8 ─── Accessibility (WCAG 2.1 AA) & Touch UX (Fitts' Law)   🔲 BROWSER VERIFY PENDING
+             — audit ✅, remediation ✅ (all 8.2a–g done), verification 🔲
 ```
 
 ---

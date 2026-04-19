@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function DivisionsEditorial() {
   return (
-    <section className="px-12 max-w-[1440px] mx-auto space-y-32 mb-48 text-on-surface w-full">
+    <section className="px-6 md:px-12 max-w-[1440px] mx-auto space-y-32 mb-48 text-on-surface w-full">
       
       {/* 01 TANGHAL */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">

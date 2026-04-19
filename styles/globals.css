@@ -46,28 +46,28 @@
 @layer utilities {
   .display-hero {
     font-family: var(--font-headline);
-    font-size: clamp(4rem, 8vw, 7rem);
+    font-size: clamp(2.75rem, 6vw + 1rem, 7rem);
     line-height: 1.05;
     font-weight: 400;
     letter-spacing: -0.03em;
   }
   .display-lg {
     font-family: var(--font-headline);
-    font-size: 3.5625rem;
-    line-height: 4rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 3.5625rem);
+    line-height: 1.1;
     font-weight: 400;
     letter-spacing: -0.02em;
   }
   .display-md {
     font-family: var(--font-headline);
-    font-size: 2.8125rem;
-    line-height: 3.25rem;
+    font-size: clamp(2.25rem, 4vw + 1rem, 2.8125rem);
+    line-height: 1.15;
     font-weight: 400;
   }
   .display-sm {
     font-family: var(--font-headline);
-    font-size: 2.25rem;
-    line-height: 2.75rem;
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.25rem);
+    line-height: 1.2;
     font-weight: 400;
   }
   .headline-lg {

@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageWrapper from "@/components/layout/PageWrapper";
+import MobileBottomCTA from "@/components/layout/MobileBottomCTA";
 
 const notoSerif = Noto_Serif({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
           {children}
         </PageWrapper>
         <Footer />
+        <MobileBottomCTA />
       </body>
     </html>
   );

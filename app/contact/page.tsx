@@ -27,7 +27,7 @@ export default function ContactPage() {
         <ContactForm />
 
         <section className="bg-surface py-20 md:py-32 w-full">
-          <div className="max-w-[1440px] mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-start">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-start">
             <SectionHeading 
               overline="Office"
               title="Where to Find Us"
