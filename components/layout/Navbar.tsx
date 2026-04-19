@@ -170,7 +170,7 @@ export default function Navbar() {
 
       {/* ── Outer nav shell ────────────────────────────────────────────── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 w-full
+        className={`fixed top-0 left-0 right-0 z-50 w-full pointer-events-none
           ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
         `}
         style={{
@@ -182,7 +182,7 @@ export default function Navbar() {
       >
         {/* Inner bar — morphs smoothly via interpolated inline styles */}
         <div
-          className="mx-auto flex items-center justify-between relative"
+          className="mx-auto flex items-center justify-between relative pointer-events-auto"
           style={{
             maxWidth: `${maxWidth}px`,
             borderRadius: `${borderRadius}px`,
