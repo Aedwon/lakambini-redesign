@@ -9,9 +9,10 @@ export default function FounderStory() {
           {/* Portrait Column */}
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="relative aspect-[4/5] overflow-hidden">
+              {/* TODO: replace with real portrait of Anchie Rosas */}
               <Image 
                 src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" 
-                alt="Anchie Rosas" 
+                alt="Portrait placeholder" 
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
@@ -41,7 +42,7 @@ export default function FounderStory() {
               </div>
 
               <p>
-                Whether managing multinational corporate summits or intimate high-end celebrations, her approach remains defined by a strategic mindset and an uncompromising passion for exceeding expectations. Under her creative direction, we don&apos;t just deliver events—we deliver legacies.
+                Whether managing multinational corporate summits or intimate high-end celebrations, her approach remains defined by a strategic mindset and an uncompromising passion for exceeding expectations. Under her creative direction, we don&apos;t just deliver events — we deliver them with precision and care.
               </p>
               
               <div className="pt-8">

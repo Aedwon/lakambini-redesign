@@ -6,11 +6,11 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "A decade of events, productions, and experiences across every division. Browse our portfolio of delivered work.",
+    "Events, productions, and experiences across every division. Browse our portfolio of delivered work.",
   openGraph: {
     title: "Portfolio | Lakambini Events",
     description:
-      "A decade of events, productions, and experiences across every division. Browse our portfolio of delivered work.",
+      "Events, productions, and experiences across every division. Browse our portfolio of delivered work.",
     url: "/portfolio",
   },
 };
@@ -21,7 +21,7 @@ export default function PortfolioPage() {
       <PageHero
         overline="Portfolio"
         title="Work We've Delivered"
-        subtitle="A decade of events, productions, and experiences — across every division."
+        subtitle="Events, productions, and experiences — across every division."
         decorativeText="Archive"
         bgImage="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000&auto=format&fit=crop"
       />

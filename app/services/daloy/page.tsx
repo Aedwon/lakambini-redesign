@@ -128,11 +128,11 @@ export default function DaloyPage() {
 
             <div className="flex gap-12 border-t border-outline-variant/20 pt-8">
                <div>
-                 <span className="display-sm text-primary font-black block mb-1">99.9<span className="text-2xl">%</span></span>
+                 <span className="display-sm text-primary font-bold block mb-1">99.9<span className="text-2xl">%</span></span>
                  <span className="label-sm uppercase tracking-widest text-on-surface-variant">Uptime Target</span>
                </div>
                <div>
-                 <span className="display-sm text-primary font-black block mb-1">&lt;100<span className="text-2xl">ms</span></span>
+                 <span className="display-sm text-primary font-bold block mb-1">&lt;100<span className="text-2xl">ms</span></span>
                  <span className="label-sm uppercase tracking-widest text-on-surface-variant">Response Time Goal</span>
                </div>
             </div>

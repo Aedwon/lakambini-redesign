@@ -355,6 +355,38 @@ Phase 8 ─── Accessibility & Touch UX (WCAG 2.1 AA compliant)          ✅ 
 
 ---
 
+## Phase 9: Trust & Refinement (2026-10 redesign pass)
+
+> Goal: make the site read as credible and premium to brand/marketing buyers — real proof, no fabricated claims, tighter execution.
+
+### Task 9.1 — Remove fabricated proof ✅
+- Removed placeholder testimonials (section + component), invented stats (500+ events, 100+ clients, "70%"), and conflicting company-age claims (10+/12+ years, "Since 2014", "a decade").
+- Replaced "legacy" wording; StatsBar now shows non-numeric facts only.
+- Founder portrait is still stock → marked TODO.
+
+### Task 9.2 — Bug & accessibility fixes ✅
+- Footer padding bug, dead `#` links and no-op newsletter removed; focus rings added.
+- Contact email/phone are `mailto:`/`tel:` links; inquiry select lists all 9 divisions.
+- Navbar: hidden dropdown removed from tab order, mobile menu focus management, contrast raised.
+- Unloaded font weights (800/900) replaced; undefined `label-xs`/`editorial-shadow` utilities defined; unused components deleted; `/about` horizontal overflow fixed.
+
+### Task 9.3 — Design system tightening 🔲
+- One section-spacing scale, gold as accent only, fewer borders, brighter service imagery, homepage section order (work before claims), all 9 divisions shown on the homepage.
+
+### Task 9.4 — Case-study pages (`/portfolio/{slug}`) 🔲
+- Approved by client. Placeholder copy to be filled with real briefs/results.
+
+### Task 9.5 — Working inquiry form 🔲
+- Formspree via env var; mailto fallback until configured. Needs destination inbox.
+
+### Task 9.6 — Real photography 🔲
+- Waiting on client photos in `public/images/`; map via `ARCHIVE_IMAGE_BRIEF.md`.
+
+### Open items
+- `npm run lint` is broken (`next lint` was removed in Next 16) — needs an ESLint CLI script.
+
+---
+
 ## Key Reference Files
 
 | File | Purpose |

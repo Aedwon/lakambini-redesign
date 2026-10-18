@@ -28,7 +28,7 @@ export default function ProblemSolution() {
             </div>
             <h3 className="title-lg font-medium text-on-surface">From Concept to Reality</h3>
             <p className="body-md text-on-surface/80 leading-relaxed font-light">
-              70% of our clients come to us with an idea, not a plan. We turn that idea into a detailed creative concept, a production roadmap, and a flawless execution.
+              Many clients come to us with an idea, not a plan. We turn that idea into a detailed creative concept, a production roadmap, and a flawless execution.
             </p>
           </div>
 

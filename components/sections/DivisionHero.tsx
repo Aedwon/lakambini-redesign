@@ -25,7 +25,7 @@ export default function DivisionHero({ division }: DivisionHeroProps) {
           <span className="label-sm text-primary tracking-[0.3em] uppercase mb-6 block">
             {division.id}
           </span>
-          <h1 className="display-lg text-on-surface font-extrabold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-4">
+          <h1 className="display-lg text-on-surface font-bold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-4">
             {division.name}
           </h1>
           <h2 className="headline-sm italic text-primary/90 font-light mb-8">

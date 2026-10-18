@@ -22,7 +22,7 @@ export default function CTABanner({
       {/* Background Image */}
       <Image
         src={bgImage}
-        alt="CTA Background"
+        alt=""
         fill
         sizes="100vw"
         className="object-cover opacity-10 transition-transform duration-1000 ease-out group-hover:scale-105"

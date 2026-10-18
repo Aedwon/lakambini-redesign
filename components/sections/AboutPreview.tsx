@@ -19,11 +19,11 @@ export default function AboutPreview() {
         {/* Right Column - Text */}
         <div className="md:col-span-7 flex flex-col gap-10 md:pl-16 lg:pl-24 justify-center">
           <SectionHeading 
-            overline="Our Legacy"
-            title="Defining the structural elegance of modern events."
+            overline="Our Story"
+            title="One team behind every part of your event."
           />
           <p className="body-lg text-on-surface-variant font-light max-w-xl">
-            Established on the core of Filipino heritage, Lakambini Events fuses modern architectural logic with pristine execution. Every campaign, every broadcast, and every live experience is treated with the meticulous care of a master craftsman shaping gold.
+            Based in Cavite, Lakambini Events is a full-service creative agency with nine specialized divisions, covering everything from stage design to digital engagement. Strategy, creative, production, and execution sit under one roof, so hosts can focus on their guests.
           </p>
           <div className="pt-4">
             <Button variant="tertiary" href="/about">

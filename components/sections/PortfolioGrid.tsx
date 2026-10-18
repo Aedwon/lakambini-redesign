@@ -29,6 +29,7 @@ export default function PortfolioGrid() {
             <button
               key={filter.slug}
               onClick={() => setActiveFilter(filter.slug)}
+              aria-pressed={activeFilter === filter.slug}
               className={`px-6 py-2 rounded-full text-xs font-label tracking-widest uppercase transition-all duration-300 border ${
                 activeFilter === filter.slug
                   ? "border-outline-variant/40 text-primary bg-surface-container-low"

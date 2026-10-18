@@ -81,7 +81,7 @@ export default function SibolPage() {
             ].map((workshop, i) => (
               <div key={i} className="bg-surface border border-outline-variant/20 p-8 flex flex-col relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <span className="font-headline text-8xl font-black italic">{i + 1}</span>
+                  <span className="font-headline text-8xl font-bold italic">{i + 1}</span>
                 </div>
                 <span className="label-xs uppercase tracking-[0.2em] text-primary/60 mb-4">{workshop.tag}</span>
                 <h3 className="headline-sm text-on-surface mb-3 relative z-10">{workshop.title}</h3>

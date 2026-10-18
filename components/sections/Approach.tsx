@@ -17,7 +17,7 @@ export default function Approach() {
     },
     {
       title: "Proven Track Record",
-      desc: "500+ events delivered. Clients come back because we consistently hit the brief, on time and on budget.",
+      desc: "Clients come back because we consistently hit the brief, on time and on budget.",
       elevated: false,
       img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80"
     }

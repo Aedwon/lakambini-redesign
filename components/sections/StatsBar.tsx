@@ -1,15 +1,14 @@
 export default function StatsBar() {
   const stats = [
-    { value: "10+", label: "Years of Experience" },
-    { value: "500+", label: "Events Delivered" },
     { value: "9", label: "Specialized Divisions" },
-    { value: "100+", label: "Clients Served" },
+    { value: "1", label: "Team, Brief to Strike" },
+    { value: "Cavite", label: "Home Base" },
   ];
 
   return (
     <section className="bg-surface-container-lowest py-16 w-full border-y border-outline-variant/5">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0">
           {stats.map((stat, i) => (
             <div 
               key={i} 

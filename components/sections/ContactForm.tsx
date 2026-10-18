@@ -3,6 +3,7 @@
 import { useState } from "react";
 import InputField from "@/components/ui/InputField";
 import Button from "@/components/ui/Button";
+import { divisions } from "@/lib/divisions";
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -98,12 +99,12 @@ export default function ContactForm() {
               onChange={handleChange}
             >
               <option value="" disabled className="bg-surface-container text-on-surface-variant">Select a service area</option>
-              <option value="TANGHAL - Live Events" className="bg-surface-container text-on-surface">Live Events & Entertainment</option>
-              <option value="LIKHA - Video Production" className="bg-surface-container text-on-surface">Video & Multimedia Production</option>
-              <option value="MERKATO - Marketing" className="bg-surface-container text-on-surface">Experiential Marketing</option>
-              <option value="TIPON - Events" className="bg-surface-container text-on-surface">Events & Activations</option>
-              <option value="DALOY - Tech" className="bg-surface-container text-on-surface">Tech & Digital Solutions</option>
-              <option value="Other" className="bg-surface-container text-on-surface">Other / General Inquiry</option>
+              {divisions.map((d) => (
+                <option key={d.slug} value={`${d.name} - ${d.subtitle}`} className="bg-surface-container text-on-surface">
+                  {d.name} — {d.subtitle}
+                </option>
+              ))}
+              <option value="Not sure yet / Other" className="bg-surface-container text-on-surface">Not sure yet / Other</option>
             </select>
             {/* Custom dropdown caret */}
             <div className="absolute right-0 bottom-4 pointer-events-none text-primary" aria-hidden="true">

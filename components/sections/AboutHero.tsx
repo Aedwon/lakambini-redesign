@@ -12,13 +12,13 @@ export default function AboutHero() {
           {/* Text Column */}
           <div className="md:col-span-7">
             <span className="label-sm text-primary tracking-[0.4em] uppercase mb-8 block font-medium">
-              Over a Decade of Experience
+              Full-Service Event Production
             </span>
-            <h1 className="display-lg text-on-surface font-extrabold tracking-tighter leading-[1.0] lg:leading-[0.95] mb-10 max-w-2xl">
-              The <span className="gold-gradient-text italic font-medium inline-block pr-[0.1em]">Lakambini</span> Legacy
+            <h1 className="display-lg text-on-surface font-bold tracking-tighter leading-[1.0] lg:leading-[0.95] mb-10 max-w-2xl">
+              The <span className="gold-gradient-text italic font-medium inline-block pr-[0.1em]">Lakambini</span> Story
             </h1>
             <p className="body-lg text-on-surface/80 font-light leading-relaxed max-w-xl">
-              Since 2014, we have delivered high-stakes event productions for the world&apos;s most discerning clients. We don&apos;t just plan — we create enduring experiences with precision and reliability.
+              We deliver high-stakes event productions with precision and reliability. We don&apos;t just plan — we build experiences from the first brief to the final strike.
             </p>
           </div>
 

@@ -11,11 +11,11 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Lakambini Events is a full-service event production agency founded in 2014. Over a decade of experience across nine specialized divisions.",
+    "Lakambini Events is a full-service event production agency based in Cavite. One team across nine specialized divisions, from planning to production.",
   openGraph: {
     title: "About Lakambini Events",
     description:
-      "Lakambini Events is a full-service event production agency founded in 2014. Over a decade of experience across nine specialized divisions.",
+      "Lakambini Events is a full-service event production agency based in Cavite. One team across nine specialized divisions, from planning to production.",
     url: "/about",
   },
 };
@@ -32,7 +32,7 @@ export default function AboutPage() {
       {/* 3. Founder Story - Enriched bio and blockquote */}
       <FounderStory />
       
-      {/* 4. Stats Bar - Key Metrics */}
+      {/* 4. Stats Bar - Verifiable facts (non-numeric proof only) */}
       <StatsBar />
       
       {/* 5. Our Approach - 3-Card Grid */}
@@ -46,8 +46,8 @@ export default function AboutPage() {
 
       {/* 8. CTA Banner - Standardized Banner */}
       <CTABanner 
-        headline="Ready to define your legacy?"
-        subtitle="Limited availability for 2026. Begin the journey with a private consultation."
+        headline="Ready to plan what&apos;s next?"
+        subtitle="Tell us what you have in mind. Begin with a private consultation."
         ctaLabel="Book a Private Consultation"
         ctaHref="/contact"
       />

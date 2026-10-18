@@ -37,12 +37,17 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-2">
               <div className="flex flex-col gap-3">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">General Inquiries</span>
-                <p className="title-md text-primary hover:text-primary-container transition-colors cursor-pointer">hello@lakambini.com</p>
+                <p className="title-md">
+                  <a href="mailto:hello@lakambini.com" className="text-primary hover:text-primary-container transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface">hello@lakambini.com</a>
+                </p>
               </div>
               
               <div className="flex flex-col gap-3">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">Phone</span>
-                <p className="title-md text-on-surface">+63 (2) 8123 4567</p>
+                {/* TODO: confirm phone number */}
+                <p className="title-md">
+                  <a href="tel:+63281234567" className="text-on-surface hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface">+63 (2) 8123 4567</a>
+                </p>
               </div>
               
               <div className="flex flex-col gap-3 sm:col-span-2">

@@ -2,7 +2,7 @@ export default function CompanyStory() {
   return (
     <section className="bg-surface-container-low py-32 w-full">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-32 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-x-16 items-start">
 
           {/* Headline Column */}
           <div className="md:col-span-6">
@@ -29,7 +29,7 @@ export default function CompanyStory() {
             <div className="pt-8 border-t border-outline-variant/10">
               <p className="label-sm text-primary uppercase tracking-widest mb-2 font-medium">Partnerships</p>
               <p className="body-md text-on-surface font-light">
-                Trusted by industry leaders like <span className="font-medium text-primary">Moonton</span> for multi-year event production and strategic partnerships.
+                Trusted by brands like <span className="font-medium text-primary">Moonton</span>.
               </p>
             </div>
           </div>

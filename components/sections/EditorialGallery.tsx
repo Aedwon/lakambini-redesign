@@ -9,7 +9,7 @@ export default function EditorialGallery() {
       <SectionHeading 
         overline="Our Work"
         title="Moments That Define Us"
-        description="A visual journey through a decade of production, from grand ballrooms to immersive brand worlds."
+        description="A visual journey through our production work, from grand ballrooms to immersive brand worlds."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
@@ -18,13 +18,13 @@ export default function EditorialGallery() {
         <div className="md:col-span-8 h-[500px] md:h-full bg-surface-container relative group overflow-hidden">
           <Image 
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80" 
-            alt="Decade of Excellence" 
+            alt="Event production in progress" 
             fill
             sizes="(max-width: 768px) 100vw, 66vw"
             className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
           <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 max-w-sm glassmorphism p-6 md:p-8 border border-outline-variant/10 ambient-shadow">
-            <h4 className="headline-sm mb-4 text-primary">Precision in every detail.</h4>
+            <h3 className="headline-sm mb-4 text-primary">Precision in every detail.</h3>
             <p className="body-md font-light leading-relaxed text-on-surface-variant">
               Every detail is an opportunity to get it right. We believe that great events are built on the reliability of the team executing them.
             </p>
@@ -52,8 +52,8 @@ export default function EditorialGallery() {
             />
             <div className="absolute inset-0 bg-surface/80 group-hover:bg-surface/60 transition-colors duration-1000 z-0"></div>
             <div className="relative z-10">
-              <span className="display-lg text-primary mb-2 block font-extrabold tracking-tighter drop-shadow-lg">12+</span>
-              <span className="label-sm text-on-surface drop-shadow-md">Years of Heritage</span>
+              <span className="display-lg text-primary mb-2 block font-bold tracking-tighter drop-shadow-lg">One Team</span>
+              <span className="label-sm text-on-surface drop-shadow-md">Brief to Strike</span>
             </div>
           </div>
         </div>

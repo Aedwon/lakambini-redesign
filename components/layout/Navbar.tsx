@@ -134,6 +134,17 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
+  // Move focus into the mobile menu on open; return it to the hamburger on close
+  const wasOpenRef = useRef(false);
+  useEffect(() => {
+    if (isOpen) {
+      mobileMenuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+    } else if (wasOpenRef.current) {
+      hamburgerRef.current?.focus();
+    }
+    wasOpenRef.current = isOpen;
+  }, [isOpen]);
+
   const closeAll = () => {
     setIsServicesOpen(false);
     setIsMobileServicesOpen(false);
@@ -371,7 +382,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
-              aria-controls="mobile-menu"
+              aria-controls={isOpen ? "mobile-menu" : undefined}
             >
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {isOpen ? (
@@ -392,7 +403,7 @@ export default function Navbar() {
           className={`hidden md:block transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${isServicesOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-3 pointer-events-none"
+              : "opacity-0 -translate-y-3 pointer-events-none invisible"
             }
           `}
         >
@@ -412,7 +423,7 @@ export default function Navbar() {
               <Link
                 href="/services"
                 onClick={() => setIsServicesOpen(false)}
-                className="inline-flex items-center gap-2 label-md text-on-surface-variant/60 hover:text-primary transition-colors duration-300 group/overview"
+                className="inline-flex items-center gap-2 label-md text-on-surface-variant/70 hover:text-primary transition-colors duration-300 group/overview"
               >
                 Services Overview
                 <svg
@@ -441,7 +452,7 @@ export default function Navbar() {
                   <span className="title-sm text-primary group-hover/item:text-primary-container transition-colors duration-300">
                     {service.name}
                   </span>
-                  <span className="body-sm text-on-surface-variant/50 font-light leading-snug">
+                  <span className="body-sm text-on-surface-variant/70 font-light leading-snug">
                     {service.desc}
                   </span>
                 </Link>
@@ -501,7 +512,7 @@ export default function Navbar() {
                         <Link
                           href="/services"
                           onClick={closeAll}
-                          className="inline-flex items-center gap-2 py-2.5 label-md text-on-surface-variant/50 hover:text-primary transition-colors duration-300 group/moverview"
+                          className="inline-flex items-center gap-2 py-2.5 label-md text-on-surface-variant/70 hover:text-primary transition-colors duration-300 group/moverview"
                         >
                           Services Overview
                           <svg
@@ -529,7 +540,7 @@ export default function Navbar() {
                             <span className="title-sm text-primary group-hover/mitem:text-primary-container transition-colors duration-300">
                               {service.name}
                             </span>
-                            <span className="body-sm text-on-surface-variant/40 font-light">
+                            <span className="body-sm text-on-surface-variant/70 font-light">
                               {service.desc}
                             </span>
                           </Link>

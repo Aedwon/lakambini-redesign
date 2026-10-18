@@ -47,7 +47,7 @@ export default function PageHero({ overline, title, subtitle, decorativeText, bg
           <span className="label-sm text-primary tracking-[0.3em] uppercase mb-6 block">
             {overline}
           </span>
-          <h1 className="display-lg text-on-surface font-extrabold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-10">
+          <h1 className="display-lg text-on-surface font-bold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-10">
             {title}
           </h1>
           {subtitle && (

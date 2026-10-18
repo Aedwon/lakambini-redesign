@@ -25,7 +25,7 @@ export default function Hero() {
         <span className="label-sm text-primary uppercase tracking-widest bg-surface-container/60 backdrop-blur-md py-2 px-4 rounded-full border border-outline-variant/20">
           Full Service Events &amp; Creative Agency
         </span>
-        <h1 className="display-hero text-on-surface leading-[1.05] font-extrabold max-w-4xl">
+        <h1 className="display-hero text-on-surface leading-[1.05] font-bold max-w-4xl">
           We turn bold ideas into <span className="gold-gradient-text italic font-medium inline-block pr-[0.15em]">exceptional</span> event experiences.
         </h1>
         <p className="body-lg text-on-surface/80 max-w-xl font-light">

@@ -161,6 +161,19 @@
     text-transform: uppercase;
   }
 
+  .label-xs {
+    font-family: var(--font-body);
+    font-size: 0.625rem;
+    line-height: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+  }
+
+  .editorial-shadow {
+    box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
+  }
+
   .ambient-shadow {
     box-shadow: 0 20px 50px rgba(4, 21, 15, 0.4);
   }
