@@ -25,20 +25,19 @@ const MOONTON = "Moonton (MLBB)";
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: "MCC Season 2",
+    title: "MLBB Collegiate Cup — Season 2",
     slug: "mcc-season-2",
     client: MOONTON,
     year: 2025,
     location: "SM Mall of Asia",
     divisions: ["tipon", "tanghal", "likha", "ugnay"],
     summary:
-      "The second season of the MLBB collegiate championship, with the finals staged at SM Mall of Asia in front of a live crowd.",
+      "Season 2 of the MLBB Collegiate Cup, an online and offline esports tournament with the finals staged at SM Mall of Asia in front of a live crowd. Lakambini handled event management, full production, merchandise and fabrication, and was an official event and media partner.",
     cover: img("mcc-s2-crowd-ledwall"),
     featured: true,
-    // TODO(client): confirm full event name / scale / results
     caseStudy: {
       brief:
-        "Moonton's MCC returned for a second season, bringing the top collegiate teams to a public mall stage. The job was to make a tournament feel like a proper broadcast event for the players and for the crowd watching in person.",
+        "Moonton's MLBB Collegiate Cup returned for a second season, bringing the top collegiate teams to a public mall stage. The job was to make a tournament feel like a proper broadcast event for the players and for the crowd watching in person.",
       whatWeDid: [
         "Welcomed the top-8 collegiate teams on arrival",
         "Built the stage and LED production for the knockouts and finals",
@@ -67,10 +66,9 @@ export const portfolioProjects: PortfolioProject[] = [
     year: 2025,
     divisions: ["tayo", "merkato", "guhit"],
     summary:
-      "Fan-event booths for the MLBB × NARUTO collaboration, built around a fabricated ramen stall, a giant ramen-bowl ball pit and a sandbox game.",
+      "Fan-event booths for the MLBB × NARUTO collaboration, built around a fabricated ramen stall, a giant ramen-bowl ball pit and a sandbox game. Scope covered event management, full production, fabrication and merchandise, including the Pamigay giveaways.",
     cover: img("mlbb-naruto-ramen-stall"),
     featured: true,
-    // TODO(client): confirm full event name / scale / results (venues, dates)
     caseStudy: {
       brief:
         "For the MLBB × NARUTO collaboration, fans needed somewhere to step into the world of the crossover rather than just see it on a screen. We built booths that people could walk into, play in and take photos at.",
@@ -100,10 +98,9 @@ export const portfolioProjects: PortfolioProject[] = [
     year: 2025,
     divisions: ["tipon", "merkato"],
     summary:
-      "A school caravan with a stage program, hosts and school-supply giveaways for students.",
+      "The campus edition of the Pamigay Caravan: a stage program, hosts and school-supply giveaways at elementary schools.",
     cover: img("pamigay-caravan-crowd"),
     featured: true,
-    // TODO(client): confirm full event name / scale / results (schools visited, dates)
     caseStudy: {
       brief:
         "The Pamigay Caravan took the MLBB community to schools, pairing a live stage program with giveaways of school supplies. The goal was a day that students and teachers would actually enjoy, with the brand present but not in the way.",
@@ -124,18 +121,18 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
-    title: "MLBB All Star 2025",
+    title: "MLBB All Star 2025 — Dino Academy @ Star City",
     slug: "mlbb-all-star-2025",
     client: MOONTON,
     year: 2025,
+    location: "Star City",
     divisions: ["tayo", "guhit"],
     summary:
-      "A themed installation inside a dinosaur attraction, with entrance, banners and standee graphics.",
+      "MLBB Dino Academy at Star City: a themed installation inside a dinosaur attraction, with entrance, banners and standee graphics.",
     cover: img("allstar-2025-dinosaur-build"),
-    // TODO(client): confirm full event name / venue / scale / results
     caseStudy: {
       brief:
-        "MLBB All Star 2025 took over part of a mall's dinosaur attraction. The challenge was to fit the MLBB look into an existing themed space so that the two felt like one environment.",
+        "MLBB All Star 2025, staged as MLBB Dino Academy, took over part of the dinosaur attraction at Star City. The challenge was to fit the MLBB look into an existing themed space so that the two felt like one environment.",
       whatWeDid: [
         "Built the themed installation inside the attraction",
         "Designed and produced the entrance, banners and standee graphics",
@@ -154,18 +151,18 @@ export const portfolioProjects: PortfolioProject[] = [
     client: MOONTON,
     year: 2025,
     divisions: ["tipon", "ugnay"],
-    summary: "An airport welcome for the champion MPL teams returning home.",
+    summary: "Airport management for the MPL and MCC send-off and homecoming, including the welcome for champion teams returning home.",
     cover: img("mpl-homecoming-flag"),
     images: [img("mpl-homecoming-flag")],
   },
   {
-    title: "M6 Watch Fest",
+    title: "M6 Watch Parties",
     slug: "m6-watch-fest",
     client: MOONTON,
     year: 2024,
     divisions: ["tipon", "ugnay"],
     summary:
-      "A mall watch party for the M6 World Championship, with a big screen and fans in the stands.",
+      "One of 11 nationwide venues for the M6 World Championship watch parties, with a big screen and fans in the stands.",
     cover: img("m6-watchfest-screen"),
     images: [img("m6-watchfest-screen"), img("m6-watchfest-fans")],
   },
@@ -187,7 +184,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: 2024,
     location: "Cavite",
     divisions: ["tipon"],
-    summary: "A back-to-school program run with DepEd schools in Cavite.",
+    summary: "A back-to-school program run across 6 schools, with DepEd schools in Cavite.",
     cover: img("balik-eskwela-students"),
     images: [img("balik-eskwela-students")],
   },
@@ -202,22 +199,21 @@ export const portfolioProjects: PortfolioProject[] = [
     images: [img("allstar-2024-mall-stage")],
   },
   {
-    title: "MCC Season 1",
+    title: "MLBB Collegiate Cup — Season 1",
     slug: "mcc-season-1",
     client: MOONTON,
     year: 2024,
     divisions: ["tipon", "tanghal"],
-    summary: "The first season of the MLBB collegiate championship.",
+    summary: "Season 1 of the MLBB Collegiate Cup, an online and offline esports tournament. Scope: event management, full production, merchandise and fabrication.",
     cover: img("mcc-s1-trophy-screen"),
     images: [img("mcc-s1-trophy-screen")],
   },
   {
     title: "Howlers Manila 3.0 · Cos Kingdom",
-    // TODO(client): confirm client / organiser name
     slug: "howlers-manila-cos-kingdom",
     year: 2024,
     divisions: ["tanghal"],
-    summary: "A cosplay competition stage at Howlers Manila 3.0.",
+    summary: "Lakambini was the official cosplay event partner at Howlers Cosplay & Music Festival, running the Cos Kingdom stage.",
     cover: img("howlers-cos-kingdom-stage"),
     images: [img("howlers-cos-kingdom-stage")],
   },
@@ -227,7 +223,7 @@ export const portfolioProjects: PortfolioProject[] = [
     client: "Moonton (MLBB) & Milo",
     year: 2024,
     divisions: ["merkato"],
-    summary: "A joint MLBB × Milo booth featuring a handprint wall.",
+    summary: "The MLBB × Milo Manila Marathon activation (Moonton @ Milo), with a booth featuring a handprint wall.",
     cover: img("mlbb-milo-handprint-wall"),
     images: [img("mlbb-milo-handprint-wall")],
   },
@@ -263,3 +259,34 @@ export function getNextCaseStudy(slug: string): PortfolioProject | undefined {
   const i = list.findIndex((p) => p.slug === slug);
   return i === -1 ? undefined : list[(i + 1) % list.length];
 }
+
+export interface MoreProject {
+  title: string;
+  client?: string;
+  year?: number;
+  scope?: string;
+}
+
+export const moreProjects: MoreProject[] = [
+  { title: "Infinix MLBB Regional (APAC) Grand Finals", client: "Infinix", scope: "Event management, merchandising, full production & fabrication, local & international broadcasting" },
+  { title: "Infinix Booth @ MPL Season 15 and Season 16", client: "Infinix" },
+  { title: "OPPO Hyper Legend Cup Finals", client: "OPPO", scope: "Esports management, livestreaming & broadcasting" },
+  { title: "OPPO Online Tournament", client: "OPPO" },
+  { title: "Gokongwei MLBB Cup", client: "Gokongwei Group", year: 2025, scope: "Offline esports tournament" },
+  { title: "Alorica Warriors' Ball", client: "Alorica", scope: "Event management, photo & video" },
+  { title: "VoiceCon PH", year: 2025, scope: "Event management" },
+  { title: "SpeakersCon", year: 2026, scope: "Event, manpower & sponsor management" },
+  { title: "JCI Induction", client: "JCI" },
+  { title: "Verizon Kick Off", client: "Verizon", year: 2026, scope: "Event management, video production" },
+  { title: "Ilocos Sur Festival Esports & Cosplay Competition", year: 2026 },
+  { title: "Honor of Kings Barangay Activations", client: "Honor of Kings", year: 2025 },
+  { title: "HOK Lantern Festival", client: "Honor of Kings", scope: "Livestreaming & broadcasting" },
+  { title: "MLBB × Jollibee", client: "Moonton (MLBB) & Jollibee" },
+  { title: "MLBB 12 Days of Christmas", client: "Moonton (MLBB)" },
+  { title: "Fnatic ONIC Victory Party" },
+  { title: "Kalaro Esports Brand Revamp", scope: "Design & branding" },
+  { title: "MCC × MPL \u201cPro Yarn?\u201d Video Series", scope: "Video production, 4 episodes" },
+  { title: "MSL Collegiate Cup Teaser Video", scope: "Video production" },
+  { title: "Proclamation Rally", scope: "Event management, full production, fabrication & merchandise" },
+  { title: "HOK & PUBG Mobile Flood and Earthquake Donation Drives", scope: "Community: General Trias, Malabon, Cebu" },
+];

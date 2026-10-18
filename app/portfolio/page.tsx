@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/PageHero";
 import PortfolioGrid from "@/components/sections/PortfolioGrid";
+import ProjectIndex from "@/components/sections/ProjectIndex";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
@@ -27,6 +28,8 @@ export default function PortfolioPage() {
       />
 
       <PortfolioGrid />
+
+      <ProjectIndex />
 
       <CTABanner
         headline="Let's talk about your next project."

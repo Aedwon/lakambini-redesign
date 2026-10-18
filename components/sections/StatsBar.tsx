@@ -1,8 +1,8 @@
 export default function StatsBar() {
   const stats = [
-    { value: "9", label: "Specialized Divisions" },
-    { value: "1", label: "Team, Brief to Strike" },
-    { value: "Cavite", label: "Home Base" },
+    { value: "2024", label: "Established" },
+    { value: "9", label: "In-house divisions" },
+    { value: "Cavite", label: "Home base, working nationwide" },
   ];
 
   return (

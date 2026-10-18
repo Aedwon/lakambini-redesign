@@ -25,8 +25,7 @@ const initialState: FormState = {
   message: "",
 };
 
-// TODO(client): confirm inquiry inbox
-const INQUIRY_EMAIL = "hello@lakambini.com";
+const INQUIRY_EMAIL = "admin@lakambinievents.com";
 
 const buildMailto = (d: FormState): string => {
   const subject = `Event inquiry — ${d.company.trim() || d.fullName.trim()}`;

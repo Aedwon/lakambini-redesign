@@ -7,29 +7,21 @@ export default function CompanyStory() {
           {/* Headline Column */}
           <div className="md:col-span-6">
             <h2 className="headline-lg text-on-surface leading-[1.2] tracking-tight">
-              Built on the belief that the best events happen when the client can focus on what matters.
+              A full-service events and creative production agency, built by people who have done this for over a decade.
             </h2>
           </div>
 
           {/* Narrative Column */}
           <div className="md:col-span-6 flex flex-col gap-8">
-            <div className="space-y-6 text-on-surface-variant body-lg leading-relaxed font-light">
+            <div className="space-y-6 text-on-surface-variant body-lg leading-relaxed font-light max-w-[65ch]">
               <p>
-                Based in Cavite, Lakambini began with a singular focus: to solve the coordination headaches that come with running big productions. We saw hosts juggling an army of vendors while losing the ability to be present at their own events.
+                Lakambini Creative Solutions, operating as Lakambini Events Agency, was established in January 2024 by a team of seasoned professionals, each with over a decade of experience.
               </p>
               <p>
-                Today, we operate as a full-service creative agency with nine specialized divisions covering every facet of event production—from stage design to digital engagement. Our model provides the agility of a lean operation backed by a deep network of specialists.
+                We specialize in corporate conferences, brand activations, large-scale productions, esports, gaming events, and integrated marketing support. Our in-house technical team, creatives, project managers, photo and video production, merchandising and fabrication let us deliver end-to-end solutions, from concept development to seamless on-ground execution.
               </p>
               <p>
-                Most of our work today is youth, gaming, and community events — from MLBB championships to school caravans. Whatever the format, we keep one standard: precision and reliability.
-              </p>
-            </div>
-
-            {/* Moonton Note */}
-            <div className="pt-4">
-              <p className="label-sm text-primary uppercase tracking-widest mb-2 font-medium">Partnerships</p>
-              <p className="body-md text-on-surface font-light">
-                Trusted by brands like <span className="font-medium text-primary">Moonton</span>.
+                Based in Cavite, we work nationwide. Much of our work is youth, gaming, and community events, from MLBB championships to school caravans.
               </p>
             </div>
           </div>

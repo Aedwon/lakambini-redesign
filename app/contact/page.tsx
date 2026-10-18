@@ -61,24 +61,24 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">General Inquiries</span>
                 <p className="title-md">
-                  <a href="mailto:hello@lakambini.com" className="text-primary hover:text-on-surface transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">hello@lakambini.com</a>
+                  <a href="mailto:admin@lakambinievents.com" className="text-primary hover:text-on-surface transition-colors rounded-sm break-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">admin@lakambinievents.com</a>
                 </p>
               </div>
 
               <div className="flex flex-col gap-3">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">Phone</span>
-                {/* TODO: confirm phone number */}
                 <p className="title-md">
-                  <a href="tel:+63281234567" className="text-on-surface hover:text-primary transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">+63 (2) 8123 4567</a>
+                  <a href="tel:+639958759410" className="text-on-surface hover:text-primary transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">+63 995 875 9410</a>
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 sm:col-span-2">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">Address</span>
-                <p className="body-lg text-on-surface max-w-xs">
-                  General Trias, Cavite,<br />
+                <address className="not-italic bg-surface-container p-6 md:p-8 body-lg text-on-surface max-w-md">
+                  Brookeside Lane, San Francisco,<br />
+                  General Trias City, Cavite,<br />
                   Philippines
-                </p>
+                </address>
               </div>
             </div>
           </div>
