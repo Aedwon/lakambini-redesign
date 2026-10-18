@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-// Kiosk screen capture; swap for the real app screenshot when available.
-const KIOSK_SCREEN = "/images/daloy/hok-lantern-kiosk.jpg";
+// Screenshot of the live kiosk welcome screen.
+const KIOSK_SCREEN = "/images/daloy/hok-kiosk-screen.webp";
 
 interface BotProject {
   client: string;

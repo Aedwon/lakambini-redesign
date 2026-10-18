@@ -96,8 +96,8 @@ export const divisions: DivisionData[] = [
     description: "Full-stack web and mobile development, custom software solutions, and workflow automation — from business platforms and SaaS products to event-day applications.",
     capabilities: ["Web & Mobile Apps", "Custom Software", "Workflow Automation", "Analytics Dashboards", "Interactive Kiosks"],
     ctaHeadline: "Need custom tech for your next project? Let's talk.",
-    heroImage: "/images/daloy/hok-lantern-kiosk.jpg",
-    cardImage: "/images/daloy/hok-lantern-kiosk.jpg"
+    heroImage: "/images/events/mcc-s2-players.jpg",
+    cardImage: "/images/events/mcc-s2-players.jpg"
   },
   {
     id: "09",
