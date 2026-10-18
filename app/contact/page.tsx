@@ -34,8 +34,7 @@ export default function ContactPage() {
             </div>
             <ol className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
-                // TODO(client): confirm response time
-                { n: "01", title: "We reply within 2 business days", desc: "A real person reads your inquiry and writes back with questions or next steps." },
+                { n: "01", title: "We read your brief", desc: "A real person reads every inquiry and replies by email with questions or next steps." },
                 { n: "02", title: "Discovery call", desc: "We talk through your goals, audience, venue, and timeline." },
                 { n: "03", title: "Proposal", desc: "You get a clear scope and plan to review before anything is locked in." },
               ].map((step) => (
@@ -61,7 +60,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">General Inquiries</span>
                 <p className="title-md">
-                  <a href="mailto:admin@lakambinievents.com" className="text-primary hover:text-on-surface transition-colors rounded-sm break-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">admin@lakambinievents.com</a>
+                  <a href="mailto:admin@lakambinievents.ph" className="text-primary hover:text-on-surface transition-colors rounded-sm break-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">admin@lakambinievents.ph</a>
                 </p>
               </div>
 

@@ -9,10 +9,10 @@ export default function FounderStory() {
           {/* Portrait Column */}
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="relative aspect-[4/5] overflow-hidden">
-              {/* TODO: replace with real portrait of Anchie Rosas */}
+              
               <Image 
-                src="/images/events/team-building-facilitator.jpg" 
-                alt="Lakambini crew member facilitating a team-building event" 
+                src="/images/anchie-rosas.jpg" 
+                alt="Anchie Rosas, Founder and CEO of Lakambini" 
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"

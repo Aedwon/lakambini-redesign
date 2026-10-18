@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import ProblemSolution from "@/components/sections/ProblemSolution";
-import AboutPreview from "@/components/sections/AboutPreview";
+import MissionStatement from "@/components/sections/MissionStatement";
 import Process from "@/components/sections/Process";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import PortfolioShowcase from "@/components/sections/PortfolioShowcase";
@@ -29,7 +29,7 @@ export default function Home() {
         <ServicesGrid />
         <ProblemSolution />
         <Process />
-        <AboutPreview />
+        <MissionStatement />
         <CTABanner 
           headline="Have an event in mind? Let's talk."
           subtitle="Tell us what you're planning. We'll tell you how we can help."
