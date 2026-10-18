@@ -58,7 +58,7 @@ These files and directories are read-only from Claude Code's perspective:
 
 * **`.agent/`** — all files. These define the workflow and are maintained manually.
 * **`references/`** — all files. These are the design source of truth.
-* **`public/`** — do not read, parse, or modify. Only reference paths (e.g., `/images/hero-bg.jpg`) in code.
+* **`public/`** — may be listed and viewed (e.g. to match photos to sections) and new assets added; do not delete or overwrite existing assets without asking.
 * **`tailwind.config.{js,ts}`** — do not create this file. Tailwind v4 uses `@theme` in `globals.css`.
 
 ---
@@ -81,7 +81,7 @@ When a user gives you a task, follow this loop:
 1. **Locate the task** in `plan.md`. If it's not there, ask whether to add it before proceeding.
 2. **Read only what you need** — the matching reference HTML, the relevant section component, `specs.md` for tokens. Do not crawl the whole tree.
 3. **Build or edit** following the constraints above.
-4. **Do not run a browser or take screenshots** for visual QA. The user will review on `localhost:3000` and give feedback (per `.agent/generate_ui.md`).
+4. **Visual QA with a headless browser is allowed** (Playwright screenshots at 1440px and 390px). The user still gives final feedback on the Vercel preview or `localhost:3000`.
 5. **Update `plan.md`** — mark the task ✅ complete or 🔲 partial with a note on what remains.
 6. **Stop and summarize** — don't roll into the next task automatically. Let the user set the next one.
 
@@ -93,5 +93,6 @@ Phases 0–5 (Foundation → Page Assembly) are ✅ complete.
 Active work is in:
 * **Phase 6** (Polish): responsive breakpoint testing, per-page SEO metadata, performance optimization
 * **Phase 7** (QA): visual fidelity, mobile testing, interaction audit, copy audit, accessibility
+* **Phase 9** (Trust & Refinement): no fabricated claims, design-system tightening, case studies, working inquiry form, real photography
 
 See `plan.md` for the authoritative task checklist.

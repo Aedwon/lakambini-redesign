@@ -382,8 +382,9 @@ Phase 8 ─── Accessibility & Touch UX (WCAG 2.1 AA compliant)          ✅ 
 ### Task 9.6 — Real photography 🔲
 - Waiting on client photos in `public/images/`; map via `ARCHIVE_IMAGE_BRIEF.md`.
 
-### Open items
-- `npm run lint` is broken (`next lint` was removed in Next 16) — needs an ESLint CLI script.
+### Task 9.7 — Lint restored ✅
+- `next lint` was removed in Next 16 → migrated to ESLint flat config (`eslint.config.mjs`), `npm run lint` runs `eslint .`; fixed the two Navbar `set-state-in-effect` errors.
+- Founder quote reframed as a company principle (not attributed to Anchie); "Proven Track Record" softened.
 
 ---
 

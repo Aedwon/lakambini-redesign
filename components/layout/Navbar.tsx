@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -57,14 +57,29 @@ const MORPH = {
   shimmerOpacity: [1, 0],         // 1 → 0
 } as const;
 
+/* ── Reduced-motion preference (external store) ────────────────────────── */
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribeReducedMotion(callback: () => void) {
+  const mq = window.matchMedia(REDUCED_MOTION_QUERY);
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [hasMounted, setHasMounted] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    () => window.matchMedia(REDUCED_MOTION_QUERY).matches,
+    () => false
+  );
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const rafRef = useRef<number | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
@@ -79,11 +94,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-    const handleMQ = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mq.addEventListener("change", handleMQ);
-
     const mountTimer = setTimeout(() => setHasMounted(true), 100);
 
     const handleScroll = () => {
@@ -96,22 +106,23 @@ export default function Navbar() {
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    updateScrollProgress();
+    // Sync initial position (e.g. reload mid-page) on the next frame
+    rafRef.current = requestAnimationFrame(updateScrollProgress);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      mq.removeEventListener("change", handleMQ);
       clearTimeout(mountTimer);
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
   }, [updateScrollProgress, prefersReducedMotion]);
 
-  // Close everything on route change
-  useEffect(() => {
+  // Close everything on route change (state adjusted during render, not in an effect)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setIsServicesOpen(false);
     setIsMobileServicesOpen(false);
     setIsOpen(false);
-  }, [pathname]);
+  }
 
   // Escape key closes any open menu
   useEffect(() => {

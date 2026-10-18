@@ -33,9 +33,9 @@ export default function FounderStory() {
                 As the Founder, CEO, and Creative Director of Lakambini, Anchie Rosas brings over 10 years of experience in top corporate environments to the world of event production. Her deep understanding of complex systems and strategic management defines how we approach every project.
               </p>
               
-              {/* Blockquote Style */}
-              <div className="relative pl-12 py-4">
-                <span className="absolute left-0 top-0 text-primary opacity-20 text-7xl font-bold font-headline select-none">&ldquo;</span>
+              {/* Company principle (not a personal quote) */}
+              <div className="relative pl-6 py-4 border-l-2 border-primary/40">
+                <p className="label-sm text-primary uppercase tracking-widest mb-3">What We Believe</p>
                 <p className="italic text-on-surface text-xl md:text-2xl leading-relaxed">
                   The LAKAMBINI client is someone who values their guests&apos; experience as much as their own peace of mind. We exist to be the team that ensures every event is managed with precision and reliability.
                 </p>
