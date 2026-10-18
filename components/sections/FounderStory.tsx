@@ -28,7 +28,7 @@ export default function FounderStory() {
             </h2>
             <div className="space-y-8 font-light text-on-surface-variant body-lg leading-loose">
               <p>
-                As the Founder, CEO, and Creative Director of Lakambini, Anchie Rosas brings over 10 years of experience in top corporate environments to the world of event production. Her deep understanding of complex systems and strategic management defines how we approach every project.
+                As the Founder, CEO, and Creative Director of Lakambini, Anchie Rosas brings over 10 years of experience in top corporate environments to the world of event production. Her deep understanding of complex systems and strategic management defines how we approach every project. She is also recognized as a BNI Master Connector for her work building business relationships across her network.
               </p>
               
               {/* Company principle (not a personal quote) */}

@@ -60,7 +60,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3">
                 <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">General Inquiries</span>
                 <p className="title-md">
-                  <a href="mailto:admin@lakambinievents.ph" className="text-primary hover:text-on-surface transition-colors rounded-sm break-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">admin@lakambinievents.ph</a>
+                  <a href="mailto:admin@lakambinievents.com" className="text-primary hover:text-on-surface transition-colors rounded-sm break-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">admin@lakambinievents.com</a>
                 </p>
               </div>
 
