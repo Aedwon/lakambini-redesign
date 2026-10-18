@@ -96,9 +96,8 @@ export const divisions: DivisionData[] = [
     description: "Full-stack web and mobile development, custom software solutions, and workflow automation — from business platforms and SaaS products to event-day applications.",
     capabilities: ["Web & Mobile Apps", "Custom Software", "Workflow Automation", "Analytics Dashboards", "Interactive Kiosks"],
     ctaHeadline: "Need custom tech for your next project? Let's talk.",
-    // TODO(client): no real photo yet — needs AI-generated or real image of event tech (check-in kiosk / dashboard at an event)
-    heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop",
-    cardImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop"
+    heroImage: "/images/daloy/hok-lantern-kiosk.jpg",
+    cardImage: "/images/daloy/hok-lantern-kiosk.jpg"
   },
   {
     id: "09",
