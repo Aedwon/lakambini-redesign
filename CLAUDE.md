@@ -32,14 +32,13 @@ Do not preemptively read every file in the project. Consult these only when a ta
 
 ---
 
-## 🎨 Design System: Emerald Editorial
+## 🎨 Design System v2: "Night Brass" (supersedes Emerald Editorial)
 
-* **Source of Truth**: `specs.md` and `references/*.html`
-* **Theme**: Dark-mode first. Use custom `@theme` tokens in `styles/globals.css`.
-    * `primary`: Emerald Gold (`#e9c255`)
-    * `surface`: Deep Emerald Green (`#051710`)
-* **The "No-Line" Rule**: Avoid explicit borders. Use tonal shifts (`surface-container-low`, `surface-container-high`) and ambient shadows.
-* **Typography**: Noto Serif (headlines) + Manrope (body). Use predefined utility classes like `display-lg`, `headline-md`, `body-lg` — do not inline `font-family` or ad-hoc type scales.
+* **Source of Truth**: `styles/globals.css` (tokens + type utilities) and the primitives in `components/ui/` (`Button`, `SectionHeader`, `Reveal`, `GoldWave`, `Marquee`). `references/*.html` are historical only.
+* **Direction**: cinematic, editorial, restrained — the frame is quiet so the (colourful, real) work is loud. Not luxury-gala, not dashboard UI.
+* **Colour**: `ink` background, `ivory` text, `mist` secondary text, `brass` (#c9a45c) as the ONLY accent and used sparingly, `line` for hairlines. Legacy `surface*`/`primary` tokens are remapped aliases — use v2 names in new code.
+* **Structure**: hairlines + whitespace + mono indices instead of boxed cards; full-bleed photography; `container-x` / `section-y` for layout rhythm.
+* **Typography**: Instrument Serif (display/headlines, one `<em>` brass italic accent max per headline) + Geist (text) + Geist Mono (`numeral`). Use the utility classes (`display-*`, `headline-*`, `title-*`, `body-*`, `eyebrow`, `label-*`, `numeral`) — no ad-hoc font families or type scales.
 
 ---
 
@@ -58,7 +57,7 @@ These files and directories are read-only from Claude Code's perspective:
 
 * **`.agent/`** — all files. These define the workflow and are maintained manually.
 * **`references/`** — all files. These are the design source of truth.
-* **`public/`** — do not read, parse, or modify. Only reference paths (e.g., `/images/hero-bg.jpg`) in code.
+* **`public/`** — may be listed and viewed (e.g. to match photos to sections) and new assets added; do not delete or overwrite existing assets without asking.
 * **`tailwind.config.{js,ts}`** — do not create this file. Tailwind v4 uses `@theme` in `globals.css`.
 
 ---
@@ -69,8 +68,9 @@ These files and directories are read-only from Claude Code's perspective:
 * **Components**: Use functional components with arrow functions or `default function`.
 * **Images**: Always use `next/image` with appropriate `sizes` and `priority` for hero images.
 * **Links**: Always use `next/link`.
-* **Fonts**: Use the CSS variables (`--font-noto-serif`, `--font-manrope`) already configured in `app/layout.tsx` via `next/font/google`. Do not import fonts elsewhere.
-* **Framer Motion**: Use `AnimatePresence` and `motion` components for scroll reveals. Page-level reveals are already handled by `PageWrapper.tsx` — prefer adding motion inside sections, not at the page level.
+* **Fonts**: Use the CSS variables (`--font-instrument-serif`, `--font-geist`, `--font-geist-mono`) configured in `app/layout.tsx` via `next/font/google`. Do not import fonts elsewhere.
+* **Motion**: Use `components/ui/Reveal.tsx` for scroll reveals inside sections; everything must respect `prefers-reduced-motion`.
+* **Media**: Real event photos live in `public/images/events/`, videos in `public/video/` (hero reel ≈3 MB; company film loads on click only). Never use stock or fabricated imagery for real projects.
 
 ---
 
@@ -81,7 +81,7 @@ When a user gives you a task, follow this loop:
 1. **Locate the task** in `plan.md`. If it's not there, ask whether to add it before proceeding.
 2. **Read only what you need** — the matching reference HTML, the relevant section component, `specs.md` for tokens. Do not crawl the whole tree.
 3. **Build or edit** following the constraints above.
-4. **Do not run a browser or take screenshots** for visual QA. The user will review on `localhost:3000` and give feedback (per `.agent/generate_ui.md`).
+4. **Visual QA with a headless browser is allowed** (Playwright screenshots at 1440px and 390px). The user still gives final feedback on the Vercel preview or `localhost:3000`.
 5. **Update `plan.md`** — mark the task ✅ complete or 🔲 partial with a note on what remains.
 6. **Stop and summarize** — don't roll into the next task automatically. Let the user set the next one.
 
@@ -93,5 +93,7 @@ Phases 0–5 (Foundation → Page Assembly) are ✅ complete.
 Active work is in:
 * **Phase 6** (Polish): responsive breakpoint testing, per-page SEO metadata, performance optimization
 * **Phase 7** (QA): visual fidelity, mobile testing, interaction audit, copy audit, accessibility
+* **Phase 9** (Trust & Refinement): no fabricated claims, case studies, real photography ✅
+* **Phase 10** (Design System v2 "Night Brass"): cinematic rebuild — new tokens/type, video hero, shared division template
 
 See `plan.md` for the authoritative task checklist.

@@ -1,87 +1,102 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import GoldWave from "@/components/ui/GoldWave";
+import { divisions } from "@/lib/divisions";
+
+const EMAIL = "admin@lakambinievents.com";
+
+const SITEMAP = [
+  { href: "/portfolio", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+const colHead = "eyebrow mb-6 text-mist";
+const linkCls = "body-md text-ivory/80 transition-colors duration-300 hover:text-ivory";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-surface-container-lowest text-on-surface">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12pt-20 pb-8 grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-surface-container-highest">
-        
-        {/* Brand Column */}
-        <div className="flex flex-col gap-6">
-          <Link href="/" className="inline-block">
+    <footer className="relative overflow-hidden bg-ink-deep">
+      <GoldWave opacity={0.25} className="absolute inset-x-0 bottom-0 h-2/3 w-full opacity-40" />
+
+      <div className="container-x relative pb-10 pt-16 md:pt-20">
+        {/* Sign-off: the CTA band above is the page's only ask, so the footer stays quiet */}
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <Link href="/" aria-label="Lakambini Events, home" className="inline-block">
             <Image
               src="/images/Lakambini Logo Gold Horizontal.png"
-              alt="Lakambini Logo"
-              width={200}
-              height={40}
-              className="h-8 w-auto object-contain"
+              alt=""
+              width={1310}
+              height={343}
+              sizes="200px"
+              className="h-10 w-auto md:h-12"
             />
           </Link>
-          <p className="body-sm font-light text-primary/60 max-w-sm">
-            Full-service event production. Creative. Technical. Reliable.
-          </p>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="headline-md relative self-start break-all text-ivory after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-[0.25] after:bg-brass after:transition-transform after:duration-500 after:ease-[var(--ease-out-expo)] hover:after:scale-x-100 focus-visible:after:scale-x-100 md:self-auto"
+          >
+            {EMAIL}
+          </a>
         </div>
 
-        {/* Links Column */}
-        <div className="grid grid-cols-2 gap-8">
-          <div className="flex flex-col gap-4">
-            <h4 className="label-sm text-primary uppercase tracking-widest">Agency</h4>
-            <Link href="/" className="body-sm hover:text-primary transition-colors">Home</Link>
-            <Link href="/services" className="body-sm hover:text-primary transition-colors">Services</Link>
-            <Link href="/about" className="body-sm hover:text-primary transition-colors">About</Link>
-            <Link href="/portfolio" className="body-sm hover:text-primary transition-colors">Portfolio</Link>
+        <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-12 border-t border-line pt-12 md:mt-16 lg:grid-cols-4">
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className={colHead}>Studio</h3>
+            <address className="body-md not-italic text-ivory/80">
+              Brookeside Lane, San Francisco,
+              <br />
+              General Trias City, Cavite,
+              <br />
+              Philippines
+            </address>
           </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="label-sm text-primary uppercase tracking-widest">Legal</h4>
-            <Link href="#" className="body-sm hover:text-primary transition-colors">Privacy</Link>
-            <Link href="#" className="body-sm hover:text-primary transition-colors">Terms</Link>
-            <Link href="#" className="body-sm hover:text-primary transition-colors">Press</Link>
-            <Link href="/contact" className="body-sm hover:text-primary transition-colors">Contact</Link>
+
+          <nav aria-label="Sitemap">
+            <h3 className={colHead}>Sitemap</h3>
+            <ul className="flex flex-col gap-3">
+              {SITEMAP.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkCls}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Divisions">
+            <h3 className={colHead}>Divisions</h3>
+            <ul className="flex flex-col gap-3">
+              {divisions.map((d) => (
+                <li key={d.slug}>
+                  <Link href={`/services/${d.slug}`} className={linkCls}>
+                    {d.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <h3 className={colHead}>Contact</h3>
+            <ul className="flex flex-col gap-3">
+              <li>
+                <a href="tel:+639958759410" className={linkCls}>
+                  +63 995 875 9410
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Newsletter & Social */}
-        <div className="flex flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <h4 className="label-sm text-primary uppercase tracking-widest">Stay Updated</h4>
-            <form className="flex w-full mt-2 group" onSubmit={(e) => e.preventDefault()} aria-label="Newsletter signup">
-              <label htmlFor="footer-email" className="sr-only">Email address</label>
-              <input
-                id="footer-email"
-                type="email"
-                placeholder="Enter your email"
-                autoComplete="email"
-                className="w-full bg-transparent border-b border-outline-variant/40 py-2 min-h-[44px] text-body-md text-on-surface focus:outline-none focus-visible:border-primary transition-colors placeholder:text-on-surface-variant/60"
-              />
-              <button
-                type="submit"
-                className="border-b border-outline-variant/40 py-2 px-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-primary hover:text-primary-container transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest group-focus-within:border-primary"
-                aria-label="Subscribe to newsletter"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-            </form>
-          </div>
-          
-          <div className="flex flex-col gap-4">
-            <h4 className="label-sm text-primary uppercase tracking-widest">Follow Us</h4>
-            <div className="flex gap-6">
-              <a href="#" className="body-sm hover:text-primary transition-colors focus:outline-none focus:text-primary">LinkedIn</a>
-              <a href="#" className="body-sm hover:text-primary transition-colors focus:outline-none focus:text-primary">Instagram</a>
-            </div>
-          </div>
+        <div className="mt-16 flex flex-col gap-6 border-t border-line pt-6 text-mist sm:flex-row sm:items-center sm:justify-between">
+          <p className="body-sm">&copy; {year} Lakambini Creative Solutions</p>
+          <p className="numeral">Est. 2024</p>
         </div>
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-8 pb-24 md:pb-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60">
-          &copy; {new Date().getFullYear()} Lakambini Events. All rights reserved.
-        </p>
       </div>
     </footer>
   );

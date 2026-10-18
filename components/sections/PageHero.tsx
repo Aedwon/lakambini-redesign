@@ -1,62 +1,50 @@
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 
 interface PageHeroProps {
   overline: string;
   title: React.ReactNode;
   subtitle?: string;
+  /** Accepted for backwards compatibility; no longer rendered. */
   decorativeText?: string;
   bgImage?: string;
 }
 
-export default function PageHero({ overline, title, subtitle, decorativeText, bgImage }: PageHeroProps) {
+/** Editorial page opener: type first, then a full-bleed image below like a magazine spread. */
+export default function PageHero({ overline, title, subtitle, bgImage }: PageHeroProps) {
   return (
-    <section className="w-full hero-gradient relative overflow-hidden bg-surface">
-      {/* Background Image */}
-      {bgImage && (
-        <>
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={bgImage}
-              alt=""
-              fill
-              priority
-              className="object-cover opacity-30"
-            />
-          </div>
-          {/* Editorial Overlays */}
-          <div className="absolute inset-0 z-0 bg-gradient-to-t from-surface via-surface/80 to-surface/40"></div>
-        </>
-      )}
-
-      {/* Marble Texture Overlay */}
-      <div className="absolute inset-0 marble-texture pointer-events-none mix-blend-overlay z-1"></div>
-      
-      {/* Decorative Text Watermark */}
-      {decorativeText && (
-        <div 
-          className="absolute right-0 sm:right-12 lg:right-24 top-1/2 -translate-y-1/2 font-headline font-bold text-primary opacity-[0.08] pointer-events-none select-none z-0"
-          style={{ fontSize: "clamp(12rem, 25vw, 25rem)", lineHeight: 1 }}
-          aria-hidden="true"
-        >
-          {decorativeText}
-        </div>
-      )}
-      
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-40 pb-24 relative z-10 w-full flex justify-between items-center">
-        <div className="max-w-4xl relative z-10">
-          <span className="label-sm text-primary tracking-[0.3em] uppercase mb-6 block">
+    <section className="w-full bg-ink">
+      <div className="container-x pb-16 pt-40 md:pt-52">
+        <Reveal>
+          <p className="eyebrow mb-8 flex items-center gap-4 text-mist">
+            <span aria-hidden="true" className="h-px w-10 bg-brass" />
             {overline}
-          </span>
-          <h1 className="display-lg text-on-surface font-extrabold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-10">
+          </p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <h1 className="display-lg max-w-[18ch] text-balance text-ivory [&_em]:italic [&_em]:text-brass">
             {title}
           </h1>
-          {subtitle && (
-            <p className="body-lg text-on-surface-variant font-light leading-relaxed max-w-2xl">
-              {subtitle}
-            </p>
-          )}
-        </div>
+        </Reveal>
+        {subtitle && (
+          <Reveal delay={0.14}>
+            <p className="body-lg mt-10 max-w-[52ch] text-mist">{subtitle}</p>
+          </Reveal>
+        )}
       </div>
+
+      {bgImage && (
+        <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-[21/9]">
+          <Image
+            src={bgImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      )}
     </section>
   );
 }

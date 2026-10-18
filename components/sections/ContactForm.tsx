@@ -1,140 +1,226 @@
 "use client";
 
 import { useState } from "react";
-import InputField from "@/components/ui/InputField";
+import InputField, { fieldClasses, fieldLabelClasses } from "@/components/ui/InputField";
 import Button from "@/components/ui/Button";
+import { divisions } from "@/lib/divisions";
+
+type Status = "idle" | "submitting" | "success-formspree" | "success-mailto" | "error";
+
+interface FormState {
+  fullName: string;
+  email: string;
+  company: string;
+  eventType: string;
+  eventDate: string;
+  message: string;
+}
+
+const initialState: FormState = {
+  fullName: "",
+  email: "",
+  company: "",
+  eventType: "",
+  eventDate: "",
+  message: "",
+};
+
+const INQUIRY_EMAIL = "admin@lakambinievents.com";
+
+const buildMailto = (d: FormState): string => {
+  const subject = `Event inquiry: ${d.company.trim() || d.fullName.trim()}`;
+  const body = [
+    `Full name: ${d.fullName}`,
+    `Email: ${d.email}`,
+    `Company / brand: ${d.company || "-"}`,
+    `What do you need: ${d.eventType || "-"}`,
+    `Target event date: ${d.eventDate || "-"}`,
+    "",
+    "Message:",
+    d.message,
+  ].join("\n");
+  return `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
 
 export default function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    eventType: "",
-    message: ""
-  });
+  const [status, setStatus] = useState<Status>("idle");
+  const [formData, setFormData] = useState<FormState>(initialState);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact Form Payload:", formData);
-    setIsSubmitted(true);
+    if (status === "submitting") return;
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
+    if (!formspreeId) {
+      window.location.href = buildMailto(formData);
+      setStatus("success-mailto");
+      return;
+    }
+
+    setStatus("submitting");
+    try {
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      setStatus("success-formspree");
+    } catch {
+      setStatus("error");
+    }
   };
 
-  if (isSubmitted) {
+  const reset = () => {
+    setFormData(initialState);
+    setStatus("idle");
+  };
+
+  const succeeded = status === "success-formspree" || status === "success-mailto";
+
+  if (succeeded) {
     return (
-      <section className="bg-surface-container py-20 md:py-32 px-6 flex items-center justify-center text-center">
-        <div className="max-w-2xl flex flex-col gap-8 items-center">
-          <div className="w-20 h-20 rounded-full flex items-center justify-center ghost-border shadow-[0_0_30px_rgba(233,194,85,0.15)] mb-2">
-            <span className="text-primary text-4xl">✓</span>
-          </div>
-          <h2 className="headline-lg text-primary">Message Received</h2>
-          <p className="body-lg text-on-surface-variant font-light max-w-lg mb-4">
-            Thanks for reaching out. Someone from our team will get back to you within 24 hours.
-          </p>
-          <Button variant="secondary" onClick={() => setIsSubmitted(false)}>
-            Send Another Message
-          </Button>
-        </div>
-      </section>
+      <div className="flex flex-col gap-8 items-start border-t hairline pt-10" role="status" aria-live="polite">
+        <p className="eyebrow text-brass">{status === "success-mailto" ? "One more step" : "Sent"}</p>
+        <h2 className="display-sm text-ivory text-balance">
+          {status === "success-mailto" ? "Your email app should be open" : "Message received"}
+        </h2>
+        <p className="body-lg text-mist max-w-[52ch]">
+          {status === "success-mailto"
+            ? `Your email app opened with your inquiry filled in. Press send there to reach us. If nothing opened, write to ${INQUIRY_EMAIL} directly.`
+            : "Thanks for reaching out. We will get back to you by email."}
+        </p>
+        <Button variant="secondary" onClick={reset}>
+          Send another inquiry
+        </Button>
+      </div>
     );
   }
 
-  const inputClasses = "w-full bg-transparent border-b border-outline-variant/40 py-3 min-h-[44px] text-on-surface body-md rounded-none focus:outline-none focus:border-b-2 focus:border-primary focus:shadow-[0_4px_15px_-3px_rgba(233,194,85,0.15)] transition-all duration-300 placeholder:text-on-surface-variant/60";
-
   return (
-    <section className="bg-surface-container py-20 md:py-32 relative overflow-hidden">
-      {/* Decorative background element */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-9 md:gap-11" aria-busy={status === "submitting"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-9 md:gap-10">
+        <InputField
+          label="Full name"
+          id="fullName"
+          name="fullName"
+          type="text"
+          required
+          autoComplete="name"
+          placeholder="Your name"
+          value={formData.fullName}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Email"
+          id="email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="you@company.com"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
 
-      <div className="max-w-3xl mx-auto px-6 md:px-12 flex flex-col gap-16 relative z-10">
-        <div className="flex flex-col gap-4">
-          <span className="label-sm text-primary tracking-widest uppercase">Inquiries</span>
-          <h2 className="display-sm text-on-surface">Start the conversation.</h2>
+      <InputField
+        label="Company / brand"
+        id="company"
+        name="company"
+        type="text"
+        autoComplete="organization"
+        placeholder="Optional"
+        value={formData.company}
+        onChange={handleChange}
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-9 md:gap-10">
+        <div className="flex flex-col gap-1 w-full relative">
+          <label htmlFor="eventType" className={fieldLabelClasses}>
+            What do you need?
+          </label>
+          <select
+            id="eventType"
+            name="eventType"
+            className={`${fieldClasses} appearance-none cursor-pointer pr-8`}
+            value={formData.eventType}
+            onChange={handleChange}
+          >
+            <option value="" className="bg-ink-raised text-mist">Select a service area</option>
+            {divisions.map((d) => (
+              <option key={d.slug} value={`${d.name} - ${d.subtitle}`} className="bg-ink-raised text-ivory">
+                {d.name} - {d.subtitle}
+              </option>
+            ))}
+            <option value="Not sure yet / Other" className="bg-ink-raised text-ivory">Not sure yet / Other</option>
+          </select>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 12 8"
+            className="absolute right-0 bottom-[22px] h-2 w-3 pointer-events-none text-brass"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.25"
+          >
+            <path d="M1 1.5l5 5 5-5" />
+          </svg>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <InputField
-              label="Full Name"
-              id="fullName"
-              name="fullName"
-              type="text"
-              required
-              autoComplete="name"
-              placeholder="Your name"
-              value={formData.fullName}
-              onChange={handleChange}
-            />
-            <InputField
-              label="Email"
-              id="email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              placeholder="you@company.com"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          
-          <div className="flex flex-col gap-2 w-full relative">
-            <label htmlFor="eventType" className="label-sm text-on-surface tracking-widest uppercase">
-              What do you need?
-            </label>
-            <select
-              id="eventType"
-              name="eventType"
-              required
-              aria-required="true"
-              className={`${inputClasses} appearance-none cursor-pointer`}
-              value={formData.eventType}
-              onChange={handleChange}
-            >
-              <option value="" disabled className="bg-surface-container text-on-surface-variant">Select a service area</option>
-              <option value="TANGHAL - Live Events" className="bg-surface-container text-on-surface">Live Events & Entertainment</option>
-              <option value="LIKHA - Video Production" className="bg-surface-container text-on-surface">Video & Multimedia Production</option>
-              <option value="MERKATO - Marketing" className="bg-surface-container text-on-surface">Experiential Marketing</option>
-              <option value="TIPON - Events" className="bg-surface-container text-on-surface">Events & Activations</option>
-              <option value="DALOY - Tech" className="bg-surface-container text-on-surface">Tech & Digital Solutions</option>
-              <option value="Other" className="bg-surface-container text-on-surface">Other / General Inquiry</option>
-            </select>
-            {/* Custom dropdown caret */}
-            <div className="absolute right-0 bottom-4 pointer-events-none text-primary" aria-hidden="true">
-              ▼
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="message" className="label-sm text-on-surface tracking-widest uppercase">
-              Tell us more
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              aria-required="true"
-              rows={5}
-              placeholder="What are you planning? Include dates, scale, and any specific requirements..."
-              className={`${inputClasses} resize-none min-h-[120px]`}
-              value={formData.message}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="pt-6 flex justify-end">
-            <Button variant="primary" size="lg" type="submit" className="w-full md:w-auto">
-              Send Message
-            </Button>
-          </div>
-        </form>
+        <InputField
+          label="Target event date"
+          id="eventDate"
+          name="eventDate"
+          type="date"
+          value={formData.eventDate}
+          onChange={handleChange}
+        />
       </div>
-    </section>
+
+      <div className="flex flex-col gap-1 w-full">
+        <label htmlFor="message" className={fieldLabelClasses}>
+          Message<span className="text-brass ml-1" aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          aria-required="true"
+          rows={3}
+          placeholder="What are you planning? Include scale, location and any requirements."
+          className={`${fieldClasses} resize-none min-h-[96px] overflow-hidden`}
+          value={formData.message}
+          onChange={handleChange}
+          onInput={(e) => {
+            const el = e.currentTarget;
+            el.style.height = "auto";
+            el.style.height = `${el.scrollHeight}px`;
+          }}
+        />
+      </div>
+
+      <div aria-live="polite" className="min-h-[1.5rem]">
+        {status === "error" && (
+          <p role="alert" className="body-md text-ivory">
+            Sorry, we could not send your message. Please try again, or email us at{" "}
+            <a href={`mailto:${INQUIRY_EMAIL}`} className="text-brass underline underline-offset-4">
+              {INQUIRY_EMAIL}
+            </a>
+            .
+          </p>
+        )}
+        {status === "submitting" && <p className="body-md text-mist">Sending your message…</p>}
+      </div>
+
+      <div>
+        <Button variant="primary" size="lg" type="submit" className="w-full md:w-auto">
+          {status === "submitting" ? "Sending…" : "Send message"}
+        </Button>
+      </div>
+    </form>
   );
 }

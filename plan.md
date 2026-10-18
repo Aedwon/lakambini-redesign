@@ -355,6 +355,58 @@ Phase 8 ─── Accessibility & Touch UX (WCAG 2.1 AA compliant)          ✅ 
 
 ---
 
+## Phase 9: Trust & Refinement (2026-10 redesign pass)
+
+> Goal: make the site read as credible and premium to brand/marketing buyers — real proof, no fabricated claims, tighter execution.
+
+### Task 9.1 — Remove fabricated proof ✅
+- Removed placeholder testimonials (section + component), invented stats (500+ events, 100+ clients, "70%"), and conflicting company-age claims (10+/12+ years, "Since 2014", "a decade").
+- Replaced "legacy" wording; StatsBar now shows non-numeric facts only.
+- Founder portrait is still stock → marked TODO.
+
+### Task 9.2 — Bug & accessibility fixes ✅
+- Footer padding bug, dead `#` links and no-op newsletter removed; focus rings added.
+- Contact email/phone are `mailto:`/`tel:` links; inquiry select lists all 9 divisions.
+- Navbar: hidden dropdown removed from tab order, mobile menu focus management, contrast raised.
+- Unloaded font weights (800/900) replaced; undefined `label-xs`/`editorial-shadow` utilities defined; unused components deleted; `/about` horizontal overflow fixed.
+
+### Task 9.3 — Design system tightening ✅
+- Direction "Emerald frame, real colour": photos at full strength, gold as accent only, decorative borders removed, one spacing scale, nothing hover-only.
+- Homepage reordered (Hero → clients → selected work → 9-division index → why → process → about → CTA); new hero copy "Events people line up for."
+- Repositioned around the real work (youth, gaming and community events for Moonton/MLBB and others); unverifiable stats and capability claims removed from division pages.
+
+### Task 9.4 — Real portfolio + case studies ✅
+- `lib/portfolioData.ts` rebuilt from 13 real events (2024–2026 archive); invented entries removed.
+- `app/portfolio/[slug]` (client-approved dynamic route) with 4 case studies: MCC Season 2, MLBB × NARUTO, Pamigay Caravan, All Star 2025.
+- 🔲 Client to confirm full event names, scale and results (`TODO(client)` comments in data).
+
+### Task 9.5 — Working inquiry form 🔲 (partial)
+- Done: company + target-date fields; Formspree POST when `NEXT_PUBLIC_FORMSPREE_ID` is set, otherwise a pre-filled mailto to hello@lakambini.com.
+- Remaining: create Formspree form, set the env var on Vercel, confirm inbox, phone number and response time.
+
+### Task 9.6 — Real photography 🔲 (mostly done)
+- 44 curated archive photos in `public/images/events/` used across home, portfolio, services, about.
+- Remaining stock images (need real or AI-generated): DALOY hero/card + page, GUHIT editorial/illustration/colour-grading, LIKHA music video, SIBOL conferences, TIPON fun runs, UGNAY moderation; founder portrait of Anchie Rosas.
+
+### Task 9.7 — Lint restored ✅
+- `next lint` was removed in Next 16 → migrated to ESLint flat config (`eslint.config.mjs`), `npm run lint` runs `eslint .`; fixed the two Navbar `set-state-in-effect` errors.
+- Founder quote reframed as a company principle (not attributed to Anchie); "Proven Track Record" softened.
+
+---
+
+## Phase 10: Design System v2 "Night Brass" ✅
+
+> Goal: premium, cinematic, editorial. The frame is quiet so the real work is loud.
+
+- New tokens (ink / ivory / mist / brass / hairline) replacing the generated Material palette; legacy tokens aliased.
+- Type: Instrument Serif display + Geist text + Geist Mono numerals; thin wide-tracked eyebrows from the company deck.
+- Primitives: `Button`, `SectionHeader`, `Reveal`, `GoldWave` (deck line-art), `Marquee`; film grain.
+- Home hero showreel cut from MCC / NARUTO / profile footage (`public/video`, ~2.8 MB, reduced-motion fallback); click-to-play company film on About.
+- Rebuilt navbar (full-screen mobile menu), statement footer, 404, every page; nine division pages share one data-driven template (`lib/divisionContent.ts`).
+- Copy pass: no em/en dashes, redundancy removed.
+
+---
+
 ## Key Reference Files
 
 | File | Purpose |

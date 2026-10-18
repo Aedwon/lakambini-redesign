@@ -1,51 +1,46 @@
-import Button from "@/components/ui/Button";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 interface CTABannerProps {
   headline?: string;
   subtitle?: string;
   ctaLabel?: string;
+  /** Alias of ctaLabel */
+  ctaText?: string;
   ctaHref?: string;
   bgImage?: string;
 }
 
+/** Full-bleed cinematic closing band. */
 export default function CTABanner({
   headline = "Let's talk about your next project.",
   subtitle = "Tell us what you're planning. We'll tell you how we can help.",
-  ctaLabel = "Book a Discovery Call",
+  ctaLabel,
+  ctaText,
   ctaHref = "/contact",
-  bgImage = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80",
+  bgImage = "/images/events/mcc-s2-crowd-ledwall.jpg",
 }: CTABannerProps) {
   return (
-    <section className="w-full bg-surface pt-24 pb-32 relative overflow-hidden group">
+    <section className="relative flex min-h-[64vh] w-full items-end overflow-hidden bg-ink-deep">
+      <Image src={bgImage} alt="" fill sizes="100vw" className="object-cover" />
+      <div aria-hidden="true" className="absolute inset-0 bg-ink/45" />
+      <div aria-hidden="true" className="absolute inset-0 scrim-left" />
+      {/* Fade into the footer so the band and footer read as one closing scene */}
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent via-ink-deep/40 to-ink-deep" />
 
-      {/* Background Image */}
-      <Image
-        src={bgImage}
-        alt="CTA Background"
-        fill
-        sizes="100vw"
-        className="object-cover opacity-10 transition-transform duration-1000 ease-out group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-surface/80 rounded-none pointer-events-none z-0 mix-blend-overlay"></div>
-
-      {/* Decorative center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-      <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 relative z-10 px-6 md:px-12">
-        <h2 className="headline-lg text-on-surface leading-[1.2]">
-          {headline}
-        </h2>
-        {subtitle && (
-          <p className="body-lg text-on-surface-variant font-light max-w-xl">
-            {subtitle}
-          </p>
-        )}
-        <div className="pt-4">
-          <Button variant="primary" href={ctaHref}>
-            {ctaLabel}
-          </Button>
-        </div>
+      <div className="container-x relative z-10 grid grid-cols-1 items-end gap-10 pb-16 pt-40 md:pb-24 lg:grid-cols-12 lg:gap-12">
+        <Reveal className="lg:col-span-8">
+          <h2 className="display-lg max-w-[16ch] text-balance text-ivory">{headline}</h2>
+        </Reveal>
+        <Reveal delay={0.1} className="lg:col-span-4 lg:pb-3">
+          <div className="flex flex-col items-start gap-8">
+            {subtitle && <p className="body-md max-w-[42ch] text-ivory/80">{subtitle}</p>}
+            <Button variant="primary" size="lg" href={ctaHref}>
+              {ctaText ?? ctaLabel ?? "Book a Discovery Call"}
+            </Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
