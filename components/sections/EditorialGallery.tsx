@@ -1,59 +1,73 @@
 import Image from "next/image";
-import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
+
+interface Frame {
+  src: string;
+  alt: string;
+  caption: string;
+  sizes: string;
+  frame: string;
+  wrap: string;
+}
+
+const frames: Frame[] = [
+  {
+    src: "/images/events/mlbb-naruto-ramen-stall.jpg",
+    alt: "Fabricated ramen stall built for the MLBB x Naruto activation",
+    caption: "01 · MLBB × NARUTO, fabricated ramen stall",
+    sizes: "(max-width: 768px) 100vw, 60vw",
+    frame: "aspect-[4/3] md:aspect-[5/4]",
+    wrap: "md:col-span-7",
+  },
+  {
+    src: "/images/events/m6-watchfest-screen.jpg",
+    alt: "Fans watching the M6 World Championship at a mall watch party",
+    caption: "02 · M6 watch party, mall screening",
+    sizes: "(max-width: 768px) 100vw, 33vw",
+    frame: "aspect-[4/3] md:aspect-[4/5]",
+    wrap: "md:col-span-4 md:col-start-9 md:mt-24",
+  },
+  {
+    src: "/images/events/team-building-facilitator.jpg",
+    alt: "Lakambini facilitator leading a team-building session",
+    caption: "03 · Team-building session",
+    sizes: "(max-width: 768px) 100vw, 40vw",
+    frame: "aspect-[4/3]",
+    wrap: "md:col-span-5 md:col-start-3 md:mt-16",
+  },
+];
 
 export default function EditorialGallery() {
   return (
-    <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-24 md:py-32 w-full flex flex-col gap-12 md:gap-16">
-      <SectionHeading
-        overline="Our Work"
-        title="Moments That Define Us"
-        description="A look at recent builds and activations — from mall booths to championship stages."
-      />
+    <section className="w-full bg-ink section-y">
+      <div className="container-x">
+        <SectionHeader
+          index="06"
+          label="Our work"
+          title={
+            <>
+              Moments that <em>define us.</em>
+            </>
+          }
+          aside="Recent builds and activations, from mall booths to championship stages."
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
-        {/* Main image */}
-        <div className="md:col-span-8 h-[500px] md:h-full bg-surface-container relative group overflow-hidden">
-          <Image
-            src="/images/events/mlbb-naruto-ramen-stall.jpg"
-            alt="Fabricated ramen stall built for the MLBB x Naruto activation"
-            fill
-            sizes="(max-width: 768px) 100vw, 66vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-surface via-surface/60 to-transparent pointer-events-none"></div>
-          <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 max-w-sm">
-            <h3 className="headline-sm mb-4 text-on-surface">Precision in every detail.</h3>
-            <p className="body-md leading-relaxed text-on-surface">
-              Every detail is an opportunity to get it right. Great events are built on the reliability of the team executing them.
-            </p>
-          </div>
-        </div>
-
-        {/* Right stack */}
-        <div className="md:col-span-4 flex flex-col gap-6 h-auto md:h-full">
-          <div className="h-[300px] md:h-1/2 w-full bg-surface-container relative overflow-hidden group">
-            <Image
-              src="/images/events/m6-watchfest-screen.jpg"
-              alt="Fans watching the M6 World Championship at a mall watch party"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            />
-          </div>
-          <div className="h-[300px] md:h-1/2 w-full relative overflow-hidden group flex items-center justify-center p-12 text-center text-on-surface">
-            <Image
-              src="/images/events/team-building-facilitator.jpg"
-              alt="Lakambini facilitator leading a team-building session"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover opacity-40 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-surface/50 z-0"></div>
-            <div className="relative z-10">
-              <span className="display-lg text-on-surface mb-2 block font-bold tracking-tighter">One Team</span>
-              <span className="label-sm text-primary">Brief to Strike</span>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-12 md:gap-y-0">
+          {frames.map((f, i) => (
+            <Reveal as="figure" key={f.src} delay={i * 0.06} className={f.wrap}>
+              <div className={`group relative w-full overflow-hidden bg-ink-raised ${f.frame}`}>
+                <Image
+                  src={f.src}
+                  alt={f.alt}
+                  fill
+                  sizes={f.sizes}
+                  className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                />
+              </div>
+              <figcaption className="numeral mt-4 text-mist">{f.caption}</figcaption>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

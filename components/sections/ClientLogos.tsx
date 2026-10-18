@@ -1,11 +1,13 @@
-import { ClientLogoRow } from "@/components/sections/TrustBar";
+import { ClientMarquee } from "@/components/sections/TrustBar";
 
 export default function ClientLogos() {
   return (
-    <section className="bg-surface py-14 md:py-16 w-full">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center gap-8">
-        <span className="label-sm text-primary tracking-widest">Trusted by</span>
-        <ClientLogoRow />
+    <section aria-label="Clients" className="border-y hairline bg-ink py-10 md:py-12">
+      <div className="container-x flex flex-col gap-6 md:flex-row md:items-center md:gap-12">
+        <p className="eyebrow shrink-0 text-mist md:w-32">Trusted by</p>
+        <div className="min-w-0 flex-1 md:-mr-[clamp(1.25rem,4vw,4rem)]">
+          <ClientMarquee />
+        </div>
       </div>
     </section>
   );

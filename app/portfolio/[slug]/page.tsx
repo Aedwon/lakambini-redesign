@@ -41,7 +41,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const next = getNextCaseStudy(project.slug);
 
   return (
-    <div className="flex flex-col w-full bg-surface">
+    <div className="flex flex-col w-full bg-ink">
       <CaseStudyHero project={project} />
       <CaseStudyBody project={project} />
       <CaseStudyGallery project={project} />

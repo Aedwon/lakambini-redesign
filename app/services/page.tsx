@@ -6,29 +6,23 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Nine specialized divisions under one roof — live entertainment, multimedia production, experiential marketing, events, technology, and more.",
+    "Live entertainment, multimedia, experiential marketing, events, technology and more, across nine in-house divisions.",
   openGraph: {
     title: "Services | Lakambini Events",
     description:
-      "Nine specialized divisions under one roof — live entertainment, multimedia production, experiential marketing, events, technology, and more.",
+      "Live entertainment, multimedia, experiential marketing, events, technology and more, across nine in-house divisions.",
     url: "/services",
   },
 };
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col w-full bg-surface">
+    <div className="flex flex-col w-full bg-ink">
       <PageHero
         overline="Services"
-        decorativeText="9"
         bgImage="/images/events/mlbb-naruto-booth-build.jpg"
-        title={
-          <>
-            Nine Divisions. <br />
-            One Team.
-          </>
-        }
-        subtitle="Every capability you need under one roof — from live production and multimedia to tech development and experiential architecture."
+        title="Nine teams under one roof."
+        subtitle="From live production and multimedia to tech and experiential builds, all in-house."
       />
 
       {/* Core Divisions Editorial Grid */}

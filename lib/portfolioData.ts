@@ -25,19 +25,19 @@ const MOONTON = "Moonton (MLBB)";
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: "MLBB Collegiate Cup — Season 2",
+    title: "MLBB Collegiate Cup, Season 2",
     slug: "mcc-season-2",
     client: MOONTON,
     year: 2025,
     location: "SM Mall of Asia",
     divisions: ["tipon", "tanghal", "likha", "ugnay"],
     summary:
-      "Season 2 of the MLBB Collegiate Cup, an online and offline esports tournament with the finals staged at SM Mall of Asia in front of a live crowd. Lakambini handled event management, full production, merchandise and fabrication, and was an official event and media partner.",
+      "Season 2 of the MLBB Collegiate Cup, an online and offline esports tournament with finals at SM Mall of Asia. Lakambini handled event management, full production, merchandise and fabrication as official event and media partner.",
     cover: img("mcc-s2-crowd-ledwall"),
     featured: true,
     caseStudy: {
       brief:
-        "Moonton's MLBB Collegiate Cup returned for a second season, bringing the top collegiate teams to a public mall stage. The job was to make a tournament feel like a proper broadcast event for the players and for the crowd watching in person.",
+        "Moonton's MLBB Collegiate Cup returned for a second season, bringing the top collegiate teams to a public mall stage. The job was to make a tournament feel like a proper broadcast event for the players and the live crowd.",
       whatWeDid: [
         "Welcomed the top-8 collegiate teams on arrival",
         "Built the stage and LED production for the knockouts and finals",
@@ -71,7 +71,7 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
     caseStudy: {
       brief:
-        "For the MLBB × NARUTO collaboration, fans needed somewhere to step into the world of the crossover rather than just see it on a screen. We built booths that people could walk into, play in and take photos at.",
+        "Fans needed somewhere to step into the MLBB × NARUTO crossover rather than just see it on a screen. We built booths people could walk into, play in and photograph.",
       whatWeDid: [
         "Fabricated an Ichiraku-style ramen stall",
         "Built a giant ramen-bowl ball pit",
@@ -103,7 +103,7 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
     caseStudy: {
       brief:
-        "The Pamigay Caravan took the MLBB community to schools, pairing a live stage program with giveaways of school supplies. The goal was a day that students and teachers would actually enjoy, with the brand present but not in the way.",
+        "The Pamigay Caravan took the MLBB community to schools, pairing a live stage program with school-supply giveaways. The goal was a day students and teachers would enjoy, with the brand present but not in the way.",
       whatWeDid: [
         "Produced the stage program and hosts",
         "Set up the branded arch, backdrop and signing wall",
@@ -121,7 +121,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
-    title: "MLBB All Star 2025 — Dino Academy @ Star City",
+    title: "MLBB All Star 2025: Dino Academy @ Star City",
     slug: "mlbb-all-star-2025",
     client: MOONTON,
     year: 2025,
@@ -132,7 +132,7 @@ export const portfolioProjects: PortfolioProject[] = [
     cover: img("allstar-2025-dinosaur-build"),
     caseStudy: {
       brief:
-        "MLBB All Star 2025, staged as MLBB Dino Academy, took over part of the dinosaur attraction at Star City. The challenge was to fit the MLBB look into an existing themed space so that the two felt like one environment.",
+        "MLBB All Star 2025, staged as MLBB Dino Academy, took over part of the dinosaur attraction at Star City. The challenge was making the MLBB look and the existing themed space feel like one environment.",
       whatWeDid: [
         "Built the themed installation inside the attraction",
         "Designed and produced the entrance, banners and standee graphics",
@@ -199,7 +199,7 @@ export const portfolioProjects: PortfolioProject[] = [
     images: [img("allstar-2024-mall-stage")],
   },
   {
-    title: "MLBB Collegiate Cup — Season 1",
+    title: "MLBB Collegiate Cup, Season 1",
     slug: "mcc-season-1",
     client: MOONTON,
     year: 2024,

@@ -1,48 +1,117 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/ui/Button";
+import GoldWave from "@/components/ui/GoldWave";
+import Reveal from "@/components/ui/Reveal";
+import { divisions } from "@/lib/divisions";
 
-const linkCls =
-  "body-sm hover:text-primary transition-colors w-fit rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest";
+const EMAIL = "admin@lakambinievents.com";
+
+const SITEMAP = [
+  { href: "/portfolio", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+const colHead = "eyebrow mb-6 text-mist";
+const linkCls = "body-md text-ivory/80 transition-colors duration-300 hover:text-ivory";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-surface-container-lowest text-on-surface">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-8 grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-surface-container-highest">
-        
-        {/* Brand Column */}
-        <div className="flex flex-col gap-6">
-          <Link href="/" className="inline-block rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest">
-            <Image
-              src="/images/Lakambini Logo Gold Horizontal.png"
-              alt="Lakambini Logo"
-              width={200}
-              height={40}
-              className="h-8 w-auto object-contain"
-            />
-          </Link>
-          <p className="body-sm font-light text-primary/60 max-w-sm">
-            Full-service event production. Creative. Technical. Reliable.
-          </p>
+    <footer className="relative overflow-hidden bg-ink-deep">
+      <GoldWave opacity={0.3} className="absolute inset-x-0 top-1/4 h-1/2 w-full opacity-40" />
+
+      <div className="container-x relative pb-10 pt-24 md:pt-36">
+        <Reveal>
+          <h2 className="display-lg max-w-[16ch] text-balance text-ivory">
+            Let&apos;s make something people <em className="italic text-brass">line up</em> for.
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 flex flex-col items-start gap-10 md:mt-16 md:flex-row md:items-center md:gap-14">
+          <Button variant="primary" size="lg" href="/contact">
+            Start a project
+          </Button>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="headline-md relative break-all text-ivory after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-[0.25] after:bg-brass after:transition-transform after:duration-500 after:ease-[var(--ease-out-expo)] hover:after:scale-x-100 focus-visible:after:scale-x-100"
+          >
+            {EMAIL}
+          </a>
         </div>
 
-        {/* Links Column */}
-        {/* TODO: restore Legal (Privacy, Terms, Press), newsletter signup, and social links once real destinations exist */}
-        <nav aria-label="Footer" className="flex flex-col gap-4">
-          <p className="label-sm text-primary uppercase tracking-widest">Agency</p>
-          <Link href="/" className={linkCls}>Home</Link>
-          <Link href="/services" className={linkCls}>Services</Link>
-          <Link href="/about" className={linkCls}>About</Link>
-          <Link href="/portfolio" className={linkCls}>Portfolio</Link>
-          <Link href="/contact" className={linkCls}>Contact</Link>
-        </nav>
-      </div>
+        <div className="mt-20 grid grid-cols-2 gap-x-6 gap-y-12 border-t border-line pt-12 md:mt-28 lg:grid-cols-4">
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className={colHead}>Studio</h3>
+            <address className="body-md not-italic text-ivory/80">
+              Brookeside Lane, San Francisco,
+              <br />
+              General Trias City, Cavite,
+              <br />
+              Philippines
+            </address>
+          </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-8 pb-24 md:pb-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-xs uppercase tracking-widest text-on-surface-variant/70">
-          &copy; {new Date().getFullYear()} Lakambini Events. All rights reserved.
-        </p>
+          <nav aria-label="Sitemap">
+            <h3 className={colHead}>Sitemap</h3>
+            <ul className="flex flex-col gap-3">
+              {SITEMAP.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkCls}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Divisions">
+            <h3 className={colHead}>Divisions</h3>
+            <ul className="flex flex-col gap-3">
+              {divisions.map((d) => (
+                <li key={d.slug}>
+                  <Link href={`/services/${d.slug}`} className={linkCls}>
+                    {d.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <h3 className={colHead}>Contact</h3>
+            <ul className="flex flex-col gap-3">
+              <li>
+                <a href={`mailto:${EMAIL}`} className={`${linkCls} break-all`}>
+                  {EMAIL}
+                </a>
+              </li>
+              <li>
+                <a href="tel:+639958759410" className={linkCls}>
+                  +63 995 875 9410
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16 flex flex-col gap-6 border-t border-line pt-6 text-mist sm:flex-row sm:items-center sm:justify-between">
+          <p className="body-sm">&copy; {year} Lakambini Creative Solutions</p>
+          <p className="numeral">Est. 2024</p>
+          <Link href="/" aria-label="Lakambini Events, home">
+            <Image
+              src="/images/Lakambini Logo Gold Horizontal.png"
+              alt=""
+              width={1310}
+              height={343}
+              sizes="96px"
+              className="h-6 w-auto opacity-80"
+            />
+          </Link>
+        </div>
       </div>
     </footer>
   );

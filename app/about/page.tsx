@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BrandFilm from "@/components/sections/BrandFilm";
 import AboutHero from "@/components/sections/AboutHero";
 import CompanyStory from "@/components/sections/CompanyStory";
 import MissionVision from "@/components/sections/MissionVision";
@@ -12,46 +13,30 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Lakambini Events is a full-service events and creative production agency based in Cavite, established in 2024, with nine in-house divisions from concept to on-ground execution.",
+    "Lakambini Events is a full-service events and creative production agency based in Cavite, established in 2024, with nine in-house divisions.",
   openGraph: {
     title: "About Lakambini Events",
     description:
-      "Lakambini Events is a full-service events and creative production agency based in Cavite, established in 2024, with nine in-house divisions from concept to on-ground execution.",
+      "Lakambini Events is a full-service events and creative production agency based in Cavite, established in 2024, with nine in-house divisions.",
     url: "/about",
   },
 };
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col w-full bg-surface">
-      {/* 1. About Hero - Custom section with editorial image */}
+    <div className="flex flex-col w-full bg-ink">
       <AboutHero />
-      
-      {/* 2. Company Story - Narrative about Founding & Growth */}
+      <BrandFilm />
       <CompanyStory />
-
-      {/* Mission & Vision */}
-      <MissionVision />
-      
-      {/* 3. Founder Story - Enriched bio and blockquote */}
-      <FounderStory />
-      
-      {/* 4. Stats Bar */}
       <StatsBar />
-      
-      {/* 5. Our Approach - 3-Card Grid */}
+      <MissionVision />
+      <FounderStory />
       <Approach />
-      
-      {/* 6. Client Logos - Trust Bar with 5 real brands */}
       <ClientLogos />
-      
-      {/* 7. Editorial Gallery - With Heading & Responsive fix */}
       <EditorialGallery />
-
-      {/* 8. CTA Banner - Standardized Banner */}
-      <CTABanner 
+      <CTABanner
         headline="Ready to plan what&apos;s next?"
-        subtitle="Tell us what you have in mind and we will take it from there."
+        subtitle="Tell us what you have in mind."
         ctaLabel="Book a Discovery Call"
         ctaHref="/contact"
       />

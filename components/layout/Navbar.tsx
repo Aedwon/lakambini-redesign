@@ -1,590 +1,321 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
-import Link from "next/link";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
+import GoldWave from "@/components/ui/GoldWave";
+import { divisions } from "@/lib/divisions";
 
-const services = [
-  { name: "TANGHAL", desc: "Live Entertainment & Talent", slug: "tanghal" },
-  { name: "LIKHA", desc: "Multimedia Production", slug: "likha" },
-  { name: "MERKATO", desc: "Experiential Marketing", slug: "merkato" },
-  { name: "TIPON", desc: "Event Production & Management", slug: "tipon" },
-  { name: "SIBOL", desc: "Learning & Development", slug: "sibol" },
-  { name: "GUHIT", desc: "Design & Visual Identity", slug: "guhit" },
-  { name: "UGNAY", desc: "Community Management & Growth", slug: "ugnay" },
-  { name: "DALOY", desc: "Technology & Development", slug: "daloy" },
-  { name: "TAYO", desc: "Experiential Architecture", slug: "tayo" },
+const LINKS = [
+  { href: "/portfolio", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
 ];
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Portfolio", href: "/portfolio" },
-];
+const EMAIL = "admin@lakambinievents.com";
 
-/* ── Interpolation helpers ─────────────────────────────────────────────── */
-
-/** Linearly interpolate between two values based on progress (0 → 1) */
-function lerp(a: number, b: number, t: number): number {
-  return a + (b - a) * t;
+function subscribeScroll(cb: () => void) {
+  window.addEventListener("scroll", cb, { passive: true });
+  return () => window.removeEventListener("scroll", cb);
 }
+const getScrolled = () => window.scrollY > 24;
+const getServerScrolled = () => false;
 
-/** Ease-out cubic for a more organic feel */
-function easeOutCubic(t: number): number {
-  return 1 - Math.pow(1 - t, 3);
-}
-
-/* ── Scroll-morph constants ────────────────────────────────────────────── */
-
-/** Scroll range over which the morph occurs (px) */
-const SCROLL_RANGE = 80;
-
-/** Morph property keyframes: [expanded (top), compact (scrolled)] */
-const MORPH = {
-  outerPaddingTop: [0, 12],       // px
-  outerPaddingX: [0, 24],         // px  (6 * 4 = 24 tailwind px-6)
-  outerPaddingXXl: [0, 48],       // px  (xl:px-12)
-  innerPaddingX: [48, 32],        // px  (px-12 → px-8)
-  innerPaddingY: [24, 12],        // px  (py-6 → py-3)
-  borderRadius: [0, 9999],        // px  (none → full)
-  bgOpacity: [0, 0.6],            // 0 → 0.6
-  blurAmount: [0, 20],            // px
-  shadowOpacity: [0, 0.4],        // 0 → 0.4
-  ambientGlowOpacity: [1, 0],     // 1 → 0
-  shimmerOpacity: [1, 0],         // 1 → 0
-} as const;
-
-/* ── Reduced-motion preference (external store) ────────────────────────── */
-
-const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
-
-function subscribeReducedMotion(callback: () => void) {
-  const mq = window.matchMedia(REDUCED_MOTION_QUERY);
-  mq.addEventListener("change", callback);
-  return () => mq.removeEventListener("change", callback);
-}
+const isActive = (pathname: string, href: string) =>
+  pathname === href || pathname.startsWith(`${href}/`);
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [hasMounted, setHasMounted] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const prefersReducedMotion = useSyncExternalStore(
-    subscribeReducedMotion,
-    () => window.matchMedia(REDUCED_MOTION_QUERY).matches,
-    () => false
-  );
   const pathname = usePathname();
-  const [prevPathname, setPrevPathname] = useState(pathname);
-  const rafRef = useRef<number | null>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const scrolled = useSyncExternalStore(subscribeScroll, getScrolled, getServerScrolled);
 
-  /** Derived boolean — still useful for class-based decisions */
-  const isScrolled = scrollProgress > 0.5;
-
-  const updateScrollProgress = useCallback(() => {
-    const raw = Math.min(window.scrollY / SCROLL_RANGE, 1);
-    setScrollProgress(easeOutCubic(raw));
-    rafRef.current = null;
-  }, []);
-
-  useEffect(() => {
-    const mountTimer = setTimeout(() => setHasMounted(true), 100);
-
-    const handleScroll = () => {
-      if (prefersReducedMotion) {
-        setScrollProgress(window.scrollY > 50 ? 1 : 0);
-        return;
-      }
-      if (rafRef.current === null) {
-        rafRef.current = requestAnimationFrame(updateScrollProgress);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Sync initial position (e.g. reload mid-page) on the next frame
-    rafRef.current = requestAnimationFrame(updateScrollProgress);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(mountTimer);
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
-    };
-  }, [updateScrollProgress, prefersReducedMotion]);
-
-  // Close everything on route change (state adjusted during render, not in an effect)
-  if (pathname !== prevPathname) {
-    setPrevPathname(pathname);
-    setIsServicesOpen(false);
-    setIsMobileServicesOpen(false);
-    setIsOpen(false);
+  const [mega, setMega] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
+    setMega(false);
+    setMenu(false);
   }
 
-  // Escape key closes any open menu
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        if (isServicesOpen) setIsServicesOpen(false);
-        if (isOpen) {
-          setIsOpen(false);
-          hamburgerRef.current?.focus();
-        }
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isServicesOpen, isOpen]);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const megaBtnRef = useRef<HTMLButtonElement>(null);
+  const wasMenuOpen = useRef(false);
 
-  // Lock body scroll when mobile menu is open
+  // Body scroll lock + focus management for the mobile overlay
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
-
-  // Move focus into the mobile menu on open; return it to the hamburger on close
-  const wasOpenRef = useRef(false);
-  useEffect(() => {
-    if (isOpen) {
-      mobileMenuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
-    } else if (wasOpenRef.current) {
-      hamburgerRef.current?.focus();
+    if (menu) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      wasMenuOpen.current = true;
+      overlayRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+      return () => {
+        document.body.style.overflow = prev;
+      };
     }
-    wasOpenRef.current = isOpen;
-  }, [isOpen]);
+    if (wasMenuOpen.current) {
+      wasMenuOpen.current = false;
+      menuBtnRef.current?.focus();
+    }
+  }, [menu]);
 
-  const closeAll = () => {
-    setIsServicesOpen(false);
-    setIsMobileServicesOpen(false);
-    setIsOpen(false);
-  };
+  // Escape closes whichever layer is open
+  useEffect(() => {
+    if (!menu && !mega) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (mega) megaBtnRef.current?.focus();
+      setMega(false);
+      setMenu(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menu, mega]);
 
-  /* ── Computed interpolated values ──────────────────────────────────── */
-  const t = scrollProgress; // shorthand
+  // Close mobile overlay if the viewport grows past the breakpoint
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (mq.matches) setMenu(false);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
-  const outerPadTop = lerp(MORPH.outerPaddingTop[0], MORPH.outerPaddingTop[1], t);
-  const outerPadX = lerp(MORPH.outerPaddingX[0], MORPH.outerPaddingX[1], t);
-  const innerPadX = lerp(MORPH.innerPaddingX[0], MORPH.innerPaddingX[1], t);
-  const innerPadY = lerp(MORPH.innerPaddingY[0], MORPH.innerPaddingY[1], t);
-  const borderRadius = lerp(MORPH.borderRadius[0], MORPH.borderRadius[1], t);
-  const bgOpacity = lerp(MORPH.bgOpacity[0], MORPH.bgOpacity[1], t);
-  const blurAmount = lerp(MORPH.blurAmount[0], MORPH.blurAmount[1], t);
-  const shadowOp = lerp(MORPH.shadowOpacity[0], MORPH.shadowOpacity[1], t);
-  const ambientGlow = lerp(MORPH.ambientGlowOpacity[0], MORPH.ambientGlowOpacity[1], t);
-  const shimmerOp = lerp(MORPH.shimmerOpacity[0], MORPH.shimmerOpacity[1], t);
+  const onHeaderBlur = useCallback((e: React.FocusEvent<HTMLElement>) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setMega(false);
+  }, []);
 
-  // Max-width: lerp from a huge value (3000) down to 1536 (screen-2xl)
-  const maxWidth = lerp(3000, 1536, t);
+  const solid = scrolled || mega || menu;
 
   return (
     <>
-      {/* ── Background dim overlay (desktop services dropdown) ──────────── */}
-      <div
-        className={`hidden md:block fixed inset-0 z-[45] bg-surface-dim/70 transition-all duration-500 ease-out
-          ${isServicesOpen ? "opacity-100 pointer-events-auto backdrop-blur-[2px]" : "opacity-0 pointer-events-none backdrop-blur-0"}
-        `}
-        onClick={() => setIsServicesOpen(false)}
-        aria-hidden="true"
-      />
-
-      {/* ── Outer nav shell ────────────────────────────────────────────── */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 w-full pointer-events-none
-          ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
-        `}
-        style={{
-          paddingTop: `${outerPadTop}px`,
-          paddingLeft: `${outerPadX}px`,
-          paddingRight: `${outerPadX}px`,
-          transition: hasMounted ? "opacity 0.7s ease, transform 0.7s ease" : "none",
-        }}
+      <header
+        onMouseLeave={() => setMega(false)}
+        onBlur={onHeaderBlur}
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-500 ease-out ${
+          solid
+            ? "border-line bg-ink/80 backdrop-blur-md"
+            : "border-transparent bg-transparent"
+        } ${menu ? "!bg-transparent !backdrop-blur-none !border-transparent" : ""}`}
       >
-        {/* Inner bar — morphs smoothly via interpolated inline styles */}
+        {/* Top legibility gradient while over the hero */}
         <div
-          className="mx-auto flex items-center justify-between relative pointer-events-auto"
-          style={{
-            maxWidth: `${maxWidth}px`,
-            borderRadius: `${borderRadius}px`,
-            backgroundColor: `rgba(17, 35, 28, ${bgOpacity})`,
-            backdropFilter: `blur(${blurAmount}px)`,
-            WebkitBackdropFilter: `blur(${blurAmount}px)`,
-            boxShadow: `0 20px 50px rgba(4, 21, 15, ${shadowOp})`,
-            paddingLeft: `${innerPadX}px`,
-            paddingRight: `${innerPadX}px`,
-            paddingTop: `${innerPadY}px`,
-            paddingBottom: `${innerPadY}px`,
-          }}
-        >
-          {/* Ambient glow backdrop — visible only when at top */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              borderRadius: "inherit",
-              opacity: ambientGlow,
-              background:
-                "linear-gradient(180deg, rgba(5,23,16,0.55) 0%, rgba(5,23,16,0.25) 60%, transparent 100%)",
-            }}
-          />
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-ink/60 to-transparent transition-opacity duration-500 ${
+            solid ? "opacity-0" : "opacity-100"
+          }`}
+        />
 
-          {/* Animated gold shimmer line — sweeps across bottom on entrance */}
-          <div
-            className="absolute bottom-0 left-0 right-0 h-px pointer-events-none overflow-hidden"
-            style={{ opacity: shimmerOp }}
-          >
-            <div
-              className={`h-full w-full ${hasMounted ? "navbar-shimmer" : ""}`}
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent 0%, transparent 30%, #E9C255 50%, transparent 70%, transparent 100%)",
-                backgroundSize: "200% 100%",
-              }}
-            />
-          </div>
-
-          {/* Logo */}
-          <Link
-            href="/"
-            className={`relative z-10 flex-shrink-0 flex items-center
-              transition-all duration-700 ease-out
-              ${hasMounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}
-            `}
-          >
+        <div className="container-x relative flex h-[72px] items-center justify-between gap-6">
+          <Link href="/" aria-label="Lakambini Events, home" className="relative z-50 shrink-0">
             <Image
               src="/images/Lakambini Logo Gold Horizontal.png"
-              alt="Lakambini Logo"
-              width={200}
-              height={40}
-              className="h-8 w-auto object-contain transition-[filter] duration-700"
-              style={{
-                filter: isScrolled
-                  ? "none"
-                  : "drop-shadow(0 0 12px rgba(233,194,85,0.3))",
-              }}
+              alt="Lakambini"
+              width={1310}
+              height={343}
               priority
+              sizes="125px"
+              className="h-8 w-auto"
             />
           </Link>
 
-          {/* Desktop Menu — staggered entrance */}
-          <div className="hidden md:flex items-center gap-10 relative z-10">
-            {navLinks.map((link, i) => {
-              const isActive =
-                link.name === "Services"
-                  ? pathname.startsWith("/services")
-                  : pathname === link.href;
-
-              /* Services — click-toggle dropdown trigger */
-              if (link.name === "Services") {
-                return (
-                  <button
-                    key={link.name}
-                    onClick={() => setIsServicesOpen((prev) => !prev)}
-                    aria-expanded={isServicesOpen}
-                    aria-controls="services-dropdown"
-                    className={`font-headline tracking-tight text-lg border-b-2 pb-1
-                      transition-all duration-500 ease-out hover:scale-105
-                      inline-flex items-center gap-1.5 cursor-pointer
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface
-                      ${
-                        isActive || isServicesOpen
-                          ? "text-primary border-primary-container"
-                          : `border-transparent hover:text-primary ${
-                              isScrolled
-                                ? "text-primary-container/70"
-                                : "text-on-surface/90 hover:text-primary"
-                            }`
-                      }
-                      ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-                      ${!isScrolled && !isActive && !isServicesOpen ? "nav-text-glow" : ""}
-                    `}
-                    style={{
-                      transitionDelay: hasMounted ? `${150 + i * 80}ms` : "0ms",
-                    }}
-                  >
-                    {link.name}
-                    <svg
-                      className={`w-3 h-3 transition-transform duration-300 ease-out
-                        ${isServicesOpen ? "rotate-180" : "rotate-0"}
-                      `}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2.5}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                );
-              }
-
-              /* All other nav links */
-              return (
+          {/* Desktop links */}
+          <nav aria-label="Primary" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 lg:flex">
+            {LINKS.map((l) => {
+              const active = isActive(pathname, l.href);
+              const link = (
                 <Link
-                  key={link.name}
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`font-headline tracking-tight text-lg border-b-2 pb-1
-                    transition-all duration-500 ease-out hover:scale-105
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface
-                    ${
-                      isActive
-                        ? "text-primary border-primary-container"
-                        : `border-transparent hover:text-primary ${
-                            isScrolled
-                              ? "text-primary-container/70"
-                              : "text-on-surface/90 hover:text-primary"
-                          }`
-                    }
-                    ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-                    ${!isScrolled && !isActive ? "nav-text-glow" : ""}
-                  `}
-                  style={{
-                    transitionDelay: hasMounted ? `${150 + i * 80}ms` : "0ms",
-                  }}
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative py-2 text-[0.875rem] transition-colors duration-300 hover:text-ivory ${
+                    active ? "text-ivory" : "text-ivory/80"
+                  } after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-brass after:transition-opacity after:duration-300 ${
+                    active ? "after:opacity-100" : "after:opacity-0"
+                  }`}
                 >
-                  {link.name}
+                  {l.label}
                 </Link>
               );
+              if (l.label !== "Services") return <span key={l.href}>{link}</span>;
+              return (
+                <span
+                  key={l.href}
+                  className="flex items-center gap-1.5"
+                  onMouseEnter={() => setMega(true)}
+                >
+                  {link}
+                  <button
+                    ref={megaBtnRef}
+                    type="button"
+                    aria-expanded={mega}
+                    aria-controls="mega-menu"
+                    aria-label="Browse all divisions"
+                    onClick={() => setMega((v) => !v)}
+                    className="flex h-6 w-6 cursor-pointer items-center justify-center text-ivory/80 transition-colors hover:text-ivory"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 12 12"
+                      className={`h-3 w-3 transition-transform duration-500 ${mega ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.25"
+                    >
+                      <path d="M2 4.5l4 4 4-4" />
+                    </svg>
+                  </button>
+                </span>
+              );
             })}
-          </div>
+          </nav>
 
-          {/* Desktop CTA & Mobile Toggle */}
-          <div className="flex items-center gap-6 relative z-10">
-            {/* ── Inquire button: layered crossfade between ghost ↔ solid ── */}
-            <div
-              className={`hidden md:block relative transition-all duration-500 ease-out
-                ${hasMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-              `}
-              style={{
-                transitionDelay: hasMounted ? "470ms" : "0ms",
-              }}
-            >
-              {/* Ghost / outline button (visible at top, fades out on scroll) */}
-              <div
-                style={{ opacity: 1 - t }}
-                className={t >= 1 ? "pointer-events-none" : ""}
-              >
-                <Button variant="secondary" href="/contact">
-                  Inquire
-                </Button>
-              </div>
+          <div className="flex items-center gap-4">
+            <Button variant="secondary" size="sm" href="/contact" className="hidden lg:inline-flex">
+              Start a project
+            </Button>
 
-              {/* Solid primary button (fades in on scroll) */}
-              <div
-                className={`absolute inset-0 flex items-center justify-center ${t <= 0 ? "pointer-events-none" : ""}`}
-                style={{ opacity: t }}
-              >
-                <Button variant="primary" href="/contact">
-                  Inquire
-                </Button>
-              </div>
-            </div>
-
-            {/* Mobile Hamburger */}
+            {/* Mobile menu button */}
             <button
-              ref={hamburgerRef}
-              className={`md:hidden text-primary transition-opacity duration-500
-                flex items-center justify-center w-11 h-11 -mr-1.5
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-md
-                ${hasMounted ? "opacity-100" : "opacity-0"}
-              `}
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isOpen}
-              aria-controls={isOpen ? "mobile-menu" : undefined}
+              ref={menuBtnRef}
+              type="button"
+              aria-expanded={menu}
+              aria-controls="mobile-menu"
+              onClick={() => setMenu((v) => !v)}
+              className="relative z-50 flex h-10 cursor-pointer items-center gap-3 text-ivory lg:hidden"
             >
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8h16M4 16h16" />
-                )}
-              </svg>
+              <span className="label-sm">{menu ? "Close" : "Menu"}</span>
+              <span aria-hidden="true" className="relative block h-3 w-6">
+                <span
+                  className={`absolute left-0 h-px w-6 bg-current transition-all duration-500 ease-[var(--ease-out-expo)] ${
+                    menu ? "top-1/2 rotate-45" : "top-0"
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 h-px w-6 bg-current transition-all duration-500 ease-[var(--ease-out-expo)] ${
+                    menu ? "top-1/2 -rotate-45" : "bottom-0"
+                  }`}
+                />
+              </span>
             </button>
           </div>
         </div>
 
-        {/* ── Desktop Services Mega-Dropdown ───────────────────────────── */}
+        {/* Mega menu (desktop) */}
         <div
-          id="services-dropdown"
-          role="region"
-          aria-label="Services menu"
-          className={`hidden md:block transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isServicesOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-3 pointer-events-none invisible"
-            }
-          `}
+          id="mega-menu"
+          inert={!mega}
+          className={`absolute inset-x-0 top-full hidden border-b border-line bg-ink transition-[opacity,visibility,transform] duration-500 ease-[var(--ease-out-expo)] lg:block ${
+            mega ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
+          }`}
         >
-          <div
-            className="mx-auto mt-3 overflow-hidden
-              bg-[#0D1F18]/85 backdrop-blur-[24px]
-              shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-              border border-outline-variant/10
-              transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{
-              maxWidth: isScrolled ? "1536px" : "none",
-              borderRadius: isScrolled ? "16px" : "0 0 16px 16px",
-            }}
-          >
-            {/* "Services Overview →" link at top */}
-            <div className="px-8 pt-5 pb-3 border-b border-outline-variant/10">
-              <Link
-                href="/services"
-                onClick={() => setIsServicesOpen(false)}
-                className="inline-flex items-center gap-2 label-md text-on-surface-variant/70 hover:text-primary transition-colors duration-300 group/overview"
-              >
-                Services Overview
-                <svg
-                  className="w-3.5 h-3.5 transition-transform duration-300 group-hover/overview:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-
-            {/* 3 × 3 Services Grid */}
-            <div className="grid grid-cols-3 px-4 py-3">
-              {services.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  onClick={() => setIsServicesOpen(false)}
-                  className="group/item flex flex-col gap-1 px-5 py-4 rounded-xl
-                    transition-all duration-300 ease-out
-                    hover:bg-surface-container-high/30"
-                >
-                  <span className="title-sm text-primary group-hover/item:text-primary-container transition-colors duration-300">
-                    {service.name}
-                  </span>
-                  <span className="body-sm text-on-surface-variant/70 font-light leading-snug">
-                    {service.desc}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* ── Mobile Menu Overlay ────────────────────────────────────────── */}
-      {isOpen && (
-        <div
-          id="mobile-menu"
-          ref={mobileMenuRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
-          className="md:hidden fixed top-24 left-6 right-6 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl bg-surface-container border border-surface-container-high shadow-2xl z-40"
-        >
-          <div className="flex flex-col px-8 py-8 gap-6">
-            {navLinks.map((link) => {
-              /* Mobile Services Accordion */
-              if (link.name === "Services") {
-                return (
-                  <div key="services" className="flex flex-col">
-                    <button
-                      onClick={() => setIsMobileServicesOpen((prev) => !prev)}
-                      aria-expanded={isMobileServicesOpen}
-                      aria-controls="mobile-services-list"
-                      className={`font-headline tracking-tight text-xl border-b border-outline-variant/10 pb-4 flex items-center justify-between w-full text-left min-h-[44px]
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container
-                        ${pathname.startsWith("/services") ? "text-primary" : "text-on-surface"}
-                      `}
-                    >
-                      Services
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-300 ease-out
-                          ${isMobileServicesOpen ? "rotate-180" : "rotate-0"}
-                        `}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-
-                    {/* Accordion content */}
-                    <div
-                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-                        ${isMobileServicesOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}
-                      `}
-                    >
-                      <div id="mobile-services-list" className="pt-4 pb-2 pl-4 flex flex-col gap-1">
-                        {/* Overview link */}
-                        <Link
-                          href="/services"
-                          onClick={closeAll}
-                          className="inline-flex items-center gap-2 py-2.5 label-md text-on-surface-variant/70 hover:text-primary transition-colors duration-300 group/moverview"
-                        >
-                          Services Overview
-                          <svg
-                            className="w-3 h-3 transition-transform duration-300 group-hover/moverview:translate-x-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </Link>
-
-                        <div className="w-8 h-px bg-outline-variant/20 my-1" />
-
-                        {/* Individual service links */}
-                        {services.map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/services/${service.slug}`}
-                            onClick={closeAll}
-                            aria-current={pathname === `/services/${service.slug}` ? "page" : undefined}
-                            className="flex flex-col gap-0.5 py-3 group/mitem transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container rounded-sm"
-                          >
-                            <span className="title-sm text-primary group-hover/mitem:text-primary-container transition-colors duration-300">
-                              {service.name}
-                            </span>
-                            <span className="body-sm text-on-surface-variant/70 font-light">
-                              {service.desc}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              /* All other mobile nav links */
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  aria-current={pathname === link.href ? "page" : undefined}
-                  className={`font-headline tracking-tight text-xl border-b border-outline-variant/10 pb-4 min-h-[44px] flex items-center
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container
-                    ${pathname === link.href ? "text-primary" : "text-on-surface"}`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-            <div className="pt-4">
-              <Button variant="primary" href="/contact" className="w-full text-center justify-center">
-                Inquire
+          <div className="container-x py-10">
+            <div className="mb-6 flex items-end justify-between">
+              <p className="eyebrow text-mist">Nine in-house divisions</p>
+              <Button variant="tertiary" href="/services">
+                All services
               </Button>
             </div>
+            <ul className="grid grid-cols-3 border-t border-line">
+              {divisions.map((d) => (
+                <li key={d.slug} className="border-b border-line">
+                  <Link
+                    href={`/services/${d.slug}`}
+                    className="group flex items-baseline gap-5 py-5 pr-6"
+                  >
+                    <span className="numeral w-6 shrink-0 text-brass">{d.id}</span>
+                    <span className="flex flex-col gap-1.5">
+                      <span className="font-[family-name:var(--font-display)] text-[1.75rem] leading-none text-ivory transition-colors duration-300 group-hover:text-brass-soft">
+                        {d.name}
+                      </span>
+                      <span className="body-sm text-mist">{d.subtitle}</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      )}
+      </header>
+
+      {/* Mobile full-screen overlay (outside the header: backdrop-filter would trap `fixed`) */}
+      <div
+        ref={overlayRef}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu"
+        inert={!menu}
+        className={`fixed inset-0 z-40 overflow-y-auto bg-ink transition-[opacity,visibility] duration-500 lg:hidden ${
+          menu ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
+        <GoldWave
+          opacity={0.35}
+          className="absolute -right-1/4 bottom-0 h-1/3 w-[150%] opacity-40"
+        />
+        <div className="container-x relative flex min-h-full flex-col pb-8 pt-28">
+          <nav aria-label="Mobile primary">
+            <ul className="flex flex-col">
+              {LINKS.map((l, i) => (
+                <li
+                  key={l.href}
+                  style={{ transitionDelay: menu ? `${120 + i * 70}ms` : "0ms" }}
+                  className={`border-b border-line transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] ${
+                    menu ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                  }`}
+                >
+                  <Link
+                    href={l.href}
+                    aria-current={isActive(pathname, l.href) ? "page" : undefined}
+                    className="display-sm flex items-baseline justify-between py-4 text-ivory aria-[current=page]:text-brass-soft"
+                  >
+                    {l.label}
+                    <span className="numeral text-mist">0{i + 1}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div
+            style={{ transitionDelay: menu ? "380ms" : "0ms" }}
+            className={`mt-10 transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] ${
+              menu ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+          >
+            <p className="eyebrow mb-4 text-mist">Divisions</p>
+            <ul className="grid grid-cols-2 gap-x-6">
+              {divisions.map((d) => (
+                <li key={d.slug} className="border-t border-line">
+                  <Link href={`/services/${d.slug}`} className="flex items-baseline gap-3 py-3 text-ivory">
+                    <span className="numeral text-brass">{d.id}</span>
+                    <span className="font-[family-name:var(--font-display)] text-[1.25rem] leading-none">
+                      {d.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div
+            style={{ transitionDelay: menu ? "460ms" : "0ms" }}
+            className={`mt-auto flex flex-col items-start gap-6 pt-12 transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] ${
+              menu ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+          >
+            <a href={`mailto:${EMAIL}`} className="body-md text-mist hover:text-ivory">
+              {EMAIL}
+            </a>
+            <Button variant="primary" href="/contact">
+              Start a project
+            </Button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

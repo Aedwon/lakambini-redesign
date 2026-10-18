@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDivisionLabels, type PortfolioProject } from "@/lib/portfolioData";
+import Reveal from "@/components/ui/Reveal";
 
 interface CaseStudyBodyProps {
   project: PortfolioProject;
@@ -10,59 +11,80 @@ export default function CaseStudyBody({ project }: CaseStudyBodyProps) {
   if (!study) return null;
   const labels = getDivisionLabels(project);
 
-  return (
-    <section className="bg-surface py-24 md:py-32">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col gap-16 md:gap-24">
-        <dl className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 bg-surface-container-low p-8 md:p-12">
-          {project.client && (
-            <div className="flex flex-col gap-2">
-              <dt className="label-xs text-on-surface-variant tracking-widest uppercase">Client</dt>
-              <dd className="body-lg text-on-surface">{project.client}</dd>
-            </div>
-          )}
-          <div className="flex flex-col gap-2">
-            <dt className="label-xs text-on-surface-variant tracking-widest uppercase">Year</dt>
-            <dd className="body-lg text-on-surface">{project.year}</dd>
-          </div>
-          {project.location && (
-            <div className="flex flex-col gap-2">
-              <dt className="label-xs text-on-surface-variant tracking-widest uppercase">Location</dt>
-              <dd className="body-lg text-on-surface">{project.location}</dd>
-            </div>
-          )}
-          <div className="flex flex-col gap-2">
-            <dt className="label-xs text-on-surface-variant tracking-widest uppercase">Divisions</dt>
-            <dd className="flex flex-wrap gap-x-4 gap-y-1">
-              {labels.map((l) => (
-                <Link
-                  key={l.slug}
-                  href={`/services/${l.slug}`}
-                  className="body-lg text-primary hover:text-on-surface transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
-                >
-                  {l.name}
-                </Link>
-              ))}
-            </dd>
-          </div>
-        </dl>
+  const rows: { label: string; value: React.ReactNode }[] = [];
+  if (project.client) rows.push({ label: "Client", value: project.client });
+  rows.push({ label: "Year", value: <span className="numeral text-[15px]">{project.year}</span> });
+  if (project.location) rows.push({ label: "Location", value: project.location });
+  rows.push({
+    label: "Divisions",
+    value: (
+      <span className="flex flex-wrap gap-x-4 gap-y-1">
+        {labels.map((l) => (
+          <Link
+            key={l.slug}
+            href={`/services/${l.slug}`}
+            className="text-ivory underline decoration-brass/60 underline-offset-4 transition-colors hover:text-brass-soft"
+          >
+            {l.name}
+          </Link>
+        ))}
+      </span>
+    ),
+  });
+  rows.push({ label: "Scope", value: <span className="text-mist">{study.whatWeDid.length} workstreams</span> });
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-          <div className="md:col-span-7 flex flex-col gap-6">
-            <span className="label-sm text-primary tracking-widest uppercase">The brief</span>
-            <p className="headline-sm text-on-surface font-light leading-snug max-w-[65ch]">
+  return (
+    <section className="section-y bg-ink">
+      <div className="container-x grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
+        <aside className="lg:col-span-4">
+          <div className="lg:sticky lg:top-28">
+            <dl className="border-t hairline">
+              {rows.map((r) => (
+                <div
+                  key={r.label}
+                  className="grid grid-cols-[6.5rem_1fr] items-baseline gap-4 border-b hairline py-4"
+                >
+                  <dt className="label-sm text-mist">{r.label}</dt>
+                  <dd className="title-sm text-ivory">{r.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </aside>
+
+        <div className="flex flex-col gap-20 lg:col-span-8 md:gap-28">
+          <Reveal>
+            <div className="mb-8 flex items-center gap-4 text-mist">
+              <span className="numeral text-brass">01</span>
+              <span aria-hidden="true" className="h-px w-10 bg-line" />
+              <span className="eyebrow">The brief</span>
+            </div>
+            <p className="headline-md max-w-[34ch] text-ivory md:text-[clamp(1.75rem,2.6vw,2.5rem)]">
               {study.brief}
             </p>
-          </div>
-          <div className="md:col-span-5 flex flex-col gap-6">
-            <span className="label-sm text-primary tracking-widest uppercase">What we did</span>
-            <ul className="flex flex-col gap-4">
-              {study.whatWeDid.map((item) => (
-                <li key={item} className="body-lg text-on-surface-variant font-light flex gap-4">
-                  <span aria-hidden="true" className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  <span>{item}</span>
-                </li>
+          </Reveal>
+
+          <div>
+            <Reveal>
+              <div className="mb-8 flex items-center gap-4 text-mist">
+                <span className="numeral text-brass">02</span>
+                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span className="eyebrow">What we did</span>
+              </div>
+            </Reveal>
+            <ol className="border-t hairline">
+              {study.whatWeDid.map((item, i) => (
+                <Reveal
+                  as="li"
+                  key={item}
+                  delay={Math.min(i, 5) * 0.05}
+                  className="grid grid-cols-[2.75rem_1fr] items-baseline gap-4 border-b hairline py-5 md:grid-cols-[4rem_1fr] md:py-6"
+                >
+                  <span className="numeral text-brass">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="body-lg max-w-[56ch] text-ivory">{item}</span>
+                </Reveal>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
       </div>

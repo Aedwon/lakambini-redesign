@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import InputField from "@/components/ui/InputField";
+import InputField, { fieldClasses, fieldLabelClasses } from "@/components/ui/InputField";
 import Button from "@/components/ui/Button";
 import { divisions } from "@/lib/divisions";
 
@@ -28,7 +28,7 @@ const initialState: FormState = {
 const INQUIRY_EMAIL = "admin@lakambinievents.com";
 
 const buildMailto = (d: FormState): string => {
-  const subject = `Event inquiry — ${d.company.trim() || d.fullName.trim()}`;
+  const subject = `Event inquiry: ${d.company.trim() || d.fullName.trim()}`;
   const body = [
     `Full name: ${d.fullName}`,
     `Email: ${d.email}`,
@@ -84,145 +84,143 @@ export default function ContactForm() {
 
   if (succeeded) {
     return (
-      <section className="bg-surface-container py-24 md:py-32 px-6 flex items-center justify-center text-center">
-        <div className="max-w-2xl flex flex-col gap-8 items-center" role="status" aria-live="polite">
-          <div className="w-20 h-20 rounded-full flex items-center justify-center bg-surface-container-high mb-2">
-            <span className="text-primary text-4xl" aria-hidden="true">✓</span>
-          </div>
-          <h2 className="headline-lg text-on-surface">
-            {status === "success-mailto" ? "Your email app should be open" : "Message received"}
-          </h2>
-          <p className="body-lg text-on-surface-variant max-w-lg mb-4">
-            {status === "success-mailto"
-              ? `Your email app opened with your inquiry filled in. Press send there to reach us. If nothing opened, write to ${INQUIRY_EMAIL} directly.`
-              : "Thanks for reaching out. We will get back to you by email."}
-          </p>
-          <Button variant="secondary" onClick={reset}>
-            Send another inquiry
-          </Button>
-        </div>
-      </section>
+      <div className="flex flex-col gap-8 items-start border-t hairline pt-10" role="status" aria-live="polite">
+        <p className="eyebrow text-brass">{status === "success-mailto" ? "One more step" : "Sent"}</p>
+        <h2 className="display-sm text-ivory text-balance">
+          {status === "success-mailto" ? "Your email app should be open" : "Message received"}
+        </h2>
+        <p className="body-lg text-mist max-w-[52ch]">
+          {status === "success-mailto"
+            ? `Your email app opened with your inquiry filled in. Press send there to reach us. If nothing opened, write to ${INQUIRY_EMAIL} directly.`
+            : "Thanks for reaching out. We will get back to you by email."}
+        </p>
+        <Button variant="secondary" onClick={reset}>
+          Send another inquiry
+        </Button>
+      </div>
     );
   }
 
-  const inputClasses =
-    "w-full bg-transparent border-b border-outline-variant/40 py-3 min-h-[44px] text-on-surface body-md rounded-none focus:outline-none focus:border-b-2 focus:border-primary transition-all duration-300 placeholder:text-on-surface-variant/60";
-
   return (
-    <section className="bg-surface-container py-24 md:py-32 relative overflow-hidden">
-      <div className="max-w-3xl mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-16 relative z-10">
-        <div className="flex flex-col gap-4">
-          <span className="label-sm text-primary tracking-widest uppercase">Inquiries</span>
-          <h2 className="display-sm text-on-surface">Start the conversation.</h2>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-9 md:gap-11" aria-busy={status === "submitting"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-9 md:gap-10">
+        <InputField
+          label="Full name"
+          id="fullName"
+          name="fullName"
+          type="text"
+          required
+          autoComplete="name"
+          placeholder="Your name"
+          value={formData.fullName}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Email"
+          id="email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="you@company.com"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+
+      <InputField
+        label="Company / brand"
+        id="company"
+        name="company"
+        type="text"
+        autoComplete="organization"
+        placeholder="Optional"
+        value={formData.company}
+        onChange={handleChange}
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-9 md:gap-10">
+        <div className="flex flex-col gap-1 w-full relative">
+          <label htmlFor="eventType" className={fieldLabelClasses}>
+            What do you need?
+          </label>
+          <select
+            id="eventType"
+            name="eventType"
+            className={`${fieldClasses} appearance-none cursor-pointer pr-8`}
+            value={formData.eventType}
+            onChange={handleChange}
+          >
+            <option value="" className="bg-ink-raised text-mist">Select a service area</option>
+            {divisions.map((d) => (
+              <option key={d.slug} value={`${d.name} - ${d.subtitle}`} className="bg-ink-raised text-ivory">
+                {d.name} - {d.subtitle}
+              </option>
+            ))}
+            <option value="Not sure yet / Other" className="bg-ink-raised text-ivory">Not sure yet / Other</option>
+          </select>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 12 8"
+            className="absolute right-0 bottom-[22px] h-2 w-3 pointer-events-none text-brass"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.25"
+          >
+            <path d="M1 1.5l5 5 5-5" />
+          </svg>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-10" aria-busy={status === "submitting"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <InputField
-              label="Full name"
-              id="fullName"
-              name="fullName"
-              type="text"
-              required
-              autoComplete="name"
-              placeholder="Your name"
-              value={formData.fullName}
-              onChange={handleChange}
-            />
-            <InputField
-              label="Email"
-              id="email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              placeholder="you@company.com"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-
-          <InputField
-            label="Company / brand"
-            id="company"
-            name="company"
-            type="text"
-            autoComplete="organization"
-            placeholder="Optional"
-            value={formData.company}
-            onChange={handleChange}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="flex flex-col gap-2 w-full relative">
-              <label htmlFor="eventType" className="label-sm text-on-surface tracking-widest uppercase">
-                What do you need?
-              </label>
-              <select
-                id="eventType"
-                name="eventType"
-                className={`${inputClasses} appearance-none cursor-pointer pr-6`}
-                value={formData.eventType}
-                onChange={handleChange}
-              >
-                <option value="" className="bg-surface-container text-on-surface-variant">Select a service area</option>
-                {divisions.map((d) => (
-                  <option key={d.slug} value={`${d.name} - ${d.subtitle}`} className="bg-surface-container text-on-surface">
-                    {d.name} — {d.subtitle}
-                  </option>
-                ))}
-                <option value="Not sure yet / Other" className="bg-surface-container text-on-surface">Not sure yet / Other</option>
-              </select>
-              <div className="absolute right-0 bottom-4 pointer-events-none text-primary text-xs" aria-hidden="true">▼</div>
-            </div>
-
-            <InputField
-              label="Target event date"
-              id="eventDate"
-              name="eventDate"
-              type="date"
-              value={formData.eventDate}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="message" className="label-sm text-on-surface tracking-widest uppercase">
-              Message<span className="text-primary ml-1" aria-hidden="true">*</span>
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              aria-required="true"
-              rows={5}
-              placeholder="What are you planning? Include scale, location, and any specific requirements."
-              className={`${inputClasses} resize-none min-h-[120px]`}
-              value={formData.message}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div aria-live="polite" className="min-h-[1.5rem]">
-            {status === "error" && (
-              <p role="alert" className="body-md text-on-surface">
-                Sorry, we could not send your message. Please try again, or email us at{" "}
-                <a href={`mailto:${INQUIRY_EMAIL}`} className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">
-                  {INQUIRY_EMAIL}
-                </a>
-                .
-              </p>
-            )}
-            {status === "submitting" && <p className="body-md text-on-surface-variant">Sending your message…</p>}
-          </div>
-
-          <div className="flex justify-end">
-            <Button variant="primary" size="lg" type="submit" className="w-full md:w-auto">
-              {status === "submitting" ? "Sending…" : "Send message"}
-            </Button>
-          </div>
-        </form>
+        <InputField
+          label="Target event date"
+          id="eventDate"
+          name="eventDate"
+          type="date"
+          value={formData.eventDate}
+          onChange={handleChange}
+        />
       </div>
-    </section>
+
+      <div className="flex flex-col gap-1 w-full">
+        <label htmlFor="message" className={fieldLabelClasses}>
+          Message<span className="text-brass ml-1" aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          aria-required="true"
+          rows={3}
+          placeholder="What are you planning? Include scale, location and any requirements."
+          className={`${fieldClasses} resize-none min-h-[96px] overflow-hidden`}
+          value={formData.message}
+          onChange={handleChange}
+          onInput={(e) => {
+            const el = e.currentTarget;
+            el.style.height = "auto";
+            el.style.height = `${el.scrollHeight}px`;
+          }}
+        />
+      </div>
+
+      <div aria-live="polite" className="min-h-[1.5rem]">
+        {status === "error" && (
+          <p role="alert" className="body-md text-ivory">
+            Sorry, we could not send your message. Please try again, or email us at{" "}
+            <a href={`mailto:${INQUIRY_EMAIL}`} className="text-brass underline underline-offset-4">
+              {INQUIRY_EMAIL}
+            </a>
+            .
+          </p>
+        )}
+        {status === "submitting" && <p className="body-md text-mist">Sending your message…</p>}
+      </div>
+
+      <div>
+        <Button variant="primary" size="lg" type="submit" className="w-full md:w-auto">
+          {status === "submitting" ? "Sending…" : "Send message"}
+        </Button>
+      </div>
+    </form>
   );
 }

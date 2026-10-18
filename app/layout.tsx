@@ -1,22 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Serif, Manrope } from "next/font/google";
+import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageWrapper from "@/components/layout/PageWrapper";
-import MobileBottomCTA from "@/components/layout/MobileBottomCTA";
 
-const notoSerif = Noto_Serif({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-noto-serif",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
-const manrope = Manrope({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-manrope",
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Lakambini Events",
   },
   description:
-    "Full-service event production agency. From live entertainment and multimedia production to experiential marketing and technology — one team, one standard.",
+    "Full-service event production agency, from live entertainment and multimedia to experiential marketing and technology.",
   openGraph: {
     siteName: "Lakambini Events",
     locale: "en_PH",
@@ -36,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#051710",
+  themeColor: "#07120d",
 };
 
 export default function RootLayout({
@@ -45,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${notoSerif.variable} ${manrope.variable}`}>
-      <body className="font-sans bg-surface text-on-surface antialiased">
+    <html lang="en" className={`${instrumentSerif.variable} ${geist.variable} ${geistMono.variable}`}>
+      <body className="grain font-sans bg-ink text-ivory antialiased">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-full focus:label-md focus:outline-none"
@@ -58,7 +63,6 @@ export default function RootLayout({
           {children}
         </PageWrapper>
         <Footer />
-        <MobileBottomCTA />
       </body>
     </html>
   );

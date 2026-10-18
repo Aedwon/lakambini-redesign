@@ -1,45 +1,44 @@
 import Image from "next/image";
+import Marquee from "@/components/ui/Marquee";
 import { clients } from "@/lib/clients";
 
 /**
- * Shared client logo row — single implementation used by TrustBar (home)
- * and ClientLogos (/about). Logos render as uniform light silhouettes;
- * clients without a logo file fall back to their name in text.
+ * Shared client renderer: one implementation used by TrustBar (home) and
+ * ClientLogos (/about). Logos are uniform ivory silhouettes; clients without
+ * a logo file are set in the display serif at the same visual weight.
  */
-export function ClientLogoRow({ className = "" }: { className?: string }) {
+export function ClientMarquee({ duration = 50 }: { duration?: number }) {
   return (
-    <ul
-      className={`flex flex-wrap justify-center items-center gap-x-10 gap-y-6 md:gap-x-14 ${className}`}
-    >
+    <Marquee duration={duration}>
       {clients.map((client) => (
-        <li key={client.slug} className="flex items-center justify-center h-8">
+        <div key={client.slug} className="mx-10 md:mx-14 flex h-10 items-center">
           {client.logo ? (
             <Image
               src={client.logo}
               alt={client.name}
               width={160}
-              height={32}
-              className="h-7 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+              height={36}
+              className="h-7 md:h-9 w-auto max-w-none object-contain brightness-0 invert opacity-70"
             />
           ) : (
-            <span className="font-headline text-lg md:text-xl font-semibold tracking-tight text-on-surface opacity-60 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            <span className="font-display text-[1.625rem] md:text-[2rem] leading-none text-ivory/70 whitespace-nowrap">
               {client.name}
             </span>
           )}
-        </li>
+        </div>
       ))}
-    </ul>
+    </Marquee>
   );
 }
 
 export default function TrustBar() {
   return (
-    <section className="w-full bg-surface-container-lowest py-14 md:py-16">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center gap-8">
-        <p className="label-sm text-on-surface-variant tracking-widest">
-          Trusted by
-        </p>
-        <ClientLogoRow />
+    <section aria-label="Clients" className="border-y hairline bg-ink py-10 md:py-12">
+      <div className="container-x flex flex-col gap-6 md:flex-row md:items-center md:gap-12">
+        <p className="eyebrow shrink-0 text-mist md:w-32">Trusted by</p>
+        <div className="min-w-0 flex-1 md:-mr-[clamp(1.25rem,4vw,4rem)]">
+          <ClientMarquee />
+        </div>
       </div>
     </section>
   );

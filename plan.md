@@ -394,6 +394,19 @@ Phase 8 ─── Accessibility & Touch UX (WCAG 2.1 AA compliant)          ✅ 
 
 ---
 
+## Phase 10: Design System v2 "Night Brass" ✅
+
+> Goal: premium, cinematic, editorial. The frame is quiet so the real work is loud.
+
+- New tokens (ink / ivory / mist / brass / hairline) replacing the generated Material palette; legacy tokens aliased.
+- Type: Instrument Serif display + Geist text + Geist Mono numerals; thin wide-tracked eyebrows from the company deck.
+- Primitives: `Button`, `SectionHeader`, `Reveal`, `GoldWave` (deck line-art), `Marquee`; film grain.
+- Home hero showreel cut from MCC / NARUTO / profile footage (`public/video`, ~2.8 MB, reduced-motion fallback); click-to-play company film on About.
+- Rebuilt navbar (full-screen mobile menu), statement footer, 404, every page; nine division pages share one data-driven template (`lib/divisionContent.ts`).
+- Copy pass: no em/en dashes, redundancy removed.
+
+---
+
 ## Key Reference Files
 
 | File | Purpose |

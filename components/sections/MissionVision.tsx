@@ -1,35 +1,58 @@
+import GoldWave from "@/components/ui/GoldWave";
+import Reveal from "@/components/ui/Reveal";
+
 interface Pillar {
+  index: string;
   label: string;
   text: string;
 }
 
 const pillars: Pillar[] = [
   {
+    index: "02",
     label: "Mission",
-    text: "To elevate the status of women and women at heart within the creatives, marketing, gaming and events industry. We provide a platform for these talented individuals to showcase their expertise and contribute meaningfully to the field, and we offer companies comprehensive 360-degree creative and marketing strategies, addressing their challenges with innovative solutions and unparalleled professionalism.",
+    text: "To elevate the status of women and women at heart within the creatives, marketing, gaming and events industry. We provide a platform for these talented individuals to showcase their expertise, and we offer companies 360-degree creative and marketing strategies with innovative solutions and professionalism.",
   },
   {
+    index: "03",
     label: "Vision",
-    text: "To cultivate enduring loyalty with our clients by consistently exceeding their expectations, and to be recognized for our expertise, professionalism, and ability to deliver results.",
+    text: "To cultivate enduring client loyalty by consistently exceeding expectations, and to be recognized for our expertise, professionalism and results.",
   },
 ];
 
 export default function MissionVision() {
   return (
-    <section className="bg-surface py-24 md:py-32 w-full">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-          {pillars.map((p) => (
-            <div key={p.label} className="flex flex-col gap-6">
-              <span className="label-sm text-primary tracking-widest uppercase">{p.label}</span>
-              <p className="headline-sm text-on-surface max-w-[65ch] leading-relaxed">{p.text}</p>
-            </div>
-          ))}
-        </div>
+    <section className="relative w-full overflow-hidden bg-forest section-y">
+      <GoldWave className="absolute inset-x-0 bottom-0 h-[60%] w-full" opacity={0.35} />
 
-        <p className="body-lg text-on-surface-variant max-w-[65ch] mt-16 md:mt-24">
-          The name comes from <em>lakambini</em>, Tagalog for a noble lady or muse. It reflects what we set out to do: champion women and women at heart in the industry.
-        </p>
+      <div className="relative z-10 container-x flex flex-col gap-20 md:gap-28">
+        {pillars.map((p) => (
+          <div key={p.label} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <Reveal className="lg:col-span-3">
+              <div className="flex items-center gap-4 text-mist">
+                <span className="numeral text-brass">{p.index}</span>
+                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span className="eyebrow">{p.label}</span>
+              </div>
+            </Reveal>
+            <Reveal delay={0.06} className="lg:col-span-9">
+              <p
+                className={`${
+                  p.label === "Mission" ? "headline-lg" : "display-sm"
+                } text-ivory text-balance max-w-[34ch] lg:max-w-[44ch]`}
+              >
+                {p.text}
+              </p>
+            </Reveal>
+          </div>
+        ))}
+
+        <Reveal>
+          <p className="body-lg text-mist max-w-[60ch] border-t hairline pt-8 lg:ml-[25%]">
+            The name comes from <em className="text-ivory">lakambini</em>, Tagalog for a noble lady
+            or muse.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,24 +1,28 @@
 import { moreProjects } from "@/lib/portfolioData";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/ui/Reveal";
 
 export default function ProjectIndex() {
   return (
-    <section className="bg-surface-container-low py-24 md:py-32 w-full">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="mb-12 md:mb-16 flex flex-col gap-4">
-          <span className="label-sm text-primary tracking-widest uppercase">Index</span>
-          <h2 className="display-sm text-on-surface">More projects</h2>
-        </div>
+    <section className="section-y bg-ink-raised">
+      <div className="container-x">
+        <SectionHeader index="02" label="Index" title={<>And <em>more</em>.</>} />
 
-        <ul className="columns-1 md:columns-2 xl:columns-3 gap-x-16 md:gap-x-20">
-          {moreProjects.map((p) => {
-            const meta = [p.client, p.year, p.scope].filter(Boolean).join(" · ");
-            return (
-              <li key={p.title} className="break-inside-avoid py-5 md:py-6">
-                <h3 className="title-lg font-headline text-on-surface">{p.title}</h3>
-                {meta && <p className="label-sm text-on-surface-variant mt-2 normal-case tracking-normal">{meta}</p>}
-              </li>
-            );
-          })}
+        <ul className="border-t hairline">
+          {moreProjects.map((p, i) => (
+            <Reveal as="li" key={p.title} delay={Math.min(i, 6) * 0.04} className="border-b hairline">
+              <div className="grid grid-cols-[2.25rem_1fr] items-baseline gap-x-4 gap-y-1 py-5 md:grid-cols-[3.5rem_minmax(0,5fr)_minmax(0,2.5fr)_4rem_minmax(0,4fr)] md:gap-x-8 md:py-6">
+                <span className="numeral text-brass">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="title-md text-ivory">{p.title}</h3>
+                <p className="body-sm col-start-2 text-mist md:col-start-auto md:text-[15px]">
+                  {p.client ?? ""}
+                  {p.year && <span className="numeral ml-3 md:hidden">{p.year}</span>}
+                </p>
+                <span className="numeral hidden text-mist md:block">{p.year ?? ""}</span>
+                <p className="body-sm hidden text-mist md:block">{p.scope ?? ""}</p>
+              </div>
+            </Reveal>
+          ))}
         </ul>
       </div>
     </section>

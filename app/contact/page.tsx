@@ -1,87 +1,128 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/sections/PageHero";
 import ContactForm from "@/components/sections/ContactForm";
-import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Get in Touch",
   description:
-    "Tell us what you're planning. We'll figure out the best way to make it happen. Based in Cavite, delivering nationwide.",
+    "Tell us what you're planning. Based in Cavite, working nationwide.",
   openGraph: {
     title: "Contact | Lakambini Events",
     description:
-      "Tell us what you're planning. We'll figure out the best way to make it happen. Based in Cavite, delivering nationwide.",
+      "Tell us what you're planning. Based in Cavite, working nationwide.",
     url: "/contact",
   },
 };
 
+const steps = [
+  { n: "01", title: "We read your brief", desc: "A real person reads your inquiry and replies by email." },
+  { n: "02", title: "Discovery call", desc: "We go through your goals, audience, venue and timeline." },
+  { n: "03", title: "Proposal", desc: "A clear scope and plan to review before anything is locked in." },
+];
+
+const focusLink =
+  "transition-colors duration-300 hover:text-brass";
+
 export default function ContactPage() {
   return (
-      <div className="flex flex-col w-full bg-surface">
-        <PageHero 
-          overline="Contact"
-          title="Get in Touch"
-          subtitle="Tell us what you're planning. We'll figure out the best way to make it happen."
-        />
-        
-        <ContactForm />
+    <div className="flex flex-col w-full bg-ink">
+      <section className="w-full bg-ink pt-40 md:pt-52 pb-24 md:pb-32">
+        <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+          {/* Left: intro + details */}
+          <div className="lg:col-span-5 flex flex-col gap-10">
+            <Reveal>
+              <p className="eyebrow text-mist">
+                <span className="text-brass">·</span>&nbsp; Contact
+              </p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h1 className="display-lg text-ivory text-balance">
+                Tell us what you&apos;re <em className="italic text-brass">planning.</em>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="body-lg text-mist max-w-[44ch]">
+                We&apos;ll figure out the best way to make it happen.
+              </p>
+            </Reveal>
 
-        {/* What happens next */}
-        <section className="bg-surface py-24 md:py-32 w-full">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-            <div className="mb-12 md:mb-16">
-              <SectionHeading overline="Process" title="What Happens Next" />
-            </div>
-            <ol className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {[
-                { n: "01", title: "We read your brief", desc: "A real person reads every inquiry and replies by email with questions or next steps." },
-                { n: "02", title: "Discovery call", desc: "We talk through your goals, audience, venue, and timeline." },
-                { n: "03", title: "Proposal", desc: "You get a clear scope and plan to review before anything is locked in." },
-              ].map((step) => (
-                <li key={step.n} className="bg-surface-container-low p-8 md:p-10 flex flex-col gap-4">
-                  <span className="headline-sm text-primary">{step.n}</span>
-                  <h3 className="headline-sm text-on-surface">{step.title}</h3>
-                  <p className="body-md text-on-surface-variant max-w-[65ch]">{step.desc}</p>
-                </li>
-              ))}
-            </ol>
+            <Reveal delay={0.12}>
+              <dl className="border-t hairline mt-4">
+                <div className="py-6 border-b hairline flex flex-col gap-3">
+                  <dt className="eyebrow text-mist">Email</dt>
+                  <dd>
+                    <a
+                      href="mailto:admin@lakambinievents.com"
+                      className={`headline-md text-ivory break-all ${focusLink}`}
+                    >
+                      admin@lakambinievents.com
+                    </a>
+                  </dd>
+                </div>
+                <div className="py-6 border-b hairline flex flex-col gap-3">
+                  <dt className="eyebrow text-mist">Phone</dt>
+                  <dd>
+                    <a href="tel:+639958759410" className={`title-lg text-ivory ${focusLink}`}>
+                      +63 995 875 9410
+                    </a>
+                  </dd>
+                </div>
+                <div className="py-6 border-b hairline flex flex-col gap-3">
+                  <dt className="eyebrow text-mist">Studio</dt>
+                  <dd>
+                    <address className="not-italic body-lg text-ivory">
+                      Brookeside Lane, San Francisco,
+                      <br />
+                      General Trias City, Cavite,
+                      <br />
+                      Philippines
+                    </address>
+                  </dd>
+                </div>
+              </dl>
+            </Reveal>
           </div>
-        </section>
 
-        <section className="bg-surface-container-low py-24 md:py-32 w-full">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-start">
-            <SectionHeading
-              overline="Office"
-              title="Where to Find Us"
-              description="Based in Cavite, delivering nationwide."
-            />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-2">
-              <div className="flex flex-col gap-3">
-                <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">General Inquiries</span>
-                <p className="title-md">
-                  <a href="mailto:admin@lakambinievents.com" className="text-primary hover:text-on-surface transition-colors rounded-sm break-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">admin@lakambinievents.com</a>
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">Phone</span>
-                <p className="title-md">
-                  <a href="tel:+639958759410" className="text-on-surface hover:text-primary transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">+63 995 875 9410</a>
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-3 sm:col-span-2">
-                <span className="label-sm text-on-surface-variant font-medium tracking-widest uppercase">Address</span>
-                <address className="not-italic bg-surface-container p-6 md:p-8 body-lg text-on-surface max-w-md">
-                  Brookeside Lane, San Francisco,<br />
-                  General Trias City, Cavite,<br />
-                  Philippines
-                </address>
-              </div>
-            </div>
+          {/* Right: form */}
+          <div className="lg:col-span-7 lg:pt-6">
+            <Reveal delay={0.1}>
+              <ContactForm />
+            </Reveal>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* What happens next */}
+      <section className="w-full bg-ink-raised section-y">
+        <div className="container-x">
+          <SectionHeader
+            index="01"
+            label="What happens next"
+            title={
+              <>
+                From brief to <em>proposal.</em>
+              </>
+            }
+          />
+          <ol className="grid grid-cols-1 md:grid-cols-3 border-t hairline">
+            {steps.map((step, i) => (
+              <Reveal
+                as="li"
+                key={step.n}
+                delay={i * 0.08}
+                className={`flex flex-col gap-6 py-10 md:py-12 border-b md:border-b-0 hairline ${
+                  i > 0 ? "md:border-l md:pl-10" : ""
+                } ${i < steps.length - 1 ? "md:pr-10" : ""}`}
+              >
+                <span className="numeral text-brass">{step.n}</span>
+                <h3 className="headline-md text-ivory">{step.title}</h3>
+                <p className="body-md text-mist max-w-[40ch]">{step.desc}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,60 +1,48 @@
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 import type { DivisionData } from "@/lib/divisions";
 
 interface DivisionHeroProps {
   division: DivisionData;
+  intro: string;
+  total?: number;
 }
 
-export default function DivisionHero({ division }: DivisionHeroProps) {
+export default function DivisionHero({ division, intro, total = 9 }: DivisionHeroProps) {
   return (
-    <section className="w-full hero-gradient relative overflow-hidden pt-32 pb-24 md:pt-48 md:pb-32 px-6 md:px-12">
-      {/* Marble Texture Overlay */}
-      <div className="absolute inset-0 marble-texture pointer-events-none mix-blend-overlay"></div>
-      
-      {/* Decorative Text Watermark */}
-      <div 
-        className="absolute right-0 sm:right-12 lg:right-24 top-[30%] -translate-y-1/2 font-headline font-bold text-primary opacity-[0.03] pointer-events-none select-none"
-        style={{ fontSize: "clamp(12rem, 25vw, 25rem)", lineHeight: 1 }}
-        aria-hidden="true"
-      >
-        {division.name}
-      </div>
-      
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10 w-full">
-        <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-          <span className="label-sm text-primary tracking-[0.3em] uppercase mb-6 block">
-            {division.id}
-          </span>
-          <h1 className="display-lg text-on-surface font-bold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-4">
-            {division.name}
-          </h1>
-          <h2 className="headline-sm text-on-surface-variant mb-8">
-            {division.subtitle}
-          </h2>
-          <p className="body-lg text-on-surface-variant font-light leading-relaxed max-w-xl mb-10">
-            {division.description}
-          </p>
-          <ul className="flex flex-wrap gap-3">
-            {division.capabilities.map((t) => (
-              <li key={t} className="px-4 py-1.5 bg-surface-container-high rounded-full label-sm text-on-surface">
-                {t}
-              </li>
-            ))}
-          </ul>
+    <section className="relative w-full bg-ink pt-40 md:pt-52 pb-16 md:pb-24">
+      <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+        <div className="lg:col-span-7 order-1">
+          <Reveal>
+            <p className="eyebrow text-mist flex items-center gap-4">
+              <span className="numeral text-brass">{division.id}</span>
+              <span aria-hidden="true" className="h-px w-10 bg-line" />
+              Division {division.id} / {String(total).padStart(2, "0")}
+            </p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h1 className="display-hero text-ivory mt-8 md:mt-10">{division.name}</h1>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="display-sm italic text-mist mt-6 md:mt-8 text-balance">{division.subtitle}</p>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <p className="body-lg text-ivory/80 mt-10 md:mt-12 max-w-[56ch]">{intro}</p>
+          </Reveal>
         </div>
-        
-        <div className="lg:col-span-5 w-full flex justify-end">
-          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-xl editorial-shadow group">
+
+        <Reveal delay={0.1} className="lg:col-span-5 order-2">
+          <figure className="group relative aspect-[4/3] lg:aspect-[4/5] w-full overflow-hidden rounded-[2px] bg-ink-raised">
             <Image
               src={division.heroImage}
-              alt={`${division.name} - ${division.subtitle}`}
+              alt={`${division.name}, ${division.subtitle}`}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
             />
-          </div>
-        </div>
+          </figure>
+        </Reveal>
       </div>
     </section>
   );

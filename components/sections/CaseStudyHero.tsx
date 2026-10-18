@@ -6,10 +6,10 @@ interface CaseStudyHeroProps {
 }
 
 export default function CaseStudyHero({ project }: CaseStudyHeroProps) {
-  const meta = [project.client, project.year, project.location].filter(Boolean).join(" · ");
+  const meta = [project.client, project.location].filter(Boolean).join(" · ");
 
   return (
-    <section className="relative w-full min-h-[70vh] md:min-h-[85vh] flex items-end overflow-hidden bg-surface">
+    <section className="relative flex h-[100svh] min-h-[640px] w-full flex-col justify-end overflow-hidden bg-ink">
       <Image
         src={project.cover}
         alt={project.title}
@@ -18,11 +18,22 @@ export default function CaseStudyHero({ project }: CaseStudyHeroProps) {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-12 md:pb-20 pt-40">
-        <span className="label-sm text-primary tracking-widest uppercase">Case study</span>
-        <h1 className="display-lg text-on-surface leading-[1.05] mt-4 max-w-4xl">{project.title}</h1>
-        <p className="body-lg text-on-surface-variant mt-6">{meta}</p>
+      <div aria-hidden="true" className="absolute inset-0 bg-ink/20" />
+      <div aria-hidden="true" className="absolute inset-0 scrim-bottom" />
+
+      <div className="container-x relative z-10 pb-10 md:pb-14">
+        <p className="eyebrow mb-6 text-ivory/80 md:mb-8">
+          Case study <span className="text-brass">·</span> {project.year}
+        </p>
+        <h1 className="display-lg max-w-[18ch] text-balance text-ivory">{project.title}</h1>
+        {meta && <p className="body-lg mt-6 text-mist md:mt-8">{meta}</p>}
+
+        <div className="mt-12 flex items-center justify-between gap-6 border-t hairline pt-5 text-mist md:mt-16">
+          <p className="numeral">
+            <span className="text-brass">●</span>&nbsp; {project.title}
+          </p>
+          <p className="numeral hidden sm:block">Scroll</p>
+        </div>
       </div>
     </section>
   );

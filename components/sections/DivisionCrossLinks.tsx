@@ -1,50 +1,50 @@
 import Link from "next/link";
 import { divisions } from "@/lib/divisions";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/ui/Reveal";
 
 interface DivisionCrossLinksProps {
   currentSlug: string;
+  index?: string;
 }
 
-export default function DivisionCrossLinks({ currentSlug }: DivisionCrossLinksProps) {
-  const otherDivisions = divisions.filter(d => d.slug !== currentSlug);
+export default function DivisionCrossLinks({ currentSlug, index }: DivisionCrossLinksProps) {
+  const others = divisions.filter((d) => d.slug !== currentSlug);
 
   return (
-    <section className="py-24 md:py-32 bg-surface-container-low overflow-hidden relative z-10">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-12 md:mb-16">
-        <h2 className="label-sm text-primary tracking-[0.2em] uppercase">Explore Other Divisions</h2>
-      </div>
-      
-      {/* Scrollable track */}
-      <div className="flex overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-6 md:px-12 snap-x snap-mandatory">
-        <div className="flex gap-4 md:gap-6 min-w-max">
-          {otherDivisions.map((division) => (
-            <Link 
-              key={division.id} 
-              href={`/services/${division.slug}`}
-              className="group snap-start scroll-ml-6 md:scroll-ml-12 w-[280px] md:w-[320px] bg-surface-container hover:bg-surface-container-high p-8 transition-all duration-300 flex flex-col h-[200px] md:h-[240px] relative overflow-hidden focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
-            >
-
-              <div className="relative z-10">
-                <span className="headline-sm text-primary font-bold block mb-4">
-                  {division.id}
+    <section className="bg-ink-raised section-y">
+      <div className="container-x">
+        <SectionHeader
+          index={index}
+          label="Divisions"
+          title={
+            <>
+              Explore other <em>divisions</em>
+            </>
+          }
+        />
+        <ul className="border-b hairline">
+          {others.map((d, i) => (
+            <Reveal key={d.slug} as="li" delay={Math.min(i, 5) * 0.04} className="border-t hairline">
+              <Link
+                href={`/services/${d.slug}`}
+                className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1fr)_2rem] items-baseline gap-x-4 gap-y-1 py-6 md:py-8"
+              >
+                <span className="numeral text-brass">{d.id}</span>
+                <span className="headline-lg text-ivory transition-colors duration-500 group-hover:text-brass-soft">
+                  {d.name}
                 </span>
-                <h3 className="headline-md text-on-surface mb-2">
-                  {division.name}
-                </h3>
-                <p className="label-sm text-on-surface-variant">
-                  {division.subtitle}
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-2 mt-auto text-primary relative z-10">
-                <span className="label-sm uppercase tracking-widest">Explore</span>
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </Link>
+                <span className="col-start-2 md:col-start-auto body-md italic text-mist">{d.subtitle}</span>
+                <span
+                  aria-hidden="true"
+                  className="hidden md:block text-mist transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-1 group-hover:text-brass"
+                >
+                  →
+                </span>
+              </Link>
+            </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

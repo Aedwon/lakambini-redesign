@@ -1,21 +1,31 @@
-import React from 'react';
+import React from "react";
+
+/** Shared v2 form-control styling: no box, one hairline underline that turns brass on focus. */
+export const fieldClasses =
+  "w-full bg-transparent border-0 border-b border-line py-3 min-h-[52px] text-ivory body-lg rounded-none [color-scheme:dark] focus:outline-none focus:border-brass transition-colors duration-300 placeholder:text-mist/60";
+
+export const fieldLabelClasses = "eyebrow text-mist";
 
 type InputFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
 };
 
-export default function InputField({ label, id, className = '', required, ...props }: InputFieldProps) {
+export default function InputField({ label, id, className = "", required, ...props }: InputFieldProps) {
   return (
-    <div className={`flex flex-col gap-2 w-full ${className}`}>
-      <label htmlFor={id} className="label-sm text-on-surface tracking-widest uppercase">
+    <div className={`flex flex-col gap-1 w-full ${className}`}>
+      <label htmlFor={id} className={fieldLabelClasses}>
         {label}
-        {required && <span className="text-primary ml-1" aria-hidden="true">*</span>}
+        {required && (
+          <span className="text-brass ml-1" aria-hidden="true">
+            *
+          </span>
+        )}
       </label>
       <input
         id={id}
         required={required}
         aria-required={required ? "true" : undefined}
-        className="w-full bg-transparent border-b border-outline-variant/40 py-3 min-h-[44px] text-on-surface body-md rounded-none [color-scheme:dark] focus:outline-none focus:border-b-2 focus:border-primary focus:shadow-[0_4px_15px_-3px_rgba(233,194,85,0.15)] transition-all duration-300 placeholder:text-on-surface-variant/60"
+        className={fieldClasses}
         {...props}
       />
     </div>

@@ -1,54 +1,63 @@
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 
 export default function FounderStory() {
   return (
-    <section className="bg-surface py-24 md:py-32 w-full">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
-          
-          {/* Portrait Column */}
-          <div className="md:col-span-5 order-2 md:order-1">
-            <div className="relative aspect-[4/5] overflow-hidden">
-              
-              <Image 
-                src="/images/anchie-rosas.jpg" 
-                alt="Anchie Rosas, Founder and CEO of Lakambini" 
+    <section className="w-full bg-ink section-y">
+      <div className="container-x">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+          {/* Portrait */}
+          <Reveal className="lg:col-span-5 lg:sticky lg:top-32">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-raised">
+              <Image
+                src="/images/anchie-rosas.jpg"
+                alt="Anchie Rosas, Founder and CEO of Lakambini"
                 fill
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
               />
             </div>
-          </div>
-          
-          {/* Text Column */}
-          <div className="md:col-span-7 order-1 md:order-2 md:pl-12">
-            <h2 className="display-sm text-on-surface mb-12 leading-tight tracking-tight">
-              The Vision of <br />
-              Anchie Rosas
-            </h2>
-            <div className="space-y-8 font-light text-on-surface-variant body-lg leading-loose">
-              <p>
-                As the Founder, CEO, and Creative Director of Lakambini, Anchie Rosas brings over 10 years of experience in top corporate environments to the world of event production. Her deep understanding of complex systems and strategic management defines how we approach every project. She is also recognized as a BNI Master Connector for her work building business relationships across her network.
+            <p className="numeral mt-4 text-mist">Anchie Rosas, Founder</p>
+          </Reveal>
+
+          {/* Text */}
+          <div className="lg:col-span-7 flex flex-col gap-10">
+            <Reveal>
+              <div className="flex items-center gap-4 text-mist">
+                <span className="numeral text-brass">04</span>
+                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span className="eyebrow">Founder, CEO &amp; Creative Director</span>
+              </div>
+              <h2 className="display-md text-ivory text-balance mt-8">Anchie Rosas</h2>
+            </Reveal>
+
+            <Reveal delay={0.05}>
+              <p className="body-lg text-mist max-w-[60ch]">
+                As Founder, CEO and Creative Director of Lakambini, Anchie Rosas brings over 10
+                years of experience in top corporate environments to event production. She is also
+                recognized as a BNI Master Connector for her work building business relationships
+                across her network.
               </p>
-              
-              {/* Company principle (not a personal quote) */}
-              <div className="bg-surface-container-low p-6 md:p-8">
-                <p className="label-sm text-primary uppercase tracking-widest mb-3">What We Believe</p>
-                <p className="italic text-on-surface text-xl md:text-2xl leading-relaxed">
-                  The LAKAMBINI client is someone who values their guests&apos; experience as much as their own peace of mind. We exist to be the team that ensures every event is managed with precision and reliability.
+            </Reveal>
+
+            {/* Company principle (not a personal quote) */}
+            <Reveal delay={0.05}>
+              <div className="border-y hairline py-10 md:py-14">
+                <p className="eyebrow text-brass mb-6">What we believe</p>
+                <p className="display-sm text-ivory text-balance">
+                  The LAKAMBINI client values their guests&apos; experience as much as their own peace
+                  of mind. We exist to be the team that makes that possible.
                 </p>
               </div>
+            </Reveal>
 
-              <p>
-                Whether managing multinational corporate summits or intimate high-end celebrations, her approach remains defined by a strategic mindset and an uncompromising passion for exceeding expectations. Under her creative direction, we don&apos;t just deliver events — we deliver them with precision and care.
+            <Reveal delay={0.05}>
+              <p className="body-lg text-mist max-w-[60ch]">
+                From multinational corporate summits to intimate high-end celebrations, her approach is
+                strategic and driven by a passion for exceeding expectations.
               </p>
-              
-              <div className="pt-8">
-                                <span className="title-lg text-primary uppercase tracking-widest font-medium">CEO &amp; Creative Director</span>
-              </div>
-            </div>
+            </Reveal>
           </div>
-
         </div>
       </div>
     </section>

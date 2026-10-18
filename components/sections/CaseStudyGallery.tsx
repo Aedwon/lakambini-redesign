@@ -1,41 +1,71 @@
 import Image from "next/image";
 import type { PortfolioProject } from "@/lib/portfolioData";
+import Reveal from "@/components/ui/Reveal";
 
 interface CaseStudyGalleryProps {
   project: PortfolioProject;
 }
 
+type Block = { kind: "full"; idx: number } | { kind: "pair"; idx: [number, number] };
+
+/** Alternate a full-bleed single with a 2-up pair; a lone trailing image goes full. */
+function sequence(count: number): Block[] {
+  const blocks: Block[] = [];
+  let i = 0;
+  let full = true;
+  while (i < count) {
+    if (full || i === count - 1) {
+      blocks.push({ kind: "full", idx: i });
+      i += 1;
+    } else {
+      blocks.push({ kind: "pair", idx: [i, i + 1] });
+      i += 2;
+    }
+    full = !full;
+  }
+  return blocks;
+}
+
 export default function CaseStudyGallery({ project }: CaseStudyGalleryProps) {
   const images = project.images;
   if (images.length === 0) return null;
+  const total = String(images.length).padStart(2, "0");
+
+  const frame = (i: number, sizes: string, aspect: string) => (
+    <figure>
+      <div className={`group relative overflow-hidden rounded-[2px] bg-ink-raised ${aspect}`}>
+        <Image
+          src={images[i]}
+          alt={`${project.title}, photo ${i + 1}`}
+          fill
+          sizes={sizes}
+          className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+        />
+      </div>
+      <figcaption className="numeral mt-3 text-mist">
+        {String(i + 1).padStart(2, "0")} / {total}
+      </figcaption>
+    </figure>
+  );
 
   return (
-    <section className="bg-surface-container-low py-24 md:py-32">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="mb-12 md:mb-16">
-          <span className="label-sm text-primary tracking-widest uppercase">Gallery</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {images.map((src, i) => {
-            const wide = i % 5 === 0;
-            return (
-              <div
-                key={src}
-                className={`relative overflow-hidden bg-surface-container ${
-                  wide ? "md:col-span-2 aspect-[3/2] md:aspect-[21/9]" : "aspect-[3/2]"
-                }`}
-              >
-                <Image
-                  src={src}
-                  alt={`${project.title}, photo ${i + 1}`}
-                  fill
-                  sizes={wide ? "(max-width: 1440px) 100vw, 1440px" : "(max-width: 768px) 100vw, 50vw"}
-                  className="object-cover"
-                />
-              </div>
-            );
-          })}
-        </div>
+    <section className="bg-ink-raised pb-24 pt-20 md:pb-36 md:pt-28" aria-label={`${project.title} gallery`}>
+      <div className="flex flex-col gap-14 md:gap-24">
+        {sequence(images.length).map((b) =>
+          b.kind === "full" ? (
+            <Reveal key={b.idx} y={32}>
+              {frame(b.idx, "100vw", "aspect-[4/3] md:aspect-[21/9]")}
+            </Reveal>
+          ) : (
+            <div key={b.idx[0]} className="container-x grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-8">
+              {b.idx.map((i, n) => (
+                <Reveal key={i} delay={n * 0.1} y={32}>
+                  {frame(i, "(max-width: 768px) 100vw, 50vw", "aspect-[4/3] md:aspect-[4/5]")}
+                </Reveal>
+              ))}
+            </div>
+          )
+        )}
       </div>
     </section>
   );

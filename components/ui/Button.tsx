@@ -1,59 +1,89 @@
-import Link from 'next/link';
-import { ReactNode } from 'react';
+import Link from "next/link";
+import { ReactNode } from "react";
 
 type ButtonProps = {
-  variant?: 'primary' | 'secondary' | 'tertiary';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: "primary" | "secondary" | "tertiary";
+  size?: "sm" | "md" | "lg";
   href?: string;
   onClick?: () => void;
   children: ReactNode;
   className?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
-export default function Button({ variant = 'primary', size = 'md', href, onClick, children, className = '', type }: ButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 ease-out z-10 border-0 cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
-  
-  const sizeClasses = {
-    sm: variant === 'tertiary' ? "label-sm" : "px-5 py-3 label-sm min-h-[44px]",
-    md: variant === 'tertiary' ? "label-md" : "px-8 py-4 label-md min-h-[44px]",
-    lg: variant === 'tertiary' ? "label-lg" : "px-12 py-5 label-lg min-h-[44px]",
+/** Small arrow that slides on hover; inherits the text colour. */
+const Arrow = () => (
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 16 16"
+    className="h-3.5 w-3.5 shrink-0 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-1"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.25"
+  >
+    <path d="M1 8h13M9 3l5 5-5 5" />
+  </svg>
+);
+
+/**
+ * v2 buttons
+ * - primary:   brass fill, ink text, one per view, the main call to action
+ * - secondary: hairline ivory outline, the quiet alternative
+ * - tertiary:  text link with an underline that draws in on hover
+ */
+export default function Button({
+  variant = "primary",
+  size = "md",
+  href,
+  onClick,
+  children,
+  className = "",
+  type,
+  disabled,
+}: ButtonProps) {
+  const sizes = {
+    sm: "h-10 px-5 gap-2.5 text-[0.8125rem]",
+    md: "h-12 px-7 gap-3 text-[0.875rem]",
+    lg: "h-14 px-9 gap-3.5 text-[0.9375rem]",
   };
 
-  let variantClasses = "";
-  if (variant === 'primary') {
-    variantClasses = "bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold tracking-wide hover:scale-105 active:scale-95 shadow-2xl";
-  } else if (variant === 'secondary') {
-    variantClasses = "bg-surface-container/70 backdrop-blur-sm text-primary hover:bg-surface-container-high transition-colors";
-  } else if (variant === 'tertiary') {
-    variantClasses = "bg-transparent text-on-surface p-0 relative group rounded-none";
-  }
-
-  const combinedClasses = `${baseClasses} ${sizeClasses[size]} ${variantClasses} ${className}`;
-
-  const renderContent = () => {
-    if (variant === 'tertiary') {
-      return (
-        <>
-          {children}
-          <span className="absolute -bottom-1.5 left-1/2 h-[1px] w-full -translate-x-1/2 bg-primary transition-all duration-400 ease-[cubic-bezier(0.25,0,0,1)] group-hover:w-[120%] group-hover:h-[2px]"></span>
-        </>
-      );
-    }
-    return children;
+  const variants = {
+    primary:
+      "bg-brass text-ink hover:bg-brass-soft rounded-full",
+    secondary:
+      "text-ivory rounded-full ring-1 ring-inset ring-ivory/30 hover:ring-ivory/70 hover:bg-ivory/[0.04]",
+    tertiary:
+      "text-ivory rounded-none h-auto px-0 relative after:absolute after:left-0 after:-bottom-1.5 after:h-px after:w-full after:origin-left after:scale-x-[0.35] after:bg-brass after:transition-transform after:duration-500 after:ease-[var(--ease-out-expo)] hover:after:scale-x-100",
   };
+
+  const classes = [
+    "group inline-flex items-center justify-center font-sans font-medium tracking-[0.01em] whitespace-nowrap",
+    "transition-colors duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+    "focus-visible:outline-1 focus-visible:outline-brass focus-visible:outline-offset-4",
+    variant === "tertiary" ? "gap-2.5 text-[0.875rem]" : sizes[size],
+    variants[variant],
+    className,
+  ].join(" ");
+
+  const content = (
+    <>
+      <span>{children}</span>
+      <Arrow />
+    </>
+  );
 
   if (href) {
     return (
-      <Link href={href} className={combinedClasses} onClick={onClick}>
-        {renderContent()}
+      <Link href={href} className={classes} onClick={onClick}>
+        {content}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={combinedClasses} onClick={onClick}>
-      {renderContent()}
+    <button type={type ?? "button"} className={classes} onClick={onClick} disabled={disabled}>
+      {content}
     </button>
   );
 }
