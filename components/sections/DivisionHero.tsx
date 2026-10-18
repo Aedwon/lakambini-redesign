@@ -28,7 +28,7 @@ export default function DivisionHero({ division }: DivisionHeroProps) {
           <h1 className="display-lg text-on-surface font-bold tracking-tighter leading-[1.0] lg:leading-[0.9] mb-4">
             {division.name}
           </h1>
-          <h2 className="headline-sm italic text-primary/90 font-light mb-8">
+          <h2 className="headline-sm text-on-surface-variant mb-8">
             {division.subtitle}
           </h2>
           <p className="body-lg text-on-surface-variant font-light leading-relaxed max-w-xl mb-10">
@@ -36,7 +36,7 @@ export default function DivisionHero({ division }: DivisionHeroProps) {
           </p>
           <ul className="flex flex-wrap gap-3">
             {division.capabilities.map((t) => (
-              <li key={t} className="px-4 py-1.5 border border-outline-variant/30 rounded-full label-sm text-primary/80">
+              <li key={t} className="px-4 py-1.5 bg-surface-container-high rounded-full label-sm text-on-surface">
                 {t}
               </li>
             ))}
@@ -51,9 +51,8 @@ export default function DivisionHero({ division }: DivisionHeroProps) {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover opacity-90 transition-transform duration-1000 ease-out group-hover:scale-105"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-40"></div>
           </div>
         </div>
       </div>

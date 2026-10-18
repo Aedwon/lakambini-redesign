@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function FounderStory() {
   return (
-    <section className="bg-surface py-32 w-full">
+    <section className="bg-surface py-24 md:py-32 w-full">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
           
@@ -11,14 +11,12 @@ export default function FounderStory() {
             <div className="relative aspect-[4/5] overflow-hidden">
               {/* TODO: replace with real portrait of Anchie Rosas */}
               <Image 
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" 
-                alt="Portrait placeholder" 
+                src="/images/events/team-building-facilitator.jpg" 
+                alt="Lakambini crew member facilitating a team-building event" 
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
               />
-              {/* Subtle gold overlay border */}
-              <div className="absolute inset-0 border-[2px] border-primary/20 pointer-events-none"></div>
             </div>
           </div>
           
@@ -26,7 +24,7 @@ export default function FounderStory() {
           <div className="md:col-span-7 order-1 md:order-2 md:pl-12">
             <h2 className="display-sm text-on-surface mb-12 leading-tight tracking-tight">
               The Vision of <br />
-              <span className="text-primary italic">Anchie Rosas</span>
+              Anchie Rosas
             </h2>
             <div className="space-y-8 font-light text-on-surface-variant body-lg leading-loose">
               <p>
@@ -34,7 +32,7 @@ export default function FounderStory() {
               </p>
               
               {/* Company principle (not a personal quote) */}
-              <div className="relative pl-6 py-4 border-l-2 border-primary/40">
+              <div className="bg-surface-container-low p-6 md:p-8">
                 <p className="label-sm text-primary uppercase tracking-widest mb-3">What We Believe</p>
                 <p className="italic text-on-surface text-xl md:text-2xl leading-relaxed">
                   The LAKAMBINI client is someone who values their guests&apos; experience as much as their own peace of mind. We exist to be the team that ensures every event is managed with precision and reliability.
@@ -46,8 +44,7 @@ export default function FounderStory() {
               </p>
               
               <div className="pt-8">
-                <div className="h-px w-24 bg-primary/40 mb-4"></div>
-                <span className="title-lg text-primary uppercase tracking-widest font-medium">CEO &amp; Creative Director</span>
+                                <span className="title-lg text-primary uppercase tracking-widest font-medium">CEO &amp; Creative Director</span>
               </div>
             </div>
           </div>

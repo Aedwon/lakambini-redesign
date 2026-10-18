@@ -15,7 +15,7 @@ export default function InputField({ label, id, className = '', required, ...pro
         id={id}
         required={required}
         aria-required={required ? "true" : undefined}
-        className="w-full bg-transparent border-b border-outline-variant/40 py-3 min-h-[44px] text-on-surface body-md rounded-none focus:outline-none focus:border-b-2 focus:border-primary focus:shadow-[0_4px_15px_-3px_rgba(233,194,85,0.15)] transition-all duration-300 placeholder:text-on-surface-variant/60"
+        className="w-full bg-transparent border-b border-outline-variant/40 py-3 min-h-[44px] text-on-surface body-md rounded-none [color-scheme:dark] focus:outline-none focus:border-b-2 focus:border-primary focus:shadow-[0_4px_15px_-3px_rgba(233,194,85,0.15)] transition-all duration-300 placeholder:text-on-surface-variant/60"
         {...props}
       />
     </div>

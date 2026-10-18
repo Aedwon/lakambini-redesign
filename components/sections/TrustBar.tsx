@@ -1,29 +1,45 @@
-export default function TrustBar() {
-  // We can use 4-6 placeholders for client logos
-  const clients = [
-    "MOONTON",
-    "ALORICA",
-    "OPPO",
-    "REALME",
-    "INFINIX",
-  ];
+import Image from "next/image";
+import { clients } from "@/lib/clients";
 
+/**
+ * Shared client logo row — single implementation used by TrustBar (home)
+ * and ClientLogos (/about). Logos render as uniform light silhouettes;
+ * clients without a logo file fall back to their name in text.
+ */
+export function ClientLogoRow({ className = "" }: { className?: string }) {
   return (
-    <section className="w-full bg-surface-container-lowest py-16 border-y border-surface-container-highest">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row items-center justify-between gap-10">
-        <div className="md:w-1/4">
-          <p className="label-md uppercase tracking-widest text-on-surface-variant/70">
-            Trusted by leading brands nationwide.
-          </p>
-        </div>
-        
-        <div className="md:w-3/4 flex flex-wrap justify-between items-center gap-8 w-full opacity-40 grayscale brightness-150">
-          {clients.map((client, index) => (
-            <div key={index} className="font-headline text-xl font-bold tracking-tight text-white/80">
-              {client}
-            </div>
-          ))}
-        </div>
+    <ul
+      className={`flex flex-wrap justify-center items-center gap-x-10 gap-y-6 md:gap-x-14 ${className}`}
+    >
+      {clients.map((client) => (
+        <li key={client.slug} className="flex items-center justify-center h-8">
+          {client.logo ? (
+            <Image
+              src={client.logo}
+              alt={client.name}
+              width={160}
+              height={32}
+              className="h-7 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+            />
+          ) : (
+            <span className="font-headline text-lg md:text-xl font-semibold tracking-tight text-on-surface opacity-60 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              {client.name}
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default function TrustBar() {
+  return (
+    <section className="w-full bg-surface-container-lowest py-14 md:py-16">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center gap-8">
+        <p className="label-sm text-on-surface-variant tracking-widest">
+          Trusted by
+        </p>
+        <ClientLogoRow />
       </div>
     </section>
   );

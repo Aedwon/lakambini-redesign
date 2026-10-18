@@ -6,11 +6,11 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Events, productions, and experiences across every division. Browse our portfolio of delivered work.",
+    "Esports tournaments, fan-event activations, school caravans and team building we have produced, mostly for Moonton and Mobile Legends: Bang Bang.",
   openGraph: {
     title: "Portfolio | Lakambini Events",
     description:
-      "Events, productions, and experiences across every division. Browse our portfolio of delivered work.",
+      "Esports tournaments, fan-event activations, school caravans and team building we have produced, mostly for Moonton and Mobile Legends: Bang Bang.",
     url: "/portfolio",
   },
 };
@@ -21,9 +21,9 @@ export default function PortfolioPage() {
       <PageHero
         overline="Portfolio"
         title="Work We've Delivered"
-        subtitle="Events, productions, and experiences — across every division."
+        subtitle="Esports finals, fan-event booths, school caravans and team building. Here is what we have built and run."
         decorativeText="Archive"
-        bgImage="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000&auto=format&fit=crop"
+        bgImage="/images/events/m6-watchfest-screen.jpg"
       />
 
       <PortfolioGrid />

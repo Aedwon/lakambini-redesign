@@ -15,25 +15,24 @@ export default function AboutHero() {
               Full-Service Event Production
             </span>
             <h1 className="display-lg text-on-surface font-bold tracking-tighter leading-[1.0] lg:leading-[0.95] mb-10 max-w-2xl">
-              The <span className="gold-gradient-text italic font-medium inline-block pr-[0.1em]">Lakambini</span> Story
+              The Lakambini Story
             </h1>
             <p className="body-lg text-on-surface/80 font-light leading-relaxed max-w-xl">
-              We deliver high-stakes event productions with precision and reliability. We don&apos;t just plan — we build experiences from the first brief to the final strike.
+              We produce events, activations, and fan experiences with precision and reliability. We don&apos;t just plan — we build experiences from the first brief to the final strike.
             </p>
           </div>
 
           {/* Image Column */}
           <div className="md:col-span-5 relative h-[500px] md:h-[600px] group overflow-hidden">
             <Image 
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80"
-              alt="Luxury gala event production"
+              src="/images/events/mcc-s2-team-celebration.jpg"
+              alt="Players celebrating on stage at the MCC Season 2 finals"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 40vw"
-              className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent pointer-events-none"></div>
-          </div>
+                      </div>
 
         </div>
       </div>

@@ -24,7 +24,7 @@ export default function Button({ variant = 'primary', size = 'md', href, onClick
   if (variant === 'primary') {
     variantClasses = "bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold tracking-wide hover:scale-105 active:scale-95 shadow-2xl";
   } else if (variant === 'secondary') {
-    variantClasses = "bg-transparent text-primary border border-outline-variant/30 hover:bg-surface-container-high transition-colors";
+    variantClasses = "bg-surface-container/70 backdrop-blur-sm text-primary hover:bg-surface-container-high transition-colors";
   } else if (variant === 'tertiary') {
     variantClasses = "bg-transparent text-on-surface p-0 relative group rounded-none";
   }

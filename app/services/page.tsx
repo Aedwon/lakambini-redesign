@@ -21,10 +21,11 @@ export default function ServicesPage() {
       <PageHero
         overline="Services"
         decorativeText="9"
+        bgImage="/images/events/mlbb-naruto-booth-build.jpg"
         title={
           <>
             Nine Divisions. <br />
-            <span className="italic text-primary">One</span> Team.
+            One Team.
           </>
         }
         subtitle="Every capability you need under one roof — from live production and multimedia to tech development and experiential architecture."

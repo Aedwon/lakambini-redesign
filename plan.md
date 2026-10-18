@@ -370,17 +370,23 @@ Phase 8 ─── Accessibility & Touch UX (WCAG 2.1 AA compliant)          ✅ 
 - Navbar: hidden dropdown removed from tab order, mobile menu focus management, contrast raised.
 - Unloaded font weights (800/900) replaced; undefined `label-xs`/`editorial-shadow` utilities defined; unused components deleted; `/about` horizontal overflow fixed.
 
-### Task 9.3 — Design system tightening 🔲
-- One section-spacing scale, gold as accent only, fewer borders, brighter service imagery, homepage section order (work before claims), all 9 divisions shown on the homepage.
+### Task 9.3 — Design system tightening ✅
+- Direction "Emerald frame, real colour": photos at full strength, gold as accent only, decorative borders removed, one spacing scale, nothing hover-only.
+- Homepage reordered (Hero → clients → selected work → 9-division index → why → process → about → CTA); new hero copy "Events people line up for."
+- Repositioned around the real work (youth, gaming and community events for Moonton/MLBB and others); unverifiable stats and capability claims removed from division pages.
 
-### Task 9.4 — Case-study pages (`/portfolio/{slug}`) 🔲
-- Approved by client. Placeholder copy to be filled with real briefs/results.
+### Task 9.4 — Real portfolio + case studies ✅
+- `lib/portfolioData.ts` rebuilt from 13 real events (2024–2026 archive); invented entries removed.
+- `app/portfolio/[slug]` (client-approved dynamic route) with 4 case studies: MCC Season 2, MLBB × NARUTO, Pamigay Caravan, All Star 2025.
+- 🔲 Client to confirm full event names, scale and results (`TODO(client)` comments in data).
 
-### Task 9.5 — Working inquiry form 🔲
-- Formspree via env var; mailto fallback until configured. Needs destination inbox.
+### Task 9.5 — Working inquiry form 🔲 (partial)
+- Done: company + target-date fields; Formspree POST when `NEXT_PUBLIC_FORMSPREE_ID` is set, otherwise a pre-filled mailto to hello@lakambini.com.
+- Remaining: create Formspree form, set the env var on Vercel, confirm inbox, phone number and response time.
 
-### Task 9.6 — Real photography 🔲
-- Waiting on client photos in `public/images/`; map via `ARCHIVE_IMAGE_BRIEF.md`.
+### Task 9.6 — Real photography 🔲 (mostly done)
+- 44 curated archive photos in `public/images/events/` used across home, portfolio, services, about.
+- Remaining stock images (need real or AI-generated): DALOY hero/card + page, GUHIT editorial/illustration/colour-grading, LIKHA music video, SIBOL conferences, TIPON fun runs, UGNAY moderation; founder portrait of Anchie Rosas.
 
 ### Task 9.7 — Lint restored ✅
 - `next lint` was removed in Next 16 → migrated to ESLint flat config (`eslint.config.mjs`), `npm run lint` runs `eslint .`; fixed the two Navbar `set-state-in-effect` errors.

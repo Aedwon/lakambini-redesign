@@ -32,7 +32,7 @@ export default function AboutPage() {
       {/* 3. Founder Story - Enriched bio and blockquote */}
       <FounderStory />
       
-      {/* 4. Stats Bar - Verifiable facts (non-numeric proof only) */}
+      {/* 4. Stats Bar */}
       <StatsBar />
       
       {/* 5. Our Approach - 3-Card Grid */}
@@ -47,8 +47,8 @@ export default function AboutPage() {
       {/* 8. CTA Banner - Standardized Banner */}
       <CTABanner 
         headline="Ready to plan what&apos;s next?"
-        subtitle="Tell us what you have in mind. Begin with a private consultation."
-        ctaLabel="Book a Private Consultation"
+        subtitle="Tell us what you have in mind and we will take it from there."
+        ctaLabel="Book a Discovery Call"
         ctaHref="/contact"
       />
     </div>

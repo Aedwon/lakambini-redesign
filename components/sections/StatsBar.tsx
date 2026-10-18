@@ -6,15 +6,13 @@ export default function StatsBar() {
   ];
 
   return (
-    <section className="bg-surface-container-lowest py-16 w-full border-y border-outline-variant/5">
+    <section className="bg-surface-container-lowest py-14 md:py-16 w-full">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0">
-          {stats.map((stat, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          {stats.map((stat) => (
             <div 
-              key={i} 
-              className={`flex flex-col items-center text-center px-4 ${
-                i !== stats.length - 1 ? "md:border-r md:border-outline-variant/10" : ""
-              }`}
+              key={stat.label} 
+              className="flex flex-col items-center text-center px-4"
             >
               <span className="display-lg text-primary font-headline font-bold mb-2 tracking-tighter">
                 {stat.value}

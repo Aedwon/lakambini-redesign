@@ -25,11 +25,11 @@ export default function Home() {
       <div className="flex flex-col w-full">
         <Hero />
         <TrustBar />
-        <ProblemSolution />
-        <AboutPreview />
-        <Process />
-        <ServicesGrid />
         <PortfolioShowcase />
+        <ServicesGrid />
+        <ProblemSolution />
+        <Process />
+        <AboutPreview />
         <CTABanner 
           headline="Have an event in mind? Let's talk."
           subtitle="Tell us what you're planning. We'll tell you how we can help."
