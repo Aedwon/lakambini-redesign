@@ -63,7 +63,6 @@ export default function PortfolioShowcase({ hideViewAll = false }: PortfolioShow
     <section className="section-y bg-ink">
       <div className="container-x">
         <SectionHeader
-          index="02"
           label="Selected work"
           title={
             <>

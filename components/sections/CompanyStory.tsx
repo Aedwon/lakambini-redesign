@@ -9,8 +9,7 @@ export default function CompanyStory() {
           <div className="lg:sticky lg:top-32">
             <Reveal>
               <div className="flex items-center gap-4 text-mist">
-                <span className="numeral text-brass">01</span>
-                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
                 <span className="eyebrow">Who we are</span>
               </div>
             </Reveal>

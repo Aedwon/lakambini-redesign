@@ -2,19 +2,16 @@ import GoldWave from "@/components/ui/GoldWave";
 import Reveal from "@/components/ui/Reveal";
 
 interface Pillar {
-  index: string;
   label: string;
   text: string;
 }
 
 const pillars: Pillar[] = [
   {
-    index: "02",
     label: "Mission",
     text: "To elevate the status of women and women at heart within the creatives, marketing, gaming and events industry. We provide a platform for these talented individuals to showcase their expertise, and we offer companies 360-degree creative and marketing strategies with innovative solutions and professionalism.",
   },
   {
-    index: "03",
     label: "Vision",
     text: "To cultivate enduring client loyalty by consistently exceeding expectations, and to be recognized for our expertise, professionalism and results.",
   },
@@ -30,8 +27,7 @@ export default function MissionVision() {
           <div key={p.label} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <Reveal className="lg:col-span-3">
               <div className="flex items-center gap-4 text-mist">
-                <span className="numeral text-brass">{p.index}</span>
-                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
                 <span className="eyebrow">{p.label}</span>
               </div>
             </Reveal>

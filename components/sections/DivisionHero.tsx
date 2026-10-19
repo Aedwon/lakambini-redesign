@@ -15,8 +15,7 @@ export default function DivisionHero({ division, intro, total = 9 }: DivisionHer
         <div className="lg:col-span-7 order-1">
           <Reveal>
             <p className="eyebrow text-mist flex items-center gap-4">
-              <span className="numeral text-brass">{division.id}</span>
-              <span aria-hidden="true" className="h-px w-10 bg-line" />
+              <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
               Division {division.id} / {String(total).padStart(2, "0")}
             </p>
           </Reveal>

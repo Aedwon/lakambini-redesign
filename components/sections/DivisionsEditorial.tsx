@@ -32,8 +32,7 @@ export default function DivisionsEditorial() {
 
               <Reveal delay={0.1} className={`md:col-span-5 ${flip ? "md:order-1" : ""}`}>
                 <div className="flex items-center gap-4 text-mist">
-                  <span className="numeral text-brass">{d.id}</span>
-                  <span aria-hidden="true" className="h-px w-10 bg-line" />
+                  <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
                   <span className="eyebrow">Division {d.id} / 09</span>
                 </div>
                 <h2 className="display-md text-ivory mt-6">{d.name}</h2>

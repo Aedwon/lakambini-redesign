@@ -43,7 +43,6 @@ export default function EditorialGallery() {
     <section className="w-full bg-ink section-y">
       <div className="container-x">
         <SectionHeader
-          index="06"
           label="Our work"
           title={
             <>

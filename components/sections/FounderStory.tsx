@@ -24,8 +24,7 @@ export default function FounderStory() {
           <div className="lg:col-span-7 flex flex-col gap-10">
             <Reveal>
               <div className="flex items-center gap-4 text-mist">
-                <span className="numeral text-brass">04</span>
-                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
                 <span className="eyebrow">Founder, CEO &amp; Creative Director</span>
               </div>
               <h2 className="display-md text-ivory text-balance mt-8">Anchie Rosas</h2>

@@ -55,8 +55,7 @@ export default function CaseStudyBody({ project }: CaseStudyBodyProps) {
         <div className="flex flex-col gap-20 lg:col-span-8 md:gap-28">
           <Reveal>
             <div className="mb-8 flex items-center gap-4 text-mist">
-              <span className="numeral text-brass">01</span>
-              <span aria-hidden="true" className="h-px w-10 bg-line" />
+              <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
               <span className="eyebrow">The brief</span>
             </div>
             <p className="headline-md max-w-[34ch] text-ivory md:text-[clamp(1.75rem,2.6vw,2.5rem)]">
@@ -67,8 +66,7 @@ export default function CaseStudyBody({ project }: CaseStudyBodyProps) {
           <div>
             <Reveal>
               <div className="mb-8 flex items-center gap-4 text-mist">
-                <span className="numeral text-brass">02</span>
-                <span aria-hidden="true" className="h-px w-10 bg-line" />
+                <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
                 <span className="eyebrow">What we did</span>
               </div>
             </Reveal>

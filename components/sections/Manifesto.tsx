@@ -12,8 +12,7 @@ export default function Manifesto() {
       <div className="container-x">
         <Reveal>
           <div className="flex items-center gap-4 text-mist">
-            <span className="numeral text-brass">01</span>
-            <span aria-hidden="true" className="h-px w-10 bg-line" />
+            <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
             <span className="eyebrow">The agency</span>
           </div>
         </Reveal>

@@ -5,17 +5,15 @@ import Reveal from "@/components/ui/Reveal";
 
 interface DivisionCrossLinksProps {
   currentSlug: string;
-  index?: string;
 }
 
-export default function DivisionCrossLinks({ currentSlug, index }: DivisionCrossLinksProps) {
+export default function DivisionCrossLinks({ currentSlug }: DivisionCrossLinksProps) {
   const others = divisions.filter((d) => d.slug !== currentSlug);
 
   return (
     <section className="bg-ink-raised section-y">
       <div className="container-x">
         <SectionHeader
-          index={index}
           label="Divisions"
           title={
             <>

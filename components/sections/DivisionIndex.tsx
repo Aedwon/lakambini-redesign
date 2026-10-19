@@ -46,7 +46,6 @@ export default function DivisionIndex() {
     <section className="section-y bg-ink-raised">
       <div className="container-x">
         <SectionHeader
-          index="03"
           label="What we do"
           title={
             <>
