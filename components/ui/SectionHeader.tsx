@@ -2,9 +2,7 @@ import { ReactNode } from "react";
 import Reveal from "@/components/ui/Reveal";
 
 interface SectionHeaderProps {
-  /** Two-digit section index, e.g. "01", rendered in mono */
-  index?: string;
-  /** Short label beside the index, e.g. "Selected work" */
+  /** Short eyebrow label, e.g. "Selected work" */
   label: string;
   /** Display headline; wrap one or two words in <em> for the brass italic accent */
   title: ReactNode;
@@ -15,16 +13,15 @@ interface SectionHeaderProps {
 
 /**
  * The standard v2 section opener:
- *   01 ──── SELECTED WORK
+ *   ──── SELECTED WORK
  *   Big serif headline            short aside copy
  */
-export default function SectionHeader({ index, label, title, aside, className = "" }: SectionHeaderProps) {
+export default function SectionHeader({ label, title, aside, className = "" }: SectionHeaderProps) {
   return (
     <header className={`mb-14 md:mb-20 ${className}`}>
       <Reveal>
         <div className="flex items-center gap-4 text-mist">
-          {index && <span className="numeral text-brass">{index}</span>}
-          <span aria-hidden="true" className="h-px w-10 bg-line" />
+          <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
           <span className="eyebrow">{label}</span>
         </div>
       </Reveal>

@@ -173,9 +173,12 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button variant="secondary" size="sm" href="/contact" className="hidden lg:inline-flex">
-              Start a project
-            </Button>
+            {/* Wrapped: Button's own inline-flex would override a `hidden` passed via className */}
+            <div className="hidden lg:block">
+              <Button variant="secondary" size="sm" href="/contact">
+                Start a project
+              </Button>
+            </div>
 
             {/* Mobile menu button */}
             <button

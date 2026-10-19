@@ -405,6 +405,12 @@ Phase 8 ─── Accessibility & Touch UX (WCAG 2.1 AA compliant)          ✅ 
 - Rebuilt navbar (full-screen mobile menu), statement footer, 404, every page; nine division pages share one data-driven template (`lib/divisionContent.ts`).
 - Copy pass: no em/en dashes, redundancy removed.
 
+## Phase 11: Mobile polish & "How we work" illustrations ✅
+
+- ✅ 11.1 Mobile navbar: the "Start a project" pill no longer shows below `lg` (it pushed the menu button off-screen); the hero caption is shortened on mobile
+- ✅ 11.2 Section eyebrows: removed the mono section indices (01, 02…) from every section opener, including the "01 · Division 01 / 09" duplicate on Services and division heroes. List numbers stay.
+- ✅ 11.3 `components/ui/StepIllustration.tsx`: animated brass line-art plates for Home "How we work" (discovery, concept, production, delivery) and About "How we work" (orbit, thread, arches). They draw in on view, then loop gently; they are static under reduced motion.
+
 ---
 
 ## Key Reference Files

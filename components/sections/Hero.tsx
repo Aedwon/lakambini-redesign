@@ -41,7 +41,7 @@ export default function Hero() {
         {/* Caption rail */}
         <div className="mt-12 md:mt-16 flex items-center justify-between gap-6 border-t hairline pt-5 text-mist">
           <p className="numeral">
-            <span className="text-brass">●</span>&nbsp; Showreel: MLBB Collegiate Cup, MLBB × NARUTO &amp; more
+            <span className="text-brass">●</span>&nbsp; Showreel: MLBB Collegiate Cup<span className="hidden sm:inline">, MLBB × NARUTO &amp; more</span>
           </p>
           <p className="numeral hidden sm:block">Scroll</p>
         </div>

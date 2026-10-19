@@ -22,8 +22,7 @@ export default function MissionStatement() {
             />
           </div>
           <figcaption className="mt-4 flex items-center gap-4 text-mist">
-            <span className="numeral text-brass">05</span>
-            <span aria-hidden="true" className="h-px w-8 bg-line" />
+            <span aria-hidden="true" className="h-px w-8 bg-brass/70" />
             <span className="label-xs">Founded by Anchie Rosas</span>
           </figcaption>
         </Reveal>
@@ -31,8 +30,7 @@ export default function MissionStatement() {
         <div className="flex flex-col gap-8 md:col-span-7 lg:col-span-7 lg:col-start-6">
           <Reveal>
             <div className="flex items-center gap-4 text-mist">
-              <span className="numeral text-brass">05</span>
-              <span aria-hidden="true" className="h-px w-10 bg-ivory/20" />
+              <span aria-hidden="true" className="h-px w-10 bg-brass/70" />
               <span className="eyebrow">Why we exist</span>
             </div>
           </Reveal>

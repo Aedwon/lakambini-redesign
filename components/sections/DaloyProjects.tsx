@@ -109,7 +109,6 @@ export default function DaloyProjects() {
     <section className="section-y-sm pb-24 md:pb-32">
       <div className="container-x">
         <SectionHeader
-          index="02"
           label="Built by DALOY"
           title={
             <>

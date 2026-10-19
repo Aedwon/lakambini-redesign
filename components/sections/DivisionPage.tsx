@@ -25,10 +25,6 @@ export default function DivisionPage({ slug }: DivisionPageProps) {
   const [lead, ...rest] = content.images;
   const pair = rest.slice(0, 2);
 
-  // Section numbering adapts to what the page actually renders.
-  const hasWork = isDaloy || related.length > 0;
-  const crossIndex = hasWork ? "03" : "02";
-
   return (
     <div className="bg-ink text-ivory">
       <DivisionHero division={division} intro={content.intro} />
@@ -37,7 +33,6 @@ export default function DivisionPage({ slug }: DivisionPageProps) {
       <section className="section-y">
         <div className="container-x">
           <SectionHeader
-            index="01"
             label="Capabilities"
             title={
               <>
@@ -116,7 +111,6 @@ export default function DivisionPage({ slug }: DivisionPageProps) {
         <section className="section-y-sm pb-24 md:pb-32">
           <div className="container-x">
             <SectionHeader
-              index="02"
               label="Selected work"
               title={
                 <>
@@ -168,7 +162,7 @@ export default function DivisionPage({ slug }: DivisionPageProps) {
         </section>
       )}
 
-      <DivisionCrossLinks currentSlug={division.slug} index={crossIndex} />
+      <DivisionCrossLinks currentSlug={division.slug} />
 
       <CTABanner headline={division.ctaHeadline} ctaLabel="Book a Discovery Call" ctaHref="/contact" />
     </div>

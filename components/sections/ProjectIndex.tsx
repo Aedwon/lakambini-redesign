@@ -6,7 +6,7 @@ export default function ProjectIndex() {
   return (
     <section className="section-y bg-ink-raised">
       <div className="container-x">
-        <SectionHeader index="02" label="Index" title={<>And <em>more</em>.</>} />
+        <SectionHeader label="Index" title={<>And <em>more</em>.</>} />
 
         <ul className="border-t hairline">
           {moreProjects.map((p, i) => (

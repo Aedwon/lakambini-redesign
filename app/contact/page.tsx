@@ -97,7 +97,6 @@ export default function ContactPage() {
       <section className="w-full bg-ink-raised section-y">
         <div className="container-x">
           <SectionHeader
-            index="01"
             label="What happens next"
             title={
               <>
